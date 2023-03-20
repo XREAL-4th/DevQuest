@@ -14,7 +14,6 @@ public class MoveControl : MonoBehaviour
     [Header("Settings")]
     [SerializeField][Range(1f, 10f)] private float moveSpeed;
     [SerializeField][Range(1f, 10f)] private float jumpAmount;
-    [SerializeField] private float turnSpeed = 20f;
     
     [Header("Debug")]
     public bool landed = false;
@@ -29,39 +28,36 @@ public class MoveControl : MonoBehaviour
         
         //FSM 부수고 EDD하기!
         KeyBindManager.Instance
-               .Bind(KeyCode.Space)
-               .Then(() =>
-               {
-                   if (IsLanded()) Jump();
-               })
-               .GetID(out jumpKeybindID)
-                .Bind(KeyCodeUtils.Horizontal)
-                    .Or(KeyCodeUtils.Vertical)
-                    .Then((KeyCode[] codes) =>
-                    {
-                        Move(codes);
-                    })
-               .GetID(out moveKeybindID);
+            .Bind(KeyCode.Space)
+            .Then(() =>
+            {
+                if (IsLanded()) Jump();
+            })
+            .GetID(out jumpKeybindID)
+            .Bind(KeyCodeUtils.Horizontal)
+                .Or(KeyCodeUtils.Vertical)
+                .Then((KeyCode[] codes) =>
+                {
+                    Move(codes);
+                })
+            .GetID(out moveKeybindID);
     }
 
     private void OnDestroy()
     {
-        KeyBindManager.Instance.UnBind(jumpKeybindID);
-        KeyBindManager.Instance.UnBind(moveKeybindID);
+        KeyBindManager.Instance.UnBind(jumpKeybindID, moveKeybindID);
     }
 
     private void Jump()
     {
-        var vel = rigid.velocity;
+        Vector3 vel = rigid.velocity;
         vel.y = jumpAmount;
         rigid.velocity = vel;
     }
 
     private bool IsLanded() {
-        //발 위치에 작은 구를 하나 생성한 후, 그 구가 땅에 닿는지 검사한다.
-        //1 << 3은 Ground의 레이어가 3이기 때문, << 는 비트 연산자
-        var center = col.bounds.center;
-        var origin = new Vector3(center.x, center.y - ((col.height - 1f) / 2 + 0.15f), center.z);
+        Vector3 center = col.bounds.center;
+        Vector3 origin = new(center.x, center.y - ((col.height - 1f) / 2 + 0.15f), center.z);
         return Physics.CheckSphere(origin, 0.45f, 1 << 3, QueryTriggerInteraction.Ignore);
     }
 
@@ -85,6 +81,5 @@ public class MoveControl : MonoBehaviour
         Vector3 movement = new(xz[0], 0f, xz[1]);
         movement.Normalize();
         transform.Translate(moveSpeed * Time.deltaTime * movement);
-        //rigid.MovePosition(rigid.position + movement * Time.deltaTime);
     }
 }

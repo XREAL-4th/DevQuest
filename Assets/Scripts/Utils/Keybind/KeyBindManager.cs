@@ -52,10 +52,22 @@ namespace Assets.Scripts.Utils.Keybind
             id = LastBind.id;
             return this;
         }
+
         public KeyBindManager UnBind(int id)
         {
             int index = binds.FindIndex(bind => bind.id == id);
             if(index != -1) binds.RemoveAt(index);
+            return this;
+        }
+
+        public KeyBindManager UnBind(params int[] ids)
+        {
+            foreach(int id in ids)
+            {
+                int index = binds.FindIndex(bind => bind.id == id);
+                if (index != -1) binds.RemoveAt(index);
+            }
+
             return this;
         }
 
