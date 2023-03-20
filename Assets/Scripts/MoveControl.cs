@@ -1,3 +1,4 @@
+using Assets.Scripts.Utils.Keybind;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,112 +14,77 @@ public class MoveControl : MonoBehaviour
     [Header("Settings")]
     [SerializeField][Range(1f, 10f)] private float moveSpeed;
     [SerializeField][Range(1f, 10f)] private float jumpAmount;
-
-    //FSM(finite state machine)에 대한 더 자세한 내용은 세션 3회차에서 배울 것입니다!
-    public enum State 
-    {
-        None,
-        Idle,
-        Jump
-    }
+    [SerializeField] private float turnSpeed = 20f;
     
     [Header("Debug")]
-    public State state = State.None;
-    public State nextState = State.None;
     public bool landed = false;
     public bool moving = false;
-    
-    private float stateTime;
-    private Vector3 forward, right;
+
+    private int jumpKeybindID, moveKeybindID;
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         
-        state = State.None;
-        nextState = State.Idle;
-        stateTime = 0f;
-        forward = transform.forward;
-        right = transform.right;
-    }
-
-    private void Update()
-    {
-        //0. 글로벌 상황 판단
-        stateTime += Time.deltaTime;
-        CheckLanded();
-        //insert code here...
-
-        //1. 스테이트 전환 상황 판단
-        if (nextState == State.None) 
-        {
-            switch (state) 
-            {
-                case State.Idle:
-                    if (landed) 
+        //FSM 부수고 EDD하기!
+        KeyBindManager.Instance
+               .Bind(KeyCode.Space)
+               .Then(() =>
+               {
+                   if (IsLanded()) Jump();
+               })
+               .GetID(out jumpKeybindID)
+                .Bind(KeyCodeUtils.Horizontal)
+                    .Or(KeyCodeUtils.Vertical)
+                    .Then((KeyCode[] codes) =>
                     {
-                        if (Input.GetKey(KeyCode.Space)) 
-                        {
-                            nextState = State.Jump;
-                        }
-                    }
-                    break;
-                case State.Jump:
-                    if (landed) 
-                    {
-                        nextState = State.Idle;
-                    }
-                    break;
-                //insert code here...
-            }
-        }
-        
-        //2. 스테이트 초기화
-        if (nextState != State.None) 
-        {
-            state = nextState;
-            nextState = State.None;
-            switch (state) 
-            {
-                case State.Jump:
-                    var vel = rigid.velocity;
-                    vel.y = jumpAmount;
-                    rigid.velocity = vel;
-                    break;
-                //insert code here...
-            }
-            stateTime = 0f;
-        }
-        
-        //3. 글로벌 & 스테이트 업데이트
-        //insert code here...
+                        Move(codes);
+                    })
+               .GetID(out moveKeybindID);
     }
 
-    private void FixedUpdate()
+    private void OnDestroy()
     {
-        UpdateInput();
+        KeyBindManager.Instance.UnBind(jumpKeybindID);
+        KeyBindManager.Instance.UnBind(moveKeybindID);
     }
 
-    private void CheckLanded() {
+    private void Jump()
+    {
+        var vel = rigid.velocity;
+        vel.y = jumpAmount;
+        rigid.velocity = vel;
+    }
+
+    private bool IsLanded() {
         //발 위치에 작은 구를 하나 생성한 후, 그 구가 땅에 닿는지 검사한다.
         //1 << 3은 Ground의 레이어가 3이기 때문, << 는 비트 연산자
         var center = col.bounds.center;
         var origin = new Vector3(center.x, center.y - ((col.height - 1f) / 2 + 0.15f), center.z);
-        landed = Physics.CheckSphere(origin, 0.45f, 1 << 3, QueryTriggerInteraction.Ignore);
+        return Physics.CheckSphere(origin, 0.45f, 1 << 3, QueryTriggerInteraction.Ignore);
     }
-    
-    private void UpdateInput()
+
+    void Move(KeyCode[] codes)
     {
-        var direction = Vector3.zero;
-        
-        if (Input.GetKey(KeyCode.W)) direction += forward; //Forward
-        if (Input.GetKey(KeyCode.A)) direction += -right; //Left
-        if (Input.GetKey(KeyCode.S)) direction += -forward; //Back
-        if (Input.GetKey(KeyCode.D)) direction += right; //Right
-        
-        direction.Normalize(); //대각선 이동(Ex. W + A)시에도 동일한 이동속도를 위해 direction을 Normalize
-        
-        transform.Translate( moveSpeed * Time.deltaTime * direction); //Move
+        Vector2 xz = new();
+
+        foreach (KeyCode code in codes)
+        {
+            Vector2 res = code switch
+            {
+                KeyCode.A or KeyCode.LeftArrow => new(-1, 0),
+                KeyCode.D or KeyCode.RightArrow => new(1, 0),
+                KeyCode.W or KeyCode.UpArrow => new(0, 1),
+                KeyCode.S or KeyCode.DownArrow => new(0, -1),
+                _ => throw new NotImplementedException(),
+            };
+            if (xz.x == 0) xz.x = res.x;
+            if (xz.y == 0) xz.y = res.y;
+        }
+        Vector3 movement = new(xz[0], 0f, xz[1]);
+        movement.Normalize();
+        transform.Translate(moveSpeed * Time.deltaTime * movement);
+        //rigid.MovePosition(rigid.position + movement * Time.deltaTime);
     }
 }
