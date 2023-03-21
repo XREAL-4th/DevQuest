@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEditor.PlayerSettings;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
@@ -10,10 +11,14 @@ public class Enemy : MonoBehaviour
     [Header("Preset Fields")] 
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject splashFx;
+    [SerializeField] private HealthBar healthBar;
     
     [Header("Settings")]
     [SerializeField] private float attackRange;
-    
+    [SerializeField] public float MaxHealth = 100.0f;
+    private float CurHealth;
+    private Vector3 CurPos;
+
     public enum State 
     {
         None,
@@ -28,9 +33,14 @@ public class Enemy : MonoBehaviour
     private bool attackDone;
 
     private void Start()
-    { 
+    {
         state = State.None;
         nextState = State.Idle;
+
+        CurHealth = MaxHealth;
+        healthBar.UpdateHealthBar(MaxHealth, CurHealth);
+
+        CurPos = transform.position;
     }
 
     private void Update()
@@ -73,15 +83,48 @@ public class Enemy : MonoBehaviour
                 //insert code here...
             }
         }
-        
+
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
+
+        //+--- [0320] 임시 Idle ---+//
+        IdleMove();
     }
     
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
         animator.SetTrigger("attack");
     }
+
+    //+--- [0320]필수과제1-1 ---+//
+    public void TakeDamage (float amount) 
+    {
+        CurHealth -= amount;
+
+        healthBar.UpdateHealthBar(MaxHealth, CurHealth);
+
+        if (CurHealth <= 0.0f) 
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    private void IdleMove()
+    {
+        float delta = 2.0f; // 좌(우)로 이동가능한 (x)최대값
+        float speed = 3.0f; // 이동속도
+
+        Vector3 vec = CurPos;
+        vec.x += delta * Mathf.Sin(Time.time * speed);
+
+        transform.position = vec;
+    }
+
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
     {
