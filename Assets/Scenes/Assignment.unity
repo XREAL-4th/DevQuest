@@ -1070,6 +1070,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eede8d5197ecdd4f80c5beb8320b014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentBulletPref: {fileID: 2231527699971109512, guid: 615a6bb52d80fca4bb2365c442920e96,
+    type: 3}
+  shootDelay: 0.75
 --- !u!1001 &278964739548446144
 PrefabInstance:
   m_ObjectHideFlags: 0

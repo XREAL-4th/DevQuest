@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,31 +7,39 @@ public class Bullet : MonoBehaviour
 {
     [Header("Preset Fields")]
     public BulletType type;
-    public Rigidbody rigid;
     private float stateTime;
     private Shooter parent;
+    private Vector3 direction;
 
-    protected void OnCollisionEnter(Collision collision) => OnHit(collision);
 
-    private void Awake()
-    {
-        rigid = GetComponent<Rigidbody>();
-    }
     private void Update()
     {
+        if (parent == null) return;
+
         stateTime += Time.deltaTime;
         if (stateTime > type.lifetime) OnDespawn();
+        else transform.Translate(Time.deltaTime * type.bulletSpeed * direction);
     }
 
-    public virtual void Init(Shooter parent) {
+    public virtual Bullet Init(Shooter parent)
+    {
         this.parent = parent;
-        transform.position = parent.transform.position;
+        direction = parent.transform.forward;
+        stateTime = 0;
+        transform.position = parent.transform.position + new Vector3(0, 1, 0);
+        return this;
     }
-    public virtual void OnHit(Collision collision) => Release();
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "enemy") Release();
+    }
+
     public virtual void OnDespawn() => Release();
     public void Release()
     {
         parent.bulletPool.Release(this);
         parent = null;
+        direction = Vector3.zero;
+        stateTime = 0;
     }
 }
