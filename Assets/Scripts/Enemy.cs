@@ -27,10 +27,14 @@ public class Enemy : MonoBehaviour
 
     private bool attackDone;
 
+    public int hp; //HP
+
     private void Start()
     { 
         state = State.None;
         nextState = State.Idle;
+
+        hp = 50; //HP = 50
     }
 
     private void Update()
@@ -55,6 +59,11 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                 //insert code here...
+            }
+
+            if (hp <= 0)
+            {
+                Destroy(this.gameObject); //HP가 0보다 작으면 Enemy 자신을 파괴
             }
         }
         
@@ -100,5 +109,17 @@ public class Enemy : MonoBehaviour
         //해당 함수는 없어도 기능 상의 문제는 없지만, 기능 체크 및 디버깅을 용이하게 합니다.
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRange);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //콜라이더에 닿는 경우 실행
+
+        //if (other.gameObject.tag.Equals("Bullet")) 
+        if (other.gameObject.tag=="Bullet") //bullet이라는 태그를 가진 오브젝트면
+        {
+            hp -= 10; //hp -10씩 감소
+        }
+        
     }
 }
