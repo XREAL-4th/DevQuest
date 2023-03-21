@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletType : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     // GameObject hitEffect, despawnEffect;
     [SerializeField] private float lifetime;
