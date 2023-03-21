@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // GameObject hitEffect, despawnEffect;
-    [SerializeField] private float lifetime;
-    private float stateTime;
+    [Header("Preset Fields")]
+    public BulletType type;
     public Rigidbody rigid;
+    private float stateTime;
 
     protected void OnCollisionEnter(Collision collision) => OnHit(collision);
 
@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         stateTime += Time.deltaTime;
-        if (stateTime > lifetime) OnDespawn();
+        if (stateTime > type.lifetime) OnDespawn();
     }
 
     public virtual void Init(GameObject parent) {

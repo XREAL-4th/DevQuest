@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10c39674817a414da83e6c7110347a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 60
+  type: {fileID: 11400000, guid: 418ebb09d23cbdf4a833ad1848a25841, type: 2}
   rigid: {fileID: 0}
 --- !u!135 &2231527699971109507
 SphereCollider:
