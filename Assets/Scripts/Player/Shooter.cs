@@ -1,9 +1,22 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Shooter : MonoBehaviour
 {
-    GameObject bullet;
+    [SerializeField] private GameObject currentBulletPref;
+    [DoNotSerialize] public ObjectPool<Bullet> bulletPool;
+
+    private void Awake()
+    {
+        bulletPool = new(
+            () => Instantiate(currentBulletPref).GetComponent<Bullet>(),
+            bullet => bullet.gameObject.SetActive(true),
+            bullet => bullet.gameObject.SetActive(false),
+            bullet => Destroy(bullet.gameObject)
+        );
+    }
 
     private void Update()
     {
@@ -12,7 +25,7 @@ public class Shooter : MonoBehaviour
 
     public void Shoot()
     {
-        Bullet bullet = BulletPool.Instance.bulletPool.Get();
+        Bullet bullet = bulletPool.Get();
         bullet.Init(gameObject);
         bullet.transform.position = new(bullet.transform.position.x, bullet.transform.position.y + 1, bullet.transform.position.z);
     }
