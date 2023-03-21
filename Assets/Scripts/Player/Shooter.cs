@@ -17,7 +17,6 @@ public class Shooter : MonoBehaviour
             bullet => Destroy(bullet.gameObject)
         );
     }
-
     private void Update()
     {
         if (Input.GetMouseButton(0)) Shoot();
@@ -26,7 +25,7 @@ public class Shooter : MonoBehaviour
     public void Shoot()
     {
         Bullet bullet = bulletPool.Get();
-        bullet.Init(gameObject);
+        bullet.Init(this);
         bullet.transform.position = new(bullet.transform.position.x, bullet.transform.position.y + 1, bullet.transform.position.z);
     }
 }

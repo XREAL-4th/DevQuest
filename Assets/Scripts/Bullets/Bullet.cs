@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public BulletType type;
     public Rigidbody rigid;
     private float stateTime;
+    private Shooter parent;
 
     protected void OnCollisionEnter(Collision collision) => OnHit(collision);
 
@@ -21,13 +22,15 @@ public class Bullet : MonoBehaviour
         if (stateTime > type.lifetime) OnDespawn();
     }
 
-    public virtual void Init(GameObject parent) {
+    public virtual void Init(Shooter parent) {
+        this.parent = parent;
         transform.position = parent.transform.position;
     }
     public virtual void OnHit(Collision collision) => Release();
     public virtual void OnDespawn() => Release();
     public void Release()
     {
-        BulletPool.Instance.bulletPool.Release(this);
+        parent.bulletPool.Release(this);
+        parent = null;
     }
 }
