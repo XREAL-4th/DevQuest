@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform fireTransform;
     public ParticleSystem fireParticleSystem;
     
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -24,13 +24,13 @@ public class PlayerInput : MonoBehaviour
 
     void Fire()
     {
+        Instantiate(projectilePrefab, fireTransform, false); 
         Ray ray = new Ray(fireTransform.position, transform.forward); //Camera.main.ScreenPointToRay(Input.mousePosition); // 마우스 포인터 위치에서 Ray 생성
         RaycastHit hitInfo;
 
         if (Physics.Raycast(ray, out hitInfo)) // 충돌 여부 확인
         {
-            ParticleSystem ps = Instantiate(fireParticleSystem, fireTransform);
-            ps.Play();
+            fireParticleSystem.Play();
             if (hitInfo.collider.gameObject.layer == 7) // enemy Layer이면?
             {
                 EnemyInfo enemyInfo = hitInfo.collider.gameObject.GetComponent<EnemyInfo>();
