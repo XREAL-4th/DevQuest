@@ -18,15 +18,31 @@ public class FireCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward, Color.green);
+
+        RaycastHit temp;
+
+        if(Physics.Raycast(Camera.main.transform.position,Camera.main.transform.forward, out temp, 200))
+        {
+            firePos.LookAt(temp.point);
+            Debug.DrawRay(firePos.position, firePos.forward * 200.0f, Color.cyan);
+        }
+
+
         if (Input.GetMouseButtonDown(0))
         {
             Fire();
         }
+
     }
 
     void Fire()
     {
+        //Instantiate(bullet, firePos.position, firePos.rotation); //bullet 橇府普 积己
+        //
+
         Instantiate(bullet, firePos.position, firePos.rotation); //bullet 橇府普 积己
+
     }
 
     
