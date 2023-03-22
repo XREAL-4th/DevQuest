@@ -6,14 +6,14 @@ public class WeaponController : MonoBehaviour
 {
     public GameObject FireVFX;
 
-    public float speed =20.0f;
+    //public float speed =20.0f;
     float time = 0;
     float VFXTime = 0;
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+       // transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
         time += Time.deltaTime;
         VFXTime += Time.deltaTime;
@@ -29,9 +29,9 @@ public class WeaponController : MonoBehaviour
         
     }
 
-   /* public void Launch(Vector3 Direction, float Speed)
+    public void Launch(Vector3 speed)
     {
-        GetComponent<Rigidbody>().AddForce(Direction * Speed);
-    }*/
+        GetComponent<Rigidbody>().AddForce(speed);
+    }
 
 }

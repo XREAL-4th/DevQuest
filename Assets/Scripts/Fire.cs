@@ -23,24 +23,28 @@ public class Fire : MonoBehaviour
         /*WeaponController weaponController;
         Vector3 PlayerPos = GetComponent<Rigidbody>().position;
         Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 Dir = MousePointShoot.targetPos;
 
         float dy = MousePos.y - PlayerPos.y;
         float dx = MousePos.x - PlayerPos.x;
  
-        float rotateDg = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;*/
+        float rotateDg = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
+
+        Vector3 Dir = MousePos;
+        Dir.z = Camera.main.farClipPlane;
+        Debug.Log(Dir);*/
 
 
         if( Input.GetMouseButton (0)){
-            /*GameObject weapon = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0.0f, 0.0f, rotateDg));
 
-            weaponController = weapon.GetComponent<WeaponController>();
- 
-            weaponController.Launch(Dir.normalized, 900);*/
+            
             if(isFire==false){
                 timeron=true;
                 isFire = true;
-                Instantiate(bulletPrefab, transform.position, transform.rotation);
+                GameObject weapon = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Vector3 shooting = ray.direction;
+                shooting = shooting.normalized * 2000;
+                weapon.GetComponent<WeaponController>().Launch(shooting);
             }
             
             if(time>=1){
