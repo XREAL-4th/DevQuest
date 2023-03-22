@@ -13,7 +13,11 @@ public class Enemy : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private float attackRange;
-    
+
+//    [SerializeField] private float initHealth = 50;
+    [SerializeField] private float health = 50;
+
+
     public enum State 
     {
         None,
@@ -31,6 +35,8 @@ public class Enemy : MonoBehaviour
     { 
         state = State.None;
         nextState = State.Idle;
+        //Q3. 원래는 health를 전역변수에서 50으로 설정하지 않고, 이렇게 초기화하려고 했는데 작동이 안 돼요! 이유를 알 수 있을까욥
+        //health = initHealth;
     }
 
     private void Update()
@@ -77,7 +83,18 @@ public class Enemy : MonoBehaviour
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
     }
-    
+
+    //적에게 데미지를 입히는 함수
+    public void GetDamage(int damage)
+    {
+        health -= damage;
+        Debug.Log(health);
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
         animator.SetTrigger("attack");
