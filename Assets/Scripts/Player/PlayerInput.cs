@@ -25,19 +25,6 @@ public class PlayerInput : MonoBehaviour
     void Fire()
     {
         Instantiate(projectilePrefab, fireTransform, false); 
-        Ray ray = new Ray(fireTransform.position, transform.forward); //Camera.main.ScreenPointToRay(Input.mousePosition); // 마우스 포인터 위치에서 Ray 생성
-        RaycastHit hitInfo;
-
-        if (Physics.Raycast(ray, out hitInfo)) // 충돌 여부 확인
-        {
-            fireParticleSystem.Play();
-            if (hitInfo.collider.gameObject.layer == 7) // enemy Layer이면?
-            {
-                EnemyInfo enemyInfo = hitInfo.collider.gameObject.GetComponent<EnemyInfo>();
-                enemyInfo.DescreaseHealth();
-            }
-            
-            // 충돌한 오브젝트가 적이면 EnemyInfo에 접근해 체력 -1
-        }
+        fireParticleSystem.Play();
     }
 }
