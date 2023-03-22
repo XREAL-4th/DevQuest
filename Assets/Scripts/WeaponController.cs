@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    public GameObject FireVFX;
+
     public float speed =20.0f;
     float time = 0;
+    float VFXTime = 0;
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
+
         time += Time.deltaTime;
+        VFXTime += Time.deltaTime;
+
+        if(VFXTime>=0.01f){
+            Instantiate(FireVFX, transform.position, transform.rotation);
+            VFXTime = 0;
+        }
 
         if(time>5){
             Destroy(gameObject);

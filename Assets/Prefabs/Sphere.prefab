@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0656fa672ec64694288d3bb84b4a3257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireVFX: {fileID: 4752457369876416285, guid: 5ad33d58a66ab154a89c9e88255601e5, type: 3}
   speed: 20
 --- !u!135 &8297724405207107707
 SphereCollider:
