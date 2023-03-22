@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2590261468853816604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4980523870500238384}
+  - component: {fileID: 2533225197695196567}
+  m_Layer: 0
+  m_Name: Head
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4980523870500238384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590261468853816604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.85, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8978859445578689406}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2533225197695196567
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590261468853816604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.3515553, y: 3.3845618, z: 5.3648953}
+  m_Center: {x: -0.10419369, y: 1.1922807, z: 0.91237664}
 --- !u!1 &8978859445578989344
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,9 +767,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8978859445578689346}
   - component: {fileID: 8978859445567486496}
+  - component: {fileID: 6280175932255363532}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -799,6 +845,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.8135562, y: -1.6374205, z: 0.0000035762787}
     m_Extent: {x: 3.9877295, y: 3.0788631, z: 3.4973443}
   m_DirtyAABB: 0
+--- !u!65 &6280175932255363532
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978859445578989410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.310709, y: 11.756427, z: 6.3314686}
+  m_Center: {x: -0.0000023429793, y: 0.0075059487, z: 4.0075693}
 --- !u!1 &8978859445578989412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,7 +1429,6 @@ GameObject:
   - component: {fileID: 8978859445578689406}
   - component: {fileID: 8978859445571682787}
   - component: {fileID: 8978859445571682786}
-  - component: {fileID: -4833175614175151686}
   - component: {fileID: -6889732998958765802}
   m_Layer: 0
   m_Name: Enemy_Duck_Normal
@@ -1395,6 +1453,7 @@ Transform:
   - {fileID: 8978859445578689346}
   - {fileID: 8978859445578689348}
   - {fileID: 8974103485269213144}
+  - {fileID: 4980523870500238384}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1437,19 +1496,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &-4833175614175151686
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8978859445578989470}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.950975, y: 8.34809, z: 6.478707}
-  m_Center: {x: -0.014841953, y: 4.3656836, z: 1.2942457}
 --- !u!54 &-6889732998958765802
 Rigidbody:
   m_ObjectHideFlags: 0

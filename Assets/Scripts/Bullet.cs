@@ -7,9 +7,11 @@ public class Bullet : MonoBehaviour
 {
     [Header("Status")]
     [SerializeField] private int dmg;
+    [SerializeField] public float coolDown;
     [SerializeField] private float spead;
     [SerializeField] private float duration;
-    [SerializeField] private ParticleSystem enemyParticle;
+    [SerializeField] private ParticleSystem enemyHitParticle;
+    [SerializeField] private ParticleSystem enemyHeadParticle;
     [SerializeField] private ParticleSystem stoneParticle;
 
     public Vector3 dir;
@@ -42,8 +44,16 @@ public class Bullet : MonoBehaviour
 
         if (other.tag == "Enemy")
         {
-            other.GetComponent<Enemy>().TakeDamage(dmg);
-            instance = Instantiate(enemyParticle, transform.position, Quaternion.identity);
+            if(other.name == "Head")
+            {
+                other.GetComponentInParent<Enemy>().TakeDamage(dmg*2);
+                instance = Instantiate(enemyHeadParticle, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                other.GetComponentInParent<Enemy>().TakeDamage(dmg);
+                instance = Instantiate(enemyHitParticle, transform.position, Quaternion.identity);
+            }
         }
         else
         {
