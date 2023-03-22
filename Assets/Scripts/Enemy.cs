@@ -10,9 +10,12 @@ public class Enemy : MonoBehaviour
     [Header("Preset Fields")] 
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject splashFx;
-    
+    [SerializeField] private GameObject hitFx;
+
     [Header("Settings")]
     [SerializeField] private float attackRange;
+
+    GameObject hit;
     
     public enum State 
     {
@@ -27,10 +30,15 @@ public class Enemy : MonoBehaviour
 
     private bool attackDone;
 
+    GameObject bullet;
+    public int life = 3;
+
     private void Start()
     { 
         state = State.None;
         nextState = State.Idle;
+
+        bullet = GameObject.Find("Bullet");
     }
 
     private void Update()
@@ -75,7 +83,7 @@ public class Enemy : MonoBehaviour
         }
         
         //3. 글로벌 & 스테이트 업데이트
-        //insert code here...
+        CheckLife();
     }
     
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
@@ -93,12 +101,30 @@ public class Enemy : MonoBehaviour
         attackDone = true;
     }
 
-
     private void OnDrawGizmosSelected()
     {
         //Gizmos를 사용하여 공격 범위를 Scene View에서 확인할 수 있게 합니다. (인게임에서는 볼 수 없습니다.)
         //해당 함수는 없어도 기능 상의 문제는 없지만, 기능 체크 및 디버깅을 용이하게 합니다.
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRange);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        ContactPoint contact = collision.contacts[0];
+        Vector3 collidePos = contact.point;
+        Quaternion collideRot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+
+        Attack();
+        life -= 1;
+
+        hit = Instantiate(hitFx, collidePos, collideRot);
+        Destroy(hit, 1);
+    }
+
+    private void CheckLife() {
+        if (life == 0) {
+            Destroy(gameObject);
+        }
     }
 }
