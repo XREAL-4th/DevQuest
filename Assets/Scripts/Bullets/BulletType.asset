@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012b52f92934ce7428ae3eb0aab4b0e6, type: 3}
   m_Name: BulletType
   m_EditorClassIdentifier: 
-  lifetime: 3
+  hitEffect: {fileID: 1462327970484030, guid: f01c1eba69de19e44b04d8d651aaac37, type: 3}
+  despawnEffect: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
+  lifetime: 0.5
   bulletSpeed: 20

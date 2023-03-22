@@ -33,10 +33,18 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!other.CompareTag("Player")) Release();
+        if (!other.CompareTag("Player"))
+        {
+            Instantiate(type.hitEffect, transform.position, Quaternion.identity).GetComponent<ParticleSystem>().Play();
+            Release();
+        }
     }
 
-    public virtual void OnDespawn() => Release();
+    public virtual void OnDespawn()
+    {
+        Instantiate(type.despawnEffect, transform.position, Quaternion.identity).GetComponent<ParticleSystem>().Play();
+        Release();
+    }
     public void Release()
     {
         parent.bulletPool.Release(this);
