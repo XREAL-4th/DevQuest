@@ -18,18 +18,19 @@ public class FireCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward, Color.green);
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward, Color.green); //카메라의 position, 방향 위치로 Ray 그림
 
         RaycastHit temp;
 
-        if(Physics.Raycast(Camera.main.transform.position,Camera.main.transform.forward, out temp, 200))
+        if(Physics.Raycast(Camera.main.transform.position,Camera.main.transform.forward, out temp, 200)) // 충돌이 검출되면 총알의 리스폰포인트(firePos)가 충돌이 발생한위치를 바라 봄.
+                                                                                                         
         {
             firePos.LookAt(temp.point);
             Debug.DrawRay(firePos.position, firePos.forward * 200.0f, Color.cyan);
         }
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) //발사입력 시 총알은 충돌점으로 날아감
         {
             Fire();
         }
