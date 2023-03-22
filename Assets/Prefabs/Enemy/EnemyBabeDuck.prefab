@@ -84,6 +84,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3211766693502971639, guid: d7883afc387c78148b87e7518e7fe337,
         type: 3}
+      propertyPath: MaxHealth
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211766693502971639, guid: d7883afc387c78148b87e7518e7fe337,
+        type: 3}
       propertyPath: attackRange
       value: 2.19
       objectReference: {fileID: 0}
