@@ -22,11 +22,11 @@ public class FireCtrl : MonoBehaviour
 
         RaycastHit temp;
 
-        if(Physics.Raycast(Camera.main.transform.position,Camera.main.transform.forward, out temp, 200)) // 충돌이 검출되면 총알의 리스폰포인트(firePos)가 충돌이 발생한위치를 바라 봄.
+        if(Physics.Raycast(Camera.main.transform.position,Camera.main.transform.forward, out temp)) // 충돌이 검출되면 총알의 리스폰포인트(firePos)가 충돌이 발생한위치를 바라 봄.
                                                                                                          
         {
             firePos.LookAt(temp.point);
-            Debug.DrawRay(firePos.position, firePos.forward * 200.0f, Color.cyan);
+            Debug.DrawRay(firePos.position, firePos.forward, Color.cyan);
         }
 
 

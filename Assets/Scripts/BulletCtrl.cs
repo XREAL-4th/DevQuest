@@ -20,7 +20,7 @@ public class BulletCtrl : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= 3)
+        if (time >= 1.5)
         {
             Destroy(gameObject);
             Debug.Log("Destroyed");
