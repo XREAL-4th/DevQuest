@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
         Idle,
         Attack
     }
+    public int Health = 100;
     
     [Header("Debug")]
     public State state = State.None;
@@ -77,7 +78,20 @@ public class Enemy : MonoBehaviour
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
     }
-    
+
+    void OnTriggerEnter()
+    {
+        Weapon weapon = GetComponent<Weapon>();
+        if (tag == "weapon")
+        {
+            Health -= weapon.damage;
+            if (Health == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
         animator.SetTrigger("attack");
