@@ -10,7 +10,10 @@ public class Enemy : MonoBehaviour
     [Header("Preset Fields")] 
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject splashFx;
+    [SerializeField] private GameObject hitfx;
+    public int hp;
     
+
     [Header("Settings")]
     [SerializeField] private float attackRange;
     
@@ -101,4 +104,18 @@ public class Enemy : MonoBehaviour
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRange);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.gameObject.CompareTag("bullet")){
+            Instantiate(hitfx, transform.position, Quaternion.identity);
+            hp--;
+            Debug.Log("enemy damaged");
+            if(hp==0){
+                gameObject.SetActive(false);
+            }
+            
+        }
+    }
+
 }
