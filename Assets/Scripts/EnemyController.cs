@@ -7,13 +7,7 @@ public class EnemyController : MonoBehaviour
 
     public int hp = 3;
     public GameObject vfxPrefeb;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(hp <= 0)

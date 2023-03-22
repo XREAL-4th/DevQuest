@@ -12,9 +12,9 @@ public class BulletGenerator : MonoBehaviour
         {   
             GameObject bullet = Instantiate(BulletPrefeb) as GameObject;
             bullet.transform.position = player.transform.position;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // ray class
-            Vector3 shooting = ray.direction; // 방향 구하기
-            shooting = shooting.normalized * 2000; // 발사하는 힘 설정
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
+            Vector3 shooting = ray.direction; 
+            shooting = shooting.normalized * 2000; 
             bullet.GetComponent<BulletController>().Shoot(shooting);
         }
     }
