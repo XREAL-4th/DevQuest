@@ -6,6 +6,8 @@ TagManager:
   tags:
   - FxTemporaire
   - Bullet
+  - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 
