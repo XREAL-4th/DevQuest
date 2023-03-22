@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 2177150155942497005}
   - component: {fileID: 2177150155935277168}
   - component: {fileID: 2177150155935277169}
+  - component: {fileID: 9153370442818026418}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -150,6 +151,7 @@ MonoBehaviour:
   animator: {fileID: 2177150155935277169}
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
   attackRange: 4.1
+  Health: 100
   state: 0
   nextState: 0
 --- !u!95 &2177150155935277169
@@ -172,6 +174,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &9153370442818026418
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177150155942665741}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.9129896, y: 6.9916368, z: 7.6923513}
+  m_Center: {x: 0, y: 0.59001243, z: 1.1775899}
 --- !u!1 &2177150155942665905
 GameObject:
   m_ObjectHideFlags: 0
