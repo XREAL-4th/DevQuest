@@ -85,13 +85,22 @@ public class Enemy : MonoBehaviour
     }
 
     //적에게 데미지를 입히는 함수
-    public void GetDamage(int damage)
+    public void GetDamage(int damage, float bulletX)
     {
         health -= damage;
         Debug.Log(health);
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+        //넉백 구현
+        if (transform.position.x < bulletX)
+        {
+            transform.Translate(1f, 0, 0);
+        }
+        else
+        {
+            transform.Translate(-1f, 0, 0);
         }
     }
 

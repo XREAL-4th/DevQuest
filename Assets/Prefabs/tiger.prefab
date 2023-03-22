@@ -10353,6 +10353,7 @@ MonoBehaviour:
   animator: {fileID: 7955044542888599102}
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
   attackRange: 4.1
+  health: 50
   state: 0
   nextState: 0
 --- !u!65 &945758061880259923
