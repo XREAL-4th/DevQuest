@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public GameObject deadVFX;
+    public GameObject debuffVFX;
+
     int hp = 5;
     
     // Start is called before the first frame update
@@ -16,13 +19,19 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         if(hp==0){
+            Instantiate(deadVFX, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        hp-=1; 
-        Destroy(other.gameObject);
+        if (other.tag == "Bullet"){
+            hp-=1; 
+            Destroy(other.gameObject);
+            if(hp!=0){
+                Instantiate(debuffVFX, transform.position, transform.rotation);
+            }
+        }
     }
 }
