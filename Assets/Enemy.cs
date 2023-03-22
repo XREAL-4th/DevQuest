@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private float attackRange;
+    // [SerializeField] private int hp; default 값은 어떻게 주지?
     
     public enum State 
     {
@@ -25,12 +26,16 @@ public class Enemy : MonoBehaviour
     public State state = State.None;
     public State nextState = State.None;
 
+    private int hp;
+
     private bool attackDone;
 
     private void Start()
     { 
         state = State.None;
         nextState = State.Idle;
+        hp = 100;
+        // print(transform.position);
     }
 
     private void Update()
@@ -42,8 +47,10 @@ public class Enemy : MonoBehaviour
             {
                 case State.Idle:
                     //1 << 6인 이유는 Player의 Layer가 6이기 때문
+                    // print(transform.position);
                     if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
+                        // print("Attack!");
                         nextState = State.Attack;
                     }
                     break;
@@ -61,7 +68,7 @@ public class Enemy : MonoBehaviour
         //2. 스테이트 초기화
         if (nextState != State.None) 
         {
-            state = nextState;
+            state = nextState; // state = attack
             nextState = State.None;
             switch (state) 
             {
@@ -80,7 +87,16 @@ public class Enemy : MonoBehaviour
     
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
-        animator.SetTrigger("attack");
+        // animator.SetTrigger("attack");
+        attackDone = true;
+        if (hp > 1) {
+            hp -= 1;
+            print("Attack!");
+            print(hp);
+        }
+        else Destroy(splashFx);
+        // print(hp);
+        // Destroy(splashFx);
     }
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.

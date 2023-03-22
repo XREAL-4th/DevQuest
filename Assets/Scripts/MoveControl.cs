@@ -9,6 +9,7 @@ public class MoveControl : MonoBehaviour
     [Header("Preset Fields")]
     [SerializeField] private Rigidbody rigid;
     [SerializeField] private CapsuleCollider col;
+    // [SerializeField] private Rigidbody bullet;
     
     [Header("Settings")]
     [SerializeField][Range(1f, 10f)] private float moveSpeed;
@@ -29,18 +30,26 @@ public class MoveControl : MonoBehaviour
     public bool moving = false;
     
     private float stateTime;
-    private Vector3 forward, right;
+
+    public GameObject bulletPos;
+    public GameObject preFabBullet;
+    float bulletSpped = 15;
+    Vector3 dir; // 마우스 포인터 방향 저장
+    Camera cam; // 메인카메라
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
+        // bullet = GetComponent<Rigidbody>();
+        cam = Camera.main;
         
         state = State.None;
         nextState = State.Idle;
         stateTime = 0f;
-        forward = transform.forward;
-        right = transform.right;
+        moveSpeed = 2f;
+        // forward = transform.forward;
+        // right = transform.right;
     }
 
     private void Update()
@@ -50,10 +59,12 @@ public class MoveControl : MonoBehaviour
         CheckLanded();
         //insert code here...
 
+
+
         //1. 스테이트 전환 상황 판단
         if (nextState == State.None) 
         {
-            switch (state) 
+            switch (state)
             {
                 case State.Idle:
                     if (landed) 
@@ -93,11 +104,39 @@ public class MoveControl : MonoBehaviour
         
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
+        Shoot();
+    }
+
+    private void Shoot()
+    {
+        if(Input.GetMouseButtonDown(0)){
+            Vector3 clickPos = Vector3.one;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if(Physics.Raycast(ray, out hit)){
+                clickPos = hit.point;
+                print(clickPos);
+                Vector3 dir = clickPos - transform.position;
+                dir.Normalize();
+                print(bulletPos.transform.position);
+                GameObject bullet = Instantiate(preFabBullet, transform);
+                bullet.transform.position = bulletPos.transform.position;
+                bullet.GetComponent<Rigidbody>().AddForce(dir * bulletSpped, ForceMode.Impulse);
+                Destroy(bullet, 3);
+            }
+            // Debug.Log(clickPos);
+            // GameObject bullet = Instantiate(preFabBullet);
+            // bullet.transform.position = bulletPos.transform.position;
+            // bullet.GameObject.GetComponent<Rigidbody>().AddForce(dir * bulletSpped, ForceMode.Impulse);
+        }
     }
 
     private void FixedUpdate()
     {
         UpdateInput();
+        // transform.Translate(new Vector3(0,1,0)); //Move
+
     }
 
     private void CheckLanded() {
@@ -112,13 +151,13 @@ public class MoveControl : MonoBehaviour
     {
         var direction = Vector3.zero;
         
-        if (Input.GetKey(KeyCode.W)) direction += forward; //Forward
-        if (Input.GetKey(KeyCode.A)) direction += -right; //Left
-        if (Input.GetKey(KeyCode.S)) direction += -forward; //Back
-        if (Input.GetKey(KeyCode.D)) direction += right; //Right
+        if (Input.GetKey(KeyCode.W)) direction += Vector3.forward; //Forward
+        if (Input.GetKey(KeyCode.A)) direction += Vector3.left; //Left
+        if (Input.GetKey(KeyCode.S)) direction += Vector3.back; //Back
+        if (Input.GetKey(KeyCode.D)) direction += Vector3.right; //Right
         
         direction.Normalize(); //대각선 이동(Ex. W + A)시에도 동일한 이동속도를 위해 direction을 Normalize
-        
+        // print(moveSpeed * Time.deltaTime * direction);
         transform.Translate( moveSpeed * Time.deltaTime * direction); //Move
     }
 }
