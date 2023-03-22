@@ -25,6 +25,14 @@ public class Enemy : MonoBehaviour
     public State state = State.None;
     public State nextState = State.None;
 
+    [SerializeField]
+    private int hp;
+    [SerializeField]
+    private CapsuleCollider col;
+
+    [SerializeField]
+    private GameObject go_enemy;
+
     private bool attackDone;
 
     private void Start()
@@ -74,6 +82,7 @@ public class Enemy : MonoBehaviour
             }
         }
         
+
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
     }
@@ -93,6 +102,18 @@ public class Enemy : MonoBehaviour
         attackDone = true;
     }
 
+    public void EnemyAttacked()
+    {
+        hp--;
+        if(hp<=0)
+            Destruction();
+    }
+
+    private void Destruction()
+    {
+        col.enabled = false;
+        Destroy(go_enemy);
+    }
 
     private void OnDrawGizmosSelected()
     {

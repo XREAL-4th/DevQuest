@@ -14,6 +14,8 @@ public class MoveControl : MonoBehaviour
     [SerializeField][Range(1f, 10f)] private float moveSpeed;
     [SerializeField][Range(1f, 10f)] private float jumpAmount;
 
+    GunController PlayerGunCtrl;
+
     //FSM(finite state machine)에 대한 더 자세한 내용은 세션 3회차에서 배울 것입니다!
     public enum State 
     {
@@ -35,7 +37,8 @@ public class MoveControl : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
-        
+        PlayerGunCtrl = GetComponent<GunController>();
+
         state = State.None;
         nextState = State.Idle;
         stateTime = 0f;
@@ -90,7 +93,22 @@ public class MoveControl : MonoBehaviour
             }
             stateTime = 0f;
         }
-        
+
+        if (Input.GetMouseButton(0))
+        {
+            PlayerGunCtrl.Shoot();
+
+            Debug.Log("Input Shot!");
+        }
+        //총 재장전 입력
+        if (Input.GetKey(KeyCode.R)
+            && PlayerGunCtrl.newGun.BulletNow != PlayerGunCtrl.newGun.BulletMax)
+        {
+            PlayerGunCtrl.Reload();
+
+            Debug.Log("Input Reload!");
+        }
+
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
     }
@@ -112,10 +130,10 @@ public class MoveControl : MonoBehaviour
     {
         var direction = Vector3.zero;
         
-        if (Input.GetKey(KeyCode.W)) direction += forward; //Forward
-        if (Input.GetKey(KeyCode.A)) direction += -right; //Left
-        if (Input.GetKey(KeyCode.S)) direction += -forward; //Back
-        if (Input.GetKey(KeyCode.D)) direction += right; //Right
+        if (Input.GetKey(KeyCode.W)) direction += Vector3.forward; //Forward
+        if (Input.GetKey(KeyCode.A)) direction += Vector3.left; //Left
+        if (Input.GetKey(KeyCode.S)) direction += Vector3.back; //Back
+        if (Input.GetKey(KeyCode.D)) direction += Vector3.right; //Right
         
         direction.Normalize(); //대각선 이동(Ex. W + A)시에도 동일한 이동속도를 위해 direction을 Normalize
         
