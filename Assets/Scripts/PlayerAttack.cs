@@ -10,12 +10,15 @@ public class PlayerAttack : MonoBehaviour
     private float force = 5;
     
     Vector3 dir;
+    private Vector3 ScreenCenter;
+
 
     void Update()
     {
         //마우스 클릭 시
         if (Input.GetMouseButtonDown(0))
         {
+            //CameraControl에서 커서가 정중앙에 고정된 상태
             Vector3 mos = Input.mousePosition;
             mos.z = Camera.main.farClipPlane; //카메라가 보는 방향과 시야에 z값 맞추기
             //마우스 지점 좌표 받아오기
