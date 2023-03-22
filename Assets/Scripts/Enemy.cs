@@ -7,6 +7,10 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Status")]
+    [SerializeField] private Type type;
+    [SerializeField] private int hp;
+
     [Header("Preset Fields")] 
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject splashFx;
@@ -20,6 +24,12 @@ public class Enemy : MonoBehaviour
         Idle,
         Attack
     }
+
+    private enum Type
+    {
+        NORMAL,
+        METAL
+    }
     
     [Header("Debug")]
     public State state = State.None;
@@ -31,6 +41,16 @@ public class Enemy : MonoBehaviour
     { 
         state = State.None;
         nextState = State.Idle;
+        switch(type)
+        {
+            case Type.NORMAL:
+                hp = 20;
+                break;
+            case Type.METAL:
+                hp = 40;
+                break;
+            default: break;
+        }
     }
 
     private void Update()
@@ -73,8 +93,12 @@ public class Enemy : MonoBehaviour
                 //insert code here...
             }
         }
-        
+
         //3. 글로벌 & 스테이트 업데이트
+        if (hp <= 0)
+        {
+            Destroy(this.gameObject);
+        }
         //insert code here...
     }
     
@@ -93,6 +117,10 @@ public class Enemy : MonoBehaviour
         attackDone = true;
     }
 
+    public void TakeDamage(int dmg)
+    {
+        hp -= dmg;
+    }
 
     private void OnDrawGizmosSelected()
     {

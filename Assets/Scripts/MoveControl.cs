@@ -29,7 +29,6 @@ public class MoveControl : MonoBehaviour
     public bool moving = false;
     
     private float stateTime;
-    private Vector3 forward, right;
 
     private void Start()
     {
@@ -39,8 +38,6 @@ public class MoveControl : MonoBehaviour
         state = State.None;
         nextState = State.Idle;
         stateTime = 0f;
-        forward = transform.forward;
-        right = transform.right;
     }
 
     private void Update()
@@ -112,10 +109,10 @@ public class MoveControl : MonoBehaviour
     {
         var direction = Vector3.zero;
         
-        if (Input.GetKey(KeyCode.W)) direction += forward; //Forward
-        if (Input.GetKey(KeyCode.A)) direction += -right; //Left
-        if (Input.GetKey(KeyCode.S)) direction += -forward; //Back
-        if (Input.GetKey(KeyCode.D)) direction += right; //Right
+        if (Input.GetKey(KeyCode.W)) direction += Vector3.forward; //Forward
+        if (Input.GetKey(KeyCode.A)) direction += Vector3.left; //Left
+        if (Input.GetKey(KeyCode.S)) direction += Vector3.back; //Back
+        if (Input.GetKey(KeyCode.D)) direction += Vector3.right; //Right
         
         direction.Normalize(); //대각선 이동(Ex. W + A)시에도 동일한 이동속도를 위해 direction을 Normalize
         
