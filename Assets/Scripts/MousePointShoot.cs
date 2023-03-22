@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MousePointShoot : MonoBehaviour
 {
-    public Vector3 targetPos;
+    public static Vector3 targetPos;
  
     void Update () {
         //마우스클릭

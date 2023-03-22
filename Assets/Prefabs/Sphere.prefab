@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 933858155467657340}
   - component: {fileID: 4660467425204964895}
   - component: {fileID: 8616452768564623130}
-  - component: {fileID: 3768761428183112685}
+  - component: {fileID: 8822232504487303290}
   - component: {fileID: 8297724405207107707}
   - component: {fileID: 9097932897853744850}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +86,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3768761428183112685
+--- !u!114 &8822232504487303290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5922001717439773848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16821c9cfaabebf48b6c506bba805564, type: 3}
+  m_Script: {fileID: 11500000, guid: 0656fa672ec64694288d3bb84b4a3257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20

@@ -1467,11 +1467,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7526870557593976400}
   - component: {fileID: 7526870557584446669}
+  - component: {fileID: 8845437978728838407}
   - component: {fileID: 7526870557584446668}
   - component: {fileID: 9106952093369201345}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1512,6 +1513,18 @@ MonoBehaviour:
   attackRange: 4.1
   state: 0
   nextState: 0
+--- !u!114 &8845437978728838407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526870557593807536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef07a87c9c92f4ab77c058d95af277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &7526870557584446668
 Animator:
   serializedVersion: 4
