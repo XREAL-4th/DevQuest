@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 {
     [Header("Preset Fields")]
     public BulletType type;
+
     private float stateTime;
     private Shooter parent;
     private Vector3 direction;
@@ -29,9 +30,10 @@ public class Bullet : MonoBehaviour
         transform.position = parent.transform.position + new Vector3(0, 1, 0);
         return this;
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "enemy") Release();
+        if(!other.CompareTag("Player")) Release();
     }
 
     public virtual void OnDespawn() => Release();
