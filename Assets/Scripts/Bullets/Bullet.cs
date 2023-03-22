@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviour
         if (!other.CompareTag("Player"))
         {
             Instantiate(type.hitEffect, transform.position, Quaternion.identity).GetComponent<ParticleSystem>().Play();
+            other.GetComponent<IHealthy>()?.Damage(type.damage);
             Release();
         }
     }

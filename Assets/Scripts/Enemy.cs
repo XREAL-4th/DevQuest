@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IHealthy
 {
     [Header("Preset Fields")] 
     [SerializeField] private Animator animator;
@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
     public State nextState = State.None;
 
     private bool attackDone;
+    private float health = 50;
+    public float Health { get => health; set => health = value; }
 
     private void Start()
     { 
@@ -35,6 +37,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (Health <= 0) Kill();
+
         //1. 스테이트 전환 상황 판단
         if (nextState == State.None) 
         {
@@ -77,6 +81,10 @@ public class Enemy : MonoBehaviour
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
     }
+
+    public void Damage(float damage) => health -= damage;
+
+    private void Kill() => Destroy(gameObject);
     
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {

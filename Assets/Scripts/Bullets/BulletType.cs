@@ -6,5 +6,5 @@ using UnityEngine;
 public class BulletType : ScriptableObject
 {
     public GameObject hitEffect, despawnEffect;
-    public float lifetime = 5, bulletSpeed = 30;
+    public float lifetime = 1, bulletSpeed = 30, damage = 10;
 }
