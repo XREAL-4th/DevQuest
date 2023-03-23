@@ -8,7 +8,7 @@ public enum WinState
     Idle, Win, Lose
 }
 
-public class GameEndManager : DDOLSingletonMonoBehaviour<GameEndManager>
+public class GameEndManager : SingletonMonoBehaviour<GameEndManager>
 {
     [Header("Setting")]
     public Mission[] missions;
