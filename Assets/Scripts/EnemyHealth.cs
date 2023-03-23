@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
     // 제출 이후 Raycast 방식으로도 구현해 볼 예정입니다.
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log (collision.gameObject);
         ProcessHit();
         Instantiate(hitFx, transform.position, Quaternion.identity);
     }
