@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private float attackRange;
+
     
     public enum State 
     {
@@ -56,6 +57,8 @@ public class Enemy : MonoBehaviour
                     break;
                 //insert code here...
             }
+
+    
         }
         
         //2. 스테이트 초기화
@@ -101,4 +104,6 @@ public class Enemy : MonoBehaviour
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRange);
     }
+
+    
 }
