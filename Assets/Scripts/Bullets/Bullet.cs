@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
     public virtual Bullet Init(Shooter parent)
     {
         this.parent = parent;
-        direction = parent.transform.forward;
+        direction = Camera.main.transform.forward;
         stateTime = 0;
         transform.position = parent.transform.position + new Vector3(0, 1, 0);
         return this;
