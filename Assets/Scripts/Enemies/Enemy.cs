@@ -13,7 +13,9 @@ public class Enemy : MonoBehaviour, IHealthy
     
     [Header("Settings")]
     [SerializeField] private float attackRange;
-    
+    [SerializeField] private EnemyType type;
+
+
     public enum State 
     {
         None,
@@ -26,11 +28,12 @@ public class Enemy : MonoBehaviour, IHealthy
     public State nextState = State.None;
 
     private bool attackDone;
-    private float health = 50;
+    private float health;
     public float Health { get => health; set => health = value; }
 
     private void Start()
-    { 
+    {
+        health = type.maxHealth;
         state = State.None;
         nextState = State.Idle;
     }
