@@ -139,12 +139,13 @@ GameObject:
   m_Component:
   - component: {fileID: 509435103}
   - component: {fileID: 509435102}
+  - component: {fileID: 509435104}
   m_Layer: 0
   m_Name: GameEndManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &509435102
 MonoBehaviour:
@@ -158,7 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6afc5c1d6fde67449c69ae39f43ef01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missions: []
+  missions:
+  - {fileID: 509435104}
   isGameEnd: 0
   isWin: 0
 --- !u!4 &509435103
@@ -176,6 +178,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &509435104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509435101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca44a0ece8eee1845b9c3b79db38842d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionTitle: hunt time!
+  missionDescription: Kill at least 2 Ducks
+  enemies:
+  - {fileID: 733731586}
+  - {fileID: 625322215}
+  - {fileID: 1530503356}
+  - {fileID: 278964739548446145}
+  amounts: 2
 --- !u!1001 &625322214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -245,6 +267,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ed667b58a442e8458135e788cdce6b7, type: 3}
+--- !u!1 &625322215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4950770809936158342, guid: 5ed667b58a442e8458135e788cdce6b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 625322214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &720502779
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +443,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ed667b58a442e8458135e788cdce6b7, type: 3}
+--- !u!1 &733731586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4950770809936158342, guid: 5ed667b58a442e8458135e788cdce6b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 733731585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &744305383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -697,6 +731,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ed667b58a442e8458135e788cdce6b7, type: 3}
+--- !u!1 &1530503356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4950770809936158342, guid: 5ed667b58a442e8458135e788cdce6b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1530503355}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1611322637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1183,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ed667b58a442e8458135e788cdce6b7, type: 3}
+--- !u!1 &278964739548446145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4950770809936158342, guid: 5ed667b58a442e8458135e788cdce6b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 278964739548446144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5146417150327486374 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4950770809935989350, guid: 5ed667b58a442e8458135e788cdce6b7,
