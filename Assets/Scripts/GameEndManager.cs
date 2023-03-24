@@ -24,7 +24,7 @@ public class GameEndManager : SingletonMonoBehaviour<GameEndManager>
 
     private void Update()
     {
-        foreach(Mission mission in missions)
+        foreach(IMission mission in missions)
         {
             if(mission.IsMissionFailed())
             {
