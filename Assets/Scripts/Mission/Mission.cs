@@ -10,7 +10,7 @@ public interface IMission
     public bool IsMissionCompleted();
 }
 
-public abstract class Mission : ScriptableObject, IMission
+public abstract class Mission : MonoBehaviour, IMission
 {
     public string missionTitle;
     public string missionDescription;
