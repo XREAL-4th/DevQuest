@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6afc5c1d6fde67449c69ae39f43ef01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missions:
-  - {fileID: 0}
+  gameEndPref: {fileID: 6998288145542852790, guid: 22858729fd20fb843b424bbd66d2a760,
+    type: 3}
   isGameEnd: 0
   isWin: 0
 --- !u!4 &509435103
@@ -381,7 +381,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

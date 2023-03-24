@@ -10,6 +10,9 @@ public enum WinState
 
 public class GameEndManager : SingletonMonoBehaviour<GameEndManager>
 {
+    [Header("Setting")]
+    public GameObject gameEndPref;
+
     [Header("Debug")]
     public bool isGameEnd = false;
     public WinState isWin = WinState.Idle;
@@ -29,13 +32,21 @@ public class GameEndManager : SingletonMonoBehaviour<GameEndManager>
             if(mission.IsMissionFailed())
             {
                 isWin = WinState.Lose;
+                if (!isGameEnd) GameEnd();
                 break;
             }
             else if(mission.IsMissionCompleted())
             {
                 isWin = WinState.Win;
+                if (!isGameEnd) GameEnd();
                 break;
             }
         }
+    }
+
+    private void GameEnd()
+    {
+        isGameEnd = true;
+        Instantiate(gameEndPref);
     }
 }
