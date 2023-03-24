@@ -10,12 +10,17 @@ public enum WinState
 
 public class GameEndManager : SingletonMonoBehaviour<GameEndManager>
 {
-    [Header("Setting")]
-    public Mission[] missions;
-
     [Header("Debug")]
     public bool isGameEnd = false;
     public WinState isWin = WinState.Idle;
+
+    private IMission[] missions;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        missions = GetComponentsInChildren<IMission>();
+    }
 
     private void Update()
     {
