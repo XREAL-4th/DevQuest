@@ -13,7 +13,11 @@ public class Enemy : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private float attackRange;
-    
+    [SerializeField] private float hp = 30.0f;
+    private float curHp;
+    private Vector3 curPos;
+
+
     public enum State 
     {
         None,
@@ -31,6 +35,10 @@ public class Enemy : MonoBehaviour
     { 
         state = State.None;
         nextState = State.Idle;
+
+        curHp = hp;
+
+        curPos = transform.position;
     }
 
     private void Update()
@@ -91,6 +99,17 @@ public class Enemy : MonoBehaviour
     public void WhenAnimationDone() //Unity Animation Event 에서 실행됩니다.
     {
         attackDone = true;
+    }
+
+    public void GetDamage(float damage)
+    {
+        curHp -= damage;
+
+        Debug.Log(curHp);
+        if (curHp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
