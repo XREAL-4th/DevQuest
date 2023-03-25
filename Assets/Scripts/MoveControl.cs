@@ -15,8 +15,7 @@ public class MoveControl : MonoBehaviour
     [SerializeField][Range(1f, 10f)] private float jumpAmount;
 
     //FSM(finite state machine)에 대한 더 자세한 내용은 세션 3회차에서 배울 것입니다!
-    public enum State 
-    {
+    public enum State {
         None,
         Idle,
         Jump
@@ -48,7 +47,6 @@ public class MoveControl : MonoBehaviour
         //0. 글로벌 상황 판단
         stateTime += Time.deltaTime;
         CheckLanded();
-        //insert code here...
 
         //1. 스테이트 전환 상황 판단
         if (nextState == State.None) 
@@ -70,7 +68,6 @@ public class MoveControl : MonoBehaviour
                         nextState = State.Idle;
                     }
                     break;
-                //insert code here...
             }
         }
         
@@ -86,13 +83,11 @@ public class MoveControl : MonoBehaviour
                     vel.y = jumpAmount;
                     rigid.velocity = vel;
                     break;
-                //insert code here...
             }
             stateTime = 0f;
         }
         
         //3. 글로벌 & 스테이트 업데이트
-        //insert code here...
     }
 
     private void FixedUpdate()
@@ -121,4 +116,33 @@ public class MoveControl : MonoBehaviour
         
         transform.Translate( moveSpeed * Time.deltaTime * direction); //Move
     }
+
+    private void OnCollisionEnter(Collision collision) {
+        Vector3[] coords = new Vector3[5]{
+            new Vector3(0.0f, 0.0f, 4.5f),
+            new Vector3(4.04f, 0.0f, 3.74f),
+            new Vector3(-4.3f, 0.79f, -6.5f),
+            new Vector3(-5.5f, 0.79f, -9.3f),
+            new Vector3(10.0f, 0.79f, -7.4f)
+        };
+
+        if (collision.gameObject.name == "Apple(Clone)") {
+
+            for (int i = 0; i < coords.Length; i++) {
+                if (collision.gameObject.transform.position == coords[i]) {
+                    int speed = ItemManager.instance.AppleDatas[i].Speed;
+                    int jump = ItemManager.instance.AppleDatas[i].Jump;
+                    if (speed == 0) {
+                        jumpAmount = jump;
+                    }
+                    if (jump == 0) {
+                        moveSpeed = speed;
+                    }
+                    Destroy(collision.gameObject);
+                }
+            }
+        }
+    }
+
+    
 }

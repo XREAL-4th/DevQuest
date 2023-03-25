@@ -123,6 +123,73 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 0f405823fb884d7449ffe2f88f9b5848, type: 2}
+--- !u!1 &485976160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485976162}
+  - component: {fileID: 485976161}
+  - component: {fileID: 485976163}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &485976161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485976160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de3121141af6a410ab12009e7bc4d209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  maxTime: 60
+--- !u!4 &485976162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485976160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.41055012, y: 2.526455, z: 1.1401234}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485976163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485976160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca73be1cdee7e4916a9bdc1b4016a9ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AppleDatas:
+  - {fileID: 11400000, guid: 13871721c562a405fb610f3fb1ecb741, type: 2}
+  - {fileID: 11400000, guid: 4edd2a0cfdf4c415c986c29ce86052c9, type: 2}
+  - {fileID: 11400000, guid: f2d8506e1dbe548619c2244ea2dab75c, type: 2}
+  - {fileID: 11400000, guid: 8faab4f45324446bd8e66d1f1ad8ee89, type: 2}
+  - {fileID: 11400000, guid: 9471e9e971a474d599b3de6bab35fac2, type: 2}
+  applePrefab: {fileID: 3685622684530808665, guid: 8a3d7080b51ac475dad97926e987d2ff,
+    type: 3}
 --- !u!1 &720502779
 GameObject:
   m_ObjectHideFlags: 0
