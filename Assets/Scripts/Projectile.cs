@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
+        layerMask = 7;
         rb = GetComponent<Rigidbody>();
         rb.velocity = -transform.up * speed;
     }
@@ -23,24 +25,19 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        
         // Raycasting을 사용하여 충돌 검출을 한다.
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, speed * Time.deltaTime, layerMask))
-        {
-            // 충돌한 객체의 Rigidbody를 가져온다.
-            Rigidbody targetRigidbody = hit.collider.GetComponent<Rigidbody>();
-            EnemyInfo enemyInfo = hit.collider.GetComponent<EnemyInfo>();
-            // 충돌한 객체가 Rigidbody를 가지고 있다면, Rigidbody를 이용해 힘을 전달한다.
-            
-            if (targetRigidbody != null && enemyInfo!=null)
-            {
-                targetRigidbody.AddForceAtPosition(transform.forward * speed, hit.point, ForceMode.Impulse);
-                enemyInfo.DescreaseHealth(hit.point);
-            }
+    }
 
-            // 발사체를 파괴한다.
-            Destroy(gameObject);
+    private void OnTriggerEnter(Collider other)
+    {
+        Rigidbody targetRigidbody = other.GetComponent<Rigidbody>();
+        EnemyInfo enemyInfo = other.GetComponent<EnemyInfo>();
+
+        if (targetRigidbody != null && enemyInfo != null)
+        {
+            targetRigidbody.AddForceAtPosition(transform.forward * speed, other.transform.position, ForceMode.Impulse);
+            StartCoroutine(enemyInfo.DescreaseHealth());
         }
     }
 }
