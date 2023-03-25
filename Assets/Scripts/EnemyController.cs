@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if(hp <= 0)
+        if(hp == 0)
         {
             this.gameObject.SetActive(false);
             GameObject vfx = Instantiate(vfxPrefeb) as GameObject;
@@ -18,12 +18,14 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("Bullet"))
+        if (other.gameObject.CompareTag("Bullet"))
         {
             hp--;
+            other.gameObject.SetActive(false);
         }
+
     }
 
 

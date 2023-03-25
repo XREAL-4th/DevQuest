@@ -16,6 +16,8 @@ public class BulletGenerator : MonoBehaviour
             Vector3 shooting = ray.direction; 
             shooting = shooting.normalized * 2000; 
             bullet.GetComponent<BulletController>().Shoot(shooting);
+
+            Destroy(bullet, 3f);
         }
     }
 }
