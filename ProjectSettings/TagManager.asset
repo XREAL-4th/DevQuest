@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FxTemporaire
   - Enemy
+  - Background
   layers:
   - Default
   - TransparentFX

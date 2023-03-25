@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  splashFx: {fileID: 1223892973667064427, guid: b57ee425acaf00f4a90e3a48ea38ef8e,
+  splashFx: {fileID: 8382714469020129831, guid: 7f7e89894edb19144a39c17a2815ec13,
     type: 3}
 --- !u!54 &2514339186840820495
 Rigidbody:

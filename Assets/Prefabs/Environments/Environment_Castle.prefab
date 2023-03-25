@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3736134586285665530}
   m_Layer: 3
   m_Name: stone_wall (28)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 3736134586367077979}
   m_Layer: 3
   m_Name: stone_wall (26)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 3736134586361066462}
   m_Layer: 3
   m_Name: wall_passage.007 (18)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 3736134586389337463}
   m_Layer: 3
   m_Name: stone_wall_detailed_corner (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 3736134586400554375}
   m_Layer: 3
   m_Name: stone_wall_detailed (5)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 3736134586412534948}
   m_Layer: 3
   m_Name: wall_passage.007 (27)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 3736134586440442886}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (11)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 3736134586435291963}
   m_Layer: 3
   m_Name: cauldron
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -951,7 +951,7 @@ GameObject:
   - component: {fileID: 3736134586450001557}
   m_Layer: 3
   m_Name: stone_wall_detailed (21)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1050,7 +1050,7 @@ GameObject:
   - component: {fileID: 3736134586456220314}
   m_Layer: 3
   m_Name: wood_wall.016 (4)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1149,7 +1149,7 @@ GameObject:
   - component: {fileID: 3736134586456206802}
   m_Layer: 3
   m_Name: wood_column.004 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1247,7 +1247,7 @@ GameObject:
   - component: {fileID: 3736134586456195892}
   m_Layer: 3
   m_Name: wood_wall.018 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1346,7 +1346,7 @@ GameObject:
   - component: {fileID: 3736134586456151936}
   m_Layer: 3
   m_Name: platform.003 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1445,7 +1445,7 @@ GameObject:
   - component: {fileID: 3736134586456172798}
   m_Layer: 3
   m_Name: wood_wall.007 (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1544,7 +1544,7 @@ GameObject:
   - component: {fileID: 3736134586456136108}
   m_Layer: 3
   m_Name: wood_wall_enter.004
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1640,7 +1640,7 @@ GameObject:
   - component: {fileID: 3736134586453817622}
   m_Layer: 3
   m_Name: House.001 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1691,7 +1691,7 @@ GameObject:
   - component: {fileID: 3736134586456179084}
   m_Layer: 3
   m_Name: wood_wall.016 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1790,7 +1790,7 @@ GameObject:
   - component: {fileID: 3736134586456163084}
   m_Layer: 3
   m_Name: wood_wall.007 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1889,7 +1889,7 @@ GameObject:
   - component: {fileID: 3736134586456198450}
   m_Layer: 3
   m_Name: wood_wall.007
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1988,7 +1988,7 @@ GameObject:
   - component: {fileID: 3736134586456132810}
   m_Layer: 3
   m_Name: wood_column.004
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2086,7 +2086,7 @@ GameObject:
   - component: {fileID: 3736134586456200280}
   m_Layer: 3
   m_Name: wood_wall.016 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2185,7 +2185,7 @@ GameObject:
   - component: {fileID: 3736134586456151116}
   m_Layer: 3
   m_Name: wood_wall.018
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2284,7 +2284,7 @@ GameObject:
   - component: {fileID: 3736134586456162154}
   m_Layer: 3
   m_Name: platform.003
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2383,7 +2383,7 @@ GameObject:
   - component: {fileID: 3736134586456136366}
   m_Layer: 3
   m_Name: wood_wall.014
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2482,7 +2482,7 @@ GameObject:
   - component: {fileID: 3736134586456227460}
   m_Layer: 3
   m_Name: wood_wall.007 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2581,7 +2581,7 @@ GameObject:
   - component: {fileID: 3736134586456182080}
   m_Layer: 3
   m_Name: wood_column.004 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2679,7 +2679,7 @@ GameObject:
   - component: {fileID: 3736134586456215014}
   m_Layer: 3
   m_Name: wood_wall.014 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2778,7 +2778,7 @@ GameObject:
   - component: {fileID: 3736134586457541163}
   m_Layer: 3
   m_Name: stone_wall_detailed_corner (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2877,7 +2877,7 @@ GameObject:
   - component: {fileID: 3736134586457782066}
   m_Layer: 3
   m_Name: wall_passage.007 (6)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2977,7 +2977,7 @@ GameObject:
   - component: {fileID: 3736134586493266664}
   m_Layer: 3
   m_Name: stone_wall (11)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3075,7 +3075,7 @@ GameObject:
   - component: {fileID: 3736134586506746915}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (5)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3174,7 +3174,7 @@ GameObject:
   - component: {fileID: 3736134586512781078}
   m_Layer: 3
   m_Name: trunk (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3273,7 +3273,7 @@ GameObject:
   - component: {fileID: 3736134586514469266}
   m_Layer: 3
   m_Name: stone_wall (13)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3371,7 +3371,7 @@ GameObject:
   - component: {fileID: 3736134586549798033}
   m_Layer: 3
   m_Name: canvas_on_wall.004 (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3470,7 +3470,7 @@ GameObject:
   - component: {fileID: 3736134586581848236}
   m_Layer: 3
   m_Name: crate.001 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3568,7 +3568,7 @@ GameObject:
   - component: {fileID: 3736134586590896054}
   m_Layer: 3
   m_Name: stone_wall (14)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3666,7 +3666,7 @@ GameObject:
   - component: {fileID: 3736134586591819725}
   m_Layer: 3
   m_Name: stone_wall (15)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3764,7 +3764,7 @@ GameObject:
   - component: {fileID: 3736134586625119341}
   m_Layer: 3
   m_Name: stone_wall_detailed (14)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3863,7 +3863,7 @@ GameObject:
   - component: {fileID: 3736134586632857442}
   m_Layer: 3
   m_Name: wall_passage.007 (24)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3963,7 +3963,7 @@ GameObject:
   - component: {fileID: 3736134586641400160}
   m_Layer: 3
   m_Name: stone_wall_detailed_corner.001 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4061,7 +4061,7 @@ GameObject:
   - component: {fileID: 3736134586665142917}
   m_Layer: 3
   m_Name: stone_wall (59)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4159,7 +4159,7 @@ GameObject:
   - component: {fileID: 3736134586695826924}
   m_Layer: 3
   m_Name: stone_wall (21)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4257,7 +4257,7 @@ GameObject:
   - component: {fileID: 3736134586710353989}
   m_Layer: 3
   m_Name: wall_passage.007 (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4357,7 +4357,7 @@ GameObject:
   - component: {fileID: 3736134586726889639}
   m_Layer: 3
   m_Name: canvas_on_wall.003
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4456,7 +4456,7 @@ GameObject:
   - component: {fileID: 3736134586743412419}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (16)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4555,7 +4555,7 @@ GameObject:
   - component: {fileID: 3736134586779098782}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (12)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4654,7 +4654,7 @@ GameObject:
   - component: {fileID: 3736134586820137692}
   m_Layer: 3
   m_Name: wagon (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4753,7 +4753,7 @@ GameObject:
   - component: {fileID: 3736134586829341782}
   m_Layer: 3
   m_Name: wall_passage.007 (15)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4853,7 +4853,7 @@ GameObject:
   - component: {fileID: 3736134586841668550}
   m_Layer: 3
   m_Name: wall_passage.007 (5)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4953,7 +4953,7 @@ GameObject:
   - component: {fileID: 3736134586869076442}
   m_Layer: 3
   m_Name: stone_wall (23)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5051,7 +5051,7 @@ GameObject:
   - component: {fileID: 3736134586879650948}
   m_Layer: 3
   m_Name: wall_passage.007 (23)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5151,7 +5151,7 @@ GameObject:
   - component: {fileID: 3736134586890405134}
   m_Layer: 3
   m_Name: wall_passage.007 (10)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5251,7 +5251,7 @@ GameObject:
   - component: {fileID: 3736134586891673178}
   m_Layer: 3
   m_Name: wall_passage.006
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5351,7 +5351,7 @@ GameObject:
   - component: {fileID: 3736134586889805019}
   m_Layer: 3
   m_Name: firewood_single
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5450,7 +5450,7 @@ GameObject:
   - component: {fileID: 3736134586918084050}
   m_Layer: 3
   m_Name: stone_wall_detailed (8)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5549,7 +5549,7 @@ GameObject:
   - component: {fileID: 3736134586932619322}
   m_Layer: 3
   m_Name: wall_passage.007 (20)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5649,7 +5649,7 @@ GameObject:
   - component: {fileID: 3736134586941227835}
   m_Layer: 3
   m_Name: wall_passage.007 (30)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5749,7 +5749,7 @@ GameObject:
   - component: {fileID: 3736134586962284209}
   m_Layer: 3
   m_Name: box.004 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5848,7 +5848,7 @@ GameObject:
   - component: {fileID: 3736134586962298315}
   m_Layer: 3
   m_Name: box.005
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5947,7 +5947,7 @@ GameObject:
   - component: {fileID: 3736134586962506597}
   m_Layer: 3
   m_Name: box.001
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6046,7 +6046,7 @@ GameObject:
   - component: {fileID: 3736134586962496309}
   m_Layer: 3
   m_Name: box.002 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6144,7 +6144,7 @@ GameObject:
   - component: {fileID: 3736134586962460505}
   m_Layer: 3
   m_Name: box.004
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6240,7 +6240,7 @@ GameObject:
   - component: {fileID: 3736134586956442025}
   m_Layer: 3
   m_Name: Boxes
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6282,7 +6282,7 @@ GameObject:
   - component: {fileID: 3736134586962486247}
   m_Layer: 3
   m_Name: box.002
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6380,7 +6380,7 @@ GameObject:
   - component: {fileID: 3736134586962525587}
   m_Layer: 3
   m_Name: box.004 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6479,7 +6479,7 @@ GameObject:
   - component: {fileID: 3736134586962526049}
   m_Layer: 3
   m_Name: box
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6578,7 +6578,7 @@ GameObject:
   - component: {fileID: 3736134586966427789}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (13)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6677,7 +6677,7 @@ GameObject:
   - component: {fileID: 3736134586986649431}
   m_Layer: 3
   m_Name: firewood_no_support (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6776,7 +6776,7 @@ GameObject:
   - component: {fileID: 3736134586994868662}
   m_Layer: 3
   m_Name: stone_wall_detailed (27)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6875,7 +6875,7 @@ GameObject:
   - component: {fileID: 3736134587019108025}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (25)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6974,7 +6974,7 @@ GameObject:
   - component: {fileID: 3736134587028667595}
   m_Layer: 3
   m_Name: stone_wall (18)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7072,7 +7072,7 @@ GameObject:
   - component: {fileID: 3736134587022225617}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (10)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7171,7 +7171,7 @@ GameObject:
   - component: {fileID: 3736134587031834580}
   m_Layer: 3
   m_Name: stone_wall_detailed (17)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7270,7 +7270,7 @@ GameObject:
   - component: {fileID: 3736134587041157706}
   m_Layer: 3
   m_Name: wall_passage.007 (16)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7370,7 +7370,7 @@ GameObject:
   - component: {fileID: 3736134587040148461}
   m_Layer: 3
   m_Name: stone_wall (19)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7468,7 +7468,7 @@ GameObject:
   - component: {fileID: 3736134587052015026}
   m_Layer: 3
   m_Name: wall_passage.007 (19)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7568,7 +7568,7 @@ GameObject:
   - component: {fileID: 3736134587049138415}
   m_Layer: 3
   m_Name: stone_wall_detailed (29)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7667,7 +7667,7 @@ GameObject:
   - component: {fileID: 3736134587063237364}
   m_Layer: 3
   m_Name: stone_wall (7)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7765,7 +7765,7 @@ GameObject:
   - component: {fileID: 3736134587060773109}
   m_Layer: 3
   m_Name: wall_passage.007 (21)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7865,7 +7865,7 @@ GameObject:
   - component: {fileID: 3736134587056485077}
   m_Layer: 3
   m_Name: wall_passage.007 (12)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7965,7 +7965,7 @@ GameObject:
   - component: {fileID: 3736134587071607694}
   m_Layer: 3
   m_Name: wall_passage.007 (9)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8065,7 +8065,7 @@ GameObject:
   - component: {fileID: 3736134587072315840}
   m_Layer: 3
   m_Name: stone_wall_detailed (7)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8164,7 +8164,7 @@ GameObject:
   - component: {fileID: 3736134587089406644}
   m_Layer: 3
   m_Name: crate.001
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8262,7 +8262,7 @@ GameObject:
   - component: {fileID: 3736134587089641933}
   m_Layer: 3
   m_Name: barrel.003 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8362,7 +8362,7 @@ GameObject:
   - component: {fileID: 3736134587089641237}
   m_Layer: 3
   m_Name: barrel.003 (4)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8462,7 +8462,7 @@ GameObject:
   - component: {fileID: 3736134587089562571}
   m_Layer: 3
   m_Name: stone_wall (16)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8560,7 +8560,7 @@ GameObject:
   - component: {fileID: 3736134587089639647}
   m_Layer: 3
   m_Name: barrel.003 (6)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8660,7 +8660,7 @@ GameObject:
   - component: {fileID: 3736134587089602227}
   m_Layer: 3
   m_Name: barrel.003
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8760,7 +8760,7 @@ GameObject:
   - component: {fileID: 3736134587089435473}
   m_Layer: 3
   m_Name: barrel.003 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8860,7 +8860,7 @@ GameObject:
   - component: {fileID: 3736134587089447511}
   m_Layer: 3
   m_Name: barrel.003 (5)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8960,7 +8960,7 @@ GameObject:
   - component: {fileID: 3736134587089619653}
   m_Layer: 3
   m_Name: barrel.003 (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9057,7 +9057,7 @@ GameObject:
   - component: {fileID: 3736134587095694463}
   m_Layer: 3
   m_Name: Barrels
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9098,7 +9098,7 @@ GameObject:
   - component: {fileID: 3736134587090769416}
   m_Layer: 3
   m_Name: stone_wall_detailed (22)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9197,7 +9197,7 @@ GameObject:
   - component: {fileID: 3736134587111145011}
   m_Layer: 3
   m_Name: stone_wall (9)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9295,7 +9295,7 @@ GameObject:
   - component: {fileID: 3736134587118215163}
   m_Layer: 3
   m_Name: wall_passage.007 (14)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9395,7 +9395,7 @@ GameObject:
   - component: {fileID: 3736134587139092449}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (14)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9494,7 +9494,7 @@ GameObject:
   - component: {fileID: 3736134587131226746}
   m_Layer: 3
   m_Name: platform (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9593,7 +9593,7 @@ GameObject:
   - component: {fileID: 3736134587131161980}
   m_Layer: 3
   m_Name: platform (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9692,7 +9692,7 @@ GameObject:
   - component: {fileID: 3736134587131174008}
   m_Layer: 3
   m_Name: platform.004 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9791,7 +9791,7 @@ GameObject:
   - component: {fileID: 3736134587131204308}
   m_Layer: 3
   m_Name: wood_wall.000
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9890,7 +9890,7 @@ GameObject:
   - component: {fileID: 3736134587131219314}
   m_Layer: 3
   m_Name: wood_column.010
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9988,7 +9988,7 @@ GameObject:
   - component: {fileID: 3736134587131162360}
   m_Layer: 3
   m_Name: wood_stairs
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10083,7 +10083,7 @@ GameObject:
   - component: {fileID: 3736134587137688874}
   m_Layer: 3
   m_Name: house.002
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10139,7 +10139,7 @@ GameObject:
   - component: {fileID: 3736134587131223254}
   m_Layer: 3
   m_Name: wood_wall.007
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10238,7 +10238,7 @@ GameObject:
   - component: {fileID: 3736134587131192778}
   m_Layer: 3
   m_Name: platform.004
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10337,7 +10337,7 @@ GameObject:
   - component: {fileID: 3736134587131239406}
   m_Layer: 3
   m_Name: platform
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10436,7 +10436,7 @@ GameObject:
   - component: {fileID: 3736134587131244730}
   m_Layer: 3
   m_Name: platform (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10535,7 +10535,7 @@ GameObject:
   - component: {fileID: 3736134587131158368}
   m_Layer: 3
   m_Name: wood_wall.018 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10634,7 +10634,7 @@ GameObject:
   - component: {fileID: 3736134587131169758}
   m_Layer: 3
   m_Name: wood_column.003 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10732,7 +10732,7 @@ GameObject:
   - component: {fileID: 3736134587131186262}
   m_Layer: 3
   m_Name: platform.004 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10831,7 +10831,7 @@ GameObject:
   - component: {fileID: 3736134587131226660}
   m_Layer: 3
   m_Name: wood_wall.017 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10930,7 +10930,7 @@ GameObject:
   - component: {fileID: 3736134587131164396}
   m_Layer: 3
   m_Name: wood_wall.018
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11029,7 +11029,7 @@ GameObject:
   - component: {fileID: 3736134587131192904}
   m_Layer: 3
   m_Name: wood_wall.018 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11128,7 +11128,7 @@ GameObject:
   - component: {fileID: 3736134587131206464}
   m_Layer: 3
   m_Name: wood_wall.007 (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11227,7 +11227,7 @@ GameObject:
   - component: {fileID: 3736134587131166076}
   m_Layer: 3
   m_Name: wood_wall.007 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11326,7 +11326,7 @@ GameObject:
   - component: {fileID: 3736134587131254424}
   m_Layer: 3
   m_Name: wood_wall.017
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11425,7 +11425,7 @@ GameObject:
   - component: {fileID: 3736134587131236332}
   m_Layer: 3
   m_Name: wood_wall_enter.005
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11524,7 +11524,7 @@ GameObject:
   - component: {fileID: 3736134587131233322}
   m_Layer: 3
   m_Name: wood_column.003
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11622,7 +11622,7 @@ GameObject:
   - component: {fileID: 3736134587131183690}
   m_Layer: 3
   m_Name: wood_wall.007 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11721,7 +11721,7 @@ GameObject:
   - component: {fileID: 3736134587139888059}
   m_Layer: 3
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11819,7 +11819,7 @@ GameObject:
   - component: {fileID: 3736134587142116749}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (7)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11918,7 +11918,7 @@ GameObject:
   - component: {fileID: 3736134587152705289}
   m_Layer: 3
   m_Name: wall_passage.007 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12018,7 +12018,7 @@ GameObject:
   - component: {fileID: 3736134587178780177}
   m_Layer: 3
   m_Name: stone_wall_detailed_corner.001
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12116,7 +12116,7 @@ GameObject:
   - component: {fileID: 3736134587178863319}
   m_Layer: 3
   m_Name: stone_wall_detailed_corner
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12215,7 +12215,7 @@ GameObject:
   - component: {fileID: 3736134587190544738}
   m_Layer: 3
   m_Name: stone_wall_detailed (10)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12314,7 +12314,7 @@ GameObject:
   - component: {fileID: 3736134587190862320}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (19)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12413,7 +12413,7 @@ GameObject:
   - component: {fileID: 3736134587199008494}
   m_Layer: 3
   m_Name: stone_wall (20)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12511,7 +12511,7 @@ GameObject:
   - component: {fileID: 3736134587214422262}
   m_Layer: 3
   m_Name: stone_half_gate
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12611,7 +12611,7 @@ GameObject:
   - component: {fileID: 3736134587210197000}
   m_Layer: 3
   m_Name: crate
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12709,7 +12709,7 @@ GameObject:
   - component: {fileID: 3736134587256202919}
   m_Layer: 3
   m_Name: stone_wall (30)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12807,7 +12807,7 @@ GameObject:
   - component: {fileID: 3736134587260567270}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (9)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12903,7 +12903,7 @@ GameObject:
   - component: {fileID: 3736134587264592197}
   m_Layer: 3
   m_Name: Boxes (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12945,7 +12945,7 @@ GameObject:
   - component: {fileID: 3736134587258053387}
   m_Layer: 3
   m_Name: box.002
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13043,7 +13043,7 @@ GameObject:
   - component: {fileID: 3736134587258092927}
   m_Layer: 3
   m_Name: box.004 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13142,7 +13142,7 @@ GameObject:
   - component: {fileID: 3736134587258093453}
   m_Layer: 3
   m_Name: box
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13241,7 +13241,7 @@ GameObject:
   - component: {fileID: 3736134587258113629}
   m_Layer: 3
   m_Name: box.004 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13340,7 +13340,7 @@ GameObject:
   - component: {fileID: 3736134587258127655}
   m_Layer: 3
   m_Name: box.005
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13439,7 +13439,7 @@ GameObject:
   - component: {fileID: 3736134587258073993}
   m_Layer: 3
   m_Name: box.001
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13538,7 +13538,7 @@ GameObject:
   - component: {fileID: 3736134587258063833}
   m_Layer: 3
   m_Name: box.002 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13636,7 +13636,7 @@ GameObject:
   - component: {fileID: 3736134587258027957}
   m_Layer: 3
   m_Name: box.004
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13735,7 +13735,7 @@ GameObject:
   - component: {fileID: 3736134587268107870}
   m_Layer: 3
   m_Name: wall_passage.007 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13835,7 +13835,7 @@ GameObject:
   - component: {fileID: 3736134587278544765}
   m_Layer: 3
   m_Name: stone_wall (24)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13933,7 +13933,7 @@ GameObject:
   - component: {fileID: 3736134587275907599}
   m_Layer: 3
   m_Name: stone_wall_detailed (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14032,7 +14032,7 @@ GameObject:
   - component: {fileID: 3736134587276319737}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (8)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14131,7 +14131,7 @@ GameObject:
   - component: {fileID: 3736134587288923947}
   m_Layer: 3
   m_Name: trunk
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14230,7 +14230,7 @@ GameObject:
   - component: {fileID: 3736134587301285724}
   m_Layer: 3
   m_Name: stone_wall (10)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14328,7 +14328,7 @@ GameObject:
   - component: {fileID: 3736134587302522534}
   m_Layer: 3
   m_Name: stone_wall (32)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14426,7 +14426,7 @@ GameObject:
   - component: {fileID: 3736134587308248291}
   m_Layer: 3
   m_Name: stone_wall_detailed (24)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14525,7 +14525,7 @@ GameObject:
   - component: {fileID: 3736134587316515591}
   m_Layer: 3
   m_Name: stone_wall_detailed (26)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14624,7 +14624,7 @@ GameObject:
   - component: {fileID: 3736134587324275793}
   m_Layer: 3
   m_Name: trunk (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14723,7 +14723,7 @@ GameObject:
   - component: {fileID: 3736134587347368146}
   m_Layer: 3
   m_Name: stone_wall_detailed (28)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14822,7 +14822,7 @@ GameObject:
   - component: {fileID: 3736134587347039001}
   m_Layer: 3
   m_Name: rack_for_weapons
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14921,7 +14921,7 @@ GameObject:
   - component: {fileID: 3736134587376918994}
   m_Layer: 3
   m_Name: stone_wall_detailed (25)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15020,7 +15020,7 @@ GameObject:
   - component: {fileID: 3736134587387225647}
   m_Layer: 3
   m_Name: box.002
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15115,7 +15115,7 @@ GameObject:
   - component: {fileID: 3736134587384982625}
   m_Layer: 3
   m_Name: Boxes (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15157,7 +15157,7 @@ GameObject:
   - component: {fileID: 3736134587387263067}
   m_Layer: 3
   m_Name: box.004 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15256,7 +15256,7 @@ GameObject:
   - component: {fileID: 3736134587387263657}
   m_Layer: 3
   m_Name: box
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15355,7 +15355,7 @@ GameObject:
   - component: {fileID: 3736134587387415417}
   m_Layer: 3
   m_Name: box.004 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15454,7 +15454,7 @@ GameObject:
   - component: {fileID: 3736134587387428867}
   m_Layer: 3
   m_Name: box.005
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15553,7 +15553,7 @@ GameObject:
   - component: {fileID: 3736134587387246253}
   m_Layer: 3
   m_Name: box.001
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15652,7 +15652,7 @@ GameObject:
   - component: {fileID: 3736134587387236093}
   m_Layer: 3
   m_Name: box.002 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15750,7 +15750,7 @@ GameObject:
   - component: {fileID: 3736134587387329169}
   m_Layer: 3
   m_Name: box.004
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15849,7 +15849,7 @@ GameObject:
   - component: {fileID: 3736134587395478784}
   m_Layer: 3
   m_Name: wood_wall.016 (4)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15948,7 +15948,7 @@ GameObject:
   - component: {fileID: 3736134587395403318}
   m_Layer: 3
   m_Name: wood_wall_enter.004
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16047,7 +16047,7 @@ GameObject:
   - component: {fileID: 3736134587395432292}
   m_Layer: 3
   m_Name: wood_wall.007 (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16146,7 +16146,7 @@ GameObject:
   - component: {fileID: 3736134587395463752}
   m_Layer: 3
   m_Name: wood_column.004 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16244,7 +16244,7 @@ GameObject:
   - component: {fileID: 3736134587395416090}
   m_Layer: 3
   m_Name: platform.003 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16343,7 +16343,7 @@ GameObject:
   - component: {fileID: 3736134587395470510}
   m_Layer: 3
   m_Name: wood_wall.018 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16442,7 +16442,7 @@ GameObject:
   - component: {fileID: 3736134587395406672}
   m_Layer: 3
   m_Name: wood_column.004
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16540,7 +16540,7 @@ GameObject:
   - component: {fileID: 3736134587395472040}
   m_Layer: 3
   m_Name: wood_wall.007
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16639,7 +16639,7 @@ GameObject:
   - component: {fileID: 3736134587395437718}
   m_Layer: 3
   m_Name: wood_wall.007 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16738,7 +16738,7 @@ GameObject:
   - component: {fileID: 3736134587395454486}
   m_Layer: 3
   m_Name: wood_wall.016 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16834,7 +16834,7 @@ GameObject:
   - component: {fileID: 3736134587393592972}
   m_Layer: 3
   m_Name: House.001 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16885,7 +16885,7 @@ GameObject:
   - component: {fileID: 3736134587395417046}
   m_Layer: 3
   m_Name: wood_wall.018
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16984,7 +16984,7 @@ GameObject:
   - component: {fileID: 3736134587395466178}
   m_Layer: 3
   m_Name: wood_wall.016 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17083,7 +17083,7 @@ GameObject:
   - component: {fileID: 3736134587395403060}
   m_Layer: 3
   m_Name: wood_wall.014
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17182,7 +17182,7 @@ GameObject:
   - component: {fileID: 3736134587395410160}
   m_Layer: 3
   m_Name: platform.003
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17281,7 +17281,7 @@ GameObject:
   - component: {fileID: 3736134587395455706}
   m_Layer: 3
   m_Name: wood_column.004 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17379,7 +17379,7 @@ GameObject:
   - component: {fileID: 3736134587395475742}
   m_Layer: 3
   m_Name: wood_wall.007 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17478,7 +17478,7 @@ GameObject:
   - component: {fileID: 3736134587395488380}
   m_Layer: 3
   m_Name: wood_wall.014 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17577,7 +17577,7 @@ GameObject:
   - component: {fileID: 3736134587424011801}
   m_Layer: 3
   m_Name: stone_wall (6)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17675,7 +17675,7 @@ GameObject:
   - component: {fileID: 3736134587429769135}
   m_Layer: 3
   m_Name: wall_passage.006 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17775,7 +17775,7 @@ GameObject:
   - component: {fileID: 3736134587445623128}
   m_Layer: 3
   m_Name: canvas_on_wall.004 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17874,7 +17874,7 @@ GameObject:
   - component: {fileID: 3736134587457887270}
   m_Layer: 3
   m_Name: stone_wall (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17972,7 +17972,7 @@ GameObject:
   - component: {fileID: 3736134587455916847}
   m_Layer: 3
   m_Name: wall_passage.007 (25)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18072,7 +18072,7 @@ GameObject:
   - component: {fileID: 3736134587449931519}
   m_Layer: 3
   m_Name: wall_passage.007 (13)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18172,7 +18172,7 @@ GameObject:
   - component: {fileID: 3736134587465954612}
   m_Layer: 3
   m_Name: wall_passage.007 (17)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18272,7 +18272,7 @@ GameObject:
   - component: {fileID: 3736134587466140263}
   m_Layer: 3
   m_Name: stone_wall_detailed (11)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18371,7 +18371,7 @@ GameObject:
   - component: {fileID: 3736134587460751004}
   m_Layer: 3
   m_Name: wall_passage.007 (28)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18471,7 +18471,7 @@ GameObject:
   - component: {fileID: 3736134587459060943}
   m_Layer: 3
   m_Name: stone_wall_detailed (4)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18570,7 +18570,7 @@ GameObject:
   - component: {fileID: 3736134587489426457}
   m_Layer: 3
   m_Name: wall_passage.007 (29)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18670,7 +18670,7 @@ GameObject:
   - component: {fileID: 3736134587519791145}
   m_Layer: 3
   m_Name: stone_wall_detailed_corner.001 (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18768,7 +18768,7 @@ GameObject:
   - component: {fileID: 3736134587581829533}
   m_Layer: 3
   m_Name: stone_wall_detailed_corner.001 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18866,7 +18866,7 @@ GameObject:
   - component: {fileID: 3736134587622220621}
   m_Layer: 3
   m_Name: stone_wall (5)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18964,7 +18964,7 @@ GameObject:
   - component: {fileID: 3736134587641774600}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (4)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19063,7 +19063,7 @@ GameObject:
   - component: {fileID: 3736134587648708280}
   m_Layer: 3
   m_Name: wood_wall.016 (4)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19162,7 +19162,7 @@ GameObject:
   - component: {fileID: 3736134587648656604}
   m_Layer: 3
   m_Name: wood_wall.007 (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19261,7 +19261,7 @@ GameObject:
   - component: {fileID: 3736134587648636302}
   m_Layer: 3
   m_Name: wood_wall_enter.004
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19360,7 +19360,7 @@ GameObject:
   - component: {fileID: 3736134587648654242}
   m_Layer: 3
   m_Name: platform.003 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19459,7 +19459,7 @@ GameObject:
   - component: {fileID: 3736134587648700182}
   m_Layer: 3
   m_Name: wood_wall.018 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19558,7 +19558,7 @@ GameObject:
   - component: {fileID: 3736134587648688624}
   m_Layer: 3
   m_Name: wood_column.004 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19656,7 +19656,7 @@ GameObject:
   - component: {fileID: 3736134587648696592}
   m_Layer: 3
   m_Name: wood_wall.007
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19755,7 +19755,7 @@ GameObject:
   - component: {fileID: 3736134587648631016}
   m_Layer: 3
   m_Name: wood_column.004
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19850,7 +19850,7 @@ GameObject:
   - component: {fileID: 3736134587646825780}
   m_Layer: 3
   m_Name: House.001
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19901,7 +19901,7 @@ GameObject:
   - component: {fileID: 3736134587648683438}
   m_Layer: 3
   m_Name: wood_wall.016 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20000,7 +20000,7 @@ GameObject:
   - component: {fileID: 3736134587648667438}
   m_Layer: 3
   m_Name: wood_wall.007 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20099,7 +20099,7 @@ GameObject:
   - component: {fileID: 3736134587648653422}
   m_Layer: 3
   m_Name: wood_wall.018
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20198,7 +20198,7 @@ GameObject:
   - component: {fileID: 3736134587648702586}
   m_Layer: 3
   m_Name: wood_wall.016 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20297,7 +20297,7 @@ GameObject:
   - component: {fileID: 3736134587648636556}
   m_Layer: 3
   m_Name: wood_wall.014
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20396,7 +20396,7 @@ GameObject:
   - component: {fileID: 3736134587648643912}
   m_Layer: 3
   m_Name: platform.003
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20495,7 +20495,7 @@ GameObject:
   - component: {fileID: 3736134587648680290}
   m_Layer: 3
   m_Name: wood_column.004 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20593,7 +20593,7 @@ GameObject:
   - component: {fileID: 3736134587648709286}
   m_Layer: 3
   m_Name: wood_wall.007 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20692,7 +20692,7 @@ GameObject:
   - component: {fileID: 3736134587648713156}
   m_Layer: 3
   m_Name: wood_wall.014 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20791,7 +20791,7 @@ GameObject:
   - component: {fileID: 3736134587657656791}
   m_Layer: 3
   m_Name: stone_wall_detailed (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20890,7 +20890,7 @@ GameObject:
   - component: {fileID: 3736134587679895409}
   m_Layer: 3
   m_Name: firewood
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20990,7 +20990,7 @@ GameObject:
   - component: {fileID: 3736134587690389278}
   m_Layer: 3
   m_Name: stone_wall_detailed
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21089,7 +21089,7 @@ GameObject:
   - component: {fileID: 3736134587703618764}
   m_Layer: 3
   m_Name: wall_passage.007 (7)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21189,7 +21189,7 @@ GameObject:
   - component: {fileID: 3736134587711021395}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (6)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21288,7 +21288,7 @@ GameObject:
   - component: {fileID: 3736134587722775693}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (22)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21387,7 +21387,7 @@ GameObject:
   - component: {fileID: 3736134587724247533}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (15)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21486,7 +21486,7 @@ GameObject:
   - component: {fileID: 3736134587719633249}
   m_Layer: 3
   m_Name: stone_wall_detailed (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21585,7 +21585,7 @@ GameObject:
   - component: {fileID: 3736134587734094860}
   m_Layer: 3
   m_Name: stone_wall (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21683,7 +21683,7 @@ GameObject:
   - component: {fileID: 3736134587730946776}
   m_Layer: 3
   m_Name: firewood_no_support
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21782,7 +21782,7 @@ GameObject:
   - component: {fileID: 3736134587732406366}
   m_Layer: 3
   m_Name: stone_wall_detailed (23)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21881,7 +21881,7 @@ GameObject:
   - component: {fileID: 3736134587740008120}
   m_Layer: 3
   m_Name: stone_wall_detailed (9)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21980,7 +21980,7 @@ GameObject:
   - component: {fileID: 3736134587767653116}
   m_Layer: 3
   m_Name: sawing_wood
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22081,7 +22081,7 @@ GameObject:
   - component: {fileID: 3736134587760861150}
   m_Layer: 3
   m_Name: wall_passage.007 (22)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22181,7 +22181,7 @@ GameObject:
   - component: {fileID: 3736134587774217104}
   m_Layer: 3
   m_Name: box.004 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22280,7 +22280,7 @@ GameObject:
   - component: {fileID: 3736134587774230762}
   m_Layer: 3
   m_Name: box.005
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22379,7 +22379,7 @@ GameObject:
   - component: {fileID: 3736134587774293572}
   m_Layer: 3
   m_Name: box.001
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22478,7 +22478,7 @@ GameObject:
   - component: {fileID: 3736134587774299668}
   m_Layer: 3
   m_Name: box.002 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22576,7 +22576,7 @@ GameObject:
   - component: {fileID: 3736134587774376568}
   m_Layer: 3
   m_Name: box.004
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22675,7 +22675,7 @@ GameObject:
   - component: {fileID: 3736134587774273222}
   m_Layer: 3
   m_Name: box.002
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22770,7 +22770,7 @@ GameObject:
   - component: {fileID: 3736134587772030088}
   m_Layer: 3
   m_Name: Boxes (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22812,7 +22812,7 @@ GameObject:
   - component: {fileID: 3736134587774310578}
   m_Layer: 3
   m_Name: box.004 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22911,7 +22911,7 @@ GameObject:
   - component: {fileID: 3736134587774310976}
   m_Layer: 3
   m_Name: box
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23010,7 +23010,7 @@ GameObject:
   - component: {fileID: 3736134587770951369}
   m_Layer: 3
   m_Name: stone_wall_detailed (13)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23109,7 +23109,7 @@ GameObject:
   - component: {fileID: 3736134587810674105}
   m_Layer: 3
   m_Name: canvas_on_wall.004 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23208,7 +23208,7 @@ GameObject:
   - component: {fileID: 3736134587843632503}
   m_Layer: 3
   m_Name: stone_wall (12)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23306,7 +23306,7 @@ GameObject:
   - component: {fileID: 3736134587846142595}
   m_Layer: 3
   m_Name: stone_wall (25)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23404,7 +23404,7 @@ GameObject:
   - component: {fileID: 3736134587869139371}
   m_Layer: 3
   m_Name: stone_wall_detailed (16)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23503,7 +23503,7 @@ GameObject:
   - component: {fileID: 3736134587872309073}
   m_Layer: 3
   m_Name: wagon (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23602,7 +23602,7 @@ GameObject:
   - component: {fileID: 3736134587906422618}
   m_Layer: 3
   m_Name: wall_passage.007 (26)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23702,7 +23702,7 @@ GameObject:
   - component: {fileID: 3736134587923425967}
   m_Layer: 3
   m_Name: stone_wall_detailed (6)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23801,7 +23801,7 @@ GameObject:
   - component: {fileID: 3736134587921555069}
   m_Layer: 3
   m_Name: wall_passage.006 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23901,7 +23901,7 @@ GameObject:
   - component: {fileID: 3736134587934310252}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (17)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24000,7 +24000,7 @@ GameObject:
   - component: {fileID: 3736134587931760066}
   m_Layer: 3
   m_Name: barrel.003 (6)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24100,7 +24100,7 @@ GameObject:
   - component: {fileID: 3736134587931724718}
   m_Layer: 3
   m_Name: barrel.003
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24200,7 +24200,7 @@ GameObject:
   - component: {fileID: 3736134587931850316}
   m_Layer: 3
   m_Name: barrel.003 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24300,7 +24300,7 @@ GameObject:
   - component: {fileID: 3736134587931830090}
   m_Layer: 3
   m_Name: barrel.003 (5)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24397,7 +24397,7 @@ GameObject:
   - component: {fileID: 3736134587934175586}
   m_Layer: 3
   m_Name: Barrels (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24438,7 +24438,7 @@ GameObject:
   - component: {fileID: 3736134587931772888}
   m_Layer: 3
   m_Name: barrel.003 (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24538,7 +24538,7 @@ GameObject:
   - component: {fileID: 3736134587931759112}
   m_Layer: 3
   m_Name: barrel.003 (4)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24638,7 +24638,7 @@ GameObject:
   - component: {fileID: 3736134587931765968}
   m_Layer: 3
   m_Name: barrel.003 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24738,7 +24738,7 @@ GameObject:
   - component: {fileID: 3736134587986001543}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (20)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24837,7 +24837,7 @@ GameObject:
   - component: {fileID: 3736134587984041951}
   m_Layer: 3
   m_Name: stone_wall_detailed (19)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24936,7 +24936,7 @@ GameObject:
   - component: {fileID: 3736134587978858810}
   m_Layer: 3
   m_Name: stone_wall_detailed (15)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25035,7 +25035,7 @@ GameObject:
   - component: {fileID: 3736134587987971974}
   m_Layer: 3
   m_Name: wall_passage.007 (8)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25135,7 +25135,7 @@ GameObject:
   - component: {fileID: 3736134587995538602}
   m_Layer: 3
   m_Name: stone_wall (8)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25233,7 +25233,7 @@ GameObject:
   - component: {fileID: 3736134587996482748}
   m_Layer: 3
   m_Name: wall_passage.007
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25333,7 +25333,7 @@ GameObject:
   - component: {fileID: 3736134588007235383}
   m_Layer: 3
   m_Name: wall_passage.007 (4)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25433,7 +25433,7 @@ GameObject:
   - component: {fileID: 3736134588022044646}
   m_Layer: 3
   m_Name: wall_passage.006 (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25533,7 +25533,7 @@ GameObject:
   - component: {fileID: 3736134588031232308}
   m_Layer: 3
   m_Name: cage
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25631,7 +25631,7 @@ GameObject:
   - component: {fileID: 3736134588041045860}
   m_Layer: 3
   m_Name: canvas_on_wall.004
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25727,7 +25727,7 @@ GameObject:
   - component: {fileID: 3736134588058959910}
   m_Layer: 3
   m_Name: Environment_Castle
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25927,7 +25927,7 @@ GameObject:
   - component: {fileID: 3736134588057826492}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26026,7 +26026,7 @@ GameObject:
   - component: {fileID: 3736134588079523162}
   m_Layer: 3
   m_Name: stone_wall
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26124,7 +26124,7 @@ GameObject:
   - component: {fileID: 3736134588097008974}
   m_Layer: 3
   m_Name: stone_wall (29)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26222,7 +26222,7 @@ GameObject:
   - component: {fileID: 3736134588107139898}
   m_Layer: 3
   m_Name: stone_wall (4)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26320,7 +26320,7 @@ GameObject:
   - component: {fileID: 3736134588104692545}
   m_Layer: 3
   m_Name: platform (7)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26419,7 +26419,7 @@ GameObject:
   - component: {fileID: 3736134588104462309}
   m_Layer: 3
   m_Name: wood_wall.007 (4)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26518,7 +26518,7 @@ GameObject:
   - component: {fileID: 3736134588104526359}
   m_Layer: 3
   m_Name: platform.004 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26617,7 +26617,7 @@ GameObject:
   - component: {fileID: 3736134588104526819}
   m_Layer: 3
   m_Name: wood_wall.001
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26716,7 +26716,7 @@ GameObject:
   - component: {fileID: 3736134588104533005}
   m_Layer: 3
   m_Name: wood_column.005
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26811,7 +26811,7 @@ GameObject:
   - component: {fileID: 3736134588110543335}
   m_Layer: 3
   m_Name: house.003
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26860,7 +26860,7 @@ GameObject:
   - component: {fileID: 3736134588104671907}
   m_Layer: 3
   m_Name: wood_wall.007 (5)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26959,7 +26959,7 @@ GameObject:
   - component: {fileID: 3736134588104692467}
   m_Layer: 3
   m_Name: wood_wall_enter.005
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27058,7 +27058,7 @@ GameObject:
   - component: {fileID: 3736134588104447405}
   m_Layer: 3
   m_Name: platform.004 (5)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27157,7 +27157,7 @@ GameObject:
   - component: {fileID: 3736134588104450331}
   m_Layer: 3
   m_Name: wood_wall.001 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27256,7 +27256,7 @@ GameObject:
   - component: {fileID: 3736134588104446039}
   m_Layer: 3
   m_Name: platform.004 (4)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27355,7 +27355,7 @@ GameObject:
   - component: {fileID: 3736134588104455459}
   m_Layer: 3
   m_Name: wood_wall.007
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27454,7 +27454,7 @@ GameObject:
   - component: {fileID: 3736134588104500647}
   m_Layer: 3
   m_Name: wood_wall.007 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27553,7 +27553,7 @@ GameObject:
   - component: {fileID: 3736134588104675611}
   m_Layer: 3
   m_Name: platform (8)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27652,7 +27652,7 @@ GameObject:
   - component: {fileID: 3736134588104482349}
   m_Layer: 3
   m_Name: platform.004 (3)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27751,7 +27751,7 @@ GameObject:
   - component: {fileID: 3736134588104684947}
   m_Layer: 3
   m_Name: wood_wall.001 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27850,7 +27850,7 @@ GameObject:
   - component: {fileID: 3736134588119001473}
   m_Layer: 3
   m_Name: stone_wall_detailed (12)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27949,7 +27949,7 @@ GameObject:
   - component: {fileID: 3736134588115568654}
   m_Layer: 3
   m_Name: stone_wall_detailed (18)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28048,7 +28048,7 @@ GameObject:
   - component: {fileID: 3736134588142700600}
   m_Layer: 3
   m_Name: stone_wall_detailed_corner (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28147,7 +28147,7 @@ GameObject:
   - component: {fileID: 3736134588168130491}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28246,7 +28246,7 @@ GameObject:
   - component: {fileID: 3736134588166532817}
   m_Layer: 3
   m_Name: stone_wall (17)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28344,7 +28344,7 @@ GameObject:
   - component: {fileID: 3736134588185462606}
   m_Layer: 3
   m_Name: wagon
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28443,7 +28443,7 @@ GameObject:
   - component: {fileID: 3736134588194942142}
   m_Layer: 3
   m_Name: stone_wall (22)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28541,7 +28541,7 @@ GameObject:
   - component: {fileID: 3736134588241294949}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (23)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28640,7 +28640,7 @@ GameObject:
   - component: {fileID: 3736134588296876162}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (21)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28739,7 +28739,7 @@ GameObject:
   - component: {fileID: 3736134588313233990}
   m_Layer: 3
   m_Name: stone_wall_detailed (20)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28838,7 +28838,7 @@ GameObject:
   - component: {fileID: 3736134588346976619}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (24)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28937,7 +28937,7 @@ GameObject:
   - component: {fileID: 3736134588342243293}
   m_Layer: 3
   m_Name: spice_bag
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29036,7 +29036,7 @@ GameObject:
   - component: {fileID: 3736134588358402466}
   m_Layer: 3
   m_Name: stone_wall (2)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29134,7 +29134,7 @@ GameObject:
   - component: {fileID: 3736134588382669039}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (1)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29233,7 +29233,7 @@ GameObject:
   - component: {fileID: 3736134588391013889}
   m_Layer: 3
   m_Name: canvas_on_wall.003 (18)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29332,7 +29332,7 @@ GameObject:
   - component: {fileID: 3736134588422808163}
   m_Layer: 3
   m_Name: wall_passage.007 (11)
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
