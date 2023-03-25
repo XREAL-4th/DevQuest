@@ -33,12 +33,14 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
-        {
-            Instantiate(type.hitEffect, transform.position, Quaternion.identity).GetComponent<ParticleSystem>().Play();
-            other.GetComponent<IHealthy>()?.Damage(type.damage * parent.damagetMultiplier);
-            Release();
-        }
+        if (!other.CompareTag("Player")) OnHit(other.gameObject);
+    }
+
+    public void OnHit(GameObject target)
+    {
+        Instantiate(type.hitEffect, transform.position, Quaternion.identity).GetComponent<ParticleSystem>().Play();
+        target.GetComponent<IHealthy>()?.Damage(type.damage * parent.damagetMultiplier);
+        Release();
     }
 
     public virtual void OnDespawn()
