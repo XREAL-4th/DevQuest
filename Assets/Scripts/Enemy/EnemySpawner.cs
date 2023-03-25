@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : SingletonMonoBehaviour<EnemySpawner>
 {
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private int enemyCount;
+    public int remainEnemyCount;
 
     public List<Transform> spawnArea;
     // Start is called before the first frame update
     void Start()
     {
         SpawnEnemy();
+        remainEnemyCount = enemyCount;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (remainEnemyCount == 0)
+        {
+            GameManager.instance.GameClear();
+        }
     }
 
     void SpawnEnemy()

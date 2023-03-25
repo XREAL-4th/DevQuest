@@ -35,6 +35,7 @@ public class EnemyInfo : MonoBehaviour
             
             dieParticleSystem.Stop();
             dieParticleSystem.gameObject.SetActive(false);
+            EnemySpawner.instance.remainEnemyCount -= 1; // 남은 적 수 1 감소
             gameObject.SetActive(false);
         }
         healthSlider.value = enemyHealth;
