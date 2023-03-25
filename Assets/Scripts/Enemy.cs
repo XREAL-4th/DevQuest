@@ -118,24 +118,6 @@ public class Enemy : MonoBehaviour
     }
 
 
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        //콜라이더에 닿는 경우 실행
-
-        
-
-        //if (other.gameObject.tag.Equals("Bullet")) 
-        if (other.gameObject.tag=="Bullet") //bullet이라는 태그를 가진 오브젝트면
-        {
-            hp -= 10; //hp -10씩 감소
-            print("hp 10 감소2");
-
-        }
-        
-    }
-    */
-
 
     void OnCollisionEnter(Collision collision)
     {
@@ -152,9 +134,6 @@ public class Enemy : MonoBehaviour
                 Destroy(this.gameObject);
                 GameManager.instance.Score();
             }
-
-
-            //GameManager.instance.minusHP(); // hp -10감소
 
         }
     }

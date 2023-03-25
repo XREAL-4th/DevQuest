@@ -7,8 +7,6 @@ public class GameManager : MonoBehaviour
 
     private bool isGameOver; //게임 종료 여부를 저장할 멤버 변수
 
-    //public int hp = 50; //hp 50
-
     public int score = 0; //죽인 적의 수 
 
     public bool IsGameOver
@@ -64,24 +62,6 @@ public class GameManager : MonoBehaviour
             IsGameOver = true;//isGameOver 실행
         }
     }
-
-
-    /*
-    public void minusHP()
-    {
-        hp -= 10; //hp -10씩 감소
-        print("현재 hp=" + hp);
-        
-
-        if (hp <= 0)
-        {
-            //
-            Score();
-            Destroy(this);
-
-        }
-    }
-    */
 
 
     public static void Quit()
