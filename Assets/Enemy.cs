@@ -91,18 +91,19 @@ public class Enemy : MonoBehaviour
         Debug.Log(health);
         if (health <= 0)
         {
+            //존재하는 적 숫자 줄이기
+            GameManager.instance.enemysCount--;
             Destroy(gameObject);
         }
         //넉백 구현
-        //Q5. bullet이 쏘아져 오는 방향 반대로 넉백을 시키고 싶은데 어떻게 할지 몰라 당장은 bullet의 x 좌표의 뒤로 넉백을 시켰습니다.
-        if (transform.position.x < bulletX)
-        {
-            transform.Translate(1f, 0, 0);
-        }
-        else
-        {
-            transform.Translate(-1f, 0, 0);
-        }
+        //if (transform.position.x < bulletX)
+        //{
+        //    transform.Translate(1f, 0, 0);
+        //}
+        //else
+        //{
+        //    transform.Translate(-1f, 0, 0);
+        //}
     }
 
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
