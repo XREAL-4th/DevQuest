@@ -6,6 +6,8 @@ using UnityEngine.Serialization;
 
 public class MoveControl : MonoBehaviour
 {
+    //private float speed = 8f;//
+
     [Header("Preset Fields")]
     [SerializeField] private Rigidbody rigid;
     [SerializeField] private CapsuleCollider col;
@@ -33,6 +35,8 @@ public class MoveControl : MonoBehaviour
 
     private void Start()
     {
+        this.transform.localEulerAngles = new Vector3(0, 0, 0);//
+
         rigid = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         
@@ -90,9 +94,13 @@ public class MoveControl : MonoBehaviour
             }
             stateTime = 0f;
         }
-        
+
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
+
+
+        //transform.Rotate(0f, Input.GetAxis("Mouse X") * speed, 0f, Space.World);//
+        //transform.Rotate(-Input.GetAxis("Mouse Y") * speed, 0f, 0f);//
     }
 
     private void FixedUpdate()
