@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scriptableObject : MonoBehaviour
+[CreateAssetMenu(fileName = "GameData", menuName = "Scriptable/Game Data")]
+public class scriptableObject : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int coin;
+    public float fevertimeDuration;
+    public int feverTimeItemNum;
+    public int enemyCount;
 }

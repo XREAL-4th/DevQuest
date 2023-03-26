@@ -15,16 +15,13 @@ public class Projectile : MonoBehaviour
     {
         layerMask = 7;
         rb = GetComponent<Rigidbody>();
-        rb.velocity = -transform.up * speed;
+        rb.velocity = transform.right * speed;
     }
 
     void Update()
     {
         // 발사체가 이동한 거리가 최대 거리를 넘어가면 파괴한다.
-        if (Vector3.Distance(transform.position, transform.parent.position) > maxDistance)
-        {
-            Destroy(gameObject);
-        }
+        
         
         // Raycasting을 사용하여 충돌 검출을 한다.
     }

@@ -7,13 +7,17 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     [SerializeField] private float timeLimit = 30f;
     public Text timerText;
+    public Text coinText;
     private float timer;
     public bool isPlaying = false;
     private float remainTime;
+    public int remainCoin;
+    public float moveSpeed;
     private void Start()
     {
         timer = 0f;
         isPlaying = true;
+        moveSpeed = 1f;
     }
 
     private void Update()
@@ -38,6 +42,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 isPlaying = false;
             }
         }
+        coinText.text = "Coin : " + remainCoin;
     }
 
     public void GameClear()
