@@ -6,6 +6,8 @@ TagManager:
   tags:
   - FxTemporaire
   - Bullet
+  - Attack
+  - Speed
   layers:
   - Default
   - TransparentFX
