@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        //À¯ÀÏ¼º º¸Àå
+        //ìœ ì¼ì„± ë³´ì¥
         if (instance != null && instance != this)
             Destroy(gameObject);
         else
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //Á¸ÀçÇÏ´Â ÀûµéÀ» ¹è¿­¿¡ ÀúÀå
+        //ì¡´ì¬í•˜ëŠ” ì ë“¤ì„ ë°°ì—´ì— ì €ì¥
         enemys = GameObject.FindGameObjectsWithTag("Enemy");
         enemysCount = enemys.Length;
     }
@@ -38,10 +38,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ÀûÀÌ ´Ù »ç¶óÁö¸é
+        //ì ì´ ë‹¤ ì‚¬ë¼ì§€ë©´
         if (enemysCount == 0)
         {
-            //°ÔÀÓ Å¬¸®¾î
+            //ê²Œì„ í´ë¦¬ì–´
             Debug.Log("game clear");
             gameClear.SetActive(true);
         }

@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05d0aba7e9645d42a0004ffaca9f0be, type: 3}
   m_Name: carrot
   m_EditorClassIdentifier: 
-  name: carrot
-  damage: 10
+  damage: 5
   speed: 0
   itemPrefab: {fileID: 4722562987011889283, guid: e4e322b2fa1dd8f4b985e95a25488777,
     type: 3}

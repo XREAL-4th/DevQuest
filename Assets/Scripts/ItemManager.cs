@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ public class ItemManager : MonoBehaviour
 
     private void Awake()
     {
-        //À¯ÀÏ¼º º¸Àå
+        //ìœ ì¼ì„± ë³´ì¥
         if (instance != null && instance != this)
             Destroy(gameObject);
         else
@@ -22,14 +22,14 @@ public class ItemManager : MonoBehaviour
 
     void Start()
     {
-        //¾ÆÀÌÅÛ »ı¼º ¹× ¹èÄ¡ ÇÔ¼ö È£Ãâ
+        //ì•„ì´í…œ ìƒì„± ë° ë°°ì¹˜ í•¨ìˆ˜ í˜¸ì¶œ
         ItemSpawn(itemDatas[0], new Vector3(-214, 1, 237));
         ItemSpawn(itemDatas[1], new Vector3(-202, 0, 241));
     }
 
     void ItemSpawn(ItemData _newItem, Vector3 _position)
     {
-        //¾ÆÀÌÅÛ »ı¼º ¹× ¹èÄ¡
+        //ì•„ì´í…œ ìƒì„± ë° ë°°ì¹˜
         GameObject newItem = Instantiate(_newItem.itemPrefab);
         newItem.transform.position = _position;
     }

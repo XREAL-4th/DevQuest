@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,16 +13,16 @@ public class item : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //ÇÃ·¹ÀÌ¾î°¡ ¾ÆÀÌÅÛÀ» ¸ÔÀ¸¸é
+        //í”Œë ˆì´ì–´ê°€ ì•„ì´í…œì„ ë¨¹ìœ¼ë©´
         if (collision.gameObject == player)
         {
-            //´ç±ÙÀ» ¸Ô¾úÀ» ¶§
+            //ë‹¹ê·¼ì„ ë¨¹ì—ˆì„ ë•Œ
             if(itemData.name == "carrot")
             {
                 ModifyDamage();
                 Destroy(gameObject);
             }
-            //¼±¹° »óÀÚ¸¦ ¸Ô¾úÀ» ¶§
+            //ì„ ë¬¼ ìƒìë¥¼ ë¨¹ì—ˆì„ ë•Œ
             if (itemData.name == "giftBox")
             {
                 ModifySpeed();
@@ -33,14 +33,14 @@ public class item : MonoBehaviour
 
     void ModifyDamage()
     {
-        //ÃÑ¾ËÀÇ damage ¸¦ 5 -> 10À¸·Î »óÇâ Á¶Á¤
-        player.GetComponent<PlayerAttack>().damage = 10;
+        //ì´ì•Œì˜ damage ë¥¼ 5 ë†’ì„
+        player.GetComponent<PlayerAttack>().damage += itemData.damage;
     }
 
     void ModifySpeed()
     {
-        //ÇÃ·¹ÀÌ¾îÀÇ ¼Óµµ¸¦ 10 ³ôÀÓ
-        player.GetComponent<MoveControl>().moveSpeed += 10;
+        //í”Œë ˆì´ì–´ì˜ ì†ë„ë¥¼ 10 ë†’ì„
+        player.GetComponent<MoveControl>().moveSpeed += itemData.speed;
     }
 
 }
