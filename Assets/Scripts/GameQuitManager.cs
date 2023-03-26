@@ -9,7 +9,6 @@ public class GameQuitManager : MonoBehaviour
 
     private static GameQuitManager instance = null;
     private static int deadEnemy = 0;
-    public int totalEnemy = 3;
     
 
     void Awake()
@@ -56,11 +55,5 @@ public class GameQuitManager : MonoBehaviour
     {
         SceneManager.LoadScene("Ending"); 
     }
-
-    public void StopGame()
-    {
-
-    }
-
 
 }
