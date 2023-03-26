@@ -6,8 +6,14 @@ public class Item : MonoBehaviour
 {
 	[SerializeField]
 	ItemData itemData;
-	public ItemData ItemData { set { itemData = value; } }
-    //public GameObject player;
+	//public ItemData ItemData { set { itemData = value; } }
+	//public GameObject player;
+	public int Power;
+
+	void Start()
+    {
+		Power = itemData.Power;
+}
 
 	public void WatchItemInfo()
 	{

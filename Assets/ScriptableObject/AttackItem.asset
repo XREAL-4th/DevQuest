@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: AttackItem
   m_EditorClassIdentifier: 
   ItemType: 1
-  ItemPrefab: {fileID: 7469620643024789465, guid: e78f558ebb7f12249b9e01d256239095,
-    type: 3}
   power: 1
   position: {x: 0, y: 0, z: 0}

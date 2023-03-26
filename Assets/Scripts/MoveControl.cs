@@ -132,12 +132,12 @@ public class MoveControl : MonoBehaviour
     {
         if (other.tag == "Speed")
         {
-            moveSpeed += 1f;
+            moveSpeed += other.gameObject.GetComponent<Item>().Power;
             other.gameObject.SetActive(false);
         }
         else if (other.tag == "Attack")
         {
-            attackPower += 1;
+            attackPower += other.gameObject.GetComponent<Item>().Power;
             other.gameObject.SetActive(false);
         }
     }

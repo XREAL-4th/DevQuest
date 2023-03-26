@@ -6,10 +6,11 @@ public class ItemManager : MonoBehaviour
 {
     private static ItemManager instance = null;
     public List<GameObject> ItemPrefabs = new List<GameObject>();
-    private float timer;
+    public GameObject[] Items;
 
     void Awake()
     {
+        
         if (null == instance)
         {
             instance = this;
@@ -19,7 +20,16 @@ public class ItemManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+
+        Items = new GameObject[ItemPrefabs.Count];
+        for(int i=0; i< ItemPrefabs.Count; i++)
+        {
+            Items[i] = Instantiate(ItemPrefabs[i]);
+            StartCoroutine(Spawn(Items[i], 10.0f));
+        }
     }
+
 
     public static ItemManager Instance
     {
@@ -33,33 +43,15 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    private void Start()
+  
+
+    IEnumerator Spawn(GameObject obj, float freq)
     {
-        timer = 0;
-        SpawnItemObject();
-    }
+        obj.SetActive(true);
 
-    void Update()
-    {
-        timer += Time.deltaTime;
-        if (timer >= 12f)
-        {
-            SpawnItemObject();
-            timer = 0f;
-        }
-    }
+        yield return new WaitForSeconds(freq);
 
-    public void SpawnItemObject()
-    {
-        for (int i = 0; i < ItemPrefabs.Count; i++)
-        {
-            GameObject item = Instantiate(ItemPrefabs[i]);
-
-            //Debug.Log(item.GetComponent<ItemData>().Power);
-
-            Destroy(item, 5f);
-
-        }
+        StartCoroutine(Spawn(obj, freq));
     }
 
 }
