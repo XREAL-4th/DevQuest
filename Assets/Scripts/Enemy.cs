@@ -96,7 +96,7 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("attack");
     }
 
-    //+--- [0320]필수과제1-1 ---+//
+    //+--- [0320]Task 1-1 ---+//
     public void TakeDamage (float amount) 
     {
         CurHealth -= amount;
