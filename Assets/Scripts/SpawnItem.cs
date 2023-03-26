@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SpawnItem : MonoBehaviour
 {
+    public static SpawnItem main;
     public enum ItemType { SpeedUp, PowerUp, ScoreUp };
     public List<ItemData> ItemDatas = new List<ItemData>();
 
@@ -12,6 +13,7 @@ public class SpawnItem : MonoBehaviour
 
     private void Start()
     {
+        main = this;
         SpawnItemObject();
     }
 

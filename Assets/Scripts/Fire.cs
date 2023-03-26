@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Fire : MonoBehaviour
 {
+    public TMP_Text ScoreText;
+
     //bullet변수
     public GameObject bulletPrefab;
 
@@ -37,6 +40,7 @@ public class Fire : MonoBehaviour
         Dir.z = Camera.main.farClipPlane;
         Debug.Log(Dir);*/
 
+        ScoreText.text = (score).ToString();
 
         if( Input.GetMouseButton (0)){
 
