@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 1462327970484030, guid: f01c1eba69de19e44b04d8d651aaac37, type: 3}
   despawnEffect: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
-  lifetime: 0.5
+  lifetime: 2
   bulletSpeed: 20
+  damage: 10

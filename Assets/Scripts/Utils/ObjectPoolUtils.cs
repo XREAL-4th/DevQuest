@@ -17,4 +17,14 @@ public static class ObjectPoolUtils
             @object => UnityEngine.Object.Destroy(@object.gameObject)
         );
     }
+    public static ObjectPool<GameObject> CreateGameObjectPool(GameObject creator) => CreateGameObjectPool(() => UnityEngine.Object.Instantiate(creator));
+    public static ObjectPool<GameObject> CreateGameObjectPool(Func<GameObject> creator)
+    {
+        return new(
+            creator,
+            gameObject => gameObject.SetActive(true),
+            gameObject => gameObject.SetActive(false),
+            gameObject => UnityEngine.Object.Destroy(gameObject)
+        );
+    }
 }

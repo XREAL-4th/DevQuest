@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatusEffectController : MonoBehaviour
+public class StatusEffectController : SingletonMonoBehaviour<StatusEffectController>
 {
     public List<(StatusEffect, float)> statusEffects = new();
 
@@ -10,11 +10,13 @@ public class StatusEffectController : MonoBehaviour
     {
         for(int i = 0; i < statusEffects.Count; i++)
         {
-            (StatusEffect effect, ref float duration) = statusEffects[i];
+            (StatusEffect effect, float duration) = statusEffects[i];
             duration += Time.deltaTime;
+            var updatedData = (effect, duration);
+            statusEffects[i] = updatedData;
             if(duration >= effect.duration)
             {
-                statusEffects.RemoveAt(i);
+                statusEffects.Remove(updatedData);
                 effect.OnInActive(gameObject);
                 continue;
             }

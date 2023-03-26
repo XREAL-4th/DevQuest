@@ -9,22 +9,23 @@ public class ContentFactory : SingletonMonoBehaviour<ContentFactory>
     public GameObject dummyItem;
 
     private ObjectPool<Enemy> enemyPool;
-    private ObjectPool<Item> itemPool;
+    private ObjectPool<GameObject> itemPool;
 
     protected override void Awake()
     {
         base.Awake();
 
         enemyPool = ObjectPoolUtils.CreateMonoBehaviourPool<Enemy>();
-        itemPool = ObjectPoolUtils.CreateMonoBehaviourPool<Item>(dummyItem);
+        itemPool = ObjectPoolUtils.CreateGameObjectPool(dummyItem);
     }
 
     public Enemy CreateEnemy() => enemyPool.Get();
 
-    public Item CreateItem(ItemType type)
+    public Item CreateItem(GameObject itemPref)
     {
-        Item item = itemPool.Get();
-        Object.Instantiate(type.prefab, item.transform);
-        return item;
+        GameObject itemWrapGO = itemPool.Get();
+        GameObject itemGO = Instantiate(itemPref, itemWrapGO.transform);
+        itemGO.transform.position = itemGO.transform.position + new Vector3(0, -1f, 0);
+        return itemGO.GetComponent<Item>();
     }
 }

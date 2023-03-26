@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6682a67002ff79d4fbb79ce398f0ec03, type: 3}
-  m_Name: StatusEffectItemType
+  m_Script: {fileID: 11500000, guid: 7fb3d0e796a125b4a9c7d2b10300478a, type: 3}
+  m_Name: ItemType
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1000012970591572, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
-  effect: {fileID: 11400000, guid: 7cb404932ae37f64a8be0d826fcfcb27, type: 2}

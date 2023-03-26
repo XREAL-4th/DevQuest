@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d331ff70fa11bd48885b87b20c5dd25, type: 3}
-  m_Name: StrenthStatusEffect
+  m_Script: {fileID: 11500000, guid: d954104ec70abe94abcad641143eef9d, type: 3}
+  m_Name: BoxType
   m_EditorClassIdentifier: 
-  duration: 5
-  damageMultiplier: 1.5
+  maxHelath: 10

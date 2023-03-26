@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public abstract class StatusEffectItem : Item
+public class StatusEffectItem : Item
 {
-    public new StatusEffectItemType type;
+    public StatusEffect effect;
 
     protected override void OnGotten(GameObject player)
     {
-        if (player.GetComponent<StatusEffectController>() is StatusEffectController shooter) shooter.ApplyStatusEffect(type.effect);
+        if (player.GetComponent<StatusEffectController>() is StatusEffectController shooter) 
+            shooter.ApplyStatusEffect(effect);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RestartButton : MonoBehaviour
 {
-    public void OnClick() => ScreenTransitionController.Instance.ChangeScene
+    public void OnClick() => ScreenTransitionController.Main.ChangeScene
             <ScreenFadeInTransition, ScreenFadeOutTransition>
             ("Assignment", 0.5f, 1);
 }

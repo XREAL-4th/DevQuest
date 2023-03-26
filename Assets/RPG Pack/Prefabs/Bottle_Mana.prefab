@@ -4934,6 +4934,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011650569256}
+  - component: {fileID: 7303507449917963281}
+  - component: {fileID: -6387365574271955214}
   m_Layer: 0
   m_Name: Bottle_Mana
   m_TagString: Untagged
@@ -4958,6 +4960,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7303507449917963281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013317980782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67f938bfbf14974685ac9f05070b219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: 317d9f03caa7d164b8f70f9394c20d24, type: 2}
+  effect: {fileID: 11400000, guid: 39e3bedce46fc9c4b88894ef1979e403, type: 2}
+--- !u!135 &-6387365574271955214
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013317980782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1000013970829164
 GameObject:
   m_ObjectHideFlags: 0

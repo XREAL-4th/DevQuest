@@ -18,6 +18,7 @@ public class MoveControl : MonoBehaviour
     public bool moving = false;
 
     private int jumpKeybindID, moveKeybindID;
+    public float moveMultiplier = 1;
 
     private void Start()
     {
@@ -78,6 +79,6 @@ public class MoveControl : MonoBehaviour
         }
         Vector3 movement = new(xz[0], 0f, xz[1]);
         movement.Normalize();
-        transform.Translate(moveSpeed * Time.deltaTime * movement);
+        transform.Translate(moveSpeed * Time.deltaTime * movement * moveMultiplier);
     }
 }
