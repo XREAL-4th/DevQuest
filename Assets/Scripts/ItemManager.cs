@@ -6,6 +6,7 @@ public class ItemManager : MonoBehaviour
 {
     private static ItemManager instance = null;
     public List<GameObject> ItemPrefabs = new List<GameObject>();
+    private float timer;
 
     void Awake()
     {
@@ -34,7 +35,18 @@ public class ItemManager : MonoBehaviour
 
     private void Start()
     {
-        SpawnItemObject();
+        timer = 0;
+        SpawnItemObject();     
+    }
+
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if(timer >= 12f)
+        {
+            SpawnItemObject();
+            timer = 0f;
+        }
     }
 
     public void SpawnItemObject()
@@ -42,6 +54,11 @@ public class ItemManager : MonoBehaviour
         for (int i = 0; i < ItemPrefabs.Count; i++)
         {
             GameObject item = Instantiate(ItemPrefabs[i]);
+
+            //Debug.Log(item.GetComponent<ItemData>().Power);
+
+            Destroy(item, 5f);
+            
         }
     }
 
