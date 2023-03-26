@@ -9,11 +9,13 @@ public class Item : MonoBehaviour
 	//public ItemData ItemData { set { itemData = value; } }
 	//public GameObject player;
 	public int Power;
+	public float Freq;
 
-	void Start()
+	void Awake()
     {
 		Power = itemData.Power;
-}
+		Freq = itemData.Freq;
+	}
 
 	public void WatchItemInfo()
 	{

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemManager : MonoBehaviour
 {
@@ -15,19 +16,20 @@ public class ItemManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+
+            Items = new GameObject[ItemPrefabs.Count];
+
+            for (int i = 0; i < ItemPrefabs.Count; i++)
+            {
+                Items[i] = Instantiate(ItemPrefabs[i]);
+                StartCoroutine(Spawn(Items[i], Items[i].GetComponent<Item>().Freq));
+            }
         }
         else
         {
             Destroy(this.gameObject);
         }
-
-
-        Items = new GameObject[ItemPrefabs.Count];
-        for(int i=0; i< ItemPrefabs.Count; i++)
-        {
-            Items[i] = Instantiate(ItemPrefabs[i]);
-            StartCoroutine(Spawn(Items[i], 10.0f));
-        }
+           
     }
 
 

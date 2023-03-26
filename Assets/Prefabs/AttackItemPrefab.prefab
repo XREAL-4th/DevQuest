@@ -111,4 +111,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 223c253df93ee424b99ec886368c31e9, type: 2}
-  Power: 1
+  Power: 0
+  Freq: 0

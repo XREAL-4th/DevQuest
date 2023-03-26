@@ -18,7 +18,7 @@ public class ItemData : ScriptableObject
     public int Power { get { return power; } set { power = value; } }
 
     [SerializeField]
-    private Vector3 position;
-    public Vector3 Position { get { return position; } set { position = value; } }
+    private float freq;
+    public float Freq { get { return freq; } set { freq = value; } }
 
 }
