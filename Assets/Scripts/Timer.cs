@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+
 
 public class Timer : MonoBehaviour
 {
-    public float timer;
+    public static float timer;
     public Text timerText;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +18,11 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Assignment" && timer <= 0)
+        if(timer <= 0)
         {
-            GameQuitManager.instance.FinishGame();
+            GameQuitManager.Instance.FinishGame();
         }
         timer -= Time.deltaTime;
-        timerText.text = (Mathf.Ceil(timer)).ToString();
+        timerText.text = Mathf.Ceil(timer).ToString();
     }
 }
