@@ -5,10 +5,7 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     private static ItemManager instance = null;
-
-    public enum ItemType { SpeedItem1, SpeedItem2, AttackItem1, AttackItem2 };
-    public List<ItemData> ItemDatas = new List<ItemData>();
-    public List<GameObject> itemPrefabs = new List<GameObject>();
+    public List<GameObject> ItemPrefabs = new List<GameObject>();
 
     void Awake()
     {
@@ -42,18 +39,11 @@ public class ItemManager : MonoBehaviour
 
     public void SpawnItemObject()
     {
-        for (int i = 0; i < ItemDatas.Count; i++)
+        for (int i = 0; i < ItemPrefabs.Count; i++)
         {
-            var item = SpawnItemFunc((ItemType)i);
-            //item.WatchItemInfo();
+            GameObject item = Instantiate(ItemPrefabs[i]);
         }
     }
 
-    public Item SpawnItemFunc(ItemType type)
-    {
-        var newItem = Instantiate(itemPrefabs[(int)(type)]).GetComponent<Item>();
-        newItem.ItemData = ItemDatas[(int)(type)];
-        return newItem;
-    }
 }
 

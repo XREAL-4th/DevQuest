@@ -730,10 +730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24761729ee180a44b4b8ee154423d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemDatas:
-  - {fileID: 11400000, guid: e99534f14999a0a4bbe4647a25641b52, type: 2}
-  - {fileID: 11400000, guid: 223c253df93ee424b99ec886368c31e9, type: 2}
-  itemPrefabs:
+  ItemPrefabs:
   - {fileID: 7469620643024789465, guid: 357faa0147a81d748a807c589ad8d55a, type: 3}
   - {fileID: 7469620643024789465, guid: e78f558ebb7f12249b9e01d256239095, type: 3}
 --- !u!4 &1898110053

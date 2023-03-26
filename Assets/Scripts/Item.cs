@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
 	[SerializeField]
 	ItemData itemData;
 	public ItemData ItemData { set { itemData = value; } }
-    public GameObject player;
+    //public GameObject player;
 
 	public void WatchItemInfo()
 	{
