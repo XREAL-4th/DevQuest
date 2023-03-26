@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private ParticleSystem enemyHeadParticle;
     [SerializeField] private ParticleSystem stoneParticle;
 
+    [HideInInspector] public bool isPowerShot = false;
     public Vector3 dir;
     private bool fire = false;
 
@@ -46,13 +47,29 @@ public class Bullet : MonoBehaviour
         {
             if(other.name == "Head")
             {
-                other.GetComponentInParent<Enemy>().TakeDamage(dmg*2);
-                instance = Instantiate(enemyHeadParticle, transform.position, Quaternion.identity);
+                if(isPowerShot)
+                {
+                    other.GetComponentInParent<Enemy>().TakeDamage(dmg * 4);
+                    instance = Instantiate(enemyHeadParticle, transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    other.GetComponentInParent<Enemy>().TakeDamage(dmg * 2);
+                    instance = Instantiate(enemyHeadParticle, transform.position, Quaternion.identity);
+                }
             }
             else
             {
-                other.GetComponentInParent<Enemy>().TakeDamage(dmg);
-                instance = Instantiate(enemyHitParticle, transform.position, Quaternion.identity);
+                if (isPowerShot)
+                {
+                    other.GetComponentInParent<Enemy>().TakeDamage(dmg*2);
+                    instance = Instantiate(enemyHitParticle, transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    other.GetComponentInParent<Enemy>().TakeDamage(dmg);
+                    instance = Instantiate(enemyHitParticle, transform.position, Quaternion.identity);
+                }
             }
         }
         else
