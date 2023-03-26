@@ -16,23 +16,21 @@ public class ItemManager : MonoBehaviour
     }
 
     //item
-    [Header("Items")]
-    public GameObject carrot;
-    public GameObject box;
+    public enum ItemType { name, damage, speed, itemPrefab }
+    public List<ItemData> itemDatas = new List<ItemData>();
 
 
     void Start()
     {
-        //아이템 생성 & 배열
-        Instantiate(carrot);
-        carrot.transform.position = new Vector3(-214, 0, 237);
-        Instantiate(box);
-        carrot.transform.position = new Vector3(-202, 0, 241);
+        //아이템 생성 및 배치 함수 호출
+        ItemSpawn(itemDatas[0], new Vector3(-214, 1, 237));
+        ItemSpawn(itemDatas[1], new Vector3(-202, 0, 241));
     }
 
-    // Update is called once per frame
-    void Update()
+    void ItemSpawn(ItemData _newItem, Vector3 _position)
     {
-        
+        //아이템 생성 및 배치
+        GameObject newItem = Instantiate(_newItem.itemPrefab);
+        newItem.transform.position = _position;
     }
 }

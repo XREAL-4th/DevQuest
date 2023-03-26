@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [Header("Enemy")]
     public GameObject[] enemys;
     public int enemysCount;
+    public GameObject player;
 
     void Start()
     {

@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject PrefabBullet;
     //총알 속도
     private float force = 5;
+    public int damage = 5;
     
     Vector3 dir;
     private Vector3 ScreenCenter;
@@ -30,6 +31,7 @@ public class PlayerAttack : MonoBehaviour
     void Shoot()
     {
         GameObject bullet = Instantiate(PrefabBullet);    //프리팹 총알 생성
+        bullet.GetComponent<Bullet>().damage = this.damage;
         bullet.transform.position = firePos.transform.position;
         bullet.GetComponent<Rigidbody>().AddForce(dir * force);
     }
