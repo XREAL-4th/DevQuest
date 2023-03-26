@@ -125,7 +125,7 @@ public class Enemy : MonoBehaviour
         {
             print("총알과 닿았다");
 
-            hp -= 10;
+            hp -= GameManager.instance.playerAttack; //플레이어가 준 공격력만큼 hp가 - 됨
             print("체력:" + hp);
 
             
