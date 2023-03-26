@@ -16,7 +16,7 @@ public class ItemManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
         else
-        {   
+        {
             Destroy(this.gameObject);
         }
     }
@@ -36,13 +36,13 @@ public class ItemManager : MonoBehaviour
     private void Start()
     {
         timer = 0;
-        SpawnItemObject();     
+        SpawnItemObject();
     }
 
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer >= 12f)
+        if (timer >= 12f)
         {
             SpawnItemObject();
             timer = 0f;
@@ -58,9 +58,8 @@ public class ItemManager : MonoBehaviour
             //Debug.Log(item.GetComponent<ItemData>().Power);
 
             Destroy(item, 5f);
-            
+
         }
     }
 
 }
-
