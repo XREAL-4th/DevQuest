@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae99e29f6c4515469b093e5e57d6b1f, type: 3}
+  m_Name: HealthItem
+  m_EditorClassIdentifier: 
+  ItemName: Health Item
+  ItemType: 1
+  ItemInfo: "Player\uC758 \uCCB4\uB825\uC744 10 \uC99D\uAC00"
+  ItemMesh: {fileID: 4300000, guid: f5e70b692f804d346a44df961b6ad5a8, type: 3}
+  ItemMaterial: {fileID: 2100000, guid: 61f77eb1e50e30448a691f30ca39a6cf, type: 2}
+  ItemValue: 10
+  SpawnTime: 10
+  VFX: {fileID: 9017484664307500583, guid: 1245b8d2997d5b34fb1637be70a7eb05, type: 3}

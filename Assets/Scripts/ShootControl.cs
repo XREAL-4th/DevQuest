@@ -9,7 +9,7 @@ public class ShootControl : MonoBehaviour
     [SerializeField] GameObject bullet;
 
     [Header("Settings")]
-    [SerializeField][Range(15f, 50f)] private float damage = 25.0f;
+    [Range(15f, 50f)] public float damage = 25.0f;
     [SerializeField] private float range = 100.0f;
     public GameObject muzzle;
 
@@ -28,7 +28,7 @@ public class ShootControl : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
 
             Enemy target = hit.transform.GetComponent<Enemy>();
             if (target != null) 

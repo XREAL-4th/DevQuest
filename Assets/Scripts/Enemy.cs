@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
 using static UnityEditor.PlayerSettings;
@@ -15,9 +16,11 @@ public class Enemy : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private float attackRange;
-    [SerializeField] public float MaxHealth = 100.0f;
-    private float CurHealth;
-    private Vector3 CurPos;
+    public float MaxHealth = 100.0f;
+    [SerializeField] private float CurHealth;
+    [SerializeField] private Vector3 CurPos;
+    [SerializeField] private float delta = 1.0f; // 좌(우)로 이동가능한 (x)최대값
+    [SerializeField] private float speed = 1.0f; // 이동속도
 
     public enum State 
     {
@@ -40,6 +43,8 @@ public class Enemy : MonoBehaviour
         CurHealth = MaxHealth;
         healthBar.UpdateHealthBar(MaxHealth, CurHealth);
 
+        delta = (float)UnityEngine.Random.Range(1, 4);
+        speed = (float)UnityEngine.Random.Range(1, 3); 
         CurPos = transform.position;
     }
 
@@ -106,6 +111,7 @@ public class Enemy : MonoBehaviour
         if (CurHealth <= 0.0f) 
         {
             Die();
+            GameManager.instance.killEnemy++;
         }
     }
 
@@ -116,13 +122,12 @@ public class Enemy : MonoBehaviour
 
     private void IdleMove()
     {
-        float delta = 2.0f; // 좌(우)로 이동가능한 (x)최대값
-        float speed = 3.0f; // 이동속도
-
         Vector3 vec = CurPos;
         vec.x += delta * Mathf.Sin(Time.time * speed);
 
         transform.position = vec;
+        transform.rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
+
     }
 
 
