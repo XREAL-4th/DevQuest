@@ -7,7 +7,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public TMP_Text[] ClockText;
-    float time = 90;
+    public static float timeleft = 90;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +18,14 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time -= Time.deltaTime;
+        timeleft -= Time.deltaTime;
 
-        if (time <= 0)
+        if (timeleft <= 0)
         {
-            time = 0;
+            timeleft = 0;
         }
 
-        ClockText[0].text = (((int)time / 60 % 60)).ToString();
-        ClockText[1].text = ((int)time % 60).ToString("D2");
+        ClockText[0].text = (((int)timeleft / 60 % 60)).ToString();
+        ClockText[1].text = ((int)timeleft % 60).ToString("D2");
     }
 }

@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    public int GameScore;
+    public float GameTime;
     
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,8 @@ public class GameManager : MonoBehaviour
     {
         if (Fire.score >= 35)
         {
+            GameScore = Fire.score;
+            GameTime = Timer.timeleft;
             SceneManager.LoadScene("Ending");
         }
     }

@@ -6,6 +6,7 @@ public class WeaponController : MonoBehaviour
 {
     public GameObject FireVFX;
     public GameObject FireVFX_power;
+    public GameObject FireVFX_power2;
 
     //public float speed =20.0f;
     float time = 0;
@@ -23,6 +24,7 @@ public class WeaponController : MonoBehaviour
             if (PowerUp.powerup)
             {
                 Instantiate(FireVFX_power, transform.position, transform.rotation);
+                Instantiate(FireVFX_power2, transform.position, transform.rotation);
                 VFXTime = 0;
             }
             else
