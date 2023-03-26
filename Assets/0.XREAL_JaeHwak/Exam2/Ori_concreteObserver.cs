@@ -7,7 +7,7 @@ public class Ori_concreteObserver : MonoBehaviour,IObserver
 {
     GameObject obj;
     public int cnt = 0;
-    public Text text;
+    public bool is_End = false;
     public void OnNotify()
     {
         Debug.Log("------------------------------------------------");
@@ -22,15 +22,7 @@ public class Ori_concreteObserver : MonoBehaviour,IObserver
     public void sendEnding()
     {
         Debug.Log("게임 클리어");
-
-        text.text = "클리어!";
+        is_End = true;
         EndingData.NewEndingData();
-        Invoke("destory_Text", 3f);
-    }
-
-
-    public void destory_Text()
-    {
-        text.text = "";
     }
 }

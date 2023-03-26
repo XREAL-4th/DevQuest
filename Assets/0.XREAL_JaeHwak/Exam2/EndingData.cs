@@ -20,6 +20,12 @@ public class EndingData : MonoBehaviour
     {
         return GameObject.FindGameObjectWithTag("LastEndingData").GetComponent<EndingData>();
     }
+
+    private void Awake()
+    {
+        observer = GameObject.FindObjectOfType<Ori_concreteObserver>();
+    }
+
     public void Start()
     {
         cnt = observer.cnt;
