@@ -6,7 +6,6 @@ public class item : MonoBehaviour
 {
     [SerializeField]
     public ItemData itemData;
-    //public ItemData ItemData { set { itemData = value; } }
     GameObject player;
     void Start()
     {
@@ -14,13 +13,16 @@ public class item : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        //플레이어가 아이템을 먹으면
         if (collision.gameObject == player)
         {
+            //당근을 먹었을 때
             if(itemData.name == "carrot")
             {
                 ModifyDamage();
                 Destroy(gameObject);
             }
+            //선물 상자를 먹었을 때
             if (itemData.name == "giftBox")
             {
                 ModifySpeed();
@@ -37,8 +39,8 @@ public class item : MonoBehaviour
 
     void ModifySpeed()
     {
-        //플레이어의 속도를 5 높임
-        player.GetComponent<MoveControl>().moveSpeed += 5;
+        //플레이어의 속도를 10 높임
+        player.GetComponent<MoveControl>().moveSpeed += 10;
     }
 
 }

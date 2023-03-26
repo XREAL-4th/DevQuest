@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +25,9 @@ public class GameManager : MonoBehaviour
     public int enemysCount;
     public GameObject player;
 
+    [Header("UI")]
+    public GameObject gameClear;
+
     void Start()
     {
         //존재하는 적들을 배열에 저장
@@ -38,6 +43,7 @@ public class GameManager : MonoBehaviour
         {
             //게임 클리어
             Debug.Log("game clear");
+            gameClear.SetActive(true);
         }
     }
 }
