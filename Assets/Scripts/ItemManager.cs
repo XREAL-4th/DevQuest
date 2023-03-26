@@ -53,7 +53,11 @@ public class ItemManager : MonoBehaviour
 
         yield return new WaitForSeconds(freq);
 
-        StartCoroutine(Spawn(obj, freq));
+        if (obj != null)
+        {
+            StartCoroutine(Spawn(obj, freq));
+        }
+        
     }
 
 }
