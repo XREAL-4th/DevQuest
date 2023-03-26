@@ -7,6 +7,10 @@ public class Fire : MonoBehaviour
     //bullet변수
     public GameObject bulletPrefab;
 
+    public static int score = 0;
+
+    Vector3 ScreenCenter;
+
     bool isFire = false;
     bool timeron = false;
     float time = 0;
@@ -14,7 +18,7 @@ public class Fire : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ScreenCenter = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
     }
 
     // Update is called once per frame
@@ -41,7 +45,7 @@ public class Fire : MonoBehaviour
                 timeron=true;
                 isFire = true;
                 GameObject weapon = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(ScreenCenter);
                 Vector3 shooting = ray.direction;
                 shooting = shooting.normalized * 2000;
                 weapon.GetComponent<WeaponController>().Launch(shooting);
@@ -51,7 +55,6 @@ public class Fire : MonoBehaviour
                 timeron=false;
                 time=0;
                 isFire=false;
-                
             }
             
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     public GameObject FireVFX;
+    public GameObject FireVFX_power;
 
     //public float speed =20.0f;
     float time = 0;
@@ -19,11 +20,23 @@ public class WeaponController : MonoBehaviour
         VFXTime += Time.deltaTime;
 
         if(VFXTime>=0.01f){
-            Instantiate(FireVFX, transform.position, transform.rotation);
-            VFXTime = 0;
+            if (PowerUp.powerup)
+            {
+                Instantiate(FireVFX_power, transform.position, transform.rotation);
+                VFXTime = 0;
+            }
+            else
+            {
+                Instantiate(FireVFX, transform.position, transform.rotation);
+                VFXTime = 0;
+            }
         }
 
         if(time>5){
+            if (PowerUp.powerup)
+            {
+                PowerUp.powerup = false;
+            }
             Destroy(gameObject);
         }
         

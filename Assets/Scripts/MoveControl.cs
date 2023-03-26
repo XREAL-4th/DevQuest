@@ -14,6 +14,11 @@ public class MoveControl : MonoBehaviour
     [SerializeField][Range(1f, 10f)] private float moveSpeed;
     [SerializeField][Range(1f, 10f)] private float jumpAmount;
 
+    public static float speed = 5f;
+    public static bool speedup = false;
+
+    float speedTime = 0;
+
 
 
     //FSM(finite state machine)에 대한 더 자세한 내용은 세션 3회차에서 배울 것입니다!
@@ -35,6 +40,8 @@ public class MoveControl : MonoBehaviour
 
     private void Start()
     {
+        speed = moveSpeed;
+
         rigid = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         
@@ -47,6 +54,22 @@ public class MoveControl : MonoBehaviour
 
     private void Update()
     {
+        moveSpeed = speed;
+
+        if (speedup)
+        {
+            speedTime += Time.deltaTime;
+
+            if (speedTime >= 5)
+            {
+                speedup = false;
+                speedTime = 0;
+                speed -= 5;
+            }
+        }
+
+        
+
         //0. 글로벌 상황 판단
         stateTime += Time.deltaTime;
         CheckLanded();

@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         if(hp==0){
+            Fire.score += 5;
             Instantiate(deadVFX, transform.position, transform.rotation);
             Destroy(gameObject);
         }
@@ -27,7 +28,17 @@ public class EnemyController : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Bullet"){
-            hp-=1; 
+            if (PowerUp.powerup)
+            {
+                Fire.score += 2;
+                hp -= 2;
+                PowerUp.powerup = false;
+            }
+            else
+            {
+                Fire.score += 1;
+                hp -= 1;
+            }
             Destroy(other.gameObject);
             if(hp!=0){
                 Instantiate(debuffVFX, transform.position, transform.rotation);

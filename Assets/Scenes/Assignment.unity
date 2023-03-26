@@ -362,7 +362,6 @@ MonoBehaviour:
   ClockText:
   - {fileID: 1068032629}
   - {fileID: 978815033}
-  time: 120
 --- !u!4 &508161326
 Transform:
   m_ObjectHideFlags: 0
@@ -1206,7 +1205,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1401594576}
-  - component: {fileID: 1401594575}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1214,18 +1212,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1401594575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401594574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a753eb4574e7c0f43bc68aab57c8be37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1401594576
 Transform:
   m_ObjectHideFlags: 0

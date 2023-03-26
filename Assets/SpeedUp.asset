@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 0
   itemName: 
-  speed: 3
+  speed: 5
   score: 0
