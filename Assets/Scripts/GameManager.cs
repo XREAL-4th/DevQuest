@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
 
     public int score = 0;
-
-    [SerializeField] float maxTime = 60f;
+    [SerializeField] float maxTime = 30f;
     float timeLeft;
+    [SerializeField] TextMeshProUGUI infoLabel;
 
     public void Awake() {
         if (instance == null) {
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
     private void Update() {
         if (timeLeft > 0) {
             timeLeft -= Time.deltaTime;
+            infoLabel.text = "Time: " + (int)timeLeft + "\r\nScore: " + score;
         }
         else {
             GameOver();
@@ -39,9 +41,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void GameOver() {
-        Debug.Log("Game Ended!");
-        Debug.Log("Score: " + score);
-        //score = 0;
-        SceneManager.LoadScene(0);
+        infoLabel.text = "Game Over!\r\nScore: " + score;
+        //SceneManager.LoadScene(5);
     }
 }
