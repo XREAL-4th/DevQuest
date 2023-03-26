@@ -23,7 +23,13 @@ public class GameManager : MonoBehaviour
         {
             GameScore = Fire.score;
             GameTime = Timer.timeleft;
-            SceneManager.LoadScene("Ending");
+            SceneManager.LoadScene("GameClear");
+        }
+        if (Timer.timeleft <= 0 && Fire.score<35)
+        {
+            GameScore = Fire.score;
+            GameTime = Timer.timeleft;
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
