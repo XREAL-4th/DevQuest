@@ -1,17 +1,24 @@
+using System.Collections;
 using System.Xml.Serialization;
+using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShootControl : MonoBehaviour
 {
     [Header("Preset Fields")]
     public Camera PlayerCam;
-    [SerializeField] GameObject HitEffect;
-    [SerializeField] GameObject bullet;
+    [SerializeField] GameObject ShootEffect;
+    [SerializeField] GameObject Bomb;
+    [SerializeField] GameObject coolTimeUI;
+    public GameObject muzzle;
 
     [Header("Settings")]
     [Range(15f, 50f)] public float damage = 25.0f;
     [SerializeField] private float range = 100.0f;
-    public GameObject muzzle;
+    public float Skill1coolTime = 3.0f;
+    private bool IsCoolOver = true;
 
     void Update()
     {
@@ -20,10 +27,16 @@ public class ShootControl : MonoBehaviour
         {
             Shoot();
         }
+        if (Input.GetKeyDown(KeyCode.E) && IsCoolOver)
+        {
+            IsCoolOver = false;
+            StartCoroutine(coolTime(Skill1coolTime));
+            BoomShoot();
+        }
     }
 
     // Raycasting(Hitscan)
-    void Shoot()
+    public void Shoot()
     {
         RaycastHit hit;
         if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, range))
@@ -36,15 +49,33 @@ public class ShootControl : MonoBehaviour
                 target.TakeDamage(damage);
             }
 
-            // πﬂªÁ√º(√—±∏ ~ target)
-            //Vector3 dir = hit.point - muzzle.transform.position;
-            //GameObject bulletClone = Instantiate(bullet, muzzle.transform.position, muzzle.transform.rotation);
-            //bulletClone.GetComponent<Rigidbody>().velocity = dir.normalized * 5.0f;
-            //Destroy(bulletClone, 1.0f);
-
             // VFX
-            GameObject effect = Instantiate(HitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            GameObject effect = Instantiate(ShootEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(effect, 1.0f);
+        }
+    }
+
+    IEnumerator coolTime(float time)
+    {
+        while (time > 1.0f)
+        {
+            time -= Time.deltaTime;
+            coolTimeUI.GetComponent<Image>().fillAmount = (1.0f / time);
+            yield return new WaitForFixedUpdate();
+        }
+        IsCoolOver = true;
+    }
+
+    public void BoomShoot()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, range))
+        {
+            // πﬂªÁ√º(√—±∏ ~target)
+            Vector3 dir = hit.point - muzzle.transform.position;
+            GameObject bulletClone = Instantiate(Bomb, muzzle.transform.position, muzzle.transform.rotation);
+            bulletClone.GetComponent<Rigidbody>().velocity = dir.normalized * 10.0f;
+            Destroy(bulletClone, 2.0f);
         }
     }
 }
