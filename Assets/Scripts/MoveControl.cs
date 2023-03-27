@@ -119,6 +119,6 @@ public class MoveControl : MonoBehaviour
         
         direction.Normalize(); //대각선 이동(Ex. W + A)시에도 동일한 이동속도를 위해 direction을 Normalize
         
-        transform.Translate( moveSpeed * Time.deltaTime * direction); //Move
+        transform.Translate( moveSpeed* GameManager.instance.moveSpeed * Time.deltaTime * direction); //Move
     }
 }
