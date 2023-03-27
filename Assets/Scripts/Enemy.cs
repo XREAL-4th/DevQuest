@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -105,13 +106,18 @@ public class Enemy : MonoBehaviour
     public void EnemyAttacked()
     {
         hp--;
-        if(hp<=0)
+        if (hp <= 0)
+        {
             Destruction();
+         }
     }
 
     private void Destruction()
     {
         col.enabled = false;
+        GameObject[] tmptargets = GameManager.instance.targets;
+        GameManager.instance.targets = tmptargets.Except(new GameObject[] { go_enemy }).ToArray();
+        Debug.Log(go_enemy + "deleted");
         Destroy(go_enemy);
     }
 
