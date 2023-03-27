@@ -5,15 +5,15 @@ using UnityEngine;
 public class RemoveBullet : MonoBehaviour
 {
     public GameObject VFX;
-    public int hp = 50;
 
     void Update()
     {
-        if (hp <= 0)
-        {
-            Destroy(this.gameObject);
-        }
+
+
     }
+
+
+    
     void OnCollisionEnter(Collision collision)
     {
         //print("충돌!!!");
@@ -29,11 +29,6 @@ public class RemoveBullet : MonoBehaviour
             spark.transform.position = collision.transform.position;
 
             ///Enemy enemy = GameObject.Find("Enemy").GetComponent<Enemy>();
-            //enemy.hp -= 10; //enemy 스크립트의 hp -10
-
-            //print(enemy.hp + "현재 HP");
-
-            hp -= 10;
 
             Destroy(spark, 1);
             Destroy(collision.gameObject);
@@ -41,5 +36,8 @@ public class RemoveBullet : MonoBehaviour
         }
 
     }
+
+   
+
 
 }

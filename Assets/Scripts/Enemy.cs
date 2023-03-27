@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 
     private bool attackDone;
 
-    public int hp; //HP
+    public int hp=50; //HP
 
 
     private void Start()
@@ -35,7 +35,9 @@ public class Enemy : MonoBehaviour
         state = State.None;
         nextState = State.Idle;
 
-        hp = 50; //HP = 50
+        hp = 50;
+
+        //hp = 50; //HP = 50
     }
 
     private void Update()
@@ -116,22 +118,24 @@ public class Enemy : MonoBehaviour
     }
 
 
-    /*
-    private void OnTriggerEnter(Collider other)
+
+    void OnCollisionEnter(Collision collision)
     {
-        //콜라이더에 닿는 경우 실행
-
-        
-
-        //if (other.gameObject.tag.Equals("Bullet")) 
-        if (other.gameObject.tag=="Bullet") //bullet이라는 태그를 가진 오브젝트면
+        if (collision.gameObject.tag == "Bullet")
         {
-            hp -= 10; //hp -10씩 감소
-            print("hp 10 감소2");
+            print("총알과 닿았다");
+
+            hp -= GameManager.instance.playerAttack; //플레이어가 준 공격력만큼 hp가 - 됨
+            print("체력:" + hp);
+
+            
+            if (hp <= 0)
+            {
+                Destroy(this.gameObject);
+                GameManager.instance.Score();
+            }
 
         }
-        
     }
-    */
 
 }
