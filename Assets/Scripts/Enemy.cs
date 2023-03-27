@@ -17,7 +17,11 @@ public class Enemy : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private float attackRange;
-    
+
+    [Header("Sys")]
+    [SerializeField] private GameObject sys;
+    private MissionManager missionManager;
+
     public enum State 
     {
         None,
@@ -51,6 +55,9 @@ public class Enemy : MonoBehaviour
                 break;
             default: break;
         }
+
+        sys = GameObject.FindGameObjectWithTag("SysObj");
+        missionManager = sys.GetComponent<MissionManager>();
     }
 
     private void Update()
@@ -99,9 +106,17 @@ public class Enemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        //insert code here...
     }
-    
+
+    public void OnDestroy()
+    {
+        Debug.Log("Enemy Destroyed");
+        if(missionManager.missionStep == MissionManager.Steps.MISSION_1)
+        {
+            missionManager.MissionFunction();
+        }
+    }
+
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
         animator.SetTrigger("attack");

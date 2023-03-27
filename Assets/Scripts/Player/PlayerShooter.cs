@@ -13,9 +13,13 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private Transform firePos;
     [SerializeField] private Type type;
     [SerializeField] private GameObject[] bullets;
+    [SerializeField] private ParticleSystem[] fxList;
+    private ParticleSystem buffFx;
 
     private float timer;
     private bool isCooldown = false;
+    public bool isPowerShot = false;
+    private bool isPowerShotFx = false;
 
     private Vector3 dir;
     private Ray ray;
@@ -28,7 +32,8 @@ public class PlayerShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        LoadFx();
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             //type= Type.Primary;
         }
@@ -63,7 +68,14 @@ public class PlayerShooter : MonoBehaviour
                         break;
                 }
                 _bullet.transform.position = firePos.position;
-                _bullet.GetComponent<Bullet>().SetDirection(dir);
+                Bullet bb = _bullet.GetComponent<Bullet>();
+                bb.SetDirection(dir);
+                if (isPowerShot)
+                {
+                    bb.isPowerShot = true;
+                    isPowerShot = false;
+                    LoadFx();
+                }
                 timer = _bullet.GetComponent<Bullet>().coolDown;
                 isCooldown = true;
             }
@@ -73,6 +85,20 @@ public class PlayerShooter : MonoBehaviour
         {
             timer -= Time.deltaTime;
             if (timer < 0) isCooldown = false;
+        }
+    }
+
+    void LoadFx()
+    {
+        if(isPowerShot&&!isPowerShotFx)
+        {
+            isPowerShotFx = true;
+            buffFx = Instantiate(fxList[0], this.transform);
+        }
+        if(!isPowerShot && isPowerShotFx)
+        {
+            isPowerShotFx = false;
+            Destroy(buffFx.gameObject);
         }
     }
 }

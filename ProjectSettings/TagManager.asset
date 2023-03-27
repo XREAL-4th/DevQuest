@@ -6,6 +6,8 @@ TagManager:
   tags:
   - FxTemporaire
   - Enemy
+  - SysObj
+  - ItemSpawnPoint
   layers:
   - Default
   - TransparentFX
