@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    [SerializeField][Range(1f, 20f)] private float sensitivity = 20f;
+    [SerializeField][Range(1f, 20f)] private float sensitivity = 10f;
     private float mouseX, mouseY, xRotate, yRotate;
     private Transform playerTransform;
     public float rotateSpeed = 500.0f;
@@ -20,16 +20,16 @@ public class CameraControl : MonoBehaviour
     private void FixedUpdate()
     {   
 
-        /*
+        
         mouseX += Input.GetAxis("Mouse X") * sensitivity;
         playerTransform.rotation = Quaternion.Euler(new Vector3(0, mouseX, 0));
         
         mouseY += Input.GetAxis("Mouse Y") * sensitivity;
         mouseY = Mathf.Clamp(mouseY, -75f, 75f);
         transform.localRotation = Quaternion.Euler(new Vector3(-mouseY, 0, 0));
-        */
-
         
+
+        /*
         mouseX = -Input.GetAxis("Mouse Y") * Time.deltaTime * rotateSpeed;
         mouseY = Input.GetAxis("Mouse X") * Time.deltaTime * rotateSpeed;
         yRotate = transform.eulerAngles.y + mouseY;
@@ -37,7 +37,7 @@ public class CameraControl : MonoBehaviour
 
         xRotate = Mathf.Clamp(xRotate, -90, 90);
         transform.eulerAngles = new Vector3(xRotate, yRotate, 0);
-        
+        */
         /*
         mouseX = (Input.mousePosition.x / Screen.width ) - 0.5f;
         mouseY = (Input.mousePosition.y / Screen.height) - 0.5f;

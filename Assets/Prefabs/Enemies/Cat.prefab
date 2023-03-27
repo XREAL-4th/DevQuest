@@ -207,6 +207,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3746748213450519080}
   - component: {fileID: 3746748213443105928}
+  - component: {fileID: 543106787518083810}
+  - component: {fileID: -7829383175268977818}
+  - component: {fileID: 2045987480}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Enemy
@@ -223,8 +226,8 @@ Transform:
   m_GameObject: {fileID: 3746748213450278408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.5, z: 5.17}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3746748213450519078}
   - {fileID: 3746748213450519076}
@@ -251,6 +254,55 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &543106787518083810
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746748213450278408}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &-7829383175268977818
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746748213450278408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 5.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 5, z: 1}
+--- !u!114 &2045987480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746748213450278408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe44536ee32a6c4a9b6d0849a3fbe84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  splashFx: {fileID: 0}
+  hitfx: {fileID: 0}
+  hp: 0
+  attackRange: 0
+  state: 0
+  nextState: 0
 --- !u!1 &3746748213450278416
 GameObject:
   m_ObjectHideFlags: 0
