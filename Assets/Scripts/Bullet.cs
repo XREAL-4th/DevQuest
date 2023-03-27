@@ -13,8 +13,13 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(splashFx, transform.position, Quaternion.identity);
+            if(splashFx)
             //player의 getDamage 함수 호출 (데미지 입히기)
             collision.gameObject.GetComponent<Enemy>().GetDamage(damage, transform.position.x);
+        }
+        if (collision.gameObject.tag == "Background")
+        {
+            Destroy(gameObject, 3);
         }
     }
 }
