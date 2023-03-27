@@ -95,6 +95,14 @@ public class MoveControl : MonoBehaviour
         //insert code here...
     }
 
+    //speedUp 아이템 충돌 시
+    public void speedChange(float speed)
+    {
+        moveSpeed += speed;
+        if (moveSpeed <= 0) moveSpeed = 0.5f;
+    }
+
+
     private void FixedUpdate()
     {
         UpdateInput();
