@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Fire : MonoBehaviour
 {
+    public TMP_Text ScoreText;
+
     //bullet변수
     public GameObject bulletPrefab;
+
+    public static int score = 0;
+
+    Vector3 ScreenCenter;
 
     bool isFire = false;
     bool timeron = false;
@@ -14,7 +21,7 @@ public class Fire : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ScreenCenter = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
     }
 
     // Update is called once per frame
@@ -33,6 +40,7 @@ public class Fire : MonoBehaviour
         Dir.z = Camera.main.farClipPlane;
         Debug.Log(Dir);*/
 
+        ScoreText.text = (score).ToString();
 
         if( Input.GetMouseButton (0)){
 
@@ -41,7 +49,7 @@ public class Fire : MonoBehaviour
                 timeron=true;
                 isFire = true;
                 GameObject weapon = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(ScreenCenter);
                 Vector3 shooting = ray.direction;
                 shooting = shooting.normalized * 2000;
                 weapon.GetComponent<WeaponController>().Launch(shooting);
@@ -51,7 +59,6 @@ public class Fire : MonoBehaviour
                 timeron=false;
                 time=0;
                 isFire=false;
-                
             }
             
         }

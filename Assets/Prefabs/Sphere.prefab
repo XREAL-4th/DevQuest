@@ -99,7 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireVFX: {fileID: 4752457369876416285, guid: 5ad33d58a66ab154a89c9e88255601e5, type: 3}
-  speed: 20
+  FireVFX_power: {fileID: 4617036660772024948, guid: 52c7d057cba585641bb68312c10d7791,
+    type: 3}
+  FireVFX_power2: {fileID: 5607819269926399345, guid: 45e0f06c750176947862c10346226439,
+    type: 3}
 --- !u!135 &8297724405207107707
 SphereCollider:
   m_ObjectHideFlags: 0
