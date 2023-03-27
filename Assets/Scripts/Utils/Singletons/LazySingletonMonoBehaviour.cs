@@ -7,12 +7,12 @@ public abstract class LazySingletonMonoBehaviour<T> : SingletonMonoBehaviour<T> 
     {
         get
         {
-            if (_instance == null)
+            if (_main == null)
             {
                 GameObject gameObject = new(typeof(T).Name);
-                _instance = gameObject.AddComponent<T>();
+                _main = gameObject.AddComponent<T>();
             }
-            return _instance;
+            return _main;
         }
     }
 }
