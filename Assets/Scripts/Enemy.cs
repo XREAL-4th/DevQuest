@@ -117,6 +117,7 @@ public class Enemy : MonoBehaviour
 
         Attack();
         life -= 1;
+        GameManager.instance.score += 5;
 
         hit = Instantiate(hitFx, collidePos, collideRot);
         Destroy(hit, 1);
