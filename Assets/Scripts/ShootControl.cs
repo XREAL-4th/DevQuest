@@ -4,31 +4,31 @@ using UnityEngine;
 public class ShootControl : MonoBehaviour
 {
     [Header("Preset Fields")]
-    [SerializeField] public Camera PlayerCam;
+    public Camera PlayerCam;
     [SerializeField] GameObject HitEffect;
     [SerializeField] GameObject bullet;
 
     [Header("Settings")]
-    [SerializeField][Range(15f, 50f)] private float damage = 25.0f;
+    [Range(15f, 50f)] public float damage = 25.0f;
     [SerializeField] private float range = 100.0f;
-    [SerializeField] public GameObject muzzle;
+    public GameObject muzzle;
 
     void Update()
     {
-        //+--- [0320]필수과제2 ---+//
+        //+--- [0320] Task2 ---+//
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
     }
 
-    // Raycasting(Hitscan 방식)
+    // Raycasting(Hitscan)
     void Shoot()
     {
         RaycastHit hit;
         if (Physics.Raycast(PlayerCam.transform.position, PlayerCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
 
             Enemy target = hit.transform.GetComponent<Enemy>();
             if (target != null) 
@@ -37,10 +37,10 @@ public class ShootControl : MonoBehaviour
             }
 
             // 발사체(총구 ~ target)
-            Vector3 dir = hit.transform.position - muzzle.transform.position;
-            GameObject bulletClone = Instantiate(bullet, muzzle.transform.position, muzzle.transform.rotation);
-            bulletClone.GetComponent<Rigidbody>().velocity = dir * 5.0f;
-            Destroy(bulletClone, 1.0f);
+            //Vector3 dir = hit.point - muzzle.transform.position;
+            //GameObject bulletClone = Instantiate(bullet, muzzle.transform.position, muzzle.transform.rotation);
+            //bulletClone.GetComponent<Rigidbody>().velocity = dir.normalized * 5.0f;
+            //Destroy(bulletClone, 1.0f);
 
             // VFX
             GameObject effect = Instantiate(HitEffect, hit.point, Quaternion.LookRotation(hit.normal));
