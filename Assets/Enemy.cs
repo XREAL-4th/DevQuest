@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
     }
 
     //적에게 데미지를 입히는 함수
-    public void GetDamage(int damage, float bulletX)
+    public void GetDamage(int damage)
     {
         health -= damage;
         Debug.Log(health);
