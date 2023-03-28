@@ -5,14 +5,14 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public enum State
+public enum EnemyState
 {
     None,
     Idle,
     Attack
 }
 
-public class Enemy : MonoBehaviour, IHealthy
+public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
 {
     [Header("Presets")] 
     [SerializeField] private Animator animator;
@@ -22,9 +22,6 @@ public class Enemy : MonoBehaviour, IHealthy
     [SerializeField] private float attackRange;
     [SerializeField] private EnemyType type;
 
-    [Header("Debug")]
-    public State state = State.None;
-    public State nextState = State.None;
 
     private bool attackDone;
     private float health;
@@ -33,58 +30,16 @@ public class Enemy : MonoBehaviour, IHealthy
     private void Start()
     {
         health = type.maxHealth;
-        state = State.None;
-        nextState = State.Idle;
+        state = EnemyState.None;
+        nextState = EnemyState.Idle;
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+     
         if (Health <= 0) Kill();
-
-        //1. 스테이트 전환 상황 판단
-        if (nextState == State.None) 
-        {
-            switch (state) 
-            {
-                case State.Idle:
-                    //1 << 6인 이유는 Player의 Layer가 6이기 때문
-                    if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
-                    {
-                        nextState = State.Attack;
-                    }
-                    break;
-                case State.Attack:
-                    if (attackDone)
-                    {
-                        nextState = State.Idle;
-                        attackDone = false;
-                    }
-                    break;
-                //insert code here...
-            }
-        }
-        
-        //2. 스테이트 초기화
-        if (nextState != State.None) 
-        {
-            state = nextState;
-            nextState = State.None;
-            switch (state) 
-            {
-                case State.Idle:
-                    break;
-                case State.Attack:
-                    Attack();
-                    break;
-                //insert code here...
-            }
-        }
-        
-        //3. 글로벌 & 스테이트 업데이트
-        //insert code here...
     }
-
-    public void Damage(float damage) => health -= damage;
 
     private void Kill() => Destroy(gameObject);
     
@@ -110,5 +65,43 @@ public class Enemy : MonoBehaviour, IHealthy
         //해당 함수는 없어도 기능 상의 문제는 없지만, 기능 체크 및 디버깅을 용이하게 합니다.
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRange);
+    }
+
+    protected override void CheckState()
+    {
+        switch (state)
+        {
+            case EnemyState.Idle:
+                //1 << 6인 이유는 Player의 Layer가 6이기 때문
+                if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                {
+                    nextState = EnemyState.Attack;
+                }
+                break;
+            case EnemyState.Attack:
+                if (attackDone)
+                {
+                    nextState = EnemyState.Idle;
+                    attackDone = false;
+                }
+                break;
+        }
+    }
+
+    protected override void InitState()
+    {
+        switch (state)
+        {
+            case EnemyState.Idle:
+                break;
+            case EnemyState.Attack:
+                Attack();
+                break;
+        }
+    }
+
+    protected override void UpdateState()
+    {
+        
     }
 }
