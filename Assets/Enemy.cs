@@ -16,13 +16,16 @@ public class Enemy : MonoBehaviour
 
 //    [SerializeField] private float initHealth = 50;
     [SerializeField] private float health = 50;
+    [SerializeField] private Vector3 enemyPosition;
+    [SerializeField] private float speed;
 
 
     public enum State 
     {
         None,
         Idle,
-        Attack
+        Attack,
+        Run
     }
     
     [Header("Debug")]
@@ -30,13 +33,15 @@ public class Enemy : MonoBehaviour
     public State nextState = State.None;
 
     private bool attackDone;
+    private bool chase;
+    GameObject player;
 
     private void Start()
     { 
         state = State.None;
         nextState = State.Idle;
-        //Q3. 원래는 health를 전역변수에서 50으로 설정하지 않고, 이렇게 초기화하려고 했는데 작동이 안 돼요! 이유를 알 수 있을까욥
-        //health = initHealth;
+        enemyPosition = gameObject.GetComponent<Transform>().position;
+        player = GameManager.instance.player;
     }
 
     private void Update()
@@ -50,7 +55,9 @@ public class Enemy : MonoBehaviour
                     //1 << 6인 이유는 Player의 Layer가 6이기 때문
                     if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
-                        nextState = State.Attack;
+                    //    nextState = State.Attack;
+                        nextState = State.Run;
+                        
                     }
                     break;
                 case State.Attack:
@@ -61,6 +68,20 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                 //insert code here...
+                case State.Run:
+                    //쫓아올 y값 조정
+                    Vector3 target = player.transform.position;
+                    target.y = transform.position.y;
+                    //범위에 속하는 한 뒤쫓기
+                    transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+                    
+                    //범위를 벗어나면 Idle 상태로 돌아감
+                    if (!Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        nextState = State.Idle;
+                        animator.SetBool("chase", false);
+                    }
+                    break;
             }
         }
         
@@ -77,6 +98,9 @@ public class Enemy : MonoBehaviour
                     Attack();
                     break;
                 //insert code here...
+                case State.Run:
+                    Chase();
+                    break;
             }
         }
         
@@ -106,6 +130,10 @@ public class Enemy : MonoBehaviour
         //}
     }
 
+    private void Chase()
+    {
+        animator.SetBool("chase", true);
+    }
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
         animator.SetTrigger("attack");

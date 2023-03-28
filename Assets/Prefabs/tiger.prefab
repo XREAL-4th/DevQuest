@@ -10308,7 +10308,7 @@ Transform:
   m_GameObject: {fileID: 7955044542898089370}
   m_LocalRotation: {x: 0, y: -0.92520976, z: 0, w: 0.37945604}
   m_LocalPosition: {x: -208.95, y: 0, z: 247.3}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7955044542898386540}
@@ -10352,8 +10352,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7955044542888599102}
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
-  attackRange: 4.1
+  attackRange: 10
   health: 50
+  enemyPosition: {x: 0, y: 0, z: 0}
+  speed: 5
   state: 0
   nextState: 0
 --- !u!65 &945758061880259923
