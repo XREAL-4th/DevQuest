@@ -6,6 +6,6 @@ using UnityEngine;
 public class EnemyType : ScriptableObject
 {
     public new string name;
-    public float maxHealth;
+    public float maxHealth, attackRange, detectRange, moveSpeed;
     public GameObject hitFx;
 }

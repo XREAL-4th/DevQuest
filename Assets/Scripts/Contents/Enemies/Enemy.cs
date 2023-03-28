@@ -9,6 +9,7 @@ public enum EnemyState
 {
     None,
     Idle,
+    Detect,
     Attack
 }
 
@@ -19,7 +20,6 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
     [SerializeField] private GameObject splashFx;
     
     [Header("Settings")]
-    [SerializeField] private float attackRange;
     [SerializeField] private EnemyType type;
 
 
@@ -48,6 +48,13 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
         animator.SetTrigger("attack");
     }
 
+    private void MoveTo(Vector3 destination)
+    {
+        Debug.Log(destination);
+        transform.rotation = Quaternion.Euler(Vector3.RotateTowards(transform.position, destination, Time.deltaTime * 10, 1));
+        transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * type.moveSpeed);
+    }
+
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
     {
         Instantiate(splashFx, transform.position, Quaternion.identity);
@@ -61,10 +68,10 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
 
     private void OnDrawGizmosSelected()
     {
-        //Gizmos를 사용하여 공격 범위를 Scene View에서 확인할 수 있게 합니다. (인게임에서는 볼 수 없습니다.)
-        //해당 함수는 없어도 기능 상의 문제는 없지만, 기능 체크 및 디버깅을 용이하게 합니다.
+        Gizmos.color = new Color(0f, 1f, 0f, 0.25f);
+        Gizmos.DrawSphere(transform.position, type.detectRange);
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
-        Gizmos.DrawSphere(transform.position, attackRange);
+        Gizmos.DrawSphere(transform.position, type.attackRange);
     }
 
     protected override void CheckState()
@@ -72,10 +79,9 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
         switch (state)
         {
             case EnemyState.Idle:
-                //1 << 6인 이유는 Player의 Layer가 6이기 때문
-                if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                if (Physics.CheckSphere(transform.position, type.detectRange, 1 << 6, QueryTriggerInteraction.Ignore))
                 {
-                    nextState = EnemyState.Attack;
+                    nextState = EnemyState.Detect;
                 }
                 break;
             case EnemyState.Attack:
@@ -83,6 +89,12 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
                 {
                     nextState = EnemyState.Idle;
                     attackDone = false;
+                }
+                break;
+            case EnemyState.Detect:
+                if (Physics.CheckSphere(transform.position, type.attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                {
+                    nextState = EnemyState.Attack;
                 }
                 break;
         }
@@ -96,6 +108,9 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
                 break;
             case EnemyState.Attack:
                 Attack();
+                break;
+            case EnemyState.Detect:
+                MoveTo(Player.Main.transform.position);
                 break;
         }
     }

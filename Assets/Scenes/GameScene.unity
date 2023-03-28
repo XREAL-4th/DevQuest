@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028364, g: 0.22571364, b: 0.306922, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028396, g: 0.22571427, b: 0.30692327, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1886,10 +1886,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7cb1eca52af7645a0f201d03bc524e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 2031987824}
+  speedImage: {fileID: 1633268056}
   strenthSprite: {fileID: 21300000, guid: ef92e75e942753b438265b1c10dd23d1, type: 3}
   originSprite: {fileID: 21300000, guid: ff4e0816ea0d03a44bef70c2084fcade, type: 3}
-  speedImage: {fileID: 1633268056}
-  image: {fileID: 2031987824}
 --- !u!1001 &2034582354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1981,6 +1981,7 @@ GameObject:
   - component: {fileID: 2047535501}
   - component: {fileID: 2047535502}
   - component: {fileID: 2047535503}
+  - component: {fileID: 2047535504}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2129,6 +2130,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50097f8bfb0a29a499ec05cd821ad697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2047535504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047535494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc080a88df2bc549b0eb9ad6da11175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2134424089

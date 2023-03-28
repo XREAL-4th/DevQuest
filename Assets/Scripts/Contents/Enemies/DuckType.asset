@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Duck
   maxHealth: 50
+  attackRange: 4
+  detectRange: 12
+  moveSpeed: 1.2
   hitFx: {fileID: 0}
