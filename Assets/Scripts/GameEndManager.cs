@@ -10,12 +10,9 @@ public enum WinState
 
 public class GameEndManager : SingletonMonoBehaviour<GameEndManager>
 {
-    [Header("Setting")]
-    public GameObject gameEndPref;
-
     [Header("Debug")]
     public bool isGameEnd = false;
-    public WinState isWin = WinState.Idle;
+    public WinState winState = WinState.Idle;
 
     private IMission[] missions;
 
@@ -31,13 +28,13 @@ public class GameEndManager : SingletonMonoBehaviour<GameEndManager>
         {
             if(mission.IsMissionFailed())
             {
-                isWin = WinState.Lose;
+                winState = WinState.Lose;
                 if (!isGameEnd) GameEnd();
                 break;
             }
             else if(mission.IsMissionCompleted())
             {
-                isWin = WinState.Win;
+                winState = WinState.Win;
                 if (!isGameEnd) GameEnd();
                 break;
             }
@@ -46,7 +43,9 @@ public class GameEndManager : SingletonMonoBehaviour<GameEndManager>
 
     private void GameEnd()
     {
+            ScreenTransitionController.Main.ChangeScene
+            <ScreenFadeInTransition, ScreenFadeOutTransition>
+            (winState == WinState.Win ? "GameWinScene" : "GameLoseScene", 0.5f, 1);
         isGameEnd = true;
-        Instantiate(gameEndPref);
     }
 }
