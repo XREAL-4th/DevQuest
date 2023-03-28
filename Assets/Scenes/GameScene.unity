@@ -522,8 +522,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6afc5c1d6fde67449c69ae39f43ef01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEndPref: {fileID: 6998288145542852790, guid: 22858729fd20fb843b424bbd66d2a760,
-    type: 3}
   isGameEnd: 0
   winState: 0
 --- !u!4 &509435103
@@ -1010,9 +1008,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cf3c3763d8fbb459566b19f56d30c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  currentAnimator: {fileID: 0}
   idleBox: {fileID: 1428531479}
   destroyedBox: {fileID: 824718575}
+  health: 10
   type: {fileID: 11400000, guid: a7474ec409a07e047a0567646a38360f, type: 2}
 --- !u!1 &1095318676 stripped
 GameObject:
@@ -1888,9 +1887,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strenthSprite: {fileID: 21300000, guid: ef92e75e942753b438265b1c10dd23d1, type: 3}
-  originSprite: {fileID: 0}
+  originSprite: {fileID: 21300000, guid: ff4e0816ea0d03a44bef70c2084fcade, type: 3}
   speedImage: {fileID: 1633268056}
-  image: {fileID: 0}
+  image: {fileID: 2031987824}
 --- !u!1001 &2034582354
 PrefabInstance:
   m_ObjectHideFlags: 0

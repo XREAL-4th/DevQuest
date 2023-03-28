@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemBox : Box
 {
+    [Header("Presets")]
     public GameObject itemPref;
 
     protected override void OnCrashed()

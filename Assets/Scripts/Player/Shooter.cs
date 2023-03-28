@@ -7,7 +7,7 @@ using UnityEngine.Pool;
 public class Shooter : MonoBehaviour
 {
     [SerializeField] private GameObject currentBulletPref;
-    [DoNotSerialize] public ObjectPool<Bullet> bulletPool;
+    public ObjectPool<Bullet> bulletPool;
     public float shootDelay = 3, damagetMultiplier = 1;
     private float stateTime = 0;
 

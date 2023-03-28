@@ -5,9 +5,16 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
+public enum State
+{
+    None,
+    Idle,
+    Attack
+}
+
 public class Enemy : MonoBehaviour, IHealthy
 {
-    [Header("Preset Fields")] 
+    [Header("Presets")] 
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject splashFx;
     
@@ -15,14 +22,6 @@ public class Enemy : MonoBehaviour, IHealthy
     [SerializeField] private float attackRange;
     [SerializeField] private EnemyType type;
 
-
-    public enum State 
-    {
-        None,
-        Idle,
-        Attack
-    }
-    
     [Header("Debug")]
     public State state = State.None;
     public State nextState = State.None;

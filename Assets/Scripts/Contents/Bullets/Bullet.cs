@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [Header("Preset Fields")]
+    [Header("Presets")]
     public BulletType type;
 
     private float stateTime;
