@@ -11,8 +11,6 @@ public class CameraControl : MonoBehaviour
 
     private void Start()
     {
-        //원활한 Debugging을 위해 마우스 커서를 보이지 않도록 하였습니다, Play 중 Esc 키를 누르면 마우스를 볼 수 있습니다.
-        Cursor.visible = false;
         playerTransform = transform.parent;
     }
 

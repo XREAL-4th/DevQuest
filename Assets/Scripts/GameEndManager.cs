@@ -24,6 +24,8 @@ public class GameEndManager : SingletonMonoBehaviour<GameEndManager>
 
     private void Update()
     {
+        Cursor.visible = isGameEnd;
+        
         foreach(IMission mission in missions)
         {
             if(mission.IsMissionFailed())
