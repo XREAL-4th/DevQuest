@@ -52,23 +52,36 @@ public class Enemy : MonoBehaviour
                     //1 << 6인 이유는 Player의 Layer가 6이기 때문
                     if (Physics.CheckSphere(transform.position, followRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
+                        animator.SetBool("idle", false);
                         nextState = State.Follow;
                     }
                     break;
                 case State.Follow:
                     if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
+                        animator.SetBool("walk", false);
                         nextState = State.Attack;
                     }
                     if (!Physics.CheckSphere(transform.position, followRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
+                        animator.SetBool("walk", false);
                         nextState = State.Idle;
                     }
                     break;
                 case State.Attack:
                     if (attackDone)
                     {
-                        nextState = State.Idle;
+                        if (Physics.CheckSphere(transform.position, followRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                        {
+                            animator.SetBool("attack", false);
+                            animator.SetBool("walk", true);
+                            nextState = State.Follow;
+                        }
+                        else
+                        {
+                            animator.SetBool("attack", false);
+                            nextState = State.Idle;
+                        }
                         attackDone = false;
                     }
                     break;
@@ -84,6 +97,7 @@ public class Enemy : MonoBehaviour
             switch (state) 
             {
                 case State.Idle:
+                    animator.SetBool("idle", true);
                     //inBound = false;
                     break;
 
@@ -115,14 +129,14 @@ public class Enemy : MonoBehaviour
     private void Follow()
     {
         //inBound = true;
-        animator.SetTrigger("walk");
+        animator.SetBool("walk", true);
         target = GameObject.FindGameObjectWithTag("Player").transform;
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.SetDestination(target.position);
     }
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
-        animator.SetTrigger("attack");
+        animator.SetBool("attack", true);
     }
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
