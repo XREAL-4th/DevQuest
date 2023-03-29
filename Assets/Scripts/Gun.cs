@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
 
     public bool ReloadValue = false;
     public RaycastHit hitInfo;
+    public bool isEnemy;
 
     public ParticleSystem muzzleFlash;
     public Camera mainCam;

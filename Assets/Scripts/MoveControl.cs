@@ -139,4 +139,14 @@ public class MoveControl : MonoBehaviour
         
         transform.Translate( moveSpeed * Time.deltaTime * direction); //Move
     }
+
+    public void SpeedUp()
+    {
+        moveSpeed += 5f;
+    }
+
+    public void JumpUp()
+    {
+        jumpAmount += 5f;
+    }
 }
