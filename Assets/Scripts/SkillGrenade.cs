@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class SkillGrenade : MonoBehaviour
 {
     [SerializeField] private float damage = 30.0f;
-    [SerializeField] GameObject grenadeObj;
-    [SerializeField] GameObject grenadeVfx;
+    [SerializeField] GameObject grenadeObj; //¼ö·ùÅº ÇÁ¸®ÆÕ
+    [SerializeField] GameObject grenadeVfx; //È¿°ú
+    [SerializeField] Transform grenadaPoint; //¼ö·ùÅº »ý¼º À§Ä¡
     bool skillAvailable = true;
 
     IEnumerator coroutine;
@@ -29,6 +30,12 @@ public class SkillGrenade : MonoBehaviour
 
     public void Grenade()
     {
+        RaycastHit[] rayHits = Physics.SphereCastAll(transform.position, 15, Vector3.up, 0f, LayerMask.GetMask("Enemy"));
+
+        foreach(RaycastHit hitObj in rayHits)
+        {
+            //hitObj.transform.GetComponent<Enemy>().HitByGrenade(transform.position);
+        }
 
     }
 
