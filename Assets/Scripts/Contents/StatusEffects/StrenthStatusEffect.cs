@@ -10,14 +10,14 @@ public class StrenthStatusEffect : StatusEffect
     public override void OnActive(GameObject player)
     {
         if (player.GetComponent<Shooter>() is not Shooter shooter) return;
-        shooter.damagetMultiplier += damageMultiplier;
+        shooter.weapon.damagetMultiplier += damageMultiplier;
         Aim.Main.image.sprite = Aim.Main.strenthSprite;
     }
 
     public override void OnInActive(GameObject player)
     {
         if (player.GetComponent<Shooter>() is not Shooter shooter) return;
-        shooter.damagetMultiplier -= damageMultiplier;
+        shooter.weapon.damagetMultiplier -= damageMultiplier;
         Aim.Main.image.sprite = Aim.Main.originSprite;
     }
 }

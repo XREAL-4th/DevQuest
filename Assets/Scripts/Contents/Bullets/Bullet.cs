@@ -8,9 +8,9 @@ public class Bullet : MonoBehaviour
     [Header("Presets")]
     public BulletType type;
 
-    private float stateTime;
-    private Shooter parent;
-    private Vector3 direction;
+    public float stateTime;
+    public Weapon parent;
+    public Vector3 direction;
 
 
     private void Update()
@@ -20,15 +20,6 @@ public class Bullet : MonoBehaviour
         stateTime += Time.deltaTime;
         if (stateTime > type.lifetime) OnDespawn();
         else transform.Translate(Time.deltaTime * type.bulletSpeed * direction);
-    }
-
-    public virtual Bullet Init(Shooter parent)
-    {
-        this.parent = parent;
-        direction = Camera.main.transform.forward;
-        stateTime = 0;
-        transform.position = parent.transform.position + new Vector3(0, 1, 0);
-        return this;
     }
 
     private void OnTriggerEnter(Collider other)
