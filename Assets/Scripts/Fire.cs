@@ -8,8 +8,8 @@ public class Fire : MonoBehaviour {
     public GameObject Bomb;
     public Transform FirePos;
 
-    public bool CoolOn = true;
-    public float coolTimeAmount = 3.0f;
+    public bool coolOn = true;
+    public float coolTimeAmount = 5.0f;
 
     
  
@@ -21,11 +21,10 @@ public class Fire : MonoBehaviour {
             Destroy(bulletclone,1.5f);
             
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(KeyCode.Q)&& coolOn)
         {
             GameObject bombclone = Instantiate(Bomb, FirePos.transform.position, FirePos.transform.rotation);
-            //CoolOn = false;
-            //StartCoroutine(coolTime(coolTimeAmount));
+            StartCoroutine(coolTime(coolTimeAmount));
             Destroy(bombclone,1.5f);
             
         }
@@ -34,11 +33,9 @@ public class Fire : MonoBehaviour {
 
      IEnumerator coolTime(float time)
     {
-        while (time > 1.0f)
-        {
-            time -= Time.deltaTime;
-            yield return new WaitForFixedUpdate();
-        }
-        CoolOn = true;
+        coolOn = false;
+        yield return new WaitForSeconds(time);
+        coolOn = true;
+        yield break;
     }
 }
