@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034def05e8752834f8552f0e82b31c13, type: 3}
+  m_Name: 0_Blink
+  m_EditorClassIdentifier: 
+  skillCode: 0
+  skillName: Blink
+  skillDescription: 
+  skillAmount: 5
+  skillCoolTime: 5
+  skillDuration: 0
+  skillFx: {fileID: 198927480420149238, guid: b395d5d6eb4b4b846acc021ee036b744, type: 3}

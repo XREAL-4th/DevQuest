@@ -7,6 +7,6 @@ public class ItemData : ScriptableObject
 {
     public int itemCode;
     public string itemName;
-    public string itemDescription;
+    [TextArea(3, 5)] public string itemDescription;
     public ParticleSystem itemFx;
 }

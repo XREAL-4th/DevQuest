@@ -7,7 +7,7 @@ public class ItemManager : MonoBehaviour
 {
     private static ItemManager instance = null;
     public GameObject itemPrefab;
-    public ScriptableObject[] itemList;
+    public ItemData[] itemList;
     ScriptableObject t;
     public Transform[] itemSpawnPoint;
 
@@ -22,7 +22,7 @@ public class ItemManager : MonoBehaviour
             tmp = Instantiate(itemPrefab);
             tmp.transform.position = itemSpawnPoint[i].position;
             int ran = Random.Range(0, itemList.Length);
-            //tmp.GetComponent<ItemFunctions>().itemData = itemList[ran].GetComponent<ItemData>();
+            tmp.GetComponent<ItemFunctions>().itemData = itemList[ran];
         }
     }
 

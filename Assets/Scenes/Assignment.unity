@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028396, g: 0.22571427, b: 0.30692327, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028364, g: 0.22571364, b: 0.306922, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 199008614}
   - component: {fileID: 199008616}
   - component: {fileID: 199008615}
+  - component: {fileID: 199008617}
   m_Layer: 0
   m_Name: Sys
   m_TagString: SysObj
@@ -278,6 +279,7 @@ MonoBehaviour:
     type: 3}
   itemList:
   - {fileID: 11400000, guid: bbc6d29b41bbb5e48a961d1cacc9ba88, type: 2}
+  - {fileID: 11400000, guid: bbc6d29b41bbb5e48a961d1cacc9ba88, type: 2}
   itemSpawnPoint: []
 --- !u!114 &199008616
 MonoBehaviour:
@@ -292,6 +294,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionStep: 0
+--- !u!114 &199008617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199008613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1d478f4b20e7d43a6fcabfaf937a96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerObj: {fileID: 2047535494}
+  playerMoveControl: {fileID: 2047535501}
+  skills:
+  - {fileID: 11400000, guid: c64d874f500e3a14c9c43445d21724d7, type: 2}
+  - {fileID: 11400000, guid: 52ab45f8065651d46937940459d385e0, type: 2}
 --- !u!1 &218521398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1257,7 @@ GameObject:
   - component: {fileID: 2047535500}
   - component: {fileID: 2047535501}
   - component: {fileID: 2047535502}
+  - component: {fileID: 2047535503}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1382,6 +1402,23 @@ MonoBehaviour:
   fxList:
   - {fileID: 6810471105834413002, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
   isPowerShot: 0
+--- !u!114 &2047535503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047535494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba8d6d0cdc28da43bf0543a685abd03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillManager: {fileID: 199008617}
+  skillCode_Q: 0
+  isCoolTime_Q: 0
+  skillCode_E: 0
+  isCoolTime_E: 0
 --- !u!1001 &4319213960002772184
 PrefabInstance:
   m_ObjectHideFlags: 0
