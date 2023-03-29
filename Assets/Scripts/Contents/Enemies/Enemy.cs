@@ -18,7 +18,8 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
     [Header("Presets")] 
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject splashFx;
-    
+    [SerializeField] private NavMeshAgent agent;
+
     [Header("Settings")]
     [SerializeField] private EnemyType type;
 
@@ -46,13 +47,6 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
         animator.SetTrigger("attack");
-    }
-
-    private void MoveTo(Vector3 destination)
-    {
-        Debug.Log(destination);
-        transform.rotation = Quaternion.Euler(Vector3.RotateTowards(transform.position, destination, Time.deltaTime * 10, 1));
-        transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * type.moveSpeed);
     }
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
@@ -110,7 +104,7 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
                 Attack();
                 break;
             case EnemyState.Detect:
-                MoveTo(Player.Main.transform.position);
+                agent.Move(Player.Main.transform.position);
                 break;
         }
     }
