@@ -127,7 +127,6 @@ public class MoveControl : MonoBehaviour
         };
 
         if (collision.gameObject.name == "Apple(Clone)") {
-
             for (int i = 0; i < coords.Length; i++) {
                 if (collision.gameObject.transform.position == coords[i]) {
                     int speed = ItemManager.instance.AppleDatas[i].Speed;
@@ -142,7 +141,5 @@ public class MoveControl : MonoBehaviour
                 }
             }
         }
-    }
-
-    
+    }    
 }

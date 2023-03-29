@@ -14,9 +14,9 @@ public class CameraControl : MonoBehaviour
         Cursor.visible = true;
         playerTransform = transform.parent;
     }
-
-    private void FixedUpdate()
-    {
+    
+    // FixedUpdate => Update
+    private void Update() {
         mouseX += Input.GetAxis("Mouse X") * sensitivity;
         playerTransform.rotation = Quaternion.Euler(new Vector3(0, mouseX, 0));
         

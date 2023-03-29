@@ -1416,6 +1416,7 @@ MonoBehaviour:
   state: 0
   nextState: 0
   life: 3
+  player: {fileID: 0}
 --- !u!95 &8462844898654732498
 Animator:
   serializedVersion: 4
@@ -1429,7 +1430,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: abd39fc213f585d438c16176055c28a1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
