@@ -1,15 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class PlayerFire : MonoBehaviour
 {
+    //수류탄 발사 위치 지정
+    public GameObject firePosition;
+    //수류탄 오브젝트 변수
+    public GameObject bombFactory;
+    //투척 파워
+    public float throwPower = 15f;
+    //수류탄 공격력
+    public int bombPower = 15;
+
     //총알 이펙트 오브젝트
     public GameObject bulletEffect;
     //총알 이펙트 파티클 시스템
     ParticleSystem ps;
-    //공격력
+    //총알 공격력
     public int weaponPower = 5;
+    /*
+    //딜레이 판정 변수
+    public bool isDelay;
+    //딜레이 시간 변수
+    public float delayTime = 5f;
+    float timer = 0f;*/
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +37,46 @@ public class PlayerFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //마우스 오른쪽 버튼 입력
+        if (Input.GetMouseButtonDown(1))
+        {
+            /*
+            if (isDelay)
+            {
+                isDelay = true;*/
+                GameObject bomb = Instantiate(bombFactory);
+                bomb.transform.position = firePosition.transform.position;
+                Rigidbody rb = bomb.GetComponent<Rigidbody>();
+                //카메라의 정면 방향으로 무기에 물리적 힘을 가함
+                rb.AddForce(Camera.main.transform.forward * throwPower, ForceMode.Impulse);
+
+            
+
+            /*
+            //코루틴 함수 실행
+            StartCoroutine(CountAttackDelay());
+        }
+        else
+        {
+            Debug.Log("Delay");
+        }
+
+        */
+        }
+        /*
+        if (isDelay)
+        {
+            timer += Time.deltaTime;
+            if (timer >= delayTime)
+            {
+                timer = 0f;
+                isDelay = false;
+            }
+        }*/
+        
+
+
+
         //마우스 왼쪽 버튼 입력
         if (Input.GetMouseButtonDown(0))
         {
@@ -47,8 +104,16 @@ public class PlayerFire : MonoBehaviour
                     bulletEffect.transform.forward = hitInfo.normal;
                     ps.Play();
                     
+                    
                 }
             }
         }
     }
+    /*
+    IEnumerator CountAttackDelay()
+    {
+        yield return new WaitForSeconds(delayTime);
+        isDelay = false;
+
+    }*/
 }
