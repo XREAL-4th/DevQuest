@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -27,7 +28,8 @@ public class MoveControl : MonoBehaviour
     public State nextState = State.None;
     public bool landed = false;
     public bool moving = false;
-    
+
+    private Vector3 direction;
     private float stateTime;
     private Vector3 forward, right;
 
@@ -90,14 +92,15 @@ public class MoveControl : MonoBehaviour
             }
             stateTime = 0f;
         }
-        
+
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
+        UpdateInput();
     }
 
     private void FixedUpdate()
     {
-        UpdateInput();
+        Move();
     }
 
     private void CheckLanded() {
@@ -108,9 +111,14 @@ public class MoveControl : MonoBehaviour
         landed = Physics.CheckSphere(origin, 0.45f, 1 << 3, QueryTriggerInteraction.Ignore);
     }
     
+    private void Move()
+    {
+        transform.Translate(moveSpeed * Time.deltaTime * direction);
+    }
+
     private void UpdateInput()
     {
-        var direction = Vector3.zero;
+        direction = Vector3.zero;
         
         if (Input.GetKey(KeyCode.W)) direction += Vector3.forward; //Forward
         if (Input.GetKey(KeyCode.A)) direction += Vector3.left; //Left

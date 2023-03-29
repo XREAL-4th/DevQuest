@@ -142,7 +142,7 @@ public class Enemy : MonoBehaviour
     {
         chooseDir = true;
         yield return new WaitForSeconds(Random.Range(1f, 3f));
-        randomDir = Random.Range(1, 10);
+        randomDir = Random.Range(-360, 360);
         chooseDir = false;
     }
 
