@@ -8,15 +8,18 @@ using UnityEngine.Serialization;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] GameObject gameoverText; // °ÔÀÓ Á¾·á½Ã È°¼ºÈ­ÇÒ ÅØ½ºÆ®
+    [SerializeField] GameObject gameoverText; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ø½ï¿½Æ®
+    [SerializeField] GameObject timeBarObject;
     public Image timeBar;
+    //public GameObject otherGameObject;
+  
 
 
-    [SerializeField] float setTime = 60f; // ±âº»½Ã°£
-    float timeLeft; // ³²Àº½Ã°£
+    [SerializeField] float setTime = 60f; // ï¿½âº»ï¿½Ã°ï¿½
+    float timeLeft; // ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 
 
-    // ½Ì±ÛÅæ
+    // ï¿½Ì±ï¿½ï¿½ï¿½
     static GameManager instance = null;
     public static GameManager Instance()
     {
@@ -27,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if(instance == null) // ÇÒ´ç µÈ °Å ¾øÀ¸¸é ÀÌ°Å ³Ö±â
+        if(instance == null) // ï¿½Ò´ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°ï¿½ ï¿½Ö±ï¿½
         {
             instance = this;
         }
@@ -36,13 +39,13 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        //DontDestroyOnLoad(this); // ÃÊ±âÈ­µÇ´Â°Å ¸·¾ÆÁÖ±â
+        //DontDestroyOnLoad(this); // ï¿½Ê±ï¿½È­ï¿½Ç´Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
     }
 
     private void Start()
     {
         gameoverText.SetActive(false);
-        timeBar = GetComponent<Image>();
+        //timeBar = timeBarObject.GetComponent<Image>();
         timeLeft = setTime;
     }
 
@@ -50,8 +53,8 @@ public class GameManager : MonoBehaviour
     {
         if (timeLeft > 0)
         {
-            timeLeft -= Time.deltaTime; // ³²Àº ½Ã°£ °¨¼Ò½ÃÅ°±â
-            timeBar.fillAmount = timeLeft / setTime; //timebar °¨¼Ò
+            timeLeft -= Time.deltaTime; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½Å°ï¿½ï¿½
+            timeBar.fillAmount = timeLeft / setTime; //timebar ï¿½ï¿½ï¿½ï¿½
         }
 
         else
@@ -60,11 +63,14 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
 
             GameOver();
+            
         }
     }
 
     private void GameOver()
     {
         Debug.Log("Gmae Over");
+        Application.Quit();
+        //Quit();
     }
 }

@@ -1412,13 +1412,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4476904704391450799}
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
+  target: {fileID: 0}
+  anim: {fileID: 0}
   attackRange: 4.1
-  _hp: 30
+  chaseRange: 0
+  hp: 30
   state: 0
   nextState: 0
 --- !u!95 &4476904704391450799
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1435,8 +1438,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!135 &4476904704391450792
 SphereCollider:
   m_ObjectHideFlags: 0
