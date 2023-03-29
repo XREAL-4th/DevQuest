@@ -13,11 +13,13 @@ public class Enemy : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private float attackRange;
+    [SerializeField] private float followRange;
     
     public enum State 
     {
         None,
         Idle,
+        Follow,
         Attack
     }
     
@@ -26,6 +28,11 @@ public class Enemy : MonoBehaviour
     public State nextState = State.None;
 
     private bool attackDone;
+
+    private Transform target;
+    private NavMeshAgent navAgent;
+   //public ParticleSystem particleObject;
+   //private bool inBound = false;
 
     private void Start()
     { 
@@ -42,9 +49,19 @@ public class Enemy : MonoBehaviour
             {
                 case State.Idle:
                     //1 << 6인 이유는 Player의 Layer가 6이기 때문
+                    if (Physics.CheckSphere(transform.position, followRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        nextState = State.Follow;
+                    }
+                    break;
+                case State.Follow:
                     if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
                         nextState = State.Attack;
+                    }
+                    if (!Physics.CheckSphere(transform.position, followRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        nextState = State.Idle;
                     }
                     break;
                 case State.Attack:
@@ -66,18 +83,42 @@ public class Enemy : MonoBehaviour
             switch (state) 
             {
                 case State.Idle:
+                    //inBound = false;
                     break;
+
+                case State.Follow:
+                    Follow();
+                    break;
+
                 case State.Attack:
                     Attack();
                     break;
                 //insert code here...
             }
         }
-        
+
+        /*if (inBound)
+        {
+            particleObject.Play();
+        }
+        else
+        {
+            particleObject.Stop();
+        }*/
+
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
     }
-    
+
+
+    private void Follow()
+    {
+        //inBound = true;
+        animator.SetTrigger("walk");
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        navAgent = GetComponent<NavMeshAgent>();
+        navAgent.SetDestination(target.position);
+    }
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
         animator.SetTrigger("attack");
@@ -100,5 +141,8 @@ public class Enemy : MonoBehaviour
         //해당 함수는 없어도 기능 상의 문제는 없지만, 기능 체크 및 디버깅을 용이하게 합니다.
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRange);
+
+        Gizmos.color = new Color(85f, 211f, 241f, 0.3f);
+        Gizmos.DrawSphere(transform.position, followRange);
     }
 }
