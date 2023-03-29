@@ -9,7 +9,7 @@ public class ClientCharacterMovement : MonoBehaviour
     private InputAction _movePosition;
     private InputAction _moveAction;
     private InputAction _jumpAction;
-
+    
     private bool _move = false;
     private Vector3 _targetPos;
     private float _distanceCheck = 0.1f;

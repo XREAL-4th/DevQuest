@@ -157,8 +157,12 @@ MonoBehaviour:
   animator: {fileID: 3717134068834903810}
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
   attackRange: 4.1
+  followRange: 10
   state: 0
   nextState: 0
+  attackDone: 1
+  followDone: 0
+  _walkSpeed: 1
 --- !u!95 &3717134068834903810
 Animator:
   serializedVersion: 4
@@ -168,7 +172,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3717134068844550526}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 9e25bfa154c881844bb628863f9d5a94, type: 3}
   m_Controller: {fileID: 9100000, guid: abd39fc213f585d438c16176055c28a1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -235,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5281fac80e614f040801bebfb3bddd67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ori_ConcreteObserver: {fileID: 0}
 --- !u!1 &3717134068844550528
 GameObject:
   m_ObjectHideFlags: 0
