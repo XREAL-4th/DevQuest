@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coin: 1
   fevertimeDuration: 3
-  feverTimeItemNum: 3
-  enemyCount: 4
+  feverTimeItemNum: 10
+  enemyCount: 1

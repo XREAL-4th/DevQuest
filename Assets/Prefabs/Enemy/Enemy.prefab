@@ -1705,7 +1705,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6169834924257817733}
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
-  attackRange: 4.1
+  attackRange: 4
+  chasingRedBallRange: 12
+  chasingPlayerRange: 8
   state: 0
   nextState: 0
 --- !u!95 &6169834924257817733
