@@ -37,7 +37,7 @@ public class ClientCharacterVisual : MonoBehaviour
                 break;
 
             case MovementState.Landing:
-                //_anim.SetTrigger("tLand");
+                _anim.SetTrigger("tLand");
                 break;
         }
     }
