@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public int maxHitPoints = 10;
     [SerializeField] public int currentHitPoints = 0;
     [SerializeField] public GameObject hitFx;
-    [SerializeField] public GameObject bombhitFx;
+    [SerializeField] public GameObject canonhitFx;
 
     void Start()
     {
@@ -33,8 +33,8 @@ public class EnemyHealth : MonoBehaviour
             currentHitPoints -=1;
         }
 
-        else if(targetmat.collider.gameObject.tag == "Bomb"){
-            Instantiate(bombhitFx, transform.position, Quaternion.identity);
+        else if(targetmat.collider.gameObject.tag == "Cannon"){
+            Instantiate(canonhitFx, transform.position, Quaternion.identity);
             currentHitPoints -=5;
         }
 

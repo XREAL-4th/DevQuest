@@ -972,7 +972,7 @@ MonoBehaviour:
   maxHitPoints: 5
   currentHitPoints: 0
   hitFx: {fileID: 0}
-  bombhitFx: {fileID: 0}
+  canonhitFx: {fileID: 0}
 --- !u!1 &1485398753205476649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1581,7 @@ MonoBehaviour:
   maxHitPoints: 10
   currentHitPoints: 0
   hitFx: {fileID: 3883161096632292200, guid: d34244d412f5b034cb8b81c662f701eb, type: 3}
-  bombhitFx: {fileID: 1995403933065894, guid: 374a390aa8a66b44eb54bbb3c5cca362, type: 3}
+  canonhitFx: {fileID: 1995403933065894, guid: 374a390aa8a66b44eb54bbb3c5cca362, type: 3}
 --- !u!54 &-2025026355936673971
 Rigidbody:
   m_ObjectHideFlags: 0

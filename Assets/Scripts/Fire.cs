@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fire : MonoBehaviour {
  
     public GameObject Bullet;
-    public GameObject Bomb;
+    public GameObject CannonBall;
     public Transform FirePos;
 
     public bool coolOn = true;
@@ -23,9 +23,9 @@ public class Fire : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.Q)&& coolOn)
         {
-            GameObject bombclone = Instantiate(Bomb, FirePos.transform.position, FirePos.transform.rotation);
+            GameObject cannonBallclone = Instantiate(CannonBall, FirePos.transform.position, FirePos.transform.rotation);
             StartCoroutine(coolTime(coolTimeAmount));
-            Destroy(bombclone,1.5f);
+            Destroy(cannonBallclone,1.5f);
             
         }
 

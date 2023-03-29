@@ -1157,8 +1157,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 6130214139983475580, guid: a66231dbf8fe3f44eab45284e574370a, type: 3}
-  Bomb: {fileID: 6130214139983475580, guid: e7454f71959b16e49b9d79b1ad33919b, type: 3}
+  CannonBall: {fileID: 8613865723787674847, guid: c6e171e5c5e78cd42912c361220cccec,
+    type: 3}
   FirePos: {fileID: 1466698416}
+  coolOn: 1
+  coolTimeAmount: 5
 --- !u!1001 &6050178637261717149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1236,5 +1239,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3718743032824147806, guid: f3339d260977a3e40ab7008f7ae4307a,
+        type: 3}
+      propertyPath: bombhitFx
+      value: 
+      objectReference: {fileID: 358637981425055526, guid: 0cdd69df2e9c4e64ca8919646c19cfc8,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3339d260977a3e40ab7008f7ae4307a, type: 3}
