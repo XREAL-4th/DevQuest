@@ -1652,7 +1652,7 @@ GameObject:
   - component: {fileID: 2015138293}
   - component: {fileID: 2015138292}
   m_Layer: 5
-  m_Name: Image
+  m_Name: E_coolTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1699,7 +1699,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: a3a4381635680ed489cc88c7bf8cf270, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2179,6 +2179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 5922001717439773848, guid: 052adad075d3d8d4096163d8d4756707,
     type: 3}
+  E_VFX: {fileID: 3744133877081091469, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
+  e_coolTime: {fileID: 2015138292}
 --- !u!1 &2145469440
 GameObject:
   m_ObjectHideFlags: 0

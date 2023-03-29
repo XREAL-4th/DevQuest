@@ -9,15 +9,27 @@ public class PlayerSkills : MonoBehaviour
 	IEnumerator coroutine;
 
 	public GameObject weaponPrefab;
+	public GameObject E_VFX;
 	public Image e_coolTime;
+	private bool E_able = true;
+	private bool VFX_able = false;
 
 	void Update()
 	{
-        if (Input.GetKey(KeyCode.E))
-        {
-			coroutine = Slice();
-			StartCoroutine(coroutine);
-
+		if (Input.GetKey(KeyCode.E))
+		{
+			if (E_able)
+			{
+				VFX_able = true;
+				E_able = false;
+				coroutine = Slice();
+				StartCoroutine(coroutine);
+			}
+            if (VFX_able)
+            {
+				Instantiate(E_VFX, transform.position, transform.rotation);
+				VFX_able = false;
+			}
 		}
 	}
 
@@ -32,8 +44,11 @@ public class PlayerSkills : MonoBehaviour
 		yield return StartCoroutine(Skill_E(7f));
 		yield return StartCoroutine(Skill_E(8f));
 		yield return StartCoroutine(Skill_E(9f));
+		
 
 		yield return StartCoroutine(CoolTime(7f));
+
+		E_able = true;
 	}
 
 	IEnumerator Skill_E(float num)
