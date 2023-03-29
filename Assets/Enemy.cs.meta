@@ -3,7 +3,14 @@ guid: 5fe44536ee32a6c4a9b6d0849a3fbe84
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - animator: {instanceID: 0}
+  - splashFx: {instanceID: 0}
+  - navMeshAgent: {instanceID: 0}
+  - player: {instanceID: 0}
+  - useSkill: {instanceID: 0}
+  - pushVfxPrefab: {fileID: 6860936316483239200, guid: 51175811883fdc64a8b1bd2ca89edda2,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

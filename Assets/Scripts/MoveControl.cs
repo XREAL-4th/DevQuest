@@ -6,15 +6,17 @@ using UnityEngine.Serialization;
 
 public class MoveControl : MonoBehaviour
 {
-    public int attackPower = 1;
+   
     [Header("Preset Fields")]
     [SerializeField] private Rigidbody rigid;
     [SerializeField] private CapsuleCollider col;
 
     [Header("Settings")]
-    [SerializeField] [Range(1f, 10f)] public float moveSpeed; //
+    [SerializeField] [Range(1f, 100f)] public int playerHp;
+    [SerializeField] [Range(1f, 10f)] public float moveSpeed; 
+    [SerializeField] [Range(1f, 10f)] public int attackPower;
     [SerializeField] [Range(1f, 10f)] private float jumpAmount;
-
+    
     //FSM(finite state machine)에 대한 더 자세한 내용은 세션 3회차에서 배울 것입니다!
     public enum State
     {
@@ -96,7 +98,10 @@ public class MoveControl : MonoBehaviour
 
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
-
+        if(playerHp <= 0)
+        {   
+            GameQuitManager.Instance.FinishGame();
+        }
 
     }
 

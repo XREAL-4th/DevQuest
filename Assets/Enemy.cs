@@ -7,56 +7,83 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
+    
     [Header("Preset Fields")] 
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject splashFx;
-    
+
+
     [Header("Settings")]
     [SerializeField] private float attackRange;
-    
+    [SerializeField] private float chaseRange;
+
     public enum State 
     {
         None,
         Idle,
-        Attack
+        Attack,
+        Chase,
     }
     
     [Header("Debug")]
     public State state = State.None;
     public State nextState = State.None;
 
-    private bool attackDone;
+    private bool attackDone = false;
+    private bool chaseDone = false;
+
+    public NavMeshAgent navMeshAgent;
+    public GameObject player;
 
     private void Start()
     { 
         state = State.None;
         nextState = State.Idle;
+        player = GameObject.Find("Player");
     }
 
     private void Update()
     {
+       
         //1. 스테이트 전환 상황 판단
-        if (nextState == State.None) 
+        if (nextState == State.None)
         {
-            switch (state) 
+            switch (state)
             {
                 case State.Idle:
-                    //1 << 6인 이유는 Player의 Layer가 6이기 때문
-                    if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                    //1 << 6인 이유는 Player의 Layer가 6이기 때문    
+                    if (Physics.CheckSphere(transform.position, chaseRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
-                        nextState = State.Attack;
+                        nextState = State.Chase;
                     }
                     break;
                 case State.Attack:
                     if (attackDone)
                     {
-                        nextState = State.Idle;
+                        nextState = State.Chase;
                         attackDone = false;
                     }
                     break;
-                //insert code here...
-            }
+                case State.Chase:
+                    if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        nextState = State.Attack;
+                    }
+                    else if (!Physics.CheckSphere(transform.position, chaseRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        nextState = State.Idle;
+                        navMeshAgent.SetDestination(this.transform.position);
+                    }
+                    else
+                    {
+                        nextState = State.Chase;
+                    }
+                    break;
+                    //insert code here...
+            }       
         }
+        
         
         //2. 스테이트 초기화
         if (nextState != State.None) 
@@ -66,10 +93,23 @@ public class Enemy : MonoBehaviour
             switch (state) 
             {
                 case State.Idle:
+                    animator.SetBool("idle", true);
+                    animator.SetBool("attack", false);
+                    animator.SetBool("walk", false);
                     break;
                 case State.Attack:
+                    animator.SetBool("idle", false);
+                    animator.SetBool("attack", true);
+                    animator.SetBool("walk", false);
                     Attack();
+                    break;           
+                case State.Chase:
+                    animator.SetBool("idle", false);
+                    animator.SetBool("attack", false);
+                    animator.SetBool("walk", true);
+                    Chase();
                     break;
+             
                 //insert code here...
             }
         }
@@ -80,7 +120,13 @@ public class Enemy : MonoBehaviour
     
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
-        animator.SetTrigger("attack");
+        attackDone = true;
+        player.GetComponent<MoveControl>().playerHp--;
+    }
+
+    private void Chase()
+    {
+        navMeshAgent.SetDestination(player.transform.position);
     }
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
@@ -100,5 +146,18 @@ public class Enemy : MonoBehaviour
         //해당 함수는 없어도 기능 상의 문제는 없지만, 기능 체크 및 디버깅을 용이하게 합니다.
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRange);
+        Gizmos.DrawSphere(transform.position, chaseRange);
     }
+
+    public void PushSkill()
+    {
+        if (state == State.Attack || state == State.Chase)
+        {
+            
+            Vector3 direction = this.transform.position - player.transform.position;
+            direction = direction.normalized;
+            this.GetComponent<Rigidbody>().AddForce(direction*5000, ForceMode.Impulse);
+        }
+    }
+
 }

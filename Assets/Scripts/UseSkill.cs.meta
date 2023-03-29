@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 74bbcd5718cdf694fb569ff4ab9aebc0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - cooltimeUI: {instanceID: 0}
+  - pushVfxPrefab: {fileID: 7443202071588996147, guid: 93f91a9ea235be849a6ecfc05a0ed511,
+      type: 3}
+  - player: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
