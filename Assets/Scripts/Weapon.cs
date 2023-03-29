@@ -6,11 +6,18 @@ using UnityEngine.Pool;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private GameObject currentBulletPref;
+    [Header("Preset")]
     public Transform outTransform;
-    public ObjectPool<Bullet> bulletPool;
+
+    [Header("Setting")]
+    [SerializeField] private GameObject currentBulletPref;
     public float damagetMultiplier = 1;
-    public float recoil = 0f, recoilAmount = 10f; //TODO: make SO
+    public float recoilAmount = 10f, recoilDownAmount = 30f; //TODO: make SO
+
+    [Header("Debug")]
+    [SerializeField] private float recoil = 0f;
+
+    public ObjectPool<Bullet> bulletPool;
 
     private void Awake()
     {
@@ -34,7 +41,7 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (recoil > 0f) recoil -= Time.deltaTime * 20;
+        if (recoil > 0f) recoil -= Time.deltaTime * recoilDownAmount;
         
         transform.localRotation = Quaternion.Euler(new(0, -90, recoil));
     }
