@@ -112,6 +112,7 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
         switch (state)
         {
             case EnemyState.Detect:
+                animator.SetTrigger("walk");
                 agent.SetDestination(Player.Main.transform.position);
                 break;
         }
