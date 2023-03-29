@@ -20,6 +20,7 @@ public class RemoveBullet : MonoBehaviour
         //print(collision.gameObject.tag + "랑 충돌");
 
 
+        //왜냐면 얘가 enemy에 적용된 스크립트라서 Enemy입장에서 bullet에 닿았을 때.
         if (collision.gameObject.tag == "Bullet") //other.gameObject.tag=="Enemy" //collision.collider.tag == "Enemy"
         {
             print("총알과 충돌!!!!");

@@ -63,6 +63,15 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+
+        if (hp <= 0)
+        {
+            Destroy(this.gameObject);
+            GameManager.instance.Score();
+            print("적이 하나 파괴");
+        } //hp가 0이면 enemy 없애고 없앤적의수+1
+
+
         //1. 스테이트 전환 상황 판단
         if (nextState == State.None) 
         {
@@ -405,13 +414,11 @@ public class Enemy : MonoBehaviour
             print("체력:" + hp);
 
             
-            if (hp <= 0)
-            {
-                Destroy(this.gameObject);
-                GameManager.instance.Score();
-            }
+            
 
         }
     }
+
+ 
 
 }
