@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee0ea8dec0004ccfb4eba232c968686, type: 3}
+  m_Name: TimeBonus
+  m_EditorClassIdentifier: 
+  itemName: Time
+  itemType: 0
+  itemPrefab: {fileID: 1538350616849490808, guid: cacf994e483c44a4c9dc28ef0fcec21e,
+    type: 3}
