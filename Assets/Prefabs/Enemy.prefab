@@ -972,6 +972,7 @@ MonoBehaviour:
   maxHitPoints: 5
   currentHitPoints: 0
   hitFx: {fileID: 0}
+  bombhitFx: {fileID: 0}
 --- !u!1 &1485398753205476649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,9 +1487,10 @@ GameObject:
   - component: {fileID: 1485398753195959207}
   - component: {fileID: -1608378534454580020}
   - component: {fileID: 3718743032824147806}
+  - component: {fileID: -2025026355936673971}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1529,6 +1531,7 @@ MonoBehaviour:
   attackRange: 4.1
   state: 0
   nextState: 0
+  randomRange: 0
 --- !u!95 &1485398753195959207
 Animator:
   serializedVersion: 4
@@ -1578,3 +1581,21 @@ MonoBehaviour:
   maxHitPoints: 10
   currentHitPoints: 0
   hitFx: {fileID: 3883161096632292200, guid: d34244d412f5b034cb8b81c662f701eb, type: 3}
+  bombhitFx: {fileID: 1758473627833946668, guid: 9b21333b068a5084ba09535839bee3c8,
+    type: 3}
+--- !u!54 &-2025026355936673971
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485398753205476827}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
