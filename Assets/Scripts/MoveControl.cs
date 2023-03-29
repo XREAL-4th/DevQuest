@@ -54,6 +54,7 @@ public class MoveControl : MonoBehaviour
 
     private void Update()
     {
+        UpdateInput();
         //0. 글로벌 상황 판단
         stateTime += Time.deltaTime;
         CheckLanded();
@@ -156,10 +157,10 @@ public class MoveControl : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+/*    private void FixedUpdate()
     {
-        UpdateInput();
-    }
+        
+    }*/
 
     private void CheckLanded() {
         //발 위치에 작은 구를 하나 생성한 후, 그 구가 땅에 닿는지 검사한다.
