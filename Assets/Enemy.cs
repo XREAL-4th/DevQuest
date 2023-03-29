@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mono.Cecil.Cil;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -15,7 +17,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private float chasingRedBallRange;
     [SerializeField] private float chasingPlayerRange;
-    
+
+    public LayerMask redBallLayer;
     public enum State 
     {
         None,
@@ -96,15 +99,18 @@ public class Enemy : MonoBehaviour
         if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
         {
             nextState = State.Attack;
-        }else if (Physics.CheckSphere(transform.position,chasingPlayerRange,1<<6,QueryTriggerInteraction.Ignore))
+        }else if (Physics.CheckSphere(transform.position, chasingPlayerRange, 1 << 6, QueryTriggerInteraction.Ignore))
         {
+            //Debug.Log("PlayerDetected!");
             // Chasing Player
             nextState = State.ChasingPlayer;
-        }else if (Physics.CheckSphere(transform.position,chasingRedBallRange,1<<9,QueryTriggerInteraction.Ignore))
+        }else if (true)
         {
+            Debug.Log("RedBallDetected!");
             // Chasing RedBall
             nextState = State.ChasingRedBall;
         }
+        else nextState = State.Idle;
     }
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
@@ -113,11 +119,11 @@ public class Enemy : MonoBehaviour
 
     private void ChasingPlayer()
     {
-        Debug.Log("chasingPlayer");
+        //Debug.Log("chasingPlayer");
     }
     private void ChasingRedBall()
     {
-        Debug.Log("chasingRedBall");
+        //Debug.Log("chasingRedBall");
     }
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
@@ -130,6 +136,15 @@ public class Enemy : MonoBehaviour
         attackDone = true;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 9)
+        {
+            // 충돌한 것이 redball 이면 enemyScore 증가, 
+            GameManager.instance.enemyScore += 1;
+            collision.gameObject.SetActive(false);
+        }
+    }
 
     private void OnDrawGizmosSelected()
     {

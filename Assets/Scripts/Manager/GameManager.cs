@@ -6,13 +6,23 @@ using UnityEngine.UI;
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     [SerializeField] private float timeLimit = 30f;
+
+    public GameObject player;
+    // UI-Text 
     public Text timerText;
     public Text coinText;
+    public Text playerScoreText;
+    public Text enemyScoreText;
+    public int playerScore;
+    public int enemyScore;
+    
     private float timer;
     public bool isPlaying = false;
     private float remainTime;
     public int remainCoin;
     public float moveSpeed;
+    
+    
     private void Start()
     {
         timer = 0f;
@@ -43,6 +53,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             }
         }
         coinText.text = "Coin : " + remainCoin;
+        playerScoreText.text = "Player Score : " + playerScore;
+        enemyScoreText.text = "Enemy Score : " + enemyScore;
     }
 
     public void GameClear()

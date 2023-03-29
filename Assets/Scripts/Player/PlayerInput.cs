@@ -9,6 +9,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform fireTransform;
     public ParticleSystem fireParticleSystem;
+
+    [SerializeField] private float skillCoolTime;
     
     // Start is called before the first frame update
     void Start()
@@ -22,12 +24,22 @@ public class PlayerInput : MonoBehaviour
         {
             Fire();
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            FlashBang();
+        }
     }
 
     void Fire()
     {
         Instantiate(projectilePrefab,fireTransform); 
         fireParticleSystem.Play();
+    }
+
+    void FlashBang()
+    {
+        // 코루틴으로 쿨타임, vfx 
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -39,8 +51,9 @@ public class PlayerInput : MonoBehaviour
         }else if (collision.gameObject.layer == 9) // layer 9 => fevertime
         {
             GameManager.instance.moveSpeed *= 1.5f;
+            GameManager.instance.playerScore += 1;
             collision.gameObject.SetActive(false);
         }
-        
     }
+    
 }
