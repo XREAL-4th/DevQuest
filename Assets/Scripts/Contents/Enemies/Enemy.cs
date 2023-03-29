@@ -28,11 +28,14 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
     private float health;
     public float Health { get => health; set => health = value; }
 
-    private void Start()
+    protected override EnemyState NoneState => EnemyState.None;
+
+    protected override EnemyState IdleState => EnemyState.Idle;
+
+    protected override void Start()
     {
+        base.Start();
         health = type.maxHealth;
-        state = EnemyState.None;
-        nextState = EnemyState.Idle;
     }
 
     protected override void Update()
@@ -98,19 +101,19 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
     {
         switch (state)
         {
-            case EnemyState.Idle:
-                break;
             case EnemyState.Attack:
                 Attack();
-                break;
-            case EnemyState.Detect:
-                agent.Move(Player.Main.transform.position);
                 break;
         }
     }
 
     protected override void UpdateState()
     {
-        
+        switch (state)
+        {
+            case EnemyState.Detect:
+                agent.SetDestination(Player.Main.transform.position);
+                break;
+        }
     }
 }

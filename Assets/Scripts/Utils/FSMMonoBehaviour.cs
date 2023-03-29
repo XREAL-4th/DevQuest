@@ -4,19 +4,34 @@ using UnityEngine;
 public abstract class FSMMonoBehaviour<T> : MonoBehaviour where T : struct, Enum
 {
 	[Header("Debug")]
-	public T state = (T)(typeof(T).GetEnumValues().GetValue(0));
-	public T nextState = (T)(typeof(T).GetEnumValues().GetValue(0));
+	public T state;
+	public T nextState;
 
-	private T noneState = (T)(typeof(T).GetEnumValues().GetValue(0));
+	protected abstract T NoneState { get; }
+    protected abstract T IdleState { get; }
+
+    protected virtual void Awake()
+    {
+        state = NoneState;
+        nextState = NoneState;
+
+    }
+
+    protected virtual void Start()
+    {
+        state = NoneState;
+		nextState = IdleState;
+
+    }
 
 	protected virtual void Update()
 	{
-		if (nextState.Equals(noneState)) CheckState();
-		if (!nextState.Equals(noneState))
+		if (nextState.Equals(NoneState)) CheckState();
+		if (!nextState.Equals(NoneState))
 		{
 
 			state = nextState;
-			nextState = noneState;
+			nextState = NoneState;
 			InitState();
 		}
 		UpdateState();

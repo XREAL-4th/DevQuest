@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Duck
   maxHealth: 50
   attackRange: 4
-  detectRange: 12
+  detectRange: 8
   moveSpeed: 1.2
   hitFx: {fileID: 0}
