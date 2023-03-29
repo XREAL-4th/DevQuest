@@ -976,8 +976,7 @@ MonoBehaviour:
   image: {fileID: 399026716}
   cooltime: 3
   code: 101
-  activeEffect: {fileID: 1134129239631916, guid: 7e48ba6b1b968764490bbc70b66e3fe1,
-    type: 3}
+  activeEffect: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
   currentCooltime: 0
 --- !u!1 &509435101
 GameObject:
