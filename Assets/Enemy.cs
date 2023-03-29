@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private float attackRange;
-    [SerializeField] private float followRange;
 
     public enum State 
     {
@@ -39,12 +38,21 @@ public class Enemy : MonoBehaviour
     private bool _move = false;
     private Vector3 _targetPos;
 
+    public Vector3 origin_position;
+
+    NavMeshAgent nav;
+    GameObject target;
+
     private void Start()
     { 
         state = State.None;
         nextState = State.Idle;
         attackDone = true;
         followDone = true;
+
+        nav = GetComponent<NavMeshAgent>();
+        target = GameObject.Find("Player");
+        origin_position = transform.position;
     }
 
     private void Update()
@@ -56,28 +64,25 @@ public class Enemy : MonoBehaviour
             {
                 case State.Idle:
                     //1 << 6인 이유는 Player의 Layer가 6이기 때문
-                    if (Physics.CheckSphere(transform.position, followRange, 1 << 6, QueryTriggerInteraction.Ignore))
+
+                    if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
-                        if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
-                        {
-                            nextState = State.Attack;
-                        } else
-                        {
-                            Debug.Log("IDLE -> followRange 들어온 것 인식");
-                            nextState = State.Follow;
-                        }
+                        nextState = State.Attack;
+                    } else if (followDone == false)
+                    {
+                        nextState = State.Follow;
                     }
                     break;
                 case State.Attack:
                     if (attackDone)
                     {
                         attackDone = false;
-                        if (Physics.CheckSphere(transform.position, followRange, 1 << 6, QueryTriggerInteraction.Ignore))
-                        {
-                            nextState = State.Follow;
-                        } else
+                        if(followDone)
                         {
                             nextState = State.Idle;
+                        } else
+                        {
+                            nextState = State.Follow;
                         }
                     }
                     break;
@@ -86,13 +91,10 @@ public class Enemy : MonoBehaviour
                     {
                         nextState = State.Attack;
                         followDone = true;
-                    }
-                    if (!Physics.CheckSphere(transform.position, followRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    } else if(followDone == true)
                     {
                         nextState = State.Idle;
-                        followDone = true;
                     }
-                    followDone = false;
                     break;
             }
         }
@@ -105,7 +107,6 @@ public class Enemy : MonoBehaviour
             switch (state) 
             {
                 case State.Idle:
-                    Debug.Log("IDLE ssss 실행");
                     Idle();
                     break;
                 case State.Attack:
@@ -117,16 +118,31 @@ public class Enemy : MonoBehaviour
                 //insert code here...
             }
         }
-        
-        if(!followDone)
-        {
-            Follow_move();
-        }
+
+        //인식 거리 내로 들어왔을 경우 플레이어 쫒기
+        Nav_follow();
 
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            followDone = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            followDone = true;
+        }
+    }
+
+
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
         animator.SetTrigger("attack");
@@ -134,40 +150,31 @@ public class Enemy : MonoBehaviour
 
     private void Follow()
     {
-        animator.SetTrigger("walk");
+        animator.SetBool("bWalk", true);
     }
-
-    private void Follow_move()
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore);
-        foreach (Collider col in colliders)
-        {
-            //if (col.name == "Sphere" /* 자기 자신은 제외 */) continue;
-            Debug.Log("콜라이더 이름" + col.name);
-            if (col.name == "Player") _targetPos = col.transform.position;
-        }
-        _move = MoveToPosition(_targetPos);
-    }
-
-    private bool MoveToPosition(Vector3 _targetPos)
-    {
-        if (Vector3.Magnitude(transform.position - _targetPos) < _distanceCheck)
-        {
-            // arrived. cancel move.
-            Debug.Log("arrived! stop moving!");
-            return false;
-        }
-        // should move towards target
-        transform.position = Vector3.MoveTowards(transform.position, _targetPos, Time.deltaTime * _walkSpeed);
-        transform.LookAt(_targetPos, Vector3.up);
-        return true;
-    }
-
-
     private void Idle()
     {
-        Debug.Log("IDLE 함수 실행");
-        animator.SetTrigger("idle");
+        animator.SetBool("bWalk", false);
+    }
+
+    private void Nav_follow()
+    {
+        if(followDone == true)
+        {
+            /*            Debug.Log(origin_position);
+                        nav.SetDestination(origin_position);*/
+            nav.SetDestination(transform.position);
+        } else
+        {
+            if (nav.destination != target.transform.position)
+            {
+                nav.SetDestination(target.transform.position);
+            }
+            else
+            {
+                nav.SetDestination(transform.position);
+            }
+        }
     }
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
@@ -180,15 +187,11 @@ public class Enemy : MonoBehaviour
         attackDone = true;
     }
 
-
     private void OnDrawGizmosSelected()
     {
         //Gizmos를 사용하여 공격 범위를 Scene View에서 확인할 수 있게 합니다. (인게임에서는 볼 수 없습니다.)
         //해당 함수는 없어도 기능 상의 문제는 없지만, 기능 체크 및 디버깅을 용이하게 합니다.
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRange);
-
-        Gizmos.color = new Color(0f, 1f, 0f, 0.5f);
-        Gizmos.DrawSphere(transform.position, followRange);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAttacked : MonoBehaviour
 {
     public GameObject Life1, Life2;
+    public GameObject Enemy_self;
     public Ori_concreteSubject ori_ConcreteSubject;
     private void OnTriggerEnter(Collider other)
     {
@@ -24,7 +25,7 @@ public class EnemyAttacked : MonoBehaviour
                 Debug.Log("두번 맞음");
             } else
             {
-                gameObject.SetActive(false);
+                Enemy_self.SetActive(false);
                 Debug.Log("세번 맞음");
                 //처치됨
                 //ConcreteSubject의 Notify 호출
