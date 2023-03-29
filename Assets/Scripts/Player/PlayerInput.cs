@@ -9,7 +9,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform fireTransform;
     public ParticleSystem fireParticleSystem;
-
+    public ParticleSystem skillParticleSystem;
     [SerializeField] private float skillCoolTime;
     
     // Start is called before the first frame update
@@ -22,24 +22,31 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Fire();
+            StartCoroutine(Fire());
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q)&& !GameManager.instance.isCooldown)
         {
-            FlashBang();
+            StartCoroutine(FlashBang());
         }
     }
 
-    void Fire()
-    {
-        Instantiate(projectilePrefab,fireTransform); 
+    IEnumerator Fire()
+    {   
+        GameObject gameObject = Instantiate(projectilePrefab,fireTransform); 
         fireParticleSystem.Play();
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
     }
 
-    void FlashBang()
+    IEnumerator FlashBang()
     {
         // 코루틴으로 쿨타임, vfx 
+        KnokBack();
+        GameManager.instance.isCooldown = true;
+        GameManager.instance.SkillCoolTimeReset();
+        yield return new WaitForSeconds(EnemySpawner.instance.scriptable.skillCoolTime);
+        GameManager.instance.isCooldown = false;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -55,5 +62,26 @@ public class PlayerInput : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
     }
-    
+
+    void KnokBack()
+    {
+        Debug.Log("KnockBack!!");
+        Collider[] colliders= Physics.OverlapBox(transform.position + transform.forward * 2f, Vector3.one * 5, Quaternion.identity);
+        foreach (var c in colliders)
+        {
+            Debug.Log("1");
+            if (c.gameObject.TryGetComponent(out Rigidbody rb))
+            {
+                skillParticleSystem.Play();
+                rb.AddForce(Vector3.back * 5f);
+                Debug.Log($"{rb.name}");
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color= new Color(0f, 1f, 0f, 0.5f);
+        Gizmos.DrawCube(transform.position + transform.forward*2f,Vector3.one*5);
+    }
 }

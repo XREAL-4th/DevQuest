@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour
             //Debug.Log("PlayerDetected!");
             // Chasing Player
             nextState = State.ChasingPlayer;
-        }else if (true)
+        }else if (Physics.CheckSphere(transform.position, chasingRedBallRange, 1 << 9, QueryTriggerInteraction.Ignore))
         {
             Debug.Log("RedBallDetected!");
             // Chasing RedBall
@@ -119,7 +119,11 @@ public class Enemy : MonoBehaviour
 
     private void ChasingPlayer()
     {
-        //Debug.Log("chasingPlayer");
+        animator.SetTrigger("walk");
+        transform.Translate((GameManager.instance.player.transform.position-transform.position).normalized * 
+                            GameManager.instance.enemyMoveSpeed * Time.deltaTime, Space.World );
+        transform.rotation =
+            Quaternion.LookRotation(GameManager.instance.player.transform.position - transform.position);
     }
     private void ChasingRedBall()
     {
