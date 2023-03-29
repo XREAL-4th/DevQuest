@@ -58,13 +58,17 @@ MonoBehaviour:
   animator: {fileID: 371906941889409627}
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
   center: {fileID: 7182667927968092448}
-  attackRange: 4.1
+  attackRange: 4.5
   avoidRange: 8
   state: 0
   nextState: 0
   hp: 0
-  rightTarget: {fileID: 3873805973503555467}
-  leftTarget: {fileID: 5477335590660311352}
+  enemyPosition: 0
+  initPositionZ: 0
+  distnace: 5
+  turningPoint: 0
+  turnSwitch: 0
+  moveSpeed: 0
 --- !u!95 &371906941889409627
 Animator:
   serializedVersion: 4

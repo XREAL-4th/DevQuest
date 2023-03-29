@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float attackRange;
     [SerializeField] private float avoidRange;
+    //[SerializeField] private float rectangleRange;
 
     public enum State 
     {
@@ -129,7 +130,8 @@ public class Enemy : MonoBehaviour
                     Attack();
                     break;
                 case State.Avoid:
-                    Avoid();
+                    //Avoid();
+                    StartCoroutine(avoidLoop());
                     break;
 
             }
@@ -143,6 +145,103 @@ public class Enemy : MonoBehaviour
     {
         print("Attack()실행 중");
         animator.SetTrigger("attack");
+    }
+
+
+    IEnumerator avoidLoop()
+    {
+        animator.SetBool("stun", true);
+
+        for (int i = 0; i < 4; i++)
+        {
+            
+
+            /*
+            else if (Physics.CheckBox(transform.position, new Vector3(1, 1, 1)))
+            {
+                break;
+            }
+            */
+
+
+            transform.position = transform.position + new Vector3(0, 0, 0.5f) * 1;
+            yield return new WaitForSeconds(0.5f);
+
+
+            if (Physics.CheckSphere(center.transform.position, avoidRange, 1 << 6, QueryTriggerInteraction.Ignore))
+            {
+                if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                {
+                    break;
+                }
+            }
+
+            else
+            {
+                break;
+            }
+
+        }
+        
+
+
+        while (true)
+        {
+            //enemyPosition += 1;
+            //print(enemyPosition);
+
+            
+            for (int a = 0; a < 8; a++)
+            {
+                print("실행중1");
+                transform.position = transform.position + new Vector3(0, 0, -0.5f) * 1;
+                yield return new WaitForSeconds(0.5f);
+
+
+                if (Physics.CheckSphere(center.transform.position, avoidRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                {
+                    if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        break;
+                    }
+                }
+
+                else
+                {
+                    break;
+                }
+            }
+
+            
+
+            for (int b = 0; b <8; b++)
+            {
+                print("실행중2");
+                transform.position = transform.position + new Vector3(0, 0, 0.5f) * 1;
+                yield return new WaitForSeconds(0.5f);
+
+
+                if (Physics.CheckSphere(center.transform.position, avoidRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                {
+                    if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        break;
+                    }
+                }
+
+                else
+                {
+                    break;
+                }
+            }
+
+            break;
+
+
+
+            //yield return new WaitForSeconds(0.5f);
+            //yield return null;
+        }
     }
 
     private void Avoid()
@@ -290,6 +389,7 @@ public class Enemy : MonoBehaviour
         Gizmos.color = new Color(1f, 0f, 0f, 0.25f);
         Gizmos.DrawSphere(transform.position, attackRange);
         Gizmos.DrawSphere(center.transform.position, avoidRange);
+        //Gizmos.DrawCube(center.transform.position, new Vector3(1, 1, 1));
 
     }
 
