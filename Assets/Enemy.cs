@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject splashFx;
     public Transform target;
     NavMeshAgent agent; //agent : 네비게이션 메시 위에서 길을 찾아서 움직일 오브젝트
-    public Animator anim;
 
     [Header("Settings")]
     [SerializeField] private float attackRange;
@@ -120,7 +119,7 @@ public class Enemy : MonoBehaviour
         {
             animator.SetTrigger("walk");
         }
-        agent.speed = 3.5f;
+        agent.speed = 5.5f;
         agent.destination = target.transform.position;
 
     }
