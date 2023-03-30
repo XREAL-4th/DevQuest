@@ -18,7 +18,8 @@ public class Enemy : MonoBehaviour
     {
         None,
         Idle,
-        Attack
+        Attack,
+        Wander
     }
     
     [Header("Debug")]
@@ -26,6 +27,8 @@ public class Enemy : MonoBehaviour
     public State nextState = State.None;
 
     private bool attackDone;
+    private bool isSearching;
+    public int randomRange;
 
     private void Start()
     { 
@@ -46,6 +49,10 @@ public class Enemy : MonoBehaviour
                     {
                         nextState = State.Attack;
                     }
+                    else if(!Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        nextState = State.Wander;
+                    }
                     break;
                 case State.Attack:
                     if (attackDone)
@@ -55,6 +62,9 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                 //insert code here...
+                case State.Wander:
+                    nextState = State.Idle;
+                    break;
             }
         }
         
@@ -71,6 +81,9 @@ public class Enemy : MonoBehaviour
                     Attack();
                     break;
                 //insert code here...
+                case State.Wander:
+                    Wander();
+                    break;
             }
         }
         
@@ -100,5 +113,15 @@ public class Enemy : MonoBehaviour
         //해당 함수는 없어도 기능 상의 문제는 없지만, 기능 체크 및 디버깅을 용이하게 합니다.
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRange);
+    }
+
+    private void Wander()
+    {
+        randomRange = Random.Range(-360, 360);
+
+        animator.SetTrigger("walk");
+        
+        transform.Rotate((randomRange * transform.up).normalized * Time.deltaTime * 300.0f);
+        transform.position += transform.forward * 2.0f * Time.deltaTime;
     }
 }

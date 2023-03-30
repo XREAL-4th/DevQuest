@@ -5,7 +5,11 @@ using UnityEngine;
 public class Fire : MonoBehaviour {
  
     public GameObject Bullet;
+    public GameObject CannonBall;
     public Transform FirePos;
+
+    public bool coolOn = true;
+    public float coolTimeAmount = 5.0f;
 
     
  
@@ -17,5 +21,21 @@ public class Fire : MonoBehaviour {
             Destroy(bulletclone,1.5f);
             
         }
+        else if (Input.GetKeyDown(KeyCode.Q)&& coolOn)
+        {
+            GameObject cannonBallclone = Instantiate(CannonBall, FirePos.transform.position, FirePos.transform.rotation);
+            StartCoroutine(coolTime(coolTimeAmount));
+            Destroy(cannonBallclone,1.5f);
+            
+        }
+
+    }
+
+     IEnumerator coolTime(float time)
+    {
+        coolOn = false;
+        yield return new WaitForSeconds(time);
+        coolOn = true;
+        yield break;
     }
 }
