@@ -19,7 +19,8 @@ public class Enemy : MonoBehaviour
     {
         None,
         Idle,
-        Attack
+        Attack,
+        Stun
     }
     
     [Header("Debug")]
@@ -35,12 +36,15 @@ public class Enemy : MonoBehaviour
     private GameObject go_enemy;
 
     private bool attackDone;
+    private bool stunDone;
 
     private void Start()
     { 
         state = State.None;
         nextState = State.Idle;
     }
+
+    public Gun Gun;
 
     private void Update()
     {
@@ -63,6 +67,13 @@ public class Enemy : MonoBehaviour
                         attackDone = false;
                     }
                     break;
+                case State.Stun:
+                    if(stunDone)
+                    {
+                        nextState = State.Idle;
+                        stunDone = false;
+                    }
+                    break;
                 //insert code here...
             }
         }
@@ -79,6 +90,9 @@ public class Enemy : MonoBehaviour
                 case State.Attack:
                     Attack();
                     break;
+                case State.Stun:
+                    Stun();
+                    break;
                 //insert code here...
             }
         }
@@ -92,6 +106,10 @@ public class Enemy : MonoBehaviour
     {
         animator.SetTrigger("attack");
     }
+    public void Stun()
+    {
+        animator.SetTrigger("stun");
+    }
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
     {
@@ -101,11 +119,13 @@ public class Enemy : MonoBehaviour
     public void WhenAnimationDone() //Unity Animation Event 에서 실행됩니다.
     {
         attackDone = true;
+        stunDone = true;
     }
 
     public void EnemyAttacked()
     {
         hp--;
+        nextState = State.Stun;
         if (hp <= 0)
         {
             Destruction();
