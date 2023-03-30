@@ -23,10 +23,13 @@ public class GameManager : MonoBehaviour
     [Header("Enemy")]
     public GameObject[] enemys;
     public int enemysCount;
-    public GameObject player;
 
     [Header("UI")]
     public GameObject gameClear;
+
+    [Header("Player")]
+    public GameObject player;
+
 
     void Start()
     {

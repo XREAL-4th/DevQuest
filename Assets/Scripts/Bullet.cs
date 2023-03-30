@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
             Instantiate(splashFx, transform.position, Quaternion.identity);
             if(splashFx)
             //player의 getDamage 함수 호출 (데미지 입히기)
-            collision.gameObject.GetComponent<Enemy>().GetDamage(damage, transform.position.x);
+            collision.gameObject.GetComponent<Enemy>().GetDamage(damage);
         }
         if (collision.gameObject.tag == "Background")
         {
