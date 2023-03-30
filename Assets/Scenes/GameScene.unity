@@ -8030,6 +8030,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5324825642119487494, guid: 748d19574625db444877ca05561b6aea,
         type: 3}
+      propertyPath: shootDelay
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324825642119487494, guid: 748d19574625db444877ca05561b6aea,
+        type: 3}
       propertyPath: currentBulletType
       value: 
       objectReference: {fileID: 11400000, guid: 418ebb09d23cbdf4a833ad1848a25841,
@@ -10159,7 +10164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 1280609235}
-  shootDelay: 0.75
 --- !u!114 &2047535503
 MonoBehaviour:
   m_ObjectHideFlags: 0

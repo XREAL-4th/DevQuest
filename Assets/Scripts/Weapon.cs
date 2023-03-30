@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     public float damagetMultiplier = 1;
     public float recoilAmount = 10f, recoilDownAmount = 30f, reloadTime = 1.5f; //TODO: make SO: ammoPerMaganize, recoilAmount, recoilDownAmount, reloadTime
     public int ammoPerMaganize = 10, ammo = 10, maganizes = 5;
+    public float shootDelay = 1.5f, shootTime = 0;
 
     [Header("Debug")]
     [SerializeField] private float recoil = 0f;
@@ -22,13 +23,15 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        if (!IsShootable()) return;
+        if (!IsShootable() || shootTime > 0) return;
 
         Bullet bullet = BulletPoolManager.Main.Get<Bullet, BulletType>(currentBulletType);
         bullet.parent = this;
         bullet.direction = outTransform.right;
         bullet.transform.position = outTransform.position;
         bullet.stateTime = 0;
+
+        shootTime = shootDelay;
         recoil += recoilAmount;
         ammo--;
     }
@@ -52,8 +55,9 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.R) && IsReloadable()) Reload();
         
-        if (recoil > 0f) recoil -= Time.deltaTime * recoilDownAmount;
-        
+        if (recoil > 0) recoil -= Time.deltaTime * recoilDownAmount;
+        if (shootTime > 0) shootTime -= Time.deltaTime;
+
         transform.localRotation = Quaternion.Euler(new(0, -90, recoil));
     }
 }

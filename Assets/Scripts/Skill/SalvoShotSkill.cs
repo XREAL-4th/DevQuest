@@ -13,6 +13,9 @@ public class SalvoShotSkill : Skill
 
     protected override void OnActive()
     {
-        InvokeUtils.RepeatDelay(this, 3, 0.15f, (_) => Player.Main.shooter.weapon.Shoot());
+        InvokeUtils.RepeatDelay(this, 3, 0.15f, (_) => {
+            Player.Main.shooter.weapon.shootTime = 0;
+            Player.Main.shooter.weapon.Shoot();
+        });
     }
 }
