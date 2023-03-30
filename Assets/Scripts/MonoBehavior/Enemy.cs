@@ -168,26 +168,27 @@ public class Enemy : MonoBehaviour
         rigidbody.velocity = Vector3.zero;
         //OnDone?.Invoke();
     }
-    
+    private int i=0;
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.gameObject.CompareTag("bullet")){
+            collision.collider.gameObject.SetActive(false);
             mass = rigidbody.mass;
-            
+
             hp--;
-            print(hp);
+            print(++i);
             //Debug.Log("enemy damaged");
             if(hp==0){
+                hp=4;
                 gameObject.SetActive(false);
             }
 
             Vector3 direction = (transform.position - collision.transform.position).normalized;
-            rigidbody.AddForce(direction * strength * mass * 100, ForceMode.Impulse);
-
-            rigidbody.velocity = Vector3.zero;
+            rigidbody.AddForce(direction * strength * mass * 10, ForceMode.Impulse);
+            //rigidbody.velocity = Vector3.zero;
             StartCoroutine(Reset());
 
-            Instantiate(hitfx, transform.position, Quaternion.identity);
+            //Instantiate(hitfx, collision.transform.position, Quaternion.identity);
             
         }
     }

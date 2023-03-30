@@ -140,9 +140,10 @@ GameObject:
   m_Component:
   - component: {fileID: 230516353574397992}
   - component: {fileID: 230516353569487178}
+  - component: {fileID: 8496603476833635933}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy_Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,6 +218,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.8135562, y: -1.6374205, z: 0.0000035762787}
     m_Extent: {x: 3.9877295, y: 3.0788631, z: 3.4973443}
   m_DirtyAABB: 0
+--- !u!135 &8496603476833635933
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230516353574763528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.5
+  m_Center: {x: -0.0000021560807, y: 0.0075058937, z: 3.380329}
 --- !u!1 &230516353574763530
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,9 +240,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 230516353574397994}
+  - component: {fileID: 3824107816717782576}
   m_Layer: 0
   m_Name: Bip001
-  m_TagString: Untagged
+  m_TagString: Enemy_head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,6 +265,19 @@ Transform:
   m_Father: {fileID: 230516353574397972}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.5443298, y: 0.0003720884, z: 89.99993}
+--- !u!135 &3824107816717782576
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230516353574763530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.3
+  m_Center: {x: 4, y: 0, z: 1}
 --- !u!1 &230516353574763532
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,9 +319,10 @@ GameObject:
   m_Component:
   - component: {fileID: 230516353574397998}
   - component: {fileID: 230516353569487176}
+  - component: {fileID: 2658607500427192635}
   m_Layer: 0
   m_Name: Leg
-  m_TagString: Untagged
+  m_TagString: Enemy_Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -372,6 +401,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -1.5901859, y: -0.0012184381, z: -1.9428126}
     m_Extent: {x: 0.7770002, y: 1.0265877, z: 2.5946145}
   m_DirtyAABB: 0
+--- !u!135 &2658607500427192635
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230516353574763534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.8246586
+  m_Center: {x: 0.00000047683716, y: 0.6350311, z: 0.69338727}
 --- !u!1 &230516353574763536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1418,7 @@ GameObject:
   - component: {fileID: 374165904306849271}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1462,10 +1504,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 1
+  m_Height: 11
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 4, z: 1}
 --- !u!54 &-7445797032450117842
 Rigidbody:
   m_ObjectHideFlags: 0

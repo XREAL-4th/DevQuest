@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public GameObject hitfx_head;
+    public GameObject hitfx_body;
     // Update is called once per frame
     void Update()
     {
@@ -14,8 +16,17 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.gameObject.CompareTag("Enemy")){
+        if(collision.collider.gameObject.CompareTag("Enemy_head")){
+            
             gameObject.SetActive(false);
+            Instantiate(hitfx_head, collision.transform.position, Quaternion.identity);
         }
+        
+        if(collision.collider.gameObject.CompareTag("Enemy_Body")){
+            
+            gameObject.SetActive(false);
+            Instantiate(hitfx_body, collision.transform.position, Quaternion.identity);
+        }
+        
     }
 }
