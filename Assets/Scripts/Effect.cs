@@ -14,7 +14,7 @@ public class Effect : MonoBehaviour
     {
         timer += Time.deltaTime; 
 
-        if(timer > 0.8f)
+        if(timer > 5f)
         {
             this.gameObject.SetActive(false);
         }

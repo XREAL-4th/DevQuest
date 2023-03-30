@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 
     public int hp;
     public GameObject killVfxPrefab;
+    public GameObject hitVfxPrefab;
     public int attackpower;
 
     void Update()
@@ -26,6 +27,9 @@ public class EnemyController : MonoBehaviour
         {
             hp -= GameObject.Find("Player").GetComponent<MoveControl>().attackPower;
             other.gameObject.SetActive(false);
+
+            GameObject vfx = Instantiate(hitVfxPrefab) as GameObject;
+            vfx.transform.position = this.transform.position;
         }
     }
 

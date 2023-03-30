@@ -46,6 +46,7 @@ public class MoveControl : MonoBehaviour
         stateTime = 0f;
         forward = transform.forward;
         right = transform.right;
+
     }
 
     private void Update()

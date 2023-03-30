@@ -10,6 +10,8 @@ public class Item : MonoBehaviour
 	//public GameObject player;
 	public int Power;
 	public float Freq;
+	public float rotateSpeed;
+
 
 	void Awake()
     {
@@ -23,6 +25,9 @@ public class Item : MonoBehaviour
 		Debug.Log(itemData.Power);
 	}
 
-    
-    
+	void Update()
+    {
+		transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime, Space.World);
+	}
+
 }

@@ -11,6 +11,7 @@ public class CameraControl : MonoBehaviour
 
     private float xRotate, yRotate, xRotateMove, yRotateMove;
     public float rotateSpeed = 400.0f;
+    private bool _isRotating = false;
 
     private void Start()
     {
@@ -22,20 +23,24 @@ public class CameraControl : MonoBehaviour
 
     }
     
-    private void Update()
-    {
-        mouseX += Input.GetAxis("Mouse X") * sensitivity;
-        mouseY += Input.GetAxis("Mouse Y") * sensitivity;
-        mouseY = Mathf.Clamp(mouseY, -75f, 75f);
-
-
-    }
-
     private void FixedUpdate()
     {
+
         Cursor.lockState = CursorLockMode.Locked;//
-        playerTransform.rotation = Quaternion.Euler(new Vector3(0, mouseX, 0));
-        transform.localRotation = Quaternion.Euler(new Vector3(-mouseY, 0, 0));
+
+        if (Input.GetMouseButton(0)) _isRotating = true;
+
+        if (_isRotating)
+        {
+            mouseX += Input.GetAxis("Mouse X") * sensitivity;
+            playerTransform.rotation = Quaternion.Euler(new Vector3(0, mouseX, 0));
+
+            mouseY += Input.GetAxis("Mouse Y") * sensitivity;
+            mouseY = Mathf.Clamp(mouseY, -75f, 75f);
+            transform.localRotation = Quaternion.Euler(new Vector3(-mouseY, 0, 0));
+        }
+
+
     }
-    
+
 }

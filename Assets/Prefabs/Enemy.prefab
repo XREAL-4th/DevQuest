@@ -1420,6 +1420,9 @@ MonoBehaviour:
   nextState: 0
   navMeshAgent: {fileID: 6594321151805121470}
   player: {fileID: 0}
+  pushVfx: {fileID: 5836701092737964378, guid: 2f470568aa7d2e84bb90fee7ad6a26db, type: 3}
+  attackedVfxPrefab: {fileID: 6126188424833946103, guid: a58aa9a78f2b45b45bb0f3e2e1e3ad3c,
+    type: 3}
 --- !u!95 &7409371184443805359
 Animator:
   serializedVersion: 4
@@ -1483,8 +1486,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
-  killVfxPrefab: {fileID: 6860936316483239200, guid: 51175811883fdc64a8b1bd2ca89edda2,
+  killVfxPrefab: {fileID: 6310961112875465826, guid: 577bafd11905961478a74da18ead1f46,
     type: 3}
+  hitVfxPrefab: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
   attackpower: 0
 --- !u!195 &6594321151805121470
 NavMeshAgent:

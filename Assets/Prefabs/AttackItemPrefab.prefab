@@ -113,3 +113,4 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 223c253df93ee424b99ec886368c31e9, type: 2}
   Power: 0
   Freq: 0
+  rotateSpeed: 40
