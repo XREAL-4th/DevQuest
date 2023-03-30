@@ -8,7 +8,6 @@ public class Weapon : MonoBehaviour
     public Transform bulletPosition;
     public GameObject prefabBullet;
     Vector3 direction;
-    public int damage = 20;
     public Camera cam;
     private void Start()
     {

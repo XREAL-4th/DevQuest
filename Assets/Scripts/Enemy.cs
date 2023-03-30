@@ -7,14 +7,14 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Preset Fields")] 
+    [Header("Preset Fields")]
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject splashFx;
-    
+
     [Header("Settings")]
     [SerializeField] private float attackRange;
-    
-    public enum State 
+
+    public enum State
     {
         None,
         Idle,
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     private bool attackDone;
 
     private void Start()
-    { 
+    {
         state = State.None;
         nextState = State.Idle;
     }
@@ -39,9 +39,9 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         //1. 스테이트 전환 상황 판단
-        if (nextState == State.None) 
+        if (nextState == State.None)
         {
-            switch (state) 
+            switch (state)
             {
                 case State.Idle:
                     //1 << 6인 이유는 Player의 Layer가 6이기 때문
@@ -57,26 +57,26 @@ public class Enemy : MonoBehaviour
                         attackDone = false;
                     }
                     break;
-                //insert code here...
+                    //insert code here...
             }
         }
-        
+
         //2. 스테이트 초기화
-        if (nextState != State.None) 
+        if (nextState != State.None)
         {
             state = nextState;
             nextState = State.None;
-            switch (state) 
+            switch (state)
             {
                 case State.Idle:
                     break;
                 case State.Attack:
                     Attack();
                     break;
-                //insert code here...
+                    //insert code here...
             }
         }
-        
+
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
         if (Health <= 0)
@@ -95,12 +95,13 @@ public class Enemy : MonoBehaviour
     //}
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag =="Weapon")
+        if (collision.gameObject.tag == "Weapon")
         {
             Weapon weapon = GetComponent<Weapon>();
+            Bullet bullet = GetComponent<Bullet>();
             print("Damaged");
-            Health -= weapon.damage;
-            if(Health <= 0)
+            Health -= 20;
+            if (Health <= 0)
             {
                 Destroy(this.gameObject);
             }
@@ -116,7 +117,7 @@ public class Enemy : MonoBehaviour
     {
         Instantiate(splashFx, transform.position, Quaternion.identity);
     }
-    
+
     public void WhenAnimationDone() //Unity Animation Event 에서 실행됩니다.
     {
         attackDone = true;
