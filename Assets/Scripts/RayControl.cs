@@ -8,19 +8,21 @@ public class RayControl : MonoBehaviour
     Vector3 dir;
     GameObject player;
     GameObject bullet;
+    GameObject aim;
     float force = 1;
 
     void Start()
     {
         player = GameObject.Find("Player");
         bullet = GameObject.Find("Bullet");
+        aim = GameObject.Find("Aim");
     }
 
     void Update()
     {
         // 마우스 좌클릭 시 목표 위치로 발사
         if (Input.GetMouseButtonDown(0)) {
-            pos = Input.mousePosition;
+            pos = aim.transform.position;
             pos.z = GetComponent<Camera>().farClipPlane;
             dir = GetComponent<Camera>().ScreenToWorldPoint(pos);
             bullet = Instantiate(bullet, player.transform.position, player.transform.rotation);
