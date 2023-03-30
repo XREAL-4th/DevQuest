@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour 
+public abstract class Item : MonoBehaviour
 {
+    [Header("Presets")]
     public ItemType type;
 
     protected abstract void OnGotten(GameObject player);

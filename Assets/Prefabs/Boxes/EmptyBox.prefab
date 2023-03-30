@@ -5551,9 +5551,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740923ff82daa124c9b4f089c5803181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  currentAnimator: {fileID: 6433967624441916177}
   idleBox: {fileID: 6347829135604973301}
   destroyedBox: {fileID: 6347829137422915821}
+  health: 10
   type: {fileID: 11400000, guid: 410414dc80b59e04d9616b0afcdbc064, type: 2}
   itemPref: {fileID: 1000012970591572, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
 --- !u!1 &6347829135453689851

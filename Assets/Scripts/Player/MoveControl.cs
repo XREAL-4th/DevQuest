@@ -22,9 +22,6 @@ public class MoveControl : MonoBehaviour
 
     private void Start()
     {
-        rigid = GetComponent<Rigidbody>();
-        col = GetComponent<CapsuleCollider>();
-        
         //FSM 부수고 EDD하기!
         KeyBindManager.Instance
             .Bind(KeyCode.Space)

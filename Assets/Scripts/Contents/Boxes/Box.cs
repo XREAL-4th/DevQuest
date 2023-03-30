@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Box : MonoBehaviour, IHealthy
 {
-    [SerializeField] private float health = 10;
+    [Header("Presets")]
+    [SerializeField] private Animator currentAnimator;
     [SerializeField] private GameObject idleBox, destroyedBox;
+
+    [Header("Debug")]
+    [SerializeField] private float health = 10;
     public BoxType type;
 
-    private Animator currentAnimator;
 
     public float Health { get => health; set => health = value; }
 

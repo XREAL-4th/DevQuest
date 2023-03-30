@@ -213,11 +213,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2351a27bc62afd41ac2174d4d79e09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
-  progress: 1
+  rect: {fileID: 5153026606055305405}
   frontImage: {fileID: 5153026605450305991}
   shadowImage: {fileID: 5153026605770665027}
   backImage: {fileID: 5153026606058736617}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  progress: 1
 --- !u!1 &5153026606058736619
 GameObject:
   m_ObjectHideFlags: 0

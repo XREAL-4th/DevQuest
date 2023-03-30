@@ -5,14 +5,8 @@ using UnityEngine.UI;
 
 public class Aim : SingletonMonoBehaviour<Aim>
 {
-    public Sprite strenthSprite, originSprite;
-    public GameObject speedImage;
+    [Header("Presets")]
     public Image image;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        image = GetComponent<Image>();
-        originSprite = image.sprite;
-    }
+    public GameObject speedImage;
+    public Sprite strenthSprite, originSprite;
 }

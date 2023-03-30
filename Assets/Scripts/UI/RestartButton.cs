@@ -6,5 +6,5 @@ public class RestartButton : MonoBehaviour
 {
     public void OnClick() => ScreenTransitionController.Main.ChangeScene
             <ScreenFadeInTransition, ScreenFadeOutTransition>
-            ("Assignment", 0.5f, 1);
+            ("GameScene", 0.5f, 1);
 }
