@@ -6,6 +6,8 @@ public class EnemyController : MonoBehaviour
 {
     public GameObject deadVFX;
     public GameObject debuffVFX;
+    private GameObject Debuff;
+    private bool debuffOn = false;
 
     int hp = 5;
     
@@ -22,6 +24,19 @@ public class EnemyController : MonoBehaviour
             Fire.score += 5;
             Instantiate(deadVFX, transform.position, transform.rotation);
             Destroy(gameObject);
+        }
+
+        if (debuffOn)
+        {
+            Debuff.transform.position = this.transform.position;
+
+            /*if(Debuff==null){
+             * debuffOn=false;
+             * }
+             * else{
+             * Debuff.transform.position = this.transform.position;
+             * }*/
+           
         }
     }
 
@@ -41,8 +56,16 @@ public class EnemyController : MonoBehaviour
             }
             Destroy(other.gameObject);
             if(hp!=0){
-                Instantiate(debuffVFX, transform.position, transform.rotation);
+                debuffOn = true;
+                Debuff = Instantiate(debuffVFX, transform.position, transform.rotation);
+                StartCoroutine(DebuffDisappear());
             }
         }
+    }
+
+    IEnumerator DebuffDisappear()
+    {
+        yield return new WaitForSeconds(2f);
+        debuffOn = false;
     }
 }
