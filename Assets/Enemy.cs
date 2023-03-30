@@ -21,7 +21,9 @@ public class Enemy : MonoBehaviour
         Attack
     }
     public int Health = 100;
-    
+    Rigidbody rigid;
+    SphereCollider sphereCollider;
+
     [Header("Debug")]
     public State state = State.None;
     public State nextState = State.None;
@@ -77,17 +79,30 @@ public class Enemy : MonoBehaviour
         
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
+        if (Health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    void OnTriggerEnter()
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.tag == "Weapon")
+    //    {
+    //        Weapon weapon = other.GetComponent<Weapon>();
+    //        Health -= weapon.damage;
+    //    } 
+    //}
+    private void OnCollisionEnter(Collision collision)
     {
-        Weapon weapon = GetComponent<Weapon>();
-        if (tag == "weapon")
+        if(collision.gameObject.tag =="Weapon")
         {
+            Weapon weapon = GetComponent<Weapon>();
+            print("Damaged");
             Health -= weapon.damage;
-            if (Health == 0)
+            if(Health <= 0)
             {
-                Destroy(gameObject);
+                Destroy(this.gameObject);
             }
         }
     }
