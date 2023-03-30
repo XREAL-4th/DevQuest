@@ -18,8 +18,8 @@ public class ItemSpawn : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            int random = Random.Range(0, 3);
-            var item = ItemSpawnFunc((ItemType)random);
+            //int random = Random.Range(0, 9);
+            var item = ItemSpawnFunc((ItemType)i);
             item.WatchItemInfo();
         }
     }

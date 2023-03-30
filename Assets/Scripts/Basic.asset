@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515d9feb6b4d20440b1bee9ed2d23297, type: 3}
   m_Name: Basic
   m_EditorClassIdentifier: 
-  ItemName: Blue
+  itemName: Basic
   affect: 10
