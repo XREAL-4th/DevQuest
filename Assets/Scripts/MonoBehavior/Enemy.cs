@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
+//agent에게 목적지를 알려줘서 목적지로 이동하게 한다.
 public class Enemy : MonoBehaviour
 {
     [Header("Preset Fields")] 
@@ -12,16 +14,22 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject splashFx;
     [SerializeField] private GameObject hitfx;
     public int hp;
-    
+
+    public Transform target;
+    NavMeshAgent agent;
+    public Animator anim;
 
     [Header("Settings")]
     [SerializeField] private float attackRange;
+    [SerializeField] private float chaseRange;
     
     public enum State 
     {
         None,
         Idle,
-        Attack
+        Walk,
+        Attack,
+        Chase
     }
     
     [Header("Debug")]
@@ -34,6 +42,11 @@ public class Enemy : MonoBehaviour
     { 
         state = State.None;
         nextState = State.Idle;
+
+        //요원 정의해줘서, 생성될 때 player를 찾는다 , 요원에게 목적지를 알려준다.
+        agent = GetComponent<NavMeshAgent>();
+        //target = GameObject.Find("Player").transform;
+        //agent.destination = target.transform.position;
     }
 
     private void Update()
@@ -45,9 +58,10 @@ public class Enemy : MonoBehaviour
             {
                 case State.Idle:
                     //1 << 6인 이유는 Player의 Layer가 6이기 때문
-                    if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    if (Physics.CheckSphere(transform.position, chaseRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
-                        nextState = State.Attack;
+                        animator.SetTrigger("walk");
+                        nextState = State.Chase;
                     }
                     break;
                 case State.Attack:
@@ -58,6 +72,18 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                 //insert code here...
+                case State.Chase:
+                    float distance = Vector3.Distance(transform.position, target.transform.position);
+                    if(distance > chaseRange){
+                        nextState = State.Idle;
+                        agent.speed = 0;
+                    }
+                    if(distance < attackRange){
+                        nextState = State.Attack;
+                        agent.speed = 3.5f;
+                        agent.destination = target.transform.position;
+                    }
+                    break;
             }
         }
         
@@ -69,11 +95,17 @@ public class Enemy : MonoBehaviour
             switch (state) 
             {
                 case State.Idle:
+                agent.speed = 0;
+
+                target = GameObject.Find("Player").transform;
                     break;
                 case State.Attack:
                     Attack();
                     break;
                 //insert code here...
+                case State.Chase:
+                    Chase();
+                    break;
             }
         }
         
@@ -85,6 +117,17 @@ public class Enemy : MonoBehaviour
     {
         animator.SetTrigger("attack");
     }
+
+    private void Chase()
+    {
+        float distance = Vector3.Distance(transform.position, target.transform.position);
+        if(distance <= chaseRange){
+            animator.SetTrigger("walk");
+        }
+        agent.speed = 3.5f;
+        agent.destination = target.transform.position;
+    }
+
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
     {

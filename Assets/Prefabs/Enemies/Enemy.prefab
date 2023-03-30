@@ -1413,7 +1413,10 @@ MonoBehaviour:
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
   hitfx: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
   hp: 3
+  target: {fileID: 0}
+  anim: {fileID: 0}
   attackRange: 4.1
+  chaseRange: 9
   state: 0
   nextState: 0
 --- !u!95 &230516353565360776
