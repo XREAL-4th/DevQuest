@@ -28,14 +28,14 @@ public class EnemyController : MonoBehaviour
 
         if (debuffOn)
         {
-            Debuff.transform.position = this.transform.position;
+            //Debuff.transform.position = this.transform.position;
 
             /*if(Debuff==null){
-             * debuffOn=false;
-             * }
-             * else{
-             * Debuff.transform.position = this.transform.position;
-             * }*/
+              debuffOn=false;
+              }
+              else{
+              Debuff.transform.position = this.transform.position;
+              }*/
            
         }
     }
@@ -57,15 +57,21 @@ public class EnemyController : MonoBehaviour
             Destroy(other.gameObject);
             if(hp!=0){
                 debuffOn = true;
-                Debuff = Instantiate(debuffVFX, transform.position, transform.rotation);
-                StartCoroutine(DebuffDisappear());
+                Debuff = Instantiate(debuffVFX, transform);
+                var scale = transform.localScale;
+                var debuffScale = Debuff.transform.localScale;
+                debuffScale.x /= scale.x;
+                debuffScale.y /= scale.y;
+                debuffScale.z /= scale.z;
+                Debuff.transform.localScale = debuffScale;
+                //StartCoroutine(DebuffDisappear());
             }
         }
     }
 
-    IEnumerator DebuffDisappear()
+    /*IEnumerator DebuffDisappear()
     {
         yield return new WaitForSeconds(2f);
         debuffOn = false;
-    }
+    }*/
 }
