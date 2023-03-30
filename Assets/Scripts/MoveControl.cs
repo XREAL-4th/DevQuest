@@ -9,7 +9,6 @@ public class MoveControl : MonoBehaviour
     [Header("Preset Fields")]
     [SerializeField] private Rigidbody rigid;
     [SerializeField] private CapsuleCollider col;
-    // [SerializeField] private Rigidbody bullet;
     
     [Header("Settings")]
     [SerializeField][Range(1f, 10f)] private float moveSpeed;
@@ -27,29 +26,22 @@ public class MoveControl : MonoBehaviour
     public State state = State.None;
     public State nextState = State.None;
     public bool landed = false;
-    public bool moving = false;
     
     private float stateTime;
 
-    public GameObject bulletPos;
-    public GameObject preFabBullet;
-    float bulletSpped = 15;
-    Vector3 dir; // 마우스 포인터 방향 저장
-    Camera cam; // 메인카메라
+    public static Camera cam; // 메인카메라
+    private static WaitForSeconds waitForSecondsInstance = new WaitForSeconds(5f);
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
-        // bullet = GetComponent<Rigidbody>();
         cam = Camera.main;
         
         state = State.None;
         nextState = State.Idle;
         stateTime = 0f;
         moveSpeed = 2f;
-        // forward = transform.forward;
-        // right = transform.right;
     }
 
     private void Update()
@@ -57,9 +49,10 @@ public class MoveControl : MonoBehaviour
         //0. 글로벌 상황 판단
         stateTime += Time.deltaTime;
         CheckLanded();
+        UpdateInput();
         //insert code here...
 
-
+        // print("checked!");
 
         //1. 스테이트 전환 상황 판단
         if (nextState == State.None) 
@@ -71,6 +64,7 @@ public class MoveControl : MonoBehaviour
                     {
                         if (Input.GetKey(KeyCode.Space)) 
                         {
+                            // print("jump!");
                             nextState = State.Jump;
                         }
                     }
@@ -104,39 +98,17 @@ public class MoveControl : MonoBehaviour
         
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
-        Shoot();
+        
+        ActionControl.TryAction(transform);
+        PickUpSpeed();
     }
 
-    private void Shoot()
-    {
-        if(Input.GetMouseButtonDown(0)){
-            Vector3 clickPos = Vector3.one;
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if(Physics.Raycast(ray, out hit)){
-                clickPos = hit.point;
-                print(clickPos);
-                Vector3 dir = clickPos - transform.position;
-                dir.Normalize();
-                print(bulletPos.transform.position);
-                GameObject bullet = Instantiate(preFabBullet, transform);
-                bullet.transform.position = bulletPos.transform.position;
-                bullet.GetComponent<Rigidbody>().AddForce(dir * bulletSpped, ForceMode.Impulse);
-                Destroy(bullet, 3);
-            }
-            // Debug.Log(clickPos);
-            // GameObject bullet = Instantiate(preFabBullet);
-            // bullet.transform.position = bulletPos.transform.position;
-            // bullet.GameObject.GetComponent<Rigidbody>().AddForce(dir * bulletSpped, ForceMode.Impulse);
+    void PickUpSpeed() {
+        if (GameManager.pickUpSpeed) {
+            moveSpeed += 3f;
+            GameManager.pickUpSpeed = false;
+            Debug.Log("스피드가 3 높아졌습니다!");
         }
-    }
-
-    private void FixedUpdate()
-    {
-        UpdateInput();
-        // transform.Translate(new Vector3(0,1,0)); //Move
-
     }
 
     private void CheckLanded() {
@@ -145,6 +117,8 @@ public class MoveControl : MonoBehaviour
         var center = col.bounds.center;
         var origin = new Vector3(center.x, center.y - ((col.height - 1f) / 2 + 0.15f), center.z);
         landed = Physics.CheckSphere(origin, 0.45f, 1 << 3, QueryTriggerInteraction.Ignore);
+        // print(landed);
+        landed = true; //???
     }
     
     private void UpdateInput()
