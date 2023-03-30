@@ -49,12 +49,12 @@ public class Bullet : MonoBehaviour
             {
                 if(isPowerShot)
                 {
-                    other.GetComponentInParent<Enemy>().TakeDamage(dmg * 4);
+                    other.GetComponentInParent<Enemy>().TakeDamage(dmg * 4, transform);
                     instance = Instantiate(enemyHeadParticle, transform.position, Quaternion.identity);
                 }
                 else
                 {
-                    other.GetComponentInParent<Enemy>().TakeDamage(dmg * 2);
+                    other.GetComponentInParent<Enemy>().TakeDamage(dmg * 2, transform);
                     instance = Instantiate(enemyHeadParticle, transform.position, Quaternion.identity);
                 }
             }
@@ -62,12 +62,12 @@ public class Bullet : MonoBehaviour
             {
                 if (isPowerShot)
                 {
-                    other.GetComponentInParent<Enemy>().TakeDamage(dmg*2);
+                    other.GetComponentInParent<Enemy>().TakeDamage(dmg*2, transform);
                     instance = Instantiate(enemyHitParticle, transform.position, Quaternion.identity);
                 }
                 else
                 {
-                    other.GetComponentInParent<Enemy>().TakeDamage(dmg);
+                    other.GetComponentInParent<Enemy>().TakeDamage(dmg, transform);
                     instance = Instantiate(enemyHitParticle, transform.position, Quaternion.identity);
                 }
             }

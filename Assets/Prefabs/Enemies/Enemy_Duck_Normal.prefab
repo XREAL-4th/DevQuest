@@ -1471,9 +1471,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   hp: 0
+  moveSpeed: 1
   animator: {fileID: 8978859445571682786}
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
   attackRange: 4.1
+  chaseRange: 10
+  sys: {fileID: 0}
+  targetPlayer: {fileID: 0}
   state: 0
   nextState: 0
 --- !u!95 &8978859445571682786

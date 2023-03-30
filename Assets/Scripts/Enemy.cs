@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [Header("Status")]
     [SerializeField] private Type type;
     [SerializeField] private int hp;
+    [SerializeField] private float moveSpeed;
 
     [Header("Preset Fields")] 
     [SerializeField] private Animator animator;
@@ -17,16 +18,24 @@ public class Enemy : MonoBehaviour
     
     [Header("Settings")]
     [SerializeField] private float attackRange;
+    [SerializeField] private float chaseRange;
 
     [Header("Sys")]
     [SerializeField] private GameObject sys;
+    [SerializeField] private GameObject targetPlayer;
     private MissionManager missionManager;
+    private Rigidbody rb;
 
     public enum State 
     {
         None,
         Idle,
-        Attack
+        Wander,
+        Chase,
+        Charge,
+        AttackLong,
+        AttackShort,
+        Stun
     }
 
     private enum Type
@@ -40,9 +49,11 @@ public class Enemy : MonoBehaviour
     public State nextState = State.None;
 
     private bool attackDone;
+    private bool stunDone;
 
     private void Start()
     { 
+        rb = GetComponent<Rigidbody>();
         state = State.None;
         nextState = State.Idle;
         switch(type)
@@ -57,6 +68,7 @@ public class Enemy : MonoBehaviour
         }
 
         sys = GameObject.FindGameObjectWithTag("SysObj");
+        targetPlayer = GameObject.FindGameObjectWithTag("Player");
         missionManager = sys.GetComponent<MissionManager>();
     }
 
@@ -71,16 +83,47 @@ public class Enemy : MonoBehaviour
                     //1 << 6인 이유는 Player의 Layer가 6이기 때문
                     if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
-                        nextState = State.Attack;
+                        nextState = State.AttackShort;
+                    }
+                    else if(Physics.CheckSphere(transform.position, chaseRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        nextState= State.Chase;
                     }
                     break;
-                case State.Attack:
+                case State.Chase:
+                    if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        nextState = State.AttackShort;
+                    }
+                    else if (!Physics.CheckSphere(transform.position, chaseRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        nextState = State.Idle;
+                    }
+                    else
+                    {
+                        Vector3 dir = targetPlayer.transform.position- transform.position;
+                        dir.y = 0;
+                        dir.Normalize();
+                        transform.rotation = Quaternion.LookRotation(dir);
+                        transform.Translate(moveSpeed * Time.deltaTime * Vector3.forward);
+
+                    }
+                    break;
+                case State.AttackShort:
                     if (attackDone)
                     {
                         nextState = State.Idle;
                         attackDone = false;
                     }
                     break;
+                case State.Stun:
+                    if(true)
+                    {
+                        nextState = State.Idle;
+                        stunDone= false;
+                    }
+                    break;
+
                 //insert code here...
             }
         }
@@ -93,9 +136,16 @@ public class Enemy : MonoBehaviour
             switch (state) 
             {
                 case State.Idle:
+                    Idel();
                     break;
-                case State.Attack:
+                case State.Chase:
+                    Walk();
+                    break;
+                case State.AttackShort:
                     Attack();
+                    break;
+                case State.Stun:
+                    Stun();
                     break;
                 //insert code here...
             }
@@ -121,6 +171,18 @@ public class Enemy : MonoBehaviour
     {
         animator.SetTrigger("attack");
     }
+    private void Walk()
+    {
+        animator.SetBool("walk", true);
+    }
+    private void Idel()
+    {
+        animator.SetBool("idle", true);
+    }
+    private void Stun()
+    {
+        animator.SetBool("stun",true);
+    }
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
     {
@@ -132,8 +194,13 @@ public class Enemy : MonoBehaviour
         attackDone = true;
     }
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int dmg, Transform bullet)
     {
+        if (state != State.AttackShort) nextState = State.Stun;
+        Vector3 dir = transform.position - bullet.position;
+        dir.y = 0;
+        rb.AddForce(dir.normalized*dmg*4,ForceMode.VelocityChange);
+        //transform.Translate(dir.normalized*dmg/4);
         hp -= dmg;
     }
 
@@ -143,5 +210,7 @@ public class Enemy : MonoBehaviour
         //해당 함수는 없어도 기능 상의 문제는 없지만, 기능 체크 및 디버깅을 용이하게 합니다.
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRange);
+        Gizmos.color = new Color(0f, 0f, 1f, 0.3f);
+        Gizmos.DrawSphere(transform.position, chaseRange);
     }
 }

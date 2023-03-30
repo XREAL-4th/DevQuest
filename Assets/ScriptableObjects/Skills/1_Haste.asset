@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034def05e8752834f8552f0e82b31c13, type: 3}
+  m_Name: 1_Haste
+  m_EditorClassIdentifier: 
+  skillCode: 1
+  skillName: Haste
+  skillDescription: (Movement speed * Amount) for Duration(sec)
+  skillAmount: 1.5
+  skillCoolTime: 10
+  skillDuration: 5
+  skillFx: {fileID: 6469354921825657977, guid: 4d9a3b35b3bc07649b697df7fb497b6d, type: 3}
