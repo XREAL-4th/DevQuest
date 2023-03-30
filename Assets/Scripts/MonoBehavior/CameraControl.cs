@@ -17,15 +17,21 @@ public class CameraControl : MonoBehaviour
         playerTransform = transform.parent;
     }
 
+    private void Update(){
+        mouseX += Input.GetAxis("Mouse X") * sensitivity;
+        mouseY += Input.GetAxis("Mouse Y") * sensitivity;
+        mouseY = Mathf.Clamp(mouseY, -75f, 75f);
+    }
+
     private void FixedUpdate()
     {   
 
         
-        mouseX += Input.GetAxis("Mouse X") * sensitivity;
+        
         playerTransform.rotation = Quaternion.Euler(new Vector3(0, mouseX, 0));
         
-        mouseY += Input.GetAxis("Mouse Y") * sensitivity;
-        mouseY = Mathf.Clamp(mouseY, -75f, 75f);
+        
+        
         transform.localRotation = Quaternion.Euler(new Vector3(-mouseY, 0, 0));
         
 

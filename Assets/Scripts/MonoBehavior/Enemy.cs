@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
-
+using UnityEngine.Events;
 //agent에게 목적지를 알려줘서 목적지로 이동하게 한다.
 public class Enemy : MonoBehaviour
 {
@@ -38,6 +38,14 @@ public class Enemy : MonoBehaviour
 
     private bool attackDone;
 
+    [SerializeField]
+    private Rigidbody rigidbody;
+    public float strength = 16, delay = 0.15f;
+    public UnityEvent OnBegin, OnDone;
+    public float mass;
+
+
+
     private void Start()
     { 
         state = State.None;
@@ -47,6 +55,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         //target = GameObject.Find("Player").transform;
         //agent.destination = target.transform.position;
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -80,6 +89,7 @@ public class Enemy : MonoBehaviour
                     }
                     if(distance < attackRange){
                         nextState = State.Attack;
+                        agent = GetComponent<NavMeshAgent>();
                         agent.speed = 3.5f;
                         agent.destination = target.transform.position;
                     }
@@ -111,6 +121,10 @@ public class Enemy : MonoBehaviour
         
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
+
+
+        //code about rigidbody update
+        
     }
     
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
@@ -124,6 +138,7 @@ public class Enemy : MonoBehaviour
         if(distance <= chaseRange){
             animator.SetTrigger("walk");
         }
+        agent = GetComponent<NavMeshAgent>();
         agent.speed = 3.5f;
         agent.destination = target.transform.position;
     }
@@ -148,15 +163,31 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawSphere(transform.position, attackRange);
     }
 
+    private IEnumerator Reset(){
+        yield return new WaitForSeconds(delay);
+        rigidbody.velocity = Vector3.zero;
+        //OnDone?.Invoke();
+    }
+    
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.gameObject.CompareTag("bullet")){
-            Instantiate(hitfx, transform.position, Quaternion.identity);
+            mass = rigidbody.mass;
+            
             hp--;
-            Debug.Log("enemy damaged");
+            print(hp);
+            //Debug.Log("enemy damaged");
             if(hp==0){
                 gameObject.SetActive(false);
             }
+
+            Vector3 direction = (transform.position - collision.transform.position).normalized;
+            rigidbody.AddForce(direction * strength * mass * 100, ForceMode.Impulse);
+
+            rigidbody.velocity = Vector3.zero;
+            StartCoroutine(Reset());
+
+            Instantiate(hitfx, transform.position, Quaternion.identity);
             
         }
     }
