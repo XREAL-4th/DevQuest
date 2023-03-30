@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SocialPlatforms;
 using static UnityEditor.PlayerSettings;
+using static UnityEditor.Rendering.InspectorCurveEditor;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
@@ -19,14 +21,18 @@ public class Enemy : MonoBehaviour
     public float MaxHealth = 100.0f;
     [SerializeField] private float CurHealth;
     [SerializeField] private Vector3 CurPos;
-    [SerializeField] private float delta = 1.0f; // 좌(우)로 이동가능한 (x)최대값
-    [SerializeField] private float speed = 1.0f; // 이동속도
+    [SerializeField] private float moveSpeed = 3.0f; // 이동속도
+    [SerializeField] private float rotateSpeed = 100.0f; // 회전속도
+
+    private bool chooseDir = false;
+    public int randomDir;
 
     public enum State 
     {
         None,
         Idle,
-        Attack
+        Attack,
+        Wander
     }
     
     [Header("Debug")]
@@ -43,8 +49,6 @@ public class Enemy : MonoBehaviour
         CurHealth = MaxHealth;
         healthBar.UpdateHealthBar(MaxHealth, CurHealth);
 
-        delta = (float)UnityEngine.Random.Range(1, 4);
-        speed = (float)UnityEngine.Random.Range(1, 3); 
         CurPos = transform.position;
     }
 
@@ -57,16 +61,27 @@ public class Enemy : MonoBehaviour
             {
                 case State.Idle:
                     //1 << 6인 이유는 Player의 Layer가 6이기 때문
-                    if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    if (IsPlayerInRange())
                     {
                         nextState = State.Attack;
                     }
+                    else if (!IsPlayerInRange())
+                    {
+                        nextState = State.Wander;
+                    }
                     break;
+
                 case State.Attack:
                     if (attackDone)
                     {
                         nextState = State.Idle;
                         attackDone = false;
+                    }
+                    break;
+
+                case State.Wander:
+                    {
+                        nextState = State.Idle;
                     }
                     break;
                 //insert code here...
@@ -81,9 +96,13 @@ public class Enemy : MonoBehaviour
             switch (state) 
             {
                 case State.Idle:
+                    Idle();
                     break;
                 case State.Attack:
                     Attack();
+                    break;
+                case State.Wander:
+                    Wander();
                     break;
                 //insert code here...
             }
@@ -93,12 +112,43 @@ public class Enemy : MonoBehaviour
         //insert code here...
 
         //+--- [0320] 임시 Idle ---+//
-        IdleMove();
+        //IdleMove();
     }
     
+    private void Idle()
+    {
+        animator.SetTrigger("idle");
+    }
+
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
         animator.SetTrigger("attack");
+    }
+
+    private void Wander()
+    {
+        if (!chooseDir)
+        {
+            StartCoroutine(ChooseDirection());
+        }
+
+        animator.SetTrigger("walk");
+        
+        transform.Rotate((randomDir * transform.up).normalized * Time.deltaTime * rotateSpeed);
+        transform.position += transform.forward * moveSpeed * Time.deltaTime;
+    }
+
+    private IEnumerator ChooseDirection()
+    {
+        chooseDir = true;
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
+        randomDir = Random.Range(-360, 360);
+        chooseDir = false;
+    }
+
+    private bool IsPlayerInRange()
+    {
+        return Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore);
     }
 
     //+--- [0320]Task 1-1 ---+//
@@ -120,15 +170,14 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void IdleMove()
-    {
-        Vector3 vec = CurPos;
-        vec.x += delta * Mathf.Sin(Time.time * speed);
+    //private void IdleMove()
+    //{
+    //    Vector3 vec = CurPos;
+    //    vec.x += delta * Mathf.Sin(Time.time * speed);
 
-        transform.position = vec;
-        transform.rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
-
-    }
+    //    transform.position = vec;
+    //    transform.rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
+    //}
 
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.

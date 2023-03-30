@@ -1485,7 +1485,8 @@ GameObject:
   - component: {fileID: 3211766693495440490}
   - component: {fileID: 3211766693502971639}
   - component: {fileID: 3211766693502971638}
-  - component: {fileID: 7780465246259485041}
+  - component: {fileID: 87608013573798799}
+  - component: {fileID: 2449507562831229175}
   m_Layer: 0
   m_Name: EnemyDuck
   m_TagString: ENEMY
@@ -1530,6 +1531,11 @@ MonoBehaviour:
   healthBar: {fileID: 135049068611218763}
   attackRange: 4.1
   MaxHealth: 100
+  CurHealth: 0
+  CurPos: {x: 0, y: 0, z: 0}
+  moveSpeed: 10
+  rotateSpeed: 100
+  randomDir: 0
   state: 0
   nextState: 0
 --- !u!95 &3211766693502971638
@@ -1552,7 +1558,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &7780465246259485041
+--- !u!54 &87608013573798799
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3211766693495804042}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &2449507562831229175
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1562,10 +1584,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 4.44
-  m_Height: 1
+  m_Radius: 4.2
+  m_Height: 9.93
   m_Direction: 1
-  m_Center: {x: 0, y: 4.45, z: 0.73}
+  m_Center: {x: 0, y: 4.8, z: 0.99}
 --- !u!1 &3213192695501343896
 GameObject:
   m_ObjectHideFlags: 0

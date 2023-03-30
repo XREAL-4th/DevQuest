@@ -82,6 +82,8 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
 
             // 게임 종료 UI를 띄움
+            UnityEngine.Cursor.visible = true;
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
             Instantiate(GameFinUI, new Vector3(Camera.main.pixelWidth/2, Camera.main.pixelHeight / 2), Quaternion.identity, GameObject.Find("Canvas").transform);
         }
     }
