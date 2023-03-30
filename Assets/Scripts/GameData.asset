@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coin: 1
   fevertimeDuration: 3
-  feverTimeItemNum: 3
-  enemyCount: 4
+  feverTimeItemNum: 5
+  enemyCount: 1
+  enemySpeed: 2
+  skillCoolTime: 10

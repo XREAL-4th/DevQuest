@@ -1705,7 +1705,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6169834924257817733}
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
-  attackRange: 4.1
+  attackRange: 3
+  chasingRedBallRange: 30
+  chasingPlayerRange: 10
+  redBallLayer:
+    serializedVersion: 2
+    m_Bits: 512
   state: 0
   nextState: 0
 --- !u!95 &6169834924257817733
@@ -1736,7 +1741,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6169834924267064057}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 5
@@ -1770,10 +1775,10 @@ Rigidbody:
   m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0.2
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &6745550294176663860
 GameObject:

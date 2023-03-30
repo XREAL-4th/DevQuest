@@ -9,4 +9,6 @@ public class scriptableObject : ScriptableObject
     public float fevertimeDuration;
     public int feverTimeItemNum;
     public int enemyCount;
+    public float enemySpeed;
+    public float skillCoolTime;
 }
