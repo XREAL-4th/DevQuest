@@ -13,11 +13,12 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GameObject currentBulletPref;
     [SerializeField] private BulletType currentBulletType;
     public float damagetMultiplier = 1;
-    public float recoilAmount = 10f, recoilDownAmount = 30f; //TODO: make SO
-    public int maxAmmo = 10, ammo = 10;
+    public float recoilAmount = 10f, recoilDownAmount = 30f, reloadTime = 1.5f; //TODO: make SO: ammoPerMaganize, recoilAmount, recoilDownAmount, reloadTime
+    public int ammoPerMaganize = 10, ammo = 10, maganizes = 5;
 
     [Header("Debug")]
     [SerializeField] private float recoil = 0f;
+    [SerializeField] private bool isReloading = false;
 
     public void Shoot()
     {
@@ -32,10 +33,25 @@ public class Weapon : MonoBehaviour
         ammo--;
     }
 
-    public bool IsShootable() => ammo > 0;
+    public bool IsShootable() => ammo > 0 && !isReloading;
+    public bool IsReloadable() => maganizes > 0 && !isReloading;
+
+    private void Reload()
+    {
+        isReloading = true;
+        ReloadMask.Main.StartReload(reloadTime);
+        Timer.Instance.SetTimeout(reloadTime, () =>
+        {
+            isReloading = false;
+            maganizes--;
+            ammo = ammoPerMaganize;
+        });
+    }
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.R) && IsReloadable()) Reload();
+        
         if (recoil > 0f) recoil -= Time.deltaTime * recoilDownAmount;
         
         transform.localRotation = Quaternion.Euler(new(0, -90, recoil));
