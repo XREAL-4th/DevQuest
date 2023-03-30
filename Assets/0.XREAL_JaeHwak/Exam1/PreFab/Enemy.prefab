@@ -111,8 +111,9 @@ GameObject:
   - component: {fileID: 3717134068834903810}
   - component: {fileID: 3717134068834903813}
   - component: {fileID: 3717134068834903812}
-  - component: {fileID: 3717134068834903814}
   - component: {fileID: 5329462617072324698}
+  - component: {fileID: 1348813598792845767}
+  - component: {fileID: 2056734606384737969}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -156,9 +157,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3717134068834903810}
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
-  attackRange: 4.1
+  attackRange: 3.1
   state: 0
   nextState: 0
+  attackDone: 1
+  followDone: 1
+  _walkSpeed: 1
+  origin_position: {x: 0, y: 0, z: 0}
 --- !u!95 &3717134068834903810
 Animator:
   serializedVersion: 4
@@ -168,7 +173,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3717134068844550526}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 9e25bfa154c881844bb628863f9d5a94, type: 3}
   m_Controller: {fileID: 9100000, guid: abd39fc213f585d438c16176055c28a1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -208,21 +213,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.8081145, y: 8.219334, z: 7.3528447}
   m_Center: {x: 0.054231882, y: 4.6783547, z: 0.86082935}
---- !u!114 &3717134068834903814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3717134068844550526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9638f2c7701ea3408fb6e0b376fa043, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Life1: {fileID: 8430270781488895456}
-  Life2: {fileID: 8430270781841649009}
-  ori_ConcreteSubject: {fileID: 5329462617072324698}
 --- !u!114 &5329462617072324698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +225,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5281fac80e614f040801bebfb3bddd67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ori_ConcreteObserver: {fileID: 0}
+--- !u!65 &1348813598792845767
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3717134068844550526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 58.24647, y: 9.186731, z: 60.220074}
+  m_Center: {x: -2.9384787, y: 4.093364, z: -2.992773}
+--- !u!195 &2056734606384737969
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3717134068844550526}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &3717134068844550528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,7 +1632,8 @@ GameObject:
   - component: {fileID: 8364187431269080062}
   - component: {fileID: 7731084287074845506}
   - component: {fileID: 6577911580722549831}
-  m_Layer: 0
+  - component: {fileID: 5470888166825733473}
+  m_Layer: 9
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1691,6 +1718,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
   m_Center: {x: 0, y: 0, z: 0.00000095367426}
+--- !u!114 &5470888166825733473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5824207806720103806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9638f2c7701ea3408fb6e0b376fa043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Life1: {fileID: 8430270781488895456}
+  Life2: {fileID: 8430270781841649009}
+  Enemy_self: {fileID: 3717134068844550526}
+  ori_ConcreteSubject: {fileID: 5329462617072324698}
 --- !u!1 &8430270781488895456
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
-
+using TMPro;
 public class MoveControl : MonoBehaviour
 {
     [Header("Preset Fields")]
@@ -31,6 +31,12 @@ public class MoveControl : MonoBehaviour
     private float stateTime;
     private Vector3 forward, right;
 
+    IEnumerator coroutine;
+    public int skill_coolTime;
+    private int coolTime = 0;
+    public TextMeshProUGUI cool_text;
+    public GameObject skill_VFX;
+
     private void Start()
     {
         rigid = GetComponent<Rigidbody>();
@@ -41,10 +47,14 @@ public class MoveControl : MonoBehaviour
         stateTime = 0f;
         forward = transform.forward;
         right = transform.right;
+
+        cool_text.text = "ON";
+        skill_VFX.SetActive(false);
     }
 
     private void Update()
     {
+        UpdateInput();
         //0. 글로벌 상황 판단
         stateTime += Time.deltaTime;
         CheckLanded();
@@ -91,8 +101,52 @@ public class MoveControl : MonoBehaviour
             stateTime = 0f;
         }
         
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            if(coolTime == 0)
+            {
+                coolTime = skill_coolTime;
+                coroutine = Jump_up();
+                CoroutineStart();
+            }
+        }
+
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
+    }
+
+    void CoroutineStart()
+    {
+        if (coroutine != null)
+        {
+            skill_VFX.SetActive(true);
+            StartCoroutine(coroutine);
+            StartCoroutine(cool_Time());
+        }
+    }
+    IEnumerator cool_Time()
+    {
+        for(int i = 0; i< skill_coolTime; i++)
+        {
+            Debug.Log(skill_coolTime - i);
+            coolTime = skill_coolTime - i;
+            cool_text.text = coolTime.ToString();
+            yield return new WaitForSeconds(1f);
+            coolTime--;
+            cool_text.text = "ON";
+        }
+        Debug.Log("쿨타임 종료");
+    }
+
+
+    IEnumerator Jump_up()
+    {
+        Debug.Log("Jump_up 실행");
+        jumpAmount *= 2;
+        yield return new WaitForSeconds(5f);
+        Debug.Log("효과 종료, 쿨타임 시작");
+        jumpAmount /= 2;
+        skill_VFX.SetActive(false);
     }
 
     //speedUp 아이템 충돌 시
@@ -103,10 +157,10 @@ public class MoveControl : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+/*    private void FixedUpdate()
     {
-        UpdateInput();
-    }
+        
+    }*/
 
     private void CheckLanded() {
         //발 위치에 작은 구를 하나 생성한 후, 그 구가 땅에 닿는지 검사한다.
