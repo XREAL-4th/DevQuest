@@ -12,7 +12,6 @@ public class Bullet : VariationContentMonoBehaviour, IHasScriptableObject<Bullet
     public Weapon parent;
     public Vector3 direction;
 
-
     private void Update()
     {
         if (parent == null) return;

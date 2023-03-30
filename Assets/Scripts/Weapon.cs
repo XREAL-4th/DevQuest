@@ -14,19 +14,25 @@ public class Weapon : MonoBehaviour
     [SerializeField] private BulletType currentBulletType;
     public float damagetMultiplier = 1;
     public float recoilAmount = 10f, recoilDownAmount = 30f; //TODO: make SO
+    public int maxAmmo = 10, ammo = 10;
 
     [Header("Debug")]
     [SerializeField] private float recoil = 0f;
 
     public void Shoot()
     {
+        if (!IsShootable()) return;
+
         Bullet bullet = BulletPoolManager.Main.Get<Bullet, BulletType>(currentBulletType);
         bullet.parent = this;
         bullet.direction = outTransform.right;
         bullet.transform.position = outTransform.position;
         bullet.stateTime = 0;
         recoil += recoilAmount;
+        ammo--;
     }
+
+    public bool IsShootable() => ammo > 0;
 
     private void Update()
     {
