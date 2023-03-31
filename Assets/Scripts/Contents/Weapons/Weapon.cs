@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
+
 
 public class Weapon : MonoBehaviour
 {
@@ -12,14 +14,14 @@ public class Weapon : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private GameObject currentBulletPref;
     [SerializeField] private BulletType currentBulletType;
-    public float damagetMultiplier = 1;
-    public float recoilAmount = 10f, recoilDownAmount = 30f, reloadTime = 1.5f; //TODO: make SO: ammoPerMaganize, recoilAmount, recoilDownAmount, reloadTime
-    public int ammoPerMaganize = 10, ammo = 10, maganizes = 5;
-    public float shootDelay = 1.5f, shootTime = 0;
+    public WeaponType type;
 
     [Header("Debug")]
     [SerializeField] private float recoil = 0f;
     [SerializeField] private bool isReloading = false;
+    public float damagetMultiplier = 1;
+    public int ammo = 10, maganizes = 5;
+    public float shootTime = 0;
 
     public void Shoot()
     {
@@ -31,8 +33,8 @@ public class Weapon : MonoBehaviour
         bullet.transform.position = outTransform.position;
         bullet.stateTime = 0;
 
-        shootTime = shootDelay;
-        recoil += recoilAmount;
+        shootTime = type.shootDelay;
+        recoil += type.recoilAmount;
         ammo--;
     }
 
@@ -43,12 +45,12 @@ public class Weapon : MonoBehaviour
     private void Reload()
     {
         isReloading = true;
-        ReloadMask.Main.StartReload(reloadTime);
-        Timer.Main.SetTimeout(reloadTime, () =>
+        ReloadMask.Main.StartReload(type.reloadTime);
+        Timer.Main.SetTimeout(type.reloadTime, () =>
         {
             isReloading = false;
             maganizes--;
-            ammo = ammoPerMaganize;
+            ammo = type.ammoPerMaganize;
         });
     }
 
@@ -56,7 +58,7 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.R) && IsReloadable()) Reload();
         
-        if (recoil > 0) recoil -= Time.deltaTime * recoilDownAmount;
+        if (recoil > 0) recoil -= Time.deltaTime * type.recoilDownAmount;
         if (shootTime > 0) shootTime -= Time.deltaTime;
 
         transform.localRotation = Quaternion.Euler(new(0, -90, recoil));

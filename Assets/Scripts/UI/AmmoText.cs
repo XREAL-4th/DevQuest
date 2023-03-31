@@ -10,7 +10,7 @@ public class AmmoText : MonoBehaviour
     private void Update()
     {
         currentAmmoText.SetText(Player.Main.shooter.weapon.ammo.ToString());
-        maxAmmoText.SetText(Player.Main.shooter.weapon.ammoPerMaganize.ToString());
+        maxAmmoText.SetText(Player.Main.shooter.weapon.type.ammoPerMaganize.ToString());
         maganizeText.SetText($"x {Player.Main.shooter.weapon.maganizes}");
     }
 }
