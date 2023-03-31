@@ -45,6 +45,7 @@ public class GameEndManager : SingletonMonoBehaviour<GameEndManager>
 
     private void GameEnd()
     {
+        ScoreManager.Main.Score = 0;
             ScreenTransitionController.Main.ChangeScene
             <ScreenFadeInTransition, ScreenFadeOutTransition>
             (winState == WinState.Win ? "GameWinScene" : "GameLoseScene", 0.5f, 1);

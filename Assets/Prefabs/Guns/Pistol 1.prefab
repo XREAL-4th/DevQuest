@@ -129,12 +129,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f9fba037ae7954faf6d9d74227f1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outTransform: {fileID: 6875345272139053265}
   currentBulletPref: {fileID: 2231527699971109512, guid: 615a6bb52d80fca4bb2365c442920e96,
     type: 3}
-  outTransform: {fileID: 6875345272139053265}
-  damagetMultiplier: 1
+  currentBulletType: {fileID: 11400000, guid: 418ebb09d23cbdf4a833ad1848a25841, type: 2}
+  type: {fileID: 11400000, guid: bad06119e8fedd94795200e7fffa66c0, type: 2}
   recoil: 0
-  recoilAmount: 10
+  isReloading: 0
+  damagetMultiplier: 1
+  ammo: 10
+  maganizes: 5
+  shootTime: 0
 --- !u!54 &1280609238
 Rigidbody:
   m_ObjectHideFlags: 0

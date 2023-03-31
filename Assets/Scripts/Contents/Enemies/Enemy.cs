@@ -46,8 +46,12 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
         if (Health <= 0) Kill();
     }
 
-    private void Kill() => Destroy(gameObject);
-    
+    private void Kill()
+    {
+        ScoreManager.Main.Score++;
+        Destroy(gameObject);
+    }
+
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
         animator.SetTrigger("attack");
