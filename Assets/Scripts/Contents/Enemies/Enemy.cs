@@ -27,6 +27,7 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
     private bool attackDone;
     private float health;
     public float Health { get => health; set => health = value; }
+    public float MaxHealth => type.maxHealth;
 
     protected override EnemyState NoneState => EnemyState.None;
 

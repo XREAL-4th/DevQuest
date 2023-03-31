@@ -38,6 +38,7 @@ public class Weapon : MonoBehaviour
 
     public bool IsShootable() => ammo > 0 && !isReloading;
     public bool IsReloadable() => maganizes > 0 && !isReloading;
+    public BulletType GetBulletType() => currentBulletType;
 
     private void Reload()
     {
