@@ -43,7 +43,7 @@ public class Weapon : MonoBehaviour
     {
         isReloading = true;
         ReloadMask.Main.StartReload(reloadTime);
-        Timer.Instance.SetTimeout(reloadTime, () =>
+        Timer.Main.SetTimeout(reloadTime, () =>
         {
             isReloading = false;
             maganizes--;

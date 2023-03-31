@@ -29,13 +29,13 @@ internal class SingleCoroutineController
             yield return coroutineInvoker();
             m_CurrentCoroutine = null;
         }
-        m_CurrentCoroutine ??= CoroutineInvoker.Instance.StartCoroutine(coroutineWrapper());
+        m_CurrentCoroutine ??= CoroutineInvoker.Main.StartCoroutine(coroutineWrapper());
     }
     public void Stop()
     {
         if (m_CurrentCoroutine != null)
         {
-            CoroutineInvoker.Instance.StopCoroutine(m_CurrentCoroutine);
+            CoroutineInvoker.Main.StopCoroutine(m_CurrentCoroutine);
             m_CurrentCoroutine = null;
         }
     }

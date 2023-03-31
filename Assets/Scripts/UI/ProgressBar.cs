@@ -29,6 +29,6 @@ public class ProgressBar : MonoBehaviour
     {
         frontImage.rectTransform.SetLeft(-progress * rect.sizeDelta.x);
 
-        Timer.Instance.SetTimeout(1, () => shadowImage.rectTransform.SetLeft(-progress * rect.sizeDelta.x));
+        Timer.Main.SetTimeout(1, () => shadowImage.rectTransform.SetLeft(-progress * rect.sizeDelta.x));
     }
 }

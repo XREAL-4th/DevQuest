@@ -23,7 +23,7 @@ public class MoveControl : MonoBehaviour
     private void Start()
     {
         //FSM 부수고 EDD하기!
-        KeyBindManager.Instance
+        KeyBindManager.Main
             .Bind(KeyCode.Space)
             .Then(() =>
             {
@@ -41,7 +41,7 @@ public class MoveControl : MonoBehaviour
 
     private void OnDestroy()
     {
-        KeyBindManager.Instance.UnBind(jumpKeybindID, moveKeybindID);
+        KeyBindManager.Main.UnBind(jumpKeybindID, moveKeybindID);
     }
 
     private void Jump()

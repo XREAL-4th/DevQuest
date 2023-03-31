@@ -23,6 +23,6 @@ public class BindObject
     {
         once = options.once;
         this.bind = bind;
-        id = KeyBindManager.Instance.binds.Count;
+        id = KeyBindManager.Main.binds.Count;
     }
 }
