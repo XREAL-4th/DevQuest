@@ -16,7 +16,7 @@ public class PlayerSkills : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.E))
+		if (Input.GetKey(KeyCode.E) && (!PopUpManager.PopUpOn))
 		{
 			if (E_able)
 			{
