@@ -8,7 +8,7 @@ using UnityEngine;
 class TimeController: LazyDDOLSingletonMonoBehaviour<TimeController>
 {
     float cachedScale;
-    bool paused = false;
+    public bool paused = false;
 
     public void Pause()
     {

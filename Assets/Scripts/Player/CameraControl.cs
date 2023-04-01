@@ -10,6 +10,8 @@ public class CameraControl : MonoBehaviour
 
     private void Update()
     {
+        if (TimeController.Main.paused) return;
+
         mouseX += Input.GetAxis("Mouse X") * sensitivity;
         transform.parent.rotation = Quaternion.Euler(new Vector3(0, mouseX, 0));
         
