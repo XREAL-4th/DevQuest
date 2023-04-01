@@ -2,33 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class skill : MonoBehaviour
 {
-    public RawImage iconImage;
-    public Button icon;
-    IEnumerator coroutine;
-    bool skillAvailable = true;
+    [SerializeField] private Image coolTimeImg;
+    [SerializeField] private Button icon;
+    //IEnumerator coroutine;
+    [SerializeField] private bool skillAvailable = true;
     GameObject player;
+    [SerializeField] private float coolTimeSecond = 5f;
+    [SerializeField] private TMP_Text coolTimeText;
 
     [Header("VFX")]
-    public GameObject bombSplashFx;
+    [SerializeField] private GameObject bombSplashFx;
+
+    float currentCooldown = 5f;
 
     void Start()
     {
-        //iconImage = UIManager.instance.;
         player = GameManager.instance.player;
-        coroutine = UseSkill();
         //아이콘에 버튼 리스너 붙이기
         icon.onClick.AddListener(Bomb);
+        //쿨타임 초기화
+        coolTimeImg.fillAmount = 0;
+        coolTimeText.enabled = false;
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Q) && skillAvailable)
         {
-            coroutine = UseSkill();
-            StartCoroutine(coroutine);
+            StartCoroutine("UseSkill");
+        }
+        //쿨타임 이미지, 시간 표시
+        if (!skillAvailable)
+        {
+            ShowCoolTime();
         }
 
     }
@@ -48,16 +58,28 @@ public class skill : MonoBehaviour
             }
         }        
     }
+
+    //쿨타임 이미지, 시간 표시
+    private void ShowCoolTime()
+    {
+        currentCooldown -= Time.deltaTime;
+        coolTimeImg.fillAmount = currentCooldown / coolTimeSecond;
+        coolTimeText.text = currentCooldown.ToString("F1");
+    }
     IEnumerator UseSkill()
     {
         //스킬 사용
         Bomb();
         //스킬 쿨타임
         skillAvailable = false;
-        iconImage.color = Color.gray;
-        yield return new WaitForSeconds(5f);   //10초간 중지
+        coolTimeImg.fillAmount = 1;
+        coolTimeText.enabled = true;
+        
+        yield return new WaitForSeconds(coolTimeSecond);   //5초간 중지
         skillAvailable = true;
-        iconImage.color = Color.white;
+        coolTimeImg.fillAmount = 0;
+        currentCooldown = 5f;
+        coolTimeText.enabled = false;
         yield break;
     }
 }
