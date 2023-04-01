@@ -17,9 +17,9 @@ public class PlayerCtrl : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= 60)
+        if (time >= 300)
         {
-            GameQuit(); //플레이 시간이 60초 넘어가면 게임을 종료하도록 함수 실행
+            GameQuit(); //플레이 시간이 300초 넘어가면 게임을 종료하도록 함수 실행
         }
 
  
