@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyHPbar : MonoBehaviour
 {
+    public GameObject target;
+
     Canvas hpCanvas;
     Camera hpCamera;
     RectTransform rectParent;
@@ -26,7 +28,10 @@ public class EnemyHPbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (target == null)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void LateUpdate()

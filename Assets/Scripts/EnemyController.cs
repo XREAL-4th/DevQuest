@@ -22,6 +22,8 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         SetHpBar();
+        hpSlider.gameObject.SetActive(true);
+        hpSlider.maxValue = 100;
     }
 
     // Update is called once per frame
@@ -93,6 +95,7 @@ public class EnemyController : MonoBehaviour
         var hpbarScript = hpBar.GetComponent<EnemyHPbar>();
         hpbarScript.targetTransform = this.gameObject.transform;
         hpbarScript.offset = hpBarOffset;
+        hpbarScript.target = this.gameObject;
 
     }
 }
