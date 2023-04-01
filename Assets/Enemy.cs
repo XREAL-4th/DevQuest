@@ -102,6 +102,8 @@ public class Enemy : MonoBehaviour
             {
                 case State.Idle:
                     animator.SetBool("idle", true);
+                    navAgent = GetComponent<NavMeshAgent>();
+                    navAgent.SetDestination(transform.position);
                     //inBound = false;
                     break;
 
@@ -150,7 +152,7 @@ public class Enemy : MonoBehaviour
     
     public void WhenAnimationDone() //Unity Animation Event 에서 실행됩니다.
     {
-        GameObject weapon = Instantiate(knifePrefab, new Vector3(transform.position.x,1.20f, transform.position.z), knifePrefab.transform.rotation) as GameObject;
+        GameObject weapon = Instantiate(knifePrefab, new Vector3(transform.position.x,1f, transform.position.z), knifePrefab.transform.rotation) as GameObject;
         Vector3 shooting = (target.position - transform.position).normalized;
         shooting = shooting.normalized * 1000;
         weapon.GetComponent<EnemyWeapon>().Launch(shooting);

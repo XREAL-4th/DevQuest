@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
             GameTime = Timer.timeleft;
             SceneManager.LoadScene("GameClear");
         }
-        if (Timer.timeleft <= 0 && Fire.score<35)
+        if ((Timer.timeleft <= 0 && Fire.score<35)|| (PlayerShot.PlayerDead))
         {
             GameScore = Fire.score;
             GameTime = Timer.timeleft;

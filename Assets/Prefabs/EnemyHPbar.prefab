@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8f3fbd3b96a24d41abd7195ad240720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   targetTransform: {fileID: 0}
 --- !u!114 &7520682123833755439
