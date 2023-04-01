@@ -15,10 +15,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float attackRange;
 
 //    [SerializeField] private float initHealth = 50;
-    [SerializeField] private float health = 50;
+    [SerializeField] public float health;
     [SerializeField] private Vector3 enemyPosition;
     [SerializeField] private float speed;
 
+    [SerializeField] private EnemyData enemyData;
 
     public enum State 
     {
@@ -42,6 +43,11 @@ public class Enemy : MonoBehaviour
         nextState = State.Idle;
         enemyPosition = gameObject.GetComponent<Transform>().position;
         player = GameManager.instance.player;
+
+        //초기화
+        health = enemyData.health;
+        attackRange = enemyData.attackRange;
+        speed = enemyData.speed;
     }
 
     private void Update()
@@ -117,6 +123,8 @@ public class Enemy : MonoBehaviour
         {
             //존재하는 적 숫자 줄이기
             GameManager.instance.enemysCount--;
+
+            //체력이 다 하면 적 사라지기
             Destroy(gameObject);
         }
         //넉백 구현

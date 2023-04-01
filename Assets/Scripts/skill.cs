@@ -16,6 +16,7 @@ public class skill : MonoBehaviour
 
     void Start()
     {
+        //iconImage = UIManager.instance.;
         player = GameManager.instance.player;
         coroutine = UseSkill();
         //아이콘에 버튼 리스너 붙이기
