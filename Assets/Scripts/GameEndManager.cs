@@ -22,10 +22,13 @@ public class GameEndManager : SingletonMonoBehaviour<GameEndManager>
         missions = GetComponentsInChildren<IMission>();
     }
 
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
+
     private void Update()
     {
-        Cursor.visible = isGameEnd;
-        
         foreach(IMission mission in missions)
         {
             if(mission.IsMissionFailed())
@@ -50,5 +53,6 @@ public class GameEndManager : SingletonMonoBehaviour<GameEndManager>
             <ScreenFadeInTransition, ScreenFadeOutTransition>
             (winState == WinState.Win ? "GameWinScene" : "GameLoseScene", 0.5f, 1);
         isGameEnd = true;
+        Cursor.visible = true;
     }
 }
