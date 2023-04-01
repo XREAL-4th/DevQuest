@@ -8,7 +8,7 @@ public class CameraControl : MonoBehaviour
     [SerializeField][Range(1f, 20f)] private float sensitivity = 10f;
     private float mouseX, mouseY;
 
-    private void FixedUpdate()
+    private void Update()
     {
         mouseX += Input.GetAxis("Mouse X") * sensitivity;
         transform.parent.rotation = Quaternion.Euler(new Vector3(0, mouseX, 0));
