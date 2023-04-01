@@ -45,7 +45,8 @@ public class Fire : MonoBehaviour
         if( Input.GetMouseButton (0)){
 
             
-            if(isFire==false){
+            if(isFire==false && (!PopUpManager.PopUpOn))
+            {
                 timeron=true;
                 isFire = true;
                 GameObject weapon = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;

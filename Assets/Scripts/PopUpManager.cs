@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class PopUpManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject popUp;
+    public static bool PopUpOn = false;
+
+    private void Awake()
     {
-        
+        popUp.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void OnClickExit()
+    {
+        PopUpOn = true;
+        popUp.SetActive(true);
     }
 }

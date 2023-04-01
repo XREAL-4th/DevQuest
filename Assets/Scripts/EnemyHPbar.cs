@@ -39,7 +39,7 @@ public class EnemyHPbar : MonoBehaviour
         
         //월드 좌표를 스크린 좌표로 변환
         var screenPos = Camera.main.WorldToScreenPoint(targetTransform.position + offset);
-        Debug.Log(screenPos);
+        //Debug.Log(screenPos);
 
         //적과 반대 방향에 있을 때(시야에 적이 안보일 때) 체력바 안보이게 하기 위함
         if (screenPos.z < 0.0f)
