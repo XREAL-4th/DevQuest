@@ -62,10 +62,14 @@ public class Enemy : MonoBehaviour
                         animator.SetBool("walk", false);
                         nextState = State.Attack;
                     }
-                    if (!Physics.CheckSphere(transform.position, followRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    else if (!Physics.CheckSphere(transform.position, followRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
                         animator.SetBool("walk", false);
                         nextState = State.Idle;
+                    }
+                    else
+                    {
+                        nextState = State.Follow;
                     }
                     break;
                 case State.Attack:

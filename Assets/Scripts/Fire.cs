@@ -51,7 +51,7 @@ public class Fire : MonoBehaviour
                 GameObject weapon = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
                 Ray ray = Camera.main.ScreenPointToRay(ScreenCenter);
                 Vector3 shooting = ray.direction;
-                shooting = shooting.normalized * 2000;
+                shooting = shooting.normalized * 3000;
                 weapon.GetComponent<WeaponController>().Launch(shooting);
             }
             
