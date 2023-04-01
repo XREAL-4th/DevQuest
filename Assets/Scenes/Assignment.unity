@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2503,10 +2503,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8f4cc55eea6639847b26da3f8958de22, type: 2}
   - {fileID: 11400000, guid: 817c2e4122e5b2e47b321cee89cb6ae5, type: 2}
   - {fileID: 11400000, guid: 542015843916982469a488cd6f69a6b2, type: 2}
+  - {fileID: 11400000, guid: e6efa4b4fc9da054ba37639775d5265f, type: 2}
   ItemPrefabs:
   - {fileID: 1404993844268117157, guid: d32f6ff06af4bb143b8d44079642f306, type: 3}
   - {fileID: 3067063024414780960, guid: d542cf6931a3a8c499d9beea4d526e35, type: 3}
   - {fileID: 2077770023104469029, guid: 93ba4fd4a07d668479cdbdba606b679f, type: 3}
+  - {fileID: 2944745194914365030, guid: cd00c869ff59ecb4d99bf0a87eb8be6f, type: 3}
 --- !u!1 &1514355936
 GameObject:
   m_ObjectHideFlags: 0

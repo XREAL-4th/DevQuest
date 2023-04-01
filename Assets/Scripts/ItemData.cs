@@ -22,5 +22,9 @@ public class ItemData : ScriptableObject
     [SerializeField]
     private float score;
     public float Score { get { return score; } set { score = value; } }
+
+    [SerializeField]
+    private float health;
+    public float Health { get { return health; } set { health = value; } }
 }
 

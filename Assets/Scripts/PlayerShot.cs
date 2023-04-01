@@ -9,7 +9,7 @@ public class PlayerShot : MonoBehaviour
 
     public Slider PlayerHpSlider;
 
-    int hp = 100;
+    public static int PlayerHp = 100;
 
     private void Start()
     {
@@ -20,16 +20,16 @@ public class PlayerShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerHpSlider.value = hp;
+        PlayerHpSlider.value = PlayerHp;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "EnemyWeapon")
         {
-            hp -= 5;
+            PlayerHp -= 5;
             Destroy(other.gameObject);
-            if (hp == 0)
+            if (PlayerHp == 0)
             {
                 PlayerDead = true; ;
             }
