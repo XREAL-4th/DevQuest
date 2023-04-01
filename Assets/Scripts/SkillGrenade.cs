@@ -30,13 +30,12 @@ public class SkillGrenade : MonoBehaviour
 
     public void Grenade()
     {
-        RaycastHit[] rayHits = Physics.SphereCastAll(transform.position, 15, Vector3.up, 0f, LayerMask.GetMask("Enemy"));
-        // Physics.SphereCastAll(Vector3 origin, float radius, Vector3 direction)
+        // RAYCASTHIT[] Physics.SphereCastAll(Vector3 origin, float radius, Vector3 direction, float maxDistance, int layerMask)
 
-        foreach(RaycastHit hitObj in rayHits)
-        {
-            //hitObj.transform.GetComponent<Enemy>().HitByGrenade(transform.position);
-        }
+        var hits = Physics.SphereCastAll(transform.position, 15, Vector3.up, 0f);
+        //var hits = Physics.SphereCastAll(transform.position, radius, Vector3.up, 0f);
+
+  
 
     }
 
