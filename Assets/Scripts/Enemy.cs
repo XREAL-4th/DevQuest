@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     public State state = State.None;
     public State nextState = State.None;
 
+    public GameObject VFX;
     private bool attackDone;
 
     private void Start()
@@ -101,6 +102,9 @@ public class Enemy : MonoBehaviour
             Bullet bullet = GetComponent<Bullet>();
             print("Damaged");
             Health -= 20;
+            GameObject spark = Instantiate(VFX);
+            spark.transform.position = collision.transform.position;
+            Destroy(spark, 1);
             if (Health <= 0)
             {
                 Destroy(this.gameObject);
