@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95.628784, y: 32.60074}
-  m_SizeDelta: {x: 340.8107, y: 17.3993}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 150, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5416840511778480425
 CanvasRenderer:
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -170,8 +170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95.628784, y: 32.60074}
-  m_SizeDelta: {x: 340.8107, y: 34.7985}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 150, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8134593730790947222
 CanvasRenderer:
@@ -263,7 +263,7 @@ Canvas:
   m_GameObject: {fileID: 6496882714725043477}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3343475850447254833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +330,9 @@ MonoBehaviour:
   canvas: {fileID: 8630024343938375138}
   healthGauge: {fileID: 5992571059952751524}
   healthText: {fileID: 1227587357909380806}
+  damageText: {fileID: 2485913146865758167, guid: 8a590873e76174344b5fd7e172be2c4c,
+    type: 3}
+  enemyData: {fileID: 0}
 --- !u!1 &7513744065748225980
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,8 +368,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95.628784, y: 32.60074}
-  m_SizeDelta: {x: 340.8107, y: 34.7985}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 150, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9091851829915975111
 CanvasRenderer:

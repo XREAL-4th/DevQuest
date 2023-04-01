@@ -9,6 +9,7 @@ public class EnemyHealthBar : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private Image healthGauge;
     [SerializeField] private TMP_Text healthText;
+    [SerializeField] private GameObject damageText;
 
     [SerializeField] private EnemyData enemyData;
     private float fullHp, currentHp;
@@ -42,5 +43,15 @@ public class EnemyHealthBar : MonoBehaviour
     {
         healthGauge.fillAmount = currentHp / fullHp;
         healthText.text = currentHp + "/" + fullHp;
+    }
+
+    //Enemy.cs에서 호출
+    public void ShowDamage(int damage)
+    {
+        //damage text 생성
+        GameObject _damageText = Instantiate(damageText, this.transform.position, Quaternion.identity);
+        _damageText.transform.SetParent(this.transform);
+        //damage 전달
+        _damageText.GetComponent<EnemyDamageText>().damage = damage;
     }
 }

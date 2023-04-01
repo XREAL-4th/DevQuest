@@ -117,6 +117,9 @@ public class Enemy : MonoBehaviour
     //적에게 데미지를 입히는 함수
     public void GetDamage(int damage)
     {
+        //데미지 UI 호출
+        gameObject.GetComponentInChildren<EnemyHealthBar>().ShowDamage(damage);
+
         health -= damage;
         Debug.Log(health);
         if (health <= 0)
