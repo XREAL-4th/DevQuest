@@ -413,6 +413,9 @@ public class Enemy : MonoBehaviour
             hp -= GameManager.instance.playerAttack; //플레이어가 준 공격력만큼 hp가 - 됨
             print("체력:" + hp);
 
+            //UI부분
+
+
             
             
 

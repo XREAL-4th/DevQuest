@@ -21,8 +21,8 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("유아이 매니저:" + GameObject.Find("PlayerSkill").GetComponent<PlayerSkill>().time.ToString());
-        Sec.text = GameObject.Find("PlayerSkill").GetComponent<PlayerSkill>().time.ToString(); //쿨타임 시간 UI
+        //print("유아이 매니저:" + GameObject.Find("PlayerSkill").GetComponent<PlayerSkill>().time.ToString());
+        //Sec.text = GameObject.Find("PlayerSkill").GetComponent<PlayerSkill>().time.ToString(); //쿨타임 시간 UI
     }
 
 

@@ -7,7 +7,7 @@ public class BombCtrl : MonoBehaviour
     public float speed = 1000;
     private float time = 0.0f;
     public GameObject VFX;
-
+    public int bombDamage = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +63,12 @@ public class BombCtrl : MonoBehaviour
             {
                 print("폭탄이 터질 때 enemy에 영향");
 
-                collision.gameObject.GetComponent<Enemy>().hp -= 20; //닿은 오브젝트의 enemy 스크립트에서 hp를 가져와 -20 감소시킨다.
+                collision.gameObject.GetComponent<Enemy>().hp -= bombDamage; //닿은 오브젝트의 enemy 스크립트에서 hp를 가져와 -20(bombDamage) 감소시킨다.
+
+
+
+                //UI 부분
+
                 print("폭탄을 맞은 후 적의 HP: " + collision.gameObject.GetComponent<Enemy>().hp);
 
                 //spark.transform.position = collision.gameObject.transform.position; //폭탄 맞은 enemy도 vfx 효과 주기
