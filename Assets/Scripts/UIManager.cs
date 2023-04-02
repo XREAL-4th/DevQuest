@@ -8,18 +8,21 @@ public class UIManager : MonoBehaviour
 {
 
     public GameObject QuitPanel; //팝업 게임오브젝트
+    public Text Sec;
 
 
     // Start is called before the first frame update
     void Start()
     {
         QuitPanel.SetActive(false); //팝업해제되어 있는 상태로 시작
+        //Sec.text = "하이";
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        print("유아이 매니저:" + GameObject.Find("PlayerSkill").GetComponent<PlayerSkill>().time.ToString());
+        Sec.text = GameObject.Find("PlayerSkill").GetComponent<PlayerSkill>().time.ToString(); //쿨타임 시간 UI
     }
 
 
