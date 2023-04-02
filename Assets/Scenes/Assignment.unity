@@ -1252,10 +1252,10 @@ MonoBehaviour:
   enemies:
   - {fileID: 3211766693495804042, guid: d7883afc387c78148b87e7518e7fe337, type: 3}
   - {fileID: 3421278478322880641, guid: 021f0eb9cde662245bf6bff558c37648, type: 3}
-  createTime: 2
+  createTime: 1
   maxEnemy: 7
   killEnemy: 0
-  goal: 8
+  goal: 2
   isGameOver: 0
   GameFinUI: {fileID: 4435946130599309536, guid: f8b12887943312f41a9f773faadab0f1,
     type: 3}

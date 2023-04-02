@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthbarSprite: {fileID: 7780465246718089957}
+  FloatingText: {fileID: 402998303521419399, guid: 8f060f0bf1590f94d8834a20b03abed1,
+    type: 3}
 --- !u!1 &3211766693495803956
 GameObject:
   m_ObjectHideFlags: 0

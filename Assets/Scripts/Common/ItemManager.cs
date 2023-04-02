@@ -38,13 +38,7 @@ public class ItemManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    void Start()
-    {
-        //SpawnItemObject(); 
-        Init();
-    }
-
-    private void Init()
+    public void Init()
     {
         ItemPoints = GameObject.Find("ItemSpawnPointGroup").GetComponentsInChildren<Transform>();
 

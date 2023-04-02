@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
-    public Transform[] enemyPoints; // Enemy Location
+    public List<Transform> enemyPoints; // Enemy Location
     public GameObject[] enemies;    // Enemy Prefab
     public float createTime = 2.0f;
     public int maxEnemy = 4;
@@ -42,14 +43,15 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Init();
+        Init();                         // GameManager Init
+        ItemManager.instance.Init();    // ItemManager Init
     }
 
-    private void Init()
+    public void Init()
     {
-        enemyPoints = GameObject.Find("SpawnPointGroup").GetComponentsInChildren<Transform>();
+        enemyPoints = new List<Transform>(GameObject.Find("SpawnPointGroup").GetComponentsInChildren<Transform>());
 
-        if (enemyPoints.Length > 0)
+        if (enemyPoints.Count > 0)
         {
             StartCoroutine(this.CreateEnemy());
         }
@@ -65,7 +67,7 @@ public class GameManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(createTime);
 
-                int pointIdx = UnityEngine.Random.Range(1, enemyPoints.Length);
+                int pointIdx = UnityEngine.Random.Range(1, enemyPoints.Count);
                 int enemyIdx = UnityEngine.Random.Range(0, enemies.Length);
 
                 Instantiate(enemies[enemyIdx], enemyPoints[pointIdx].position, enemyPoints[pointIdx].rotation, GameObject.Find("Enemies").transform);
@@ -86,5 +88,18 @@ public class GameManager : MonoBehaviour
             UnityEngine.Cursor.lockState = CursorLockMode.None;
             Instantiate(GameFinUI, new Vector3(Camera.main.pixelWidth/2, Camera.main.pixelHeight / 2), Quaternion.identity, GameObject.Find("Canvas").transform);
         }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Assignment");
+
+        killEnemy = 0; 
+        isGameOver = false;
+
+        // Manager Init
+        enemyPoints.Clear();
+        instance.Init();
+        ItemManager.instance.Init();
     }
 }
