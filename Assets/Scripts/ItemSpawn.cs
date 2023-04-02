@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemSpawn : MonoBehaviour
 {
+
     public enum ItemType {  Basic, Double };
     public List<ItemData> ItemDatas = new List<ItemData>();
 
@@ -18,7 +19,7 @@ public class ItemSpawn : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            //int random = Random.Range(0, 9);
+            int random = Random.Range(0, 2);
             var item = ItemSpawnFunc((ItemType)i);
             item.WatchItemInfo();
         }

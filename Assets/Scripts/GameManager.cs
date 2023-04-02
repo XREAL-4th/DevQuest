@@ -8,19 +8,20 @@ using UnityEngine.Serialization;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] GameObject gameoverText; // ���� ����� Ȱ��ȭ�� �ؽ�Ʈ
+    [SerializeField] GameObject gameoverText;
     [SerializeField] GameObject timeBarObject;
     public Image timeBar;
     //public GameObject otherGameObject;
   
 
 
-    [SerializeField] float setTime = 60f; // �⺻�ð�
-    float timeLeft; // �����ð�
+    [SerializeField] float setTime = 60f; 
+    float timeLeft;
 
+    public GameObject player;
 
-    // �̱���
     static GameManager instance = null;
+
     public static GameManager Instance()
     {
         return instance;
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if(instance == null) // �Ҵ� �� �� ������ �̰� �ֱ�
+        if(instance == null) 
         {
             instance = this;
         }
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        //DontDestroyOnLoad(this); // �ʱ�ȭ�Ǵ°� �����ֱ�
+        //DontDestroyOnLoad(this); 
     }
 
     private void Start()
@@ -53,8 +54,8 @@ public class GameManager : MonoBehaviour
     {
         if (timeLeft > 0)
         {
-            timeLeft -= Time.deltaTime; // ���� �ð� ���ҽ�Ű��
-            timeBar.fillAmount = timeLeft / setTime; //timebar ����
+            timeLeft -= Time.deltaTime; 
+            timeBar.fillAmount = timeLeft / setTime; 
         }
 
         else
@@ -69,7 +70,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("Gmae Over");
+        Debug.Log("Game Over");
         Application.Quit();
         //Quit();
     }

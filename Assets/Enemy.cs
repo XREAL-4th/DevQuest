@@ -17,8 +17,8 @@ public class Enemy : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float attackRange;
     [SerializeField] private float chaseRange;
-    [SerializeField] private float hp = 30.0f;
-    private float curHp;
+    public float hp = 30.0f;
+    public float curHp;
     private Vector3 curPos;
 
 
@@ -141,9 +141,12 @@ public class Enemy : MonoBehaviour
 
     public void GetDamage(float damage)
     {
+        //gameObject.GetComponent<EnemyUI>().ShowDamage(damage);
+
         curHp -= damage;
 
         Debug.Log(curHp);
+
         if (curHp <= 0)
         {
             Destroy(gameObject);

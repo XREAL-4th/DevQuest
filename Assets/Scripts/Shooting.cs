@@ -14,9 +14,6 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Camera Cam;
     [SerializeField] GameObject HitVfx;
 
-
-
-
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -26,12 +23,12 @@ public class Shooting : MonoBehaviour
 
     }
 
-    void Shoot()
+    public void Shoot()
     {
-        if(Physics.Raycast(Cam.transform.position, Cam.transform.forward, out RaycastHit hitInfo))
+        if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out RaycastHit hitInfo))
         {
             Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
-            if(enemy != null)
+            if (enemy != null)
             {
                 enemy.GetDamage(damage);
             }
@@ -48,4 +45,7 @@ public class Shooting : MonoBehaviour
 
         }
     }
+
+
+
 }
