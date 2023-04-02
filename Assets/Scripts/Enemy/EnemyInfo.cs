@@ -58,7 +58,6 @@ public class EnemyInfo : MonoBehaviour
         for (int i = 0; i < random.Next(5); i++)
         {
             Instantiate(coinPrefab,gameObject.transform.position,quaternion.identity,null);
-            Debug.Log("생성");
         }
     }
 }
