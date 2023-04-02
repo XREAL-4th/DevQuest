@@ -14,7 +14,6 @@ public class Skill : MonoBehaviour
     private List<RaycastResult> raycastResults;
     private PointerEventData pointerEventData;
 
-    ParticleSystem hillingPs;
 
     private void Awake()
     {

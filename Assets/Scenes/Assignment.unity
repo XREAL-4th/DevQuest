@@ -2442,7 +2442,7 @@ MonoBehaviour:
   textInfo: {fileID: 1284985938}
   textCooldownTime: {fileID: 951514363}
   imageCooldownTime: {fileID: 785193877}
-  skillName: Bomb
+  skillName: healing
   maxCooldownTime: 5
 --- !u!114 &784949602
 MonoBehaviour:
