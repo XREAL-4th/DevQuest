@@ -13,7 +13,7 @@ public class SkillVFX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+        //this.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
     }
 
     IEnumerator Disappear()
