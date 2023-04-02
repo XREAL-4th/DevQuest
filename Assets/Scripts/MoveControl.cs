@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using TMPro;
+using UnityEngine.UI;
 public class MoveControl : MonoBehaviour
 {
     [Header("Preset Fields")]
@@ -32,10 +33,11 @@ public class MoveControl : MonoBehaviour
     private Vector3 forward, right;
 
     IEnumerator coroutine;
-    public int skill_coolTime;
-    private int coolTime = 0;
+    public float skill_coolTime;
+    private float coolTime = 0;
     public TextMeshProUGUI cool_text;
     public GameObject skill_VFX;
+    public Image JumpSkill_BG;
 
     private void Start()
     {
@@ -50,6 +52,7 @@ public class MoveControl : MonoBehaviour
 
         cool_text.text = "ON";
         skill_VFX.SetActive(false);
+        JumpSkill_BG.fillAmount = 0;
     }
 
     private void Update()
@@ -105,9 +108,20 @@ public class MoveControl : MonoBehaviour
         {
             if(coolTime == 0)
             {
+                JumpSkill_BG.fillAmount = 1;
                 coolTime = skill_coolTime;
                 coroutine = Jump_up();
                 CoroutineStart();
+            }
+        }
+        Debug.Log("coolTime" + coolTime);
+        
+        if(coolTime != 0)
+        {
+            JumpSkill_BG.fillAmount -= 1/ skill_coolTime * Time.deltaTime;
+            if (JumpSkill_BG.fillAmount <= 0)
+            {
+                JumpSkill_BG.fillAmount = 0;
             }
         }
 

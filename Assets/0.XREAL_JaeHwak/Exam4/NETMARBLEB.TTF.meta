@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: e821a0fb08739874988e3acc882b18ba
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - netmarble
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a11b938fc6cf5ae41a4e012b9bcc0730, type: 3}
+  - {fileID: 12800000, guid: 05991a4761ad93d4cba5b6efbfdf478e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
