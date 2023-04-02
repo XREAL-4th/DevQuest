@@ -1416,6 +1416,21 @@ MonoBehaviour:
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
   agent: {fileID: 6883306603044955012}
   type: {fileID: 11400000, guid: 8f01591f6c09f824dbbdba35cd345357, type: 2}
+  onDied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: c9587d728bb630148834306fb8fb393c, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &4950770809926672634
 Animator:
   serializedVersion: 4

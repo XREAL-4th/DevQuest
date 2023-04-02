@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public enum EnemyState
@@ -23,14 +24,14 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
     [Header("Settings")]
     [SerializeField] private EnemyType type;
 
-
     private bool attackDone;
     private float health;
+
+    public UnityEvent onDied;
+
     public float Health { get => health; set => health = value; }
     public float MaxHealth => type.maxHealth;
-
     protected override EnemyState NoneState => EnemyState.None;
-
     protected override EnemyState IdleState => EnemyState.Idle;
 
     protected override void Start()
@@ -48,7 +49,7 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
 
     private void Kill()
     {
-        ScoreManager.Main.Score++;
+        onDied?.Invoke();
         Destroy(gameObject);
     }
 
