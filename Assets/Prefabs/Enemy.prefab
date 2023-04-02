@@ -1960,6 +1960,8 @@ MonoBehaviour:
   navMeshAgent: {fileID: 6594321151805121470}
   player: {fileID: 0}
   pushVfx: {fileID: 5836701092737964378, guid: 2f470568aa7d2e84bb90fee7ad6a26db, type: 3}
+  attackedVfx: {fileID: 8784684251087866430, guid: a593fc241e662ec4e9e9113e4f6a96b3,
+    type: 3}
 --- !u!95 &7409371184443805359
 Animator:
   serializedVersion: 4

@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public GameObject player;
     public GameObject pushVfx;
+    public GameObject attackedVfx;
 
 
     private void Start()
@@ -42,8 +43,8 @@ public class Enemy : MonoBehaviour
         state = State.None;
         nextState = State.Idle;
         player = GameObject.Find("Player");
+        attackedVfx = GameObject.Find("Debuff");
 
-      
     }
 
     private void Update()
@@ -63,10 +64,14 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                 case State.Attack:
-                    if (attackDone)
+                    if (attackDone && !Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
                         nextState = State.Chase;
                         attackDone = false;
+                    }
+                    else
+                    {
+                        nextState = State.Attack;
                     }
                     break;
                 case State.Chase:
@@ -97,17 +102,21 @@ public class Enemy : MonoBehaviour
             switch (state)
             {
                 case State.Idle:
+                    attackedVfx.SetActive(false);
                     animator.SetBool("idle", true);
                     animator.SetBool("attack", false);
                     animator.SetBool("walk", false);
                     break;
                 case State.Attack:
+                    Debug.Log("attack");
                     animator.SetBool("idle", false);
                     animator.SetBool("attack", true);
                     animator.SetBool("walk", false);
                     Attack();
                     break;
                 case State.Chase:
+                    attackedVfx.SetActive(false);
+                    Debug.Log("chase");
                     animator.SetBool("idle", false);
                     animator.SetBool("attack", false);
                     animator.SetBool("walk", true);
@@ -124,6 +133,8 @@ public class Enemy : MonoBehaviour
 
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
+        attackedVfx.SetActive(true);
+        attackedVfx.transform.position = player.transform.position;
         attackDone = true;
 
         player.GetComponent<MoveControl>().playerHp--;
