@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,4 +19,21 @@ public class ButtonDelegator : MonoBehaviour
     {
         GameManager.instance.RestartGame();
     }
+
+    public void ResumeGame()
+    {
+        // Cursor를 보이지않게 처리함
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        Destroy(this.gameObject.transform.parent.gameObject);
+    }
+
+    public void AskExitGame()
+    {
+        GameObject UIPrefab = Resources.Load<GameObject>("Prefabs/ExitUI");
+        GameObject UI = Instantiate(UIPrefab, new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), Quaternion.identity, GameObject.Find("Canvas").transform);
+    }
+
+ 
 }

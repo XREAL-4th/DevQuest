@@ -88,6 +88,15 @@ public class GameManager : MonoBehaviour
             UnityEngine.Cursor.lockState = CursorLockMode.None;
             Instantiate(GameFinUI, new Vector3(Camera.main.pixelWidth/2, Camera.main.pixelHeight / 2), Quaternion.identity, GameObject.Find("Canvas").transform);
         }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            // 게임을 정말 종료할 것인지 묻는 UI를 띄움
+            UnityEngine.Cursor.visible = true;
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
+            GameObject UIPrefab = Resources.Load<GameObject>("Prefabs/ExitUI");
+            GameObject UI = Instantiate(UIPrefab, new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), Quaternion.identity, GameObject.Find("Canvas").transform);
+        }
     }
 
     public void RestartGame()
