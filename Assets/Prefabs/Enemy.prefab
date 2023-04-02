@@ -1387,7 +1387,7 @@ Transform:
   m_GameObject: {fileID: 8462844898647326382}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8462844898647485040}
@@ -1413,10 +1413,9 @@ MonoBehaviour:
   splashFx: {fileID: 100002, guid: e9391f622091e1449bdef4ef15af4948, type: 3}
   hitFx: {fileID: 2965222256817593503, guid: a164e676dbbd6e54587237e619372c98, type: 3}
   attackRange: 4.1
-  state: 0
-  nextState: 0
   life: 3
-  player: {fileID: 0}
+  prefabBar: {fileID: 845206974039334809, guid: f9293ab4adeff4fb29a98985725526d7,
+    type: 3}
 --- !u!95 &8462844898654732498
 Animator:
   serializedVersion: 4
