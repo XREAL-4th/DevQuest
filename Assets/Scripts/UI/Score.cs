@@ -9,7 +9,7 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
-        scoreText.SetText($"Score: {ScoreManager.Main.Score}");
-        maxScoreText.SetText($"Max Score: {ScoreManager.Main.MaxScore}");
+        scoreText.SetText($"Score: {GameStatisticsManager.Main.Collector.Score}");
+        maxScoreText.SetText($"Max Score: {GameStatisticsManager.Main.Collector.MaxScore}");
     }
 }
