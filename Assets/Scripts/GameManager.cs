@@ -30,6 +30,37 @@ public class GameManager : MonoBehaviour
             int randomType = Random.Range(0, 2);
             this.itemFactory.Spawn((ITEM)randomType, this.world);
         }
+        ExitPanel.SetActive(false);
     }
     public GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
+    public GameObject Player;
+    public MoveControl MoveControl;
+    public GameObject ExitPanel;
+    public bool ExitButtonClicked = false;
+
+    private void Update()
+    {
+        if (ExitButtonClicked)
+        {
+            Time.timeScale = 0f;
+            ExitPanel.SetActive(true);
+        }
+    }
+
+    public void ExitYes()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+    }
+    public void ExitNo()
+    {
+        ExitButtonClicked = false;
+        ExitPanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void ExitButton()
+    {
+        ExitButtonClicked = true;
+    }
 }

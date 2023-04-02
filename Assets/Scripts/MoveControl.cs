@@ -109,6 +109,7 @@ public class MoveControl : MonoBehaviour
             Debug.Log("Input Reload!");
         }
 
+
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
     }

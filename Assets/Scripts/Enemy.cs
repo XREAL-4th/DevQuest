@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
@@ -35,11 +36,22 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject go_enemy;
 
+    public GameObject hpBarPrefab;
+    public Vector3 hpBarOffset = new Vector3(0, 3.0f, 0);
+
+    public Canvas enemyHpBarCanvas;
+    public Slider enemyHpBarSlider;
+    
     private bool attackDone;
     private bool stunDone;
+    GameObject hpBar;
 
     private void Start()
-    { 
+    {
+        SetHpBar();
+        enemyHpBarSlider.gameObject.SetActive(true);
+        enemyHpBarSlider.maxValue = hp;
+        enemyHpBarSlider.value = hp;
         state = State.None;
         nextState = State.Idle;
     }
@@ -96,8 +108,6 @@ public class Enemy : MonoBehaviour
                 //insert code here...
             }
         }
-        
-
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
     }
@@ -109,6 +119,7 @@ public class Enemy : MonoBehaviour
     public void Stun()
     {
         animator.SetTrigger("stun");
+        WhenAnimationDone();
     }
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
@@ -125,11 +136,33 @@ public class Enemy : MonoBehaviour
     public void EnemyAttacked()
     {
         hp--;
+        enemyHpBarSlider.value = hp;
         nextState = State.Stun;
         if (hp <= 0)
         {
             Destruction();
          }
+    }
+
+    public void EnemyMagicAttacked()
+    {
+        hp -= 2;
+        enemyHpBarSlider.value = hp;
+        nextState = State.Stun;
+        if (hp <= 0)
+        {
+            Destruction();
+        }
+    }
+
+    void SetHpBar()
+    {
+        enemyHpBarCanvas = GameObject.Find("Enemy HpBar Canvas").GetComponent<Canvas>();
+        hpBar = Instantiate<GameObject>(hpBarPrefab, enemyHpBarCanvas.transform);
+        enemyHpBarSlider = hpBar.GetComponentInChildren<Slider>();
+        var _hpbar = hpBar.GetComponent<EnemyHpBar>();
+        _hpbar.enemyTr = this.gameObject.transform;
+        _hpbar.offset = hpBarOffset;
     }
 
     private void Destruction()
@@ -139,6 +172,7 @@ public class Enemy : MonoBehaviour
         GameManager.instance.targets = tmptargets.Except(new GameObject[] { go_enemy }).ToArray();
         Debug.Log(go_enemy + "deleted");
         Destroy(go_enemy);
+        Destroy(hpBar);
     }
 
     private void OnDrawGizmosSelected()

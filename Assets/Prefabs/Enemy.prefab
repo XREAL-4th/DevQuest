@@ -1417,6 +1417,13 @@ MonoBehaviour:
   hp: 5
   col: {fileID: -620990630951755751}
   go_enemy: {fileID: 4512831309131799232}
+  hpBarPrefab: {fileID: 856596307451350392, guid: 443f44920a6a18c4e8f041ad43c5f3c0,
+    type: 3}
+  hpBarOffset: {x: 0, y: 3.5, z: 0}
+  enemyHpBarCanvas: {fileID: 0}
+  enemyHpBarSlider: {fileID: 6051470116030616648, guid: 443f44920a6a18c4e8f041ad43c5f3c0,
+    type: 3}
+  Gun: {fileID: 0}
 --- !u!95 &4512831309141025980
 Animator:
   serializedVersion: 4

@@ -8,7 +8,7 @@ public abstract class ItemFactory<T> : MonoBehaviour
     {
         Item item = this.Create(_type);
         item.transform.SetParent(_parent, false);
-        item.transform.localPosition = new Vector3(Random.Range(-50f, 50f),1.5f, Random.Range(-50f, 50f));
+        item.transform.localPosition = new Vector3(Random.Range(-40f, 80f),1.5f, Random.Range(-20f, 38f));
         return item;
     }
     protected abstract Item Create(T _type);
