@@ -114,6 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 500
   VFX: {fileID: 1134129239631916, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
+  bombDamage: 20
+  damage: {fileID: 1230598930340472659, guid: 15213181b2d07d2459a27afd3469dac2, type: 3}
 --- !u!54 &-2794347252038073305
 Rigidbody:
   m_ObjectHideFlags: 0

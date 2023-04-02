@@ -21,6 +21,8 @@ public class PlayerSkill : MonoBehaviour
     public GameObject CoolTimeSec; //( )√ 
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {

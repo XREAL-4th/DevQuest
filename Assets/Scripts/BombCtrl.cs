@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BombCtrl : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class BombCtrl : MonoBehaviour
     private float time = 0.0f;
     public GameObject VFX;
     public int bombDamage = 20;
+
+    //UI 
+    public Text damage; //text
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,12 +72,17 @@ public class BombCtrl : MonoBehaviour
 
 
 
-                //UI 부분
+                
 
                 print("폭탄을 맞은 후 적의 HP: " + collision.gameObject.GetComponent<Enemy>().hp);
 
                 //spark.transform.position = collision.gameObject.transform.position; //폭탄 맞은 enemy도 vfx 효과 주기
                 //Destroy(spark, 1);
+
+
+                //UI 부분
+                damage.text = "-" + bombDamage.ToString(); //폭탄 데미지 text에 저장
+                collision.gameObject.GetComponent<Enemy>().DamageUI(); //enemy 스크립트에 있는 damage UI 실행하기
 
 
 

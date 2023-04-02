@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -47,6 +48,11 @@ public class Enemy : MonoBehaviour
     public bool turnSwitch;
     public float moveSpeed=1;
 
+
+    //UI 
+    public Text damage; //text
+    public GameObject damageUI; //UI GameObject
+    public GameObject damagePos; 
 
     private void Start()
     { 
@@ -413,15 +419,66 @@ public class Enemy : MonoBehaviour
             hp -= GameManager.instance.playerAttack; //플레이어가 준 공격력만큼 hp가 - 됨
             print("체력:" + hp);
 
-            //UI부분
 
-
-            
-            
+            //UI
+            damage.text = "-" + GameManager.instance.playerAttack.ToString();
+            DamageUI();
 
         }
     }
 
- 
+    public void DamageUI()
+    {
+        //UI부분
+        //Instantiate(damageUI, this.gameObject.transform.position, Quaternion.identity);
+        //GameObject temp = Instantiate(damageUI, new Vector3(0,0,0), Quaternion.identity);
+
+        // GameObject temp = Instantiate(damageUI, new Vector3(0,0,0), new Quaternion(0,180,0,0));
+        //temp.transform.SetSiblingIndex(7);
+        //damageUI.transform.SetParent(damagePos.transform);
+
+
+        //
+        //GameObject temp = Instantiate(damageUI,new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        
+        
+        //damage.text = "-" + GameManager.instance.playerAttack.ToString();
+
+        GameObject temp = Instantiate(damageUI);
+        temp.transform.SetParent(damagePos.transform); //damagePos를 부모로 설정해서 이 밑으로 생성된 프리팹이 이동
+
+        //temp.transform.localPosition(0, 0, 0);
+
+        //temp.transform.position = new Vector3(0, 0, 0);
+        //temp.transform.rotation = new Quaternion(0, 180, 0, 0);
+
+        temp.transform.localPosition = new Vector3(0, 0, 0);
+        temp.transform.localScale = new Vector3(2, 2, 2); //1,1,1 하니까 작은거 같아서 키움
+        temp.transform.localEulerAngles = new Vector3(0, 180, 0);
+        //그냥 불러왔더니 이상한 포지션에 이상한 스케일로 불러와서 이쪽에서 원하는 값으로 설정
+
+        //temp.transform.Rotate(0, 180, 0);
+
+
+        //GameObject go = Instantiate(A, new Vector3(0, 0, 0), uaternion.identity) as GameObject;
+        //go.transform.parent = GameObject.Find("Stage Scroll").transform;
+
+
+        //temp.transform.SetParent(this.transform);
+        //temp.transform.SetParent(GameObject.Find("Canvas").transform);
+
+        //temp.transform.parent = this.transform;
+
+
+
+        temp.GetComponent<Rigidbody>().AddForce(transform.up * 8);
+        //UI 가 위로 올라감 
+
+        Destroy(temp, 1.5f); //1.5초후 파괴
+
+        //Instantiate(damageUI, transform.position, Quaternion.identity);
+    }
+
+
 
 }
