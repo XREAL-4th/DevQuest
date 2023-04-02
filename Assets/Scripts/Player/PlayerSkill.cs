@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour
 {
+    [Header("Script")]
     [SerializeField] private SkillManager skillManager;
-    [Space]
-    [SerializeField] private int skillCode_Q;
-    [SerializeField] private bool isCoolTime_Q = false;
-    [SerializeField] private int skillCode_E;
-    [SerializeField] private bool isCoolTime_E = false;
-    [SerializeField] IEnumerator coolDown;
+    [SerializeField] private SkillUI skillUI;
+    [SerializeField] private MenuSys menuSys;
+    [Space, Header("Skill")]
+    [SerializeField] public int skillCode_Q;
+    [SerializeField] public bool isCoolTime_Q = false;
+    [SerializeField] public int skillCode_E;
+    [SerializeField] public bool isCoolTime_E = false;
+
+    IEnumerator coolDown;
 
     private void Start()
     {
@@ -18,9 +22,12 @@ public class PlayerSkill : MonoBehaviour
         skillCode_Q = 0;
         skillCode_E = 1;
         ///
+
+        skillUI.initUI();
     }
     private void Update()
     {
+        if (menuSys.nowState != MenuSys.State.Play) return;
         if (Input.GetKeyDown(KeyCode.Q)&&!isCoolTime_Q) UseSkill(0, skillCode_Q);
         else if (Input.GetKeyDown(KeyCode.E)&&!isCoolTime_E) UseSkill(1, skillCode_E);
     }
@@ -37,9 +44,11 @@ public class PlayerSkill : MonoBehaviour
     {
         if(type== 0) isCoolTime_Q = true;
         else if(type== 1) isCoolTime_E=true;
+        skillUI.UpdateUI();
         yield return new WaitForSeconds(t);
         if (type == 0) isCoolTime_Q = false;
         else if (type == 1) isCoolTime_E = false;
+        skillUI.UpdateUI();
         Debug.Log("Skill Ready - Skill type : " + type);
         yield break;
     }

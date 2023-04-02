@@ -1478,6 +1478,10 @@ MonoBehaviour:
   chaseRange: 10
   sys: {fileID: 0}
   targetPlayer: {fileID: 0}
+  enemyHPUIPrefab: {fileID: 161984054915737323, guid: 06c729d8f10905c41af9f12d687f0e31,
+    type: 3}
+  DmgNumUIPrefab: {fileID: 6871298716109392662, guid: c88e408273b045e48bb09fefa830ad14,
+    type: 3}
   state: 0
   nextState: 0
 --- !u!95 &8978859445571682786

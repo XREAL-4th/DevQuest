@@ -59,4 +59,11 @@ public class SkillManager : MonoBehaviour
         Destroy(buffFx.gameObject);
         yield break;
     }
+
+
+    public Sprite UIReturnIcon(int itemCode)
+    {
+        Debug.Log(itemCode);
+        return skills[itemCode].skillIcon;
+    }
 }

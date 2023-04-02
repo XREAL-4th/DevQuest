@@ -19,3 +19,4 @@ MonoBehaviour:
   skillCoolTime: 10
   skillDuration: 5
   skillFx: {fileID: 6469354921825657977, guid: 4d9a3b35b3bc07649b697df7fb497b6d, type: 3}
+  skillIcon: {fileID: 21300000, guid: 1836e710a05692c4d9c7996fef212727, type: 3}
