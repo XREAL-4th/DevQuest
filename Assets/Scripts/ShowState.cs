@@ -20,7 +20,7 @@ public class ShowState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ScoreText.text = GameQuitManager.Instance.DeadEnemy().ToString();
+        ScoreText.text = GameManager.Instance.DeadEnemy().ToString();
         SpeedText.text = Mathf.Ceil(player.GetComponent<MoveControl>().moveSpeed).ToString();
         PowerText.text = player.GetComponent<MoveControl>().attackPower.ToString();
     }

@@ -101,7 +101,7 @@ public class MoveControl : MonoBehaviour
         //insert code here...
         if(playerHp <= 0)
         {   
-            GameQuitManager.Instance.FinishGame();
+            GameManager.Instance.FinishGame();
         }
 
     }

@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class GameQuitManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
 
-    private static GameQuitManager instance = null;
+    private static GameManager instance = null;
     private static int deadEnemy = 0;
+    private static string PlayerName;
     
 
     void Awake()
@@ -24,7 +25,7 @@ public class GameQuitManager : MonoBehaviour
         }
     }
 
-    public static GameQuitManager Instance
+    public static GameManager Instance
     {
         get
         {
@@ -54,6 +55,21 @@ public class GameQuitManager : MonoBehaviour
     public void FinishGame()
     {
         SceneManager.LoadScene("Ending"); 
+    }
+
+    public void ResetDeadEnemy()
+    {
+        deadEnemy = 0;
+    }
+
+    public void SetPlayerName(string inputname)
+    {
+        PlayerName = inputname;
+    }
+
+    public string GetPlayerName()
+    {
+        return PlayerName;
     }
 
 }

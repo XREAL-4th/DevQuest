@@ -15,7 +15,7 @@ public class CameraControl : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;//
+        //Cursor.lockState = CursorLockMode.Locked;//
         //원활한 Debugging을 위해 마우스 커서를 보이지 않도록 하였습니다, Play 중 Esc 키를 누르면 마우스를 볼 수 있습니다.
         Cursor.visible = false;
         playerTransform = transform.parent;
@@ -26,21 +26,25 @@ public class CameraControl : MonoBehaviour
     private void FixedUpdate()
     {
 
-        Cursor.lockState = CursorLockMode.Locked;//
+        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Locked;
 
-        if (Input.GetMouseButton(0)) _isRotating = true;
-
-        if (_isRotating)
+        if (!ExitBtnClick.IsPause)
         {
-            mouseX += Input.GetAxis("Mouse X") * sensitivity;
-            playerTransform.rotation = Quaternion.Euler(new Vector3(0, mouseX, 0));
 
-            mouseY += Input.GetAxis("Mouse Y") * sensitivity;
-            mouseY = Mathf.Clamp(mouseY, -75f, 75f);
-            transform.localRotation = Quaternion.Euler(new Vector3(-mouseY, 0, 0));
+            if (Input.GetMouseButton(0)) _isRotating = true;
+
+            if (_isRotating)
+            {
+                mouseX += Input.GetAxis("Mouse X") * sensitivity;
+                playerTransform.rotation = Quaternion.Euler(new Vector3(0, mouseX, 0));
+
+                mouseY += Input.GetAxis("Mouse Y") * sensitivity;
+                mouseY = Mathf.Clamp(mouseY, -75f, 75f);
+                transform.localRotation = Quaternion.Euler(new Vector3(-mouseY, 0, 0));
+            }
+
         }
-
-
     }
 
 }
