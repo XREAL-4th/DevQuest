@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
     //UI 텍스트 컴포넌트 변수
     Text gameText;
 
+    //게임 종료 UI 오브젝트 변수
+    public GameObject menuSet;
+
+    //게임 종료 버튼 오브젝트 변수
+    public GameObject menuButton;
+
     private void Awake()
     {
         gm = this;
@@ -27,6 +33,40 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        //종료 메뉴   
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (menuSet.activeSelf)
+            {
+                menuSet.SetActive(false);
+                menuButton.SetActive(true);
+            }
+            else
+            {
+                menuSet.SetActive(true);
+                menuButton.SetActive(false);
+
+            }
+                
+        }
+        //종료 메뉴 실행 및 종료 버튼 활성
+        if (menuSet.activeSelf)
+        {
+            if (Input.GetKey(KeyCode.Y))
+            {
+                UnityEditor.EditorApplication.isPlaying = false;
+            }
+            if (Input.GetKey(KeyCode.N))
+            {
+                menuSet.SetActive(false);
+            }
+           
+        }
+
+        
+
+
         if ((int)GameTime == 0)
         {
             SceneManager.LoadScene("Ending");
@@ -36,5 +76,10 @@ public class GameManager : MonoBehaviour
             GameTime -= Time.deltaTime;
             
         }
+    }
+
+    public void Quit()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
