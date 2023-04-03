@@ -154,6 +154,7 @@ MonoBehaviour:
   Health: 100
   state: 0
   nextState: 0
+  VFX: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
 --- !u!95 &2177150155935277169
 Animator:
   serializedVersion: 4
