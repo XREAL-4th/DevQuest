@@ -30,5 +30,5 @@ public static class InvokeUtils
      => caller.StartCoroutine(RepeatDelayCoroutine(length, delayPerSecond, callback)); 
     
     public static Coroutine RepeatDelay(int length, float delayPerSecond, Action<int> callback)
-     => CoroutineInvoker.Instance.StartCoroutine(RepeatDelayCoroutine(length, delayPerSecond, callback));
+     => CoroutineInvoker.Main.StartCoroutine(RepeatDelayCoroutine(length, delayPerSecond, callback));
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public enum EnemyState
@@ -23,13 +24,14 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
     [Header("Settings")]
     [SerializeField] private EnemyType type;
 
-
     private bool attackDone;
     private float health;
+
+    public UnityEvent onDied;
+
     public float Health { get => health; set => health = value; }
-
+    public float MaxHealth => type.maxHealth;
     protected override EnemyState NoneState => EnemyState.None;
-
     protected override EnemyState IdleState => EnemyState.Idle;
 
     protected override void Start()
@@ -45,8 +47,12 @@ public class Enemy : FSMMonoBehaviour<EnemyState>, IHealthy
         if (Health <= 0) Kill();
     }
 
-    private void Kill() => Destroy(gameObject);
-    
+    private void Kill()
+    {
+        onDied?.Invoke();
+        Destroy(gameObject);
+    }
+
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
         animator.SetTrigger("attack");

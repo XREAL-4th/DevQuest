@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class LazySingletonMonoBehaviour<T> : SingletonMonoBehaviour<T> where T : MonoBehaviour
 {
-    public new static T Instance
+    public new static T Main
     {
         get
         {

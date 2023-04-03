@@ -4,19 +4,9 @@ using UnityEngine;
 
 public class KillEnemiesMission : Mission
 {
-    [SerializeField] private GameObject[] enemies;
     [SerializeField] private int amounts;
 
-    public override bool IsMissionCompleted()
-    {
-        int killCount = 0;
-        foreach(GameObject gameObject in enemies)
-        {
-            if (gameObject.IsDestroyed()) killCount++;
-            if (killCount >= amounts) return true;
-        }
-        return false;
-    }
+    public override bool IsMissionCompleted() => GameStatisticsManager.Main.Collector.KillCount >= amounts;
 
     public override bool IsMissionFailed() => false;
 }

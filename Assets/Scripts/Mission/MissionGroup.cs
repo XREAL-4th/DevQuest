@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MissionGroup : Mission
 {
-    public IMission[] missions;
+    public Mission[] missions;
 
     public override bool IsMissionCompleted() => missions.All((mission) => mission.IsMissionCompleted());
 
