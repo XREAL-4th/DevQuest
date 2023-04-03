@@ -45,13 +45,14 @@ public class Fire : MonoBehaviour
         if( Input.GetMouseButton (0)){
 
             
-            if(isFire==false){
+            if(isFire==false && (!PopUpManager.PopUpOn))
+            {
                 timeron=true;
                 isFire = true;
                 GameObject weapon = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
                 Ray ray = Camera.main.ScreenPointToRay(ScreenCenter);
                 Vector3 shooting = ray.direction;
-                shooting = shooting.normalized * 2000;
+                shooting = shooting.normalized * 3000;
                 weapon.GetComponent<WeaponController>().Launch(shooting);
             }
             

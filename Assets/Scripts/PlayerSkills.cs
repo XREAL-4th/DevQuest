@@ -10,25 +10,45 @@ public class PlayerSkills : MonoBehaviour
 
 	public GameObject weaponPrefab;
 	public GameObject E_VFX;
+	public GameObject R_VFX;
 	public Image e_coolTime;
+	public Image r_coolTime;
 	private bool E_able = true;
-	private bool VFX_able = false;
+	private bool VFX_ableE = false;
+
+	private bool R_able = true;
+	private bool VFX_ableR = false;
 
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.E))
+		if (Input.GetKey(KeyCode.E) && (!PopUpManager.PopUpOn))
 		{
 			if (E_able)
 			{
-				VFX_able = true;
+				VFX_ableE = true;
 				E_able = false;
 				coroutine = Slice();
 				StartCoroutine(coroutine);
 			}
-            if (VFX_able)
+            if (VFX_ableE)
             {
-				Instantiate(E_VFX, transform.position, transform.rotation);
-				VFX_able = false;
+				Instantiate(E_VFX, transform);
+				VFX_ableE = false;
+			}
+		}
+		if (Input.GetKey(KeyCode.R) && (!PopUpManager.PopUpOn))
+        {
+			if (R_able)
+			{
+				VFX_ableR = true;
+				R_able = false;
+				coroutine = Heal();
+				StartCoroutine(coroutine);
+			}
+			if (VFX_ableR)
+			{
+				Instantiate(R_VFX, transform);
+				VFX_ableR = false;
 			}
 		}
 	}
@@ -46,7 +66,7 @@ public class PlayerSkills : MonoBehaviour
 		yield return StartCoroutine(Skill_E(9f));
 		
 
-		yield return StartCoroutine(CoolTime(7f));
+		yield return StartCoroutine(CoolTime(7f,e_coolTime));
 
 		E_able = true;
 	}
@@ -61,12 +81,22 @@ public class PlayerSkills : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator CoolTime(float cool)
+	IEnumerator Heal()
     {
+		PlayerShot.PlayerHp += 15;
+
+		yield return StartCoroutine(CoolTime(15f, r_coolTime));
+
+		R_able = true;
+	}
+
+	IEnumerator CoolTime(float cool, Image image)
+    {
+		float full = cool;
 		while (cool > 0f)
 		{
 			cool -= Time.deltaTime;
-			e_coolTime.fillAmount = 1-(cool/7);
+			image.fillAmount = 1-(cool/full);
 			yield return null;
 		}
 

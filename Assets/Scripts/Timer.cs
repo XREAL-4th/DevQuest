@@ -8,13 +8,17 @@ public class Timer : MonoBehaviour
 {
     public TMP_Text[] ClockText;
     public static float timeleft = 90;
+    
 
-   
+
 
     // Update is called once per frame
     void Update()
     {
-        timeleft -= Time.deltaTime;
+        if (!PopUpManager.PopUpOn)
+        {
+            timeleft -= Time.deltaTime;
+        }
 
         if (timeleft <= 0)
         {
