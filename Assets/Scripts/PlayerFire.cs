@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using TMPro;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerFire : MonoBehaviour
 {
+    
+
+
     //수류탄 발사 위치 지정
     public GameObject firePosition;
     //수류탄 오브젝트 변수
@@ -21,13 +26,14 @@ public class PlayerFire : MonoBehaviour
     ParticleSystem ps;
     //총알 공격력
     public int weaponPower = 5;
-    /*
+    
     //딜레이 판정 변수
     public bool isDelay;
     //딜레이 시간 변수
     public float delayTime = 5f;
-    float timer = 0f;*/
+    float timer = 0f;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -40,10 +46,10 @@ public class PlayerFire : MonoBehaviour
         //마우스 오른쪽 버튼 입력
         if (Input.GetMouseButtonDown(1))
         {
-            /*
-            if (isDelay)
+            
+            if (!isDelay)
             {
-                isDelay = true;*/
+                isDelay = true;
                 GameObject bomb = Instantiate(bombFactory);
                 bomb.transform.position = firePosition.transform.position;
                 Rigidbody rb = bomb.GetComponent<Rigidbody>();
@@ -52,7 +58,7 @@ public class PlayerFire : MonoBehaviour
 
             
 
-            /*
+            
             //코루틴 함수 실행
             StartCoroutine(CountAttackDelay());
         }
@@ -60,10 +66,10 @@ public class PlayerFire : MonoBehaviour
         {
             Debug.Log("Delay");
         }
-
-        */
+        
+        
         }
-        /*
+        
         if (isDelay)
         {
             timer += Time.deltaTime;
@@ -72,7 +78,7 @@ public class PlayerFire : MonoBehaviour
                 timer = 0f;
                 isDelay = false;
             }
-        }*/
+        }
         
 
 
@@ -88,6 +94,8 @@ public class PlayerFire : MonoBehaviour
             //만일 부딪힌 물체 있으면 피격 이펙트 표시
             if (Physics.Raycast(ray, out hitInfo))
             {
+
+
                 //만일 부딪힌 대상 레이어 Enemy이면 Damage 함수 실행
                 if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
                 {
@@ -109,11 +117,11 @@ public class PlayerFire : MonoBehaviour
             }
         }
     }
-    /*
+    
     IEnumerator CountAttackDelay()
     {
         yield return new WaitForSeconds(delayTime);
         isDelay = false;
 
-    }*/
+    }
 }
