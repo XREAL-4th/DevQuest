@@ -6,6 +6,9 @@ using UnityEngine.Serialization;
 
 public class MoveControl : MonoBehaviour
 {
+    [Header("Script")]
+    [SerializeField] private MenuSys menuSys;
+
     [Header("Preset Fields")]
     [SerializeField] private Rigidbody rigid;
     [SerializeField] private CapsuleCollider col;
@@ -104,6 +107,7 @@ public class MoveControl : MonoBehaviour
 
     private void UpdateInput()
     {
+        if (menuSys.nowState != MenuSys.State.Play) return;
         var direction = Vector3.zero;
 
         if (Input.GetKey(KeyCode.W)) direction += Vector3.forward; //Forward

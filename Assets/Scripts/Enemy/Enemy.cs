@@ -9,8 +9,9 @@ public class Enemy : MonoBehaviour
 {
     [Header("Status")]
     [SerializeField] private Type type;
-    [SerializeField] private int hp;
+    [SerializeField] public float hp;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float point;
 
     [Header("Preset Fields")] 
     [SerializeField] private Animator animator;
@@ -25,6 +26,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject targetPlayer;
     private MissionManager missionManager;
     private Rigidbody rb;
+
+    [Header("UI")]
+    [SerializeField] private GameObject enemyHPUIPrefab;
+    private EnemyHPUI enemyHPUI;
+    [SerializeField] private GameObject DmgNumUIPrefab;
+    private DmgNumUI dmgNumUI;
 
     public enum State 
     {
@@ -60,9 +67,11 @@ public class Enemy : MonoBehaviour
         {
             case Type.NORMAL:
                 hp = 20;
+                point = 5;
                 break;
             case Type.METAL:
                 hp = 40;
+                point = 10;
                 break;
             default: break;
         }
@@ -70,6 +79,10 @@ public class Enemy : MonoBehaviour
         sys = GameObject.FindGameObjectWithTag("SysObj");
         targetPlayer = GameObject.FindGameObjectWithTag("Player");
         missionManager = sys.GetComponent<MissionManager>();
+
+        GameObject tmp = Instantiate(enemyHPUIPrefab);
+        enemyHPUI = tmp.GetComponent<EnemyHPUI>();
+        enemyHPUI.initUI(this);
     }
 
     private void Update()
@@ -154,13 +167,17 @@ public class Enemy : MonoBehaviour
         //3. 글로벌 & 스테이트 업데이트
         if (hp <= 0)
         {
+            Destroy(enemyHPUI.gameObject);
             Destroy(this.gameObject);
         }
+
+        //enemyHPUI.gameObject.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 0.8f, 0));
     }
 
     public void OnDestroy()
     {
         Debug.Log("Enemy Destroyed");
+        missionManager.ReturnPoint(point);
         if(missionManager.missionStep == MissionManager.Steps.MISSION_1)
         {
             missionManager.MissionFunction();
@@ -202,6 +219,8 @@ public class Enemy : MonoBehaviour
         rb.AddForce(dir.normalized*dmg*4,ForceMode.VelocityChange);
         //transform.Translate(dir.normalized*dmg/4);
         hp -= dmg;
+        dmgNumUI = Instantiate(DmgNumUIPrefab).GetComponent<DmgNumUI>();
+        dmgNumUI.initUI(dmg, this);
     }
 
     private void OnDrawGizmosSelected()

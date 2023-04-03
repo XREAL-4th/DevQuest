@@ -5,6 +5,7 @@ using UnityEngine;
 public class MissionManager : MonoBehaviour
 {
     private static MissionManager instance = null;
+    private static float point;
 
     public enum Steps
     {
@@ -64,6 +65,11 @@ public class MissionManager : MonoBehaviour
             default:
                 break;
         }
+    }
 
+    public float ReturnPoint(float a = 0)
+    {
+        point += a;
+        return point;
     }
 }

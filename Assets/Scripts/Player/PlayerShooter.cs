@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
 {
+    [Header("Script")]
+    [SerializeField] private MenuSys menuSys;
     private enum Type
     {
         Primary,
         Secondary,
         Melee
     }
+    [Header("Data")]
     [SerializeField] private Transform firePos;
     [SerializeField] private Type type;
     [SerializeField] private GameObject[] bullets;
@@ -33,6 +36,8 @@ public class PlayerShooter : MonoBehaviour
     void Update()
     {
         LoadFx();
+        if (menuSys.nowState != MenuSys.State.Play) return;
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             //type= Type.Primary;
