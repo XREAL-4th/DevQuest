@@ -112,10 +112,10 @@ public class MoveControl : MonoBehaviour
     {
         var direction = Vector3.zero;
         
-        if (Input.GetKey(KeyCode.W)) direction += transform.forward; //Forward
-        if (Input.GetKey(KeyCode.A)) direction += -transform.right; //Left
-        if (Input.GetKey(KeyCode.S)) direction += -transform.forward; //Back
-        if (Input.GetKey(KeyCode.D)) direction += transform.right; //Right
+        if (Input.GetKey(KeyCode.W)) direction += Vector3.forward; //Forward
+        if (Input.GetKey(KeyCode.A)) direction += Vector3.left; //Left
+        if (Input.GetKey(KeyCode.S)) direction += Vector3.back; //Back
+        if (Input.GetKey(KeyCode.D)) direction += Vector3.right; //Right
         
         direction.Normalize(); //대각선 이동(Ex. W + A)시에도 동일한 이동속도를 위해 direction을 Normalize
         
