@@ -34,17 +34,22 @@ public class Enemy : MonoBehaviour
 
     public NavMeshAgent navMeshAgent;
     public GameObject player;
+    public GameObject pushVfx;
+    public GameObject attackedVfx;
+
 
     private void Start()
     { 
         state = State.None;
         nextState = State.Idle;
         player = GameObject.Find("Player");
+        attackedVfx = GameObject.Find("Debuff");
+
     }
 
     private void Update()
     {
-       
+
         //1. 스테이트 전환 상황 판단
         if (nextState == State.None)
         {
@@ -59,10 +64,14 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                 case State.Attack:
-                    if (attackDone)
+                    if (attackDone && !Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
                         nextState = State.Chase;
                         attackDone = false;
+                    }
+                    else
+                    {
+                        nextState = State.Attack;
                     }
                     break;
                 case State.Chase:
@@ -81,47 +90,56 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                     //insert code here...
-            }       
+            }
         }
-        
-        
+
+
         //2. 스테이트 초기화
-        if (nextState != State.None) 
+        if (nextState != State.None)
         {
             state = nextState;
             nextState = State.None;
-            switch (state) 
+            switch (state)
             {
                 case State.Idle:
+                    attackedVfx.SetActive(false);
                     animator.SetBool("idle", true);
                     animator.SetBool("attack", false);
                     animator.SetBool("walk", false);
                     break;
                 case State.Attack:
+                    Debug.Log("attack");
                     animator.SetBool("idle", false);
                     animator.SetBool("attack", true);
                     animator.SetBool("walk", false);
                     Attack();
-                    break;           
+                    break;
                 case State.Chase:
+                    attackedVfx.SetActive(false);
+                    Debug.Log("chase");
                     animator.SetBool("idle", false);
                     animator.SetBool("attack", false);
                     animator.SetBool("walk", true);
                     Chase();
                     break;
-             
-                //insert code here...
+
+                    //insert code here...
             }
         }
-        
+
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
     }
-    
+
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
+        attackedVfx.SetActive(true);
+        attackedVfx.transform.position = player.transform.position;
         attackDone = true;
+
         player.GetComponent<MoveControl>().playerHp--;
+
+     
     }
 
     private void Chase()
@@ -156,7 +174,10 @@ public class Enemy : MonoBehaviour
             
             Vector3 direction = this.transform.position - player.transform.position;
             direction = direction.normalized;
-            this.GetComponent<Rigidbody>().AddForce(direction*5000, ForceMode.Impulse);
+            this.GetComponent<Rigidbody>().AddForce(direction*1800, ForceMode.Impulse);
+
+            GameObject vfx = Instantiate(pushVfx) as GameObject;
+            vfx.transform.position = this.transform.position;
         }
     }
 

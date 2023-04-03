@@ -18,12 +18,16 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer <= 0)
-        {
-            GameQuitManager.Instance.FinishGame();
+
+        if (!ExitBtnClick.IsPause){
+            if (timer <= 0)
+            {
+                GameManager.Instance.FinishGame();
+            }
+            timer -= Time.deltaTime;
+            timerText.text = Mathf.Ceil(timer).ToString();
         }
-        timer -= Time.deltaTime;
-        timerText.text = Mathf.Ceil(timer).ToString();
+      
     }
 
     

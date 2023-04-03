@@ -6,18 +6,39 @@ using UnityEngine.UI;
 
 public class ShowScore : MonoBehaviour
 {
-    public Text ScoreText;
+    public Text Score;
+    public Text BestScore;
+    public int Scoreint;
+    public int BestScoreint;
+    public Text PlayerName;
+    public Text BestPlayerName;
 
-    // Start is called before the first frame update
     void Start()
     {
-        ScoreText.text = GameQuitManager.Instance.DeadEnemy().ToString();
+        Scoreint = GameManager.Instance.DeadEnemy();
+        Score.text = Scoreint.ToString();
+        PlayerName.text = GameManager.Instance.GetPlayerName();
 
+        if (PlayerPrefs.HasKey("BestScore"))
+        {
+            BestScoreint = int.Parse(PlayerPrefs.GetString("BestScore"));
+
+            //UnityEngine.Debug.Log(shortestText + " " + exitTime.text);
+            if (Scoreint > BestScoreint)
+            {
+                PlayerPrefs.SetString("BestScore", Score.text);
+                PlayerPrefs.SetString("BestPlayerName", PlayerName.text);
+
+            }
+        }
+        else
+        {
+            //UnityEngine.Debug.Log(exitTime.text);
+            PlayerPrefs.SetString("BestScore", Score.text);
+            PlayerPrefs.SetString("BestPlayerName", PlayerName.text);
+        }
+        BestScore.text = PlayerPrefs.GetString("BestScore");
+        BestPlayerName.text = PlayerPrefs.GetString("BestPlayerName");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

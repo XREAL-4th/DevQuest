@@ -46,6 +46,7 @@ public class MoveControl : MonoBehaviour
         stateTime = 0f;
         forward = transform.forward;
         right = transform.right;
+
     }
 
     private void Update()
@@ -100,7 +101,7 @@ public class MoveControl : MonoBehaviour
         //insert code here...
         if(playerHp <= 0)
         {   
-            GameQuitManager.Instance.FinishGame();
+            GameManager.Instance.FinishGame();
         }
 
     }
