@@ -1,19 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public interface IMission
-{
-    public string MissionTitle { get; }
-    public string MissionDescription { get; }
 
-    public bool IsMissionFailed();
-    public bool IsMissionCompleted();
-}
-
-public abstract class Mission : MonoBehaviour, IMission
+public abstract class Mission : MonoBehaviour
 {
     public string missionTitle;
     public string missionDescription;
+    public MissionResult[] completeResults, failResults;
 
     public string MissionTitle => missionTitle;
     public string MissionDescription => missionDescription;
