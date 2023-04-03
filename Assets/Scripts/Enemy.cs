@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         nextState = State.Idle;
 
         CurHealth = MaxHealth;
-        healthBar.UpdateHealthBar(MaxHealth, CurHealth);
+        healthBar.UpdateHealthBar(MaxHealth, CurHealth, 0);
 
         CurPos = transform.position;
     }
@@ -156,7 +156,7 @@ public class Enemy : MonoBehaviour
     {
         CurHealth -= amount;
 
-        healthBar.UpdateHealthBar(MaxHealth, CurHealth);
+        healthBar.UpdateHealthBar(MaxHealth, CurHealth, amount);
 
         if (CurHealth <= 0.0f) 
         {

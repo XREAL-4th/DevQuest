@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthbarSprite: {fileID: 7780465246718089957}
+  FloatingText: {fileID: 402998303521419399, guid: 8f060f0bf1590f94d8834a20b03abed1,
+    type: 3}
 --- !u!1 &3211766693495803956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,7 +1600,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3207484668220412108}
   - component: {fileID: 3236475401757972320}
-  - component: {fileID: 3202583531721795904}
   - component: {fileID: 3224991870528485732}
   m_Layer: 0
   m_Name: shadow (1)
@@ -1629,20 +1630,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3213192695501343896}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &3202583531721795904
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3213192695501343896}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &3224991870528485732
 MeshRenderer:
