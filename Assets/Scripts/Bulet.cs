@@ -16,7 +16,7 @@ public class Bulet : MonoBehaviour
         if (Physics.Raycast(ray,out hit, Mathf.Infinity))
        { 
          Vector3 direction = hit.point-firePos.position;
-        transform.Translate(direction.normalized * 0.01f, Space.World);
+        transform.Translate(direction.normalized * 0.3f, Space.World);
        }
 
         
