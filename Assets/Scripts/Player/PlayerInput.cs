@@ -69,12 +69,10 @@ public class PlayerInput : MonoBehaviour
         Collider[] colliders= Physics.OverlapBox(transform.position + transform.forward * 2f, Vector3.one * 5, Quaternion.identity);
         foreach (var c in colliders)
         {
-            Debug.Log("1");
             if (c.gameObject.TryGetComponent(out Rigidbody rb))
             {
                 skillParticleSystem.Play();
-                rb.AddForce(Vector3.back * 5f);
-                Debug.Log($"{rb.name}");
+                rb.AddForce(-rb.transform.forward * 100f); ;
             }
         }
     }

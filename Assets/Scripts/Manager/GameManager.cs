@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Button = UnityEngine.UIElements.Button;
+
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     [SerializeField] private float timeLimit = 30f;
 
     public GameObject player;
+    // UI-EndGame
+    public GameObject gameEndPopUp;
     // UI-Text
     public Slider skillCoolSlider;
     public Text timerText;
@@ -83,5 +87,21 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         currentTime = 0f;
         skillCoolSlider.value = 0f;
+    }
+
+    public void ActivePopUp()
+    {
+        if (!gameEndPopUp.activeInHierarchy)
+        {
+            gameEndPopUp.SetActive(true);
+        }else gameEndPopUp.SetActive(false);
+    }
+
+    public void GameEnd()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+            Application.Quit();
     }
 }

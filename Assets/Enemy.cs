@@ -18,6 +18,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float chasingRedBallRange;
     [SerializeField] private float chasingPlayerRange;
 
+    private GameObject player;
+    private GameObject redBall;
+    
+    private RaycastHit playerHitInfo;
+    private RaycastHit redBallHitInfo;
     public LayerMask redBallLayer;
     public enum State 
     {
@@ -95,23 +100,31 @@ public class Enemy : MonoBehaviour
 
     private void CheckArea()
     {
-        //1 << 6인 이유는 Player의 Layer가 6이기 때문
-        if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+        // attackRange < PlayerRange < RedBallRange
+        var attackHits = Physics.SphereCastAll(transform.position, attackRange, Vector3.down, 0f, 1 << 6);
+        if (attackHits.Length > 0)
         {
             nextState = State.Attack;
-        }else if (Physics.CheckSphere(transform.position, chasingPlayerRange, 1 << 6, QueryTriggerInteraction.Ignore))
-        {
-            //Debug.Log("PlayerDetected!");
-            // Chasing Player
-            nextState = State.ChasingPlayer;
-        }else if (Physics.CheckSphere(transform.position, chasingRedBallRange, 1 << 9, QueryTriggerInteraction.Ignore))
-        {
-            Debug.Log("RedBallDetected!");
-            // Chasing RedBall
-            nextState = State.ChasingRedBall;
+            return;
         }
-        else nextState = State.Idle;
+        var chasingPlayerHits = Physics.SphereCastAll(transform.position, chasingPlayerRange, Vector3.down, 0f, 1 << 6);
+        if (chasingPlayerHits.Length > 0)
+        {
+            nextState = State.ChasingPlayer;
+            player = chasingPlayerHits[0].collider.gameObject;
+            return;
+        }
+        var chasingRedBallHits = Physics.SphereCastAll(transform.position, chasingRedBallRange, Vector3.down, 0f, 1 << 9);
+        if (chasingRedBallHits.Length > 0)
+        {
+            nextState = State.ChasingRedBall;
+            redBall = chasingRedBallHits[0].collider.gameObject;
+            return;
+        }
+
+        nextState = State.Idle;
     }
+    
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
         animator.SetTrigger("attack");
@@ -120,14 +133,18 @@ public class Enemy : MonoBehaviour
     private void ChasingPlayer()
     {
         animator.SetTrigger("walk");
-        transform.Translate((GameManager.instance.player.transform.position-transform.position).normalized * 
+        transform.Translate((player.transform.position-transform.position).normalized * 
                             GameManager.instance.enemyMoveSpeed * Time.deltaTime, Space.World );
         transform.rotation =
-            Quaternion.LookRotation(GameManager.instance.player.transform.position - transform.position);
+            Quaternion.LookRotation(player.transform.position - transform.position);
     }
     private void ChasingRedBall()
     {
-        //Debug.Log("chasingRedBall");
+        Debug.Log("chasingRedBall");
+        transform.Translate((redBall.transform.position-transform.position).normalized * 
+                            GameManager.instance.enemyMoveSpeed * Time.deltaTime, Space.World );
+        transform.rotation =
+            Quaternion.LookRotation(redBall.transform.position - transform.position); 
     }
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
@@ -139,14 +156,15 @@ public class Enemy : MonoBehaviour
     {
         attackDone = true;
     }
+    
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.layer == 9)
+        if (other.gameObject.layer == 9)
         {
             // 충돌한 것이 redball 이면 enemyScore 증가, 
             GameManager.instance.enemyScore += 1;
-            collision.gameObject.SetActive(false);
+            other.gameObject.SetActive(false);
         }
     }
 
