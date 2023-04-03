@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
@@ -15,8 +16,6 @@ public class Enemy : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float attackRange;
 
-    GameObject hit;
-    
     public enum State 
     {
         None,
@@ -26,28 +25,34 @@ public class Enemy : MonoBehaviour
     }
     
     [Header("Debug")]
-    public State state = State.None;
-    public State nextState = State.None;
+    public int life = 3;
 
+    private GameObject player;
+    private GameObject bullet;
+    private float fleeTime;
+    private GameObject hit;
+
+    private State state = State.None;
+    private State nextState = State.None;
     private bool attackDone;
     private bool fleeDone;
 
-    GameObject bullet;
-    public int life = 3;
-    public GameObject player;
+    public GameObject prefabBar;
+    private GameObject HPbar;
+    private GameObject HP;
+    Vector3 padding = new Vector3(0.0f, 2.6f, 0.0f);
 
-    float fleeTime;
-
-    private void Start()
-    {
+    private void Start() {
         state = State.Idle;
         nextState = State.Idle;
         bullet = GameObject.Find("Bullet");
-        player = GameObject.Find("Player");
+        player = GameObject.Find("Player");       
+        HPbar = Instantiate(prefabBar, transform.position + padding, transform.rotation);
+        HPbar.transform.SetParent(transform);
+        HP = HPbar.transform.GetChild(1).gameObject;
     }
 
-    private void Update()
-    {
+    private void Update() {
         // 1. Chage state & Check state
         switch (state) {
             case State.Idle:
@@ -71,7 +76,6 @@ public class Enemy : MonoBehaviour
                     nextState = State.Flee;
                 }
                 break;
-            //insert code here...
         }
         
         // 2. Initialize state
@@ -94,8 +98,13 @@ public class Enemy : MonoBehaviour
         
         // 3. Global & state update
         CheckLife();
+        UpdateHP();
     }
-    
+
+    private void UpdateHP() {
+        HPbar.transform.position = transform.position + padding;
+    }
+
     private void Idle() {
         animator.SetTrigger("idle");
     }
@@ -115,26 +124,22 @@ public class Enemy : MonoBehaviour
     }
 
     // Runs in Unity Animation Event
-    public void InstantiateFx()
-    {
+    public void InstantiateFx() {
         Instantiate(splashFx, transform.position, Quaternion.identity);
     }
     
     // Runs in Unity Animation Event
-    public void WhenAnimationDone()
-    {
+    public void WhenAnimationDone() {
         attackDone = true;
     }
 
     // Check Attack Range in Scene View using Gizmos
-    private void OnDrawGizmosSelected()
-    {
+    private void OnDrawGizmosSelected() {
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRange);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
+    private void OnCollisionEnter(Collision collision) {
         ContactPoint contact = collision.contacts[0];
         Vector3 collidePos = contact.point;
         Quaternion collideRot = Quaternion.FromToRotation(Vector3.up, contact.normal);
@@ -142,14 +147,18 @@ public class Enemy : MonoBehaviour
         Attack();
         life -= 1;
         GameManager.instance.score += 1;
+        HP.GetComponent<Image>().fillAmount -= 0.3333f;
 
         hit = Instantiate(hitFx, collidePos, collideRot);
         Destroy(hit, 1);
+        //Destroy(collision.gameObject, 10);
     }
 
     private void CheckLife() {
         if (life == 0) {
             Destroy(gameObject);
+            Destroy(HPbar);
+            Destroy(HP);
         }
     }
 }

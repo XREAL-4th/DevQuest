@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Coroutine : MonoBehaviour
 {
     IEnumerator coroutine;
     GameObject freezeCircle;
+    private GameObject fill;
 
     void Start() {
+        fill = GameObject.Find("Fill");
         freezeCircle = GameObject.Find("Freeze");
         freezeCircle.SetActive(false);
     }
@@ -22,7 +25,7 @@ public class Coroutine : MonoBehaviour
 
     IEnumerator FreezeDucks() {
         OnSkill();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         OffSkill();
     }
 
@@ -32,5 +35,6 @@ public class Coroutine : MonoBehaviour
 
     void OffSkill() {
         freezeCircle.SetActive(false);
+        fill.GetComponent<Image>().fillAmount = 0;
     }
 }

@@ -20,7 +20,6 @@ public class RayControl : MonoBehaviour
 
     void Update()
     {
-        // 마우스 좌클릭 시 목표 위치로 발사
         if (Input.GetMouseButtonDown(0)) {
             pos = aim.transform.position;
             pos.z = GetComponent<Camera>().farClipPlane;

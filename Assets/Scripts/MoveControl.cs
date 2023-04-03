@@ -14,7 +14,6 @@ public class MoveControl : MonoBehaviour
     [SerializeField][Range(1f, 10f)] private float moveSpeed;
     [SerializeField][Range(1f, 10f)] private float jumpAmount;
 
-    //FSM(finite state machine)에 대한 더 자세한 내용은 세션 3회차에서 배울 것입니다!
     public enum State {
         None,
         Idle,
@@ -44,11 +43,11 @@ public class MoveControl : MonoBehaviour
 
     private void Update()
     {
-        //0. 글로벌 상황 판단
+        // 0. Check global state
         stateTime += Time.deltaTime;
         CheckLanded();
 
-        //1. 스테이트 전환 상황 판단
+        // 1. Chage state & Check state
         if (nextState == State.None) 
         {
             switch (state) 
@@ -71,7 +70,7 @@ public class MoveControl : MonoBehaviour
             }
         }
         
-        //2. 스테이트 초기화
+        // 2. Initialize state
         if (nextState != State.None) 
         {
             state = nextState;
@@ -87,7 +86,7 @@ public class MoveControl : MonoBehaviour
             stateTime = 0f;
         }
         
-        //3. 글로벌 & 스테이트 업데이트
+        // 3. Global & state update
     }
 
     private void FixedUpdate()
@@ -96,25 +95,21 @@ public class MoveControl : MonoBehaviour
     }
 
     private void CheckLanded() {
-        //발 위치에 작은 구를 하나 생성한 후, 그 구가 땅에 닿는지 검사한다.
-        //1 << 3은 Ground의 레이어가 3이기 때문, << 는 비트 연산자
+        // 발 위치에 작은 구를 하나 생성한 후, 그 구가 땅에 닿는지 검사한다.
+        // Ground 3 layers : 1 << 3
         var center = col.bounds.center;
         var origin = new Vector3(center.x, center.y - ((col.height - 1f) / 2 + 0.15f), center.z);
         landed = Physics.CheckSphere(origin, 0.45f, 1 << 3, QueryTriggerInteraction.Ignore);
     }
     
-    private void UpdateInput()
-    {
+    private void UpdateInput() {
         var direction = Vector3.zero;
-        
-        if (Input.GetKey(KeyCode.W)) direction += forward; //Forward
-        if (Input.GetKey(KeyCode.A)) direction += -right; //Left
-        if (Input.GetKey(KeyCode.S)) direction += -forward; //Back
-        if (Input.GetKey(KeyCode.D)) direction += right; //Right
-        
-        direction.Normalize(); //대각선 이동(Ex. W + A)시에도 동일한 이동속도를 위해 direction을 Normalize
-        
-        transform.Translate( moveSpeed * Time.deltaTime * direction); //Move
+        if (Input.GetKey(KeyCode.W)) direction += forward;  // Forward
+        if (Input.GetKey(KeyCode.A)) direction += -right;   // Left
+        if (Input.GetKey(KeyCode.S)) direction += -forward; // Back
+        if (Input.GetKey(KeyCode.D)) direction += right;    // Right
+        direction.Normalize();
+        transform.Translate( moveSpeed * Time.deltaTime * direction); // Move
     }
 
     private void OnCollisionEnter(Collision collision) {
@@ -125,6 +120,9 @@ public class MoveControl : MonoBehaviour
             new Vector3(-5.5f, 0.79f, -9.3f),
             new Vector3(10.0f, 0.79f, -7.4f)
         };
+
+        //Debug.Log("ㅇㅇ??");
+        //Debug.Log(collision.gameObject.GetComponent<AppleData>());
 
         if (collision.gameObject.name == "Apple(Clone)") {
             for (int i = 0; i < coords.Length; i++) {
