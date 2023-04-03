@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,8 +44,8 @@ public class GameManager : MonoBehaviour
         if (enemysCount == 0)
         {
             //게임 클리어
-            Debug.Log("game clear");
             gameClear.SetActive(true);
+            enemysCount = -1;      //1회성 표시를 위해
         }
     }
 }
