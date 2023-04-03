@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     public int score = 0; //죽인 적의 수 
 
+    //public float cooltime = 0.0f; //쿨타임은 10초 세기
+    //public float time = 0;
+
     public bool IsGameOver
     {
         get { return isGameOver; } //getter 영역: 외부에서 프로퍼티를 읽을 때 실행되는 영역: 
@@ -57,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-       
+        //coolTimeSet(); //시작할 때 바로 쿨타임 시간 한 번 세주기 update랑 중복되니까 제거. 어차피 시작할 때부터 false라서 update에서 시작할때부터 시간세줌
 
         Transform spawnPointGroup = GameObject.Find("SpawnPointGroup")?.transform;   //SpwanGroup 오브젝트의 Transform 컴포넌트 추출
 
@@ -83,8 +86,21 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //cooltime += Time.deltaTime;
+        //print("현재 쿨타임은:" + cooltime);
         
+        /*
+        if (GameObject.Find("Player").GetComponent<PlayerSkill>().setCooltime == false)
+        {
+            //StartCoroutine(coolTimeSet());
+            //StartCoroutine(CoStartTimeCount());
+        }
+        */
+
+        
+        //Player Skill 에 setCooltime이 false면 시간 세주는 함수 불러오기
     }
+
 
     public void Score()
     {
@@ -134,4 +150,93 @@ public class GameManager : MonoBehaviour
         playerAttack += 5; //5씩증가
 
     }
+
+
+
+
+    /*
+     
+
+        /*
+    IEnumerator CoStartTimeCount()
+    {
+        
+        while (GameObject.Find("Player").GetComponent<PlayerSkill>().setCooltime == false)
+        {  // 공이 부숴지면 시간기록을 멈춘다.
+            time += Time.deltaTime;
+            System.TimeSpan t = System.TimeSpan.FromSeconds(time);
+
+
+            print("현재 초 : " + time);
+            // print("현재 초 : "+t.TotalSeconds.ToString());
+            //timeCountText.text = t.TotalSeconds.ToString();
+            yield return new WaitForEndOfFrame();
+        }
+
+    }
+
+
+        IEnumerator coolTimeSet() //쿨타임 시간 세는 함수
+     {
+
+        //매번 불러올 때마다 0초부터 시작. 여기서 초기화해주면 PlayerSkill에서 초기화 안해줘도 됨.
+
+        //yield return null;
+
+        while (true)
+        {
+            if (cooltime >= 0 && cooltime <= 10)
+            {
+                cooltime += Time.deltaTime;
+                print("현재 쿨타임은:" + cooltime);
+
+                if(GameObject.Find("Player").GetComponent<PlayerSkill>().setCooltime == true)
+                {
+                    print("쿨타임이 true가 되었다");
+                    cooltime = 0.0f;
+                    break;
+                    
+                }
+
+            }
+
+            /*
+            else
+            {
+                yield return null;
+            }
+            */
+
+    //yield return new WaitForEndOfFrame();
+
+        /*
+        if(cooltime >= 0 && cooltime <= 10)
+        {
+            cooltime += Time.deltaTime;
+            print("현재 쿨타임은:" + cooltime);
+
+        }
+        */
+
+        //yield return null;
+
+
+
+        //if 정수일 때마다 print 해주기
+        //print("현재 쿨타임은:"+cooltimeSet);
+        /*
+         cooltimeSet = 0;
+        cooltimeSet += Time.deltaTime; //쿨타임 시간
+
+        
+        if (cooltimeSet == 10)
+        {
+            return cooltimeSet;
+
+        }
+
+        return 0;
+
+        */
+
 }
