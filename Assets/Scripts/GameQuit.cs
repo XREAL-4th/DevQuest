@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOut : MonoBehaviour
+public class GameQuit : MonoBehaviour
 {
     [SerializeField] private Button btnQuit, btnYes, btnNo;
     [SerializeField] private GameObject askPanel;
