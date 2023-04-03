@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
+    NavMeshAgent nav;
+    GameObject target;
     [Header("Preset Fields")] 
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject splashFx;
@@ -31,8 +33,11 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     { 
+         nav = GetComponent<NavMeshAgent>();
+        target = GameObject.Find("Player");
         state = State.None;
         nextState = State.Idle;
+       
     }
 
     private void Update()
@@ -43,13 +48,28 @@ public class Enemy : MonoBehaviour
             switch (state) 
             {
                 case State.Idle:
+                    Debug.Log("Idle");
                     //1 << 6인 이유는 Player의 Layer가 6이기 때문
                     if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
+                        Debug.Log("state change");
                         nextState = State.Attack;
                     }
                     break;
                 case State.Attack:
+                    // Debug.Log("Attack");
+                    if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        Debug.Log("Attack");
+                        if (nav.destination != target.transform.position)
+                        {
+                            nav.SetDestination (target.transform.position);
+                        }
+                        else
+                        {
+                            nav.SetDestination (transform.position);
+                        }
+                    }
                     if (attackDone)
                     {
                         nextState = State.Idle;
@@ -58,9 +78,8 @@ public class Enemy : MonoBehaviour
                     break;
                 //insert code here...
             }
-
-    
         }
+      
         
         //2. 스테이트 초기화
         if (nextState != State.None) 

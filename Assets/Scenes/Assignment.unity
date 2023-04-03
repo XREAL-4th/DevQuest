@@ -237,7 +237,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31101978}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dc75c63e62efb244918277c93730ce8, type: 3}
   m_Name: 
@@ -1997,6 +1997,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5259421386459995270, guid: 80037769203713e4999cc4a4794cbee5,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e20c93588c1f33347a380300c270ae48, type: 2}
     - target: {fileID: 5259421386459995271, guid: 80037769203713e4999cc4a4794cbee5,
         type: 3}
       propertyPath: m_Name
@@ -3294,7 +3299,7 @@ GameObject:
   - component: {fileID: 2047535501}
   - component: {fileID: 2047535503}
   - component: {fileID: 2047535504}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3453,6 +3458,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5259421386459995270, guid: 80037769203713e4999cc4a4794cbee5,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e20c93588c1f33347a380300c270ae48, type: 2}
     - target: {fileID: 5259421386459995271, guid: 80037769203713e4999cc4a4794cbee5,
         type: 3}
       propertyPath: m_Name
