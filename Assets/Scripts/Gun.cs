@@ -21,6 +21,7 @@ public class Gun : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public Camera mainCam;
     public GameObject hitEffect;
+    public GameObject magicEffect;
 
     public Enemy Enemy;
 
@@ -73,6 +74,20 @@ public class Gun : MonoBehaviour
             if(hitInfo.transform.tag == "Enemy")
             {
                 hitInfo.transform.GetComponent<Enemy>().EnemyAttacked();
+            }
+        }
+    }
+
+    public void MagicShoot()
+    {
+        muzzleFlash.Play();
+        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hitInfo))
+        {
+            GameObject clone = Instantiate(magicEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+            Destroy(clone, 2f);
+            if (hitInfo.transform.tag == "Enemy")
+            {
+                hitInfo.transform.GetComponent<Enemy>().EnemyMagicAttacked();
             }
         }
     }

@@ -7,12 +7,12 @@ public class Item : MonoBehaviour
 	[SerializeField]
 	ItemData itemData;
 	public ItemData ItemData { set { itemData = value; } }
-	public GameObject player;
-	public MoveControl MoveControl;
 
 	bool m_IsPlayer;
+	GameObject player = GameManager.instance.Player;
+	MoveControl MoveControl = GameManager.instance.MoveControl;
 
-    private void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter(Collider other)
     {
 		if (other.gameObject == player)
 			m_IsPlayer = true;

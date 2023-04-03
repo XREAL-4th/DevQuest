@@ -39,4 +39,9 @@ public class GunController : MonoBehaviour
     {
         newGun.Reload();
     }
+
+    public void MagicShoot()
+    {
+        newGun.MagicShoot();
+    }
 }
