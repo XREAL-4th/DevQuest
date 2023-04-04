@@ -21,10 +21,12 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    //[System.Serializable]
-    //public class UIPrefabs
-    //{
-    //    public RawImage iconImage;
-    //}
+    [Header("UI")]
+    public GameObject gameClear;
+
+    public void GameClear()
+    {
+        gameClear.SetActive(true);
+    }
 
 }
