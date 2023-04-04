@@ -8,8 +8,12 @@ public class Timer : MonoBehaviour
 {
     public TMP_Text[] ClockText;
     public static float timeleft = 90;
-    
 
+
+    private void Start()
+    {
+        timeleft = 90;
+    }
 
 
     // Update is called once per frame

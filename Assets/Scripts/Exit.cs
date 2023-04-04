@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class Exit : MonoBehaviour
 {
+    public static Exit instance;
+
     public GameObject PopUp;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     // Update is called once per frame
     void Update()
