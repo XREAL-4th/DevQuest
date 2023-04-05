@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -21,7 +22,6 @@ public class EnemyHealth : MonoBehaviour
     private void OnCollisionEnter(Collision target)
     {
         ProcessHit(target);
-        Debug.Log("target : "+ target.collider.gameObject);
         Debug.Log("currentHP : "+ currentHitPoints);
     }
 

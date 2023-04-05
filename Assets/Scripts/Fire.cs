@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+using UnityEngine.UI;
 public class Fire : MonoBehaviour {
  
     public GameObject Bullet;
     public GameObject CannonBall;
     public Transform FirePos;
 
+    public GameObject coolTimeUI;
     public bool coolOn = true;
     public float coolTimeAmount = 5.0f;
 
@@ -23,6 +24,7 @@ public class Fire : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.Q)&& coolOn)
         {
+            coolOn = false;
             GameObject cannonBallclone = Instantiate(CannonBall, FirePos.transform.position, FirePos.transform.rotation);
             StartCoroutine(coolTime(coolTimeAmount));
             Destroy(cannonBallclone,1.5f);
@@ -33,9 +35,12 @@ public class Fire : MonoBehaviour {
 
      IEnumerator coolTime(float time)
     {
-        coolOn = false;
-        yield return new WaitForSeconds(time);
+        while (time > 1.0f)
+        {
+            time -= Time.deltaTime;
+            coolTimeUI.GetComponent<Image>().fillAmount = (1.0f / time);
+            yield return new WaitForFixedUpdate();
+        }
         coolOn = true;
-        yield break;
     }
 }
