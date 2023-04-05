@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,9 +7,9 @@ public class shoot : MonoBehaviour
     [SerializeField] private OVRGrabbable ovrGrabbable;
     //public OVRInput.Button shootingButton;
 
-    public Transform firePos;  //ÃÑ¾Ë »ı¼º À§Ä¡
+    public Transform firePos;  //ì´ì•Œ ìƒì„± ìœ„ì¹˜
     public GameObject PrefabBullet;
-    //ÃÑ¾Ë ¼Óµµ
+    //ì´ì•Œ ì†ë„
     private float force = 2500;
     public int damage = 5;
 
@@ -26,7 +26,7 @@ public class shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //trigger ´©¸¦ ¶§
+        //trigger ëˆ„ë¥¼ ë•Œ
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             //dir = firePos.transform.position;
@@ -35,7 +35,7 @@ public class shoot : MonoBehaviour
     }
     void TriggerShoot()
     {
-        GameObject bullet = Instantiate(PrefabBullet, firePos.position, firePos.rotation);    //ÇÁ¸®ÆÕ ÃÑ¾Ë »ı¼º
+        GameObject bullet = Instantiate(PrefabBullet, firePos.position, firePos.rotation);    //í”„ë¦¬íŒ¹ ì´ì•Œ ìƒì„±
         bullet.GetComponent<Bullet>().damage = this.damage;
         //bullet.transform.position = firePos.transform.position;
         //dir = new Vector3(0, 0, firePos.transform.position.z);
