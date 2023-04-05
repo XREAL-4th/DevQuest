@@ -129,6 +129,7 @@ public class MoveControl : MonoBehaviour
 
     void UpdateButton()
     {
+        // 오큘러스 리프트(2016) 리모트 기준 
         if(OVRInput.GetDown(OVRInput.Button.DpadUp)) direction += Vector3.forward;
         if(OVRInput.GetDown(OVRInput.Button.DpadRight)) direction += Vector3.right;
         if(OVRInput.GetDown(OVRInput.Button.DpadLeft)) direction += Vector3.left;

@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform fireTransform;
     public ParticleSystem fireParticleSystem;
     public ParticleSystem skillParticleSystem;
     [SerializeField] private float skillCoolTime;
-    
+    private bool getWeapon = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,9 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(OVRInput.GetDown(OVRInput.Button.One)) StartCoroutine(Fire());
+        if (OVRInput.GetDown(OVRInput.Button.One) && !getWeapon) GrabWeapon();
+        // 오큘러스 리프트(2016) 리모트 기준 
+        if(OVRInput.GetDown(OVRInput.Button.One) && getWeapon) StartCoroutine(Fire());
         /*
         if (Input.GetMouseButtonDown(0))
         {
@@ -82,6 +85,18 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
+    void GrabWeapon()
+    {
+        Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one * 3, Quaternion.identity);
+        foreach (var col in colliders)
+        {
+            if (col.gameObject.layer == 10)
+            {
+                col.gameObject.transform.parent = player.transform;
+                getWeapon = true;
+            }
+        }
+    }
     /*
     private void OnDrawGizmosSelected()
     {
