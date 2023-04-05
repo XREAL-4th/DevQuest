@@ -9,9 +9,9 @@ public class QuitControl : MonoBehaviour
     public GameObject popup;
     public GameObject camera;
 
-    private void Start() {
-        popup.SetActive(false);
-    }
+    // private void Start() {
+    //     popup.SetActive(false);
+    // }
 
     public void OnClickQuit() {
         popup.SetActive(true);

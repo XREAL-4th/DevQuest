@@ -26,7 +26,5 @@ public class FreezeControl : MonoBehaviour
         time -= Time.deltaTime;
         var per = time / 4f;
         fill.GetComponent<Image>().fillAmount = per;
-
-        //fill.fillAmount = per;
     }
 }

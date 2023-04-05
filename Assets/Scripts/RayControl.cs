@@ -20,6 +20,7 @@ public class RayControl : MonoBehaviour
 
     void Update()
     {
+        /* Need modification for VR
         if (Input.GetMouseButtonDown(0)) {
             pos = aim.transform.position;
             pos.z = GetComponent<Camera>().farClipPlane;
@@ -27,5 +28,6 @@ public class RayControl : MonoBehaviour
             bullet = Instantiate(bullet, player.transform.position, player.transform.rotation);
             bullet.GetComponent<Rigidbody>().AddForce(dir * force);
         }
+        */
     }
 }
