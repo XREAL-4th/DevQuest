@@ -35,7 +35,7 @@ public class item : MonoBehaviour
     void ModifyDamage()
     {
         //총알의 damage 를 5 높임
-        player.GetComponent<PlayerAttack>().damage += itemData.damage;
+        player.GetComponent<shoot>().damage += itemData.damage;
     }
 
     void ModifySpeed()

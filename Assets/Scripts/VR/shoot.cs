@@ -7,7 +7,7 @@ public class shoot : MonoBehaviour
     [SerializeField] private OVRGrabbable ovrGrabbable;
     //public OVRInput.Button shootingButton;
 
-    public GameObject firePos;  //ÃÑ¾Ë »ý¼º À§Ä¡
+    public Transform firePos;  //ÃÑ¾Ë »ý¼º À§Ä¡
     public GameObject PrefabBullet;
     //ÃÑ¾Ë ¼Óµµ
     private float force = 2500;
@@ -34,11 +34,11 @@ public class shoot : MonoBehaviour
     }
     void TriggerShoot()
     {
-        GameObject bullet = Instantiate(PrefabBullet);    //ÇÁ¸®ÆÕ ÃÑ¾Ë »ý¼º
+        GameObject bullet = Instantiate(PrefabBullet, firePos.position, firePos.rotation);    //ÇÁ¸®ÆÕ ÃÑ¾Ë »ý¼º
         bullet.GetComponent<Bullet>().damage = this.damage;
-        bullet.transform.position = firePos.transform.position;
+        //bullet.transform.position = firePos.transform.position;
         //dir = new Vector3(0, 0, firePos.transform.position.z);
-        bullet.GetComponent<Rigidbody>().AddForce(Vector3.forward * force);
+        bullet.GetComponent<Rigidbody>().AddForce(firePos.forward * force);
         //bullet.GetComponent<Rigidbody>().AddForce(dir * force);
 
     }
