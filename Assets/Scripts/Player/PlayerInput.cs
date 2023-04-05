@@ -20,20 +20,22 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(OVRInput.GetDown(OVRInput.Button.One)) StartCoroutine(Fire());
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             StartCoroutine(Fire());
         }
-
+                
         if (Input.GetKeyDown(KeyCode.Q)&& !GameManager.instance.isCooldown)
         {
             StartCoroutine(FlashBang());
-        }
+        }*/
     }
 
     IEnumerator Fire()
     {   
-        GameObject gameObject = Instantiate(projectilePrefab,fireTransform); 
+        GameObject gameObject = Instantiate(projectilePrefab,fireTransform.position,Quaternion.identity,null); 
         fireParticleSystem.Play();
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
@@ -72,14 +74,18 @@ public class PlayerInput : MonoBehaviour
             if (c.gameObject.TryGetComponent(out Rigidbody rb))
             {
                 skillParticleSystem.Play();
-                rb.AddForce(-rb.transform.forward * 100f); ;
+                if (rb.gameObject.layer == 7)
+                {
+                    rb.AddForce(-rb.transform.forward * 2000f); ;
+                }
             }
         }
     }
 
+    /*
     private void OnDrawGizmosSelected()
     {
         Gizmos.color= new Color(0f, 1f, 0f, 0.5f);
         Gizmos.DrawCube(transform.position + transform.forward*2f,Vector3.one*5);
-    }
+    }*/
 }
