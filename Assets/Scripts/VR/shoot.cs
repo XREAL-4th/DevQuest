@@ -28,6 +28,7 @@ public class shoot : MonoBehaviour
         //trigger ´©¸¦ ¶§
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
+            //dir = firePos.transform.position;
             TriggerShoot();
         }
     }
@@ -36,6 +37,7 @@ public class shoot : MonoBehaviour
         GameObject bullet = Instantiate(PrefabBullet);    //ÇÁ¸®ÆÕ ÃÑ¾Ë »ý¼º
         bullet.GetComponent<Bullet>().damage = this.damage;
         bullet.transform.position = firePos.transform.position;
+        //dir = new Vector3(0, 0, firePos.transform.position.z);
         bullet.GetComponent<Rigidbody>().AddForce(Vector3.forward * force);
         //bullet.GetComponent<Rigidbody>().AddForce(dir * force);
 

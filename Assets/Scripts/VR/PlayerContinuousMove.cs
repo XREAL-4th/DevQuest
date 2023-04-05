@@ -5,7 +5,7 @@ public class PlayerContinuousMove : MonoBehaviour
 {
     public Rigidbody rb;
 
-    [SerializeField] private float speed = 5f;
+    public float speed = 5f;
 
     [HideInInspector] public bool RotationEitherThumbstick = false;
     public OVRCameraRig CameraRig;

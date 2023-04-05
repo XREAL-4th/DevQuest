@@ -7,6 +7,7 @@ public class item : MonoBehaviour
     [SerializeField]
     public ItemData itemData;
     GameObject player;
+    
     void Start()
     {
         player = GameManager.instance.player;
@@ -39,8 +40,8 @@ public class item : MonoBehaviour
 
     void ModifySpeed()
     {
-        //플레이어의 속도를 10 높임
-        player.GetComponent<MoveControl>().moveSpeed += itemData.speed;
+        //vr 플레이어의 속도를 10 높임
+        player.GetComponent<PlayerContinuousMove>().speed += itemData.speed;
     }
 
 }
