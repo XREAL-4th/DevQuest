@@ -63,9 +63,9 @@ public class SkillGrenade : MonoBehaviour
         yield break;
     }
 
-    IEnumerator CoolTime(float cool) //cool -> ÄğÅ¸ÀÓ (10f)
+    IEnumerator CoolTime(float cool) //cool -> ï¿½ï¿½Å¸ï¿½ï¿½ (10f)
     {
-        Debug.Log("ÄğÅ¸ÀÓ ÄÚ·çÆ¾ ½ÇÇà");
+        Debug.Log("Cooltime start");
 
         while (cool > 1.0f)
         {
@@ -74,7 +74,7 @@ public class SkillGrenade : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        Debug.Log("ÄğÅ¸ÀÓ ÄÚ·çÆ¾ ¿Ï·á");
+        Debug.Log("Cooltime stop");
 
     }
 
