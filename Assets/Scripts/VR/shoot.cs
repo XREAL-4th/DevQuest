@@ -18,6 +18,7 @@ public class shoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //ovrGrabbable = GetComponent<OVRGrabbable>();
         //ovrGrabbable = gameObject.GetComponent<distance>
         //OVRInput.Axis1D.PrimaryIndexTrigger();
     }
