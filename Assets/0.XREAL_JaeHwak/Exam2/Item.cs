@@ -31,7 +31,8 @@ public class Item : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //아이템 레이어는 플레이어와만 충돌하도록 physics 설정을 하였습니다.
-        switch (itemData.SP)
+        //추후 VR playerContorl로 변경하여 동작하도록 수정하겠습니다.
+/*        switch (itemData.SP)
         {
             case 0: //speedUp
                 other.gameObject.GetComponent<MoveControl>().speedChange(itemData.Speed);
@@ -47,7 +48,7 @@ public class Item : MonoBehaviour
                 // other.transform.GetChild(0).childCount - 추가 생성 총의 경우 생성된 우측으로 생성
                 multiGun.transform.localRotation = Quaternion.Euler(0, -90, 0);
                 break;
-        }
+        }*/
         Destroy(gameObject);
     }
 }
