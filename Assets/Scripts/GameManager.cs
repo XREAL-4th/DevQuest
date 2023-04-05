@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
   
 
 
-    [SerializeField] float setTime = 60f; 
+    [SerializeField] float setTime = 300f; 
     float timeLeft;
 
     public GameObject player;
