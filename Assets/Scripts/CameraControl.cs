@@ -17,6 +17,11 @@ public class CameraControl : MonoBehaviour
         playerTransform = transform.parent;
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.E)) ToggleShowCursor();
+    }
+
     private void FixedUpdate()
     {
         mouseX += Input.GetAxis("Mouse X") * sensitivity;
@@ -25,5 +30,16 @@ public class CameraControl : MonoBehaviour
         mouseY += Input.GetAxis("Mouse Y") * sensitivity;
         mouseY = Mathf.Clamp(mouseY, -75f, 75f);
         transform.localRotation = Quaternion.Euler(new Vector3(-mouseY, 0, 0));
+    }
+
+    private void ToggleShowCursor()
+    {
+        if (Cursor.visible) {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        } else {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }
