@@ -112,11 +112,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 5
   coolDown: 0.5
-  spead: 100
+  spead: 10
   duration: 10
   enemyHitParticle: {fileID: 19800000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
   enemyHeadParticle: {fileID: 198157547220164012, guid: 4961a16ba01e09547be3e1c9d16d5ad0,
     type: 3}
   stoneParticle: {fileID: 198499209413112314, guid: f01c1eba69de19e44b04d8d651aaac37,
     type: 3}
+  isPowerShot: 0
   dir: {x: 0, y: 0, z: 0}
