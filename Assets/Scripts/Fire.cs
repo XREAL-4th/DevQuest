@@ -21,6 +21,10 @@ public class Fire : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
+        isFire = false;
+        timeron = false;
+        time = 0;
         ScreenCenter = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
     }
 

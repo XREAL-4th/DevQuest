@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
         SetHpBar();
         hpSlider.gameObject.SetActive(true);
         hpSlider.maxValue = 100;
+        hp = 100;
     }
 
     // Update is called once per frame

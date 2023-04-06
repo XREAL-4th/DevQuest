@@ -19,7 +19,15 @@ public class PlayerSkills : MonoBehaviour
 	private bool R_able = true;
 	private bool VFX_ableR = false;
 
-	void Update()
+    private void Start()
+    {
+		E_able = true;
+		R_able = true;
+		VFX_ableE = false;
+		VFX_ableR = false;
+    }
+
+    void Update()
 	{
 		if (Input.GetKey(KeyCode.E) && (!PopUpManager.PopUpOn))
 		{

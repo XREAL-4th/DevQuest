@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public int GameScore;
     public float GameTime;
+    public int PlayerLife;
     
     // Start is called before the first frame update
     void Start()
@@ -23,12 +24,14 @@ public class GameManager : MonoBehaviour
         {
             GameScore = Fire.score;
             GameTime = Timer.timeleft;
+            PlayerLife = PlayerShot.PlayerHp;
             SceneManager.LoadScene("GameClear");
         }
         if ((Timer.timeleft <= 0 && Fire.score<35)|| (PlayerShot.PlayerDead))
         {
             GameScore = Fire.score;
             GameTime = Timer.timeleft;
+            PlayerLife = PlayerShot.PlayerHp;
             SceneManager.LoadScene("GameOver");
         }
     }

@@ -13,6 +13,8 @@ public class PlayerShot : MonoBehaviour
 
     private void Start()
     {
+        PlayerDead = false;
+        PlayerHp = 100;
         PlayerHpSlider.gameObject.SetActive(true);
         PlayerHpSlider.maxValue = 100;
     }
@@ -20,6 +22,11 @@ public class PlayerShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerHp > 100)
+        {
+            PlayerHp = 100;
+        }
+
         PlayerHpSlider.value = PlayerHp;
     }
 
