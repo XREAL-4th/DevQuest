@@ -16,15 +16,15 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        //마우스 클릭 시
-        if (Input.GetMouseButtonDown(0))
-        {
-            ScreenCenter = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
-            ScreenCenter.z = Camera.main.farClipPlane; //카메라가 보는 방향과 시야에 z값 맞추기
-            //에임 좌표 받아오기
-            dir = Camera.main.ScreenToWorldPoint(ScreenCenter);
-            Shoot();
-        }
+        ////마우스 클릭 시
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    ScreenCenter = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
+        //    ScreenCenter.z = Camera.main.farClipPlane; //카메라가 보는 방향과 시야에 z값 맞추기
+        //    //에임 좌표 받아오기
+        //    dir = Camera.main.ScreenToWorldPoint(ScreenCenter);
+        //    Shoot();
+        //}
         
     }
 
