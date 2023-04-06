@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform fireTransform;
     public ParticleSystem fireParticleSystem;
     public ParticleSystem skillParticleSystem;
     [SerializeField] private float skillCoolTime;
-    
+    private bool getWeapon = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,20 +21,24 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (OVRInput.GetDown(OVRInput.Button.One) && !getWeapon) GrabWeapon();
+        // 오큘러스 리프트(2016) 리모트 기준 
+        if(OVRInput.GetDown(OVRInput.Button.One) && getWeapon) StartCoroutine(Fire());
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             StartCoroutine(Fire());
         }
-
+                
         if (Input.GetKeyDown(KeyCode.Q)&& !GameManager.instance.isCooldown)
         {
             StartCoroutine(FlashBang());
-        }
+        }*/
     }
 
     IEnumerator Fire()
     {   
-        GameObject gameObject = Instantiate(projectilePrefab,fireTransform); 
+        GameObject gameObject = Instantiate(projectilePrefab,fireTransform.position,Quaternion.identity,null); 
         fireParticleSystem.Play();
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
@@ -72,14 +77,30 @@ public class PlayerInput : MonoBehaviour
             if (c.gameObject.TryGetComponent(out Rigidbody rb))
             {
                 skillParticleSystem.Play();
-                rb.AddForce(-rb.transform.forward * 100f); ;
+                if (rb.gameObject.layer == 7)
+                {
+                    rb.AddForce(-rb.transform.forward * 2000f); ;
+                }
             }
         }
     }
 
+    void GrabWeapon()
+    {
+        Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one * 3, Quaternion.identity);
+        foreach (var col in colliders)
+        {
+            if (col.gameObject.layer == 10)
+            {
+                col.gameObject.transform.parent = player.transform;
+                getWeapon = true;
+            }
+        }
+    }
+    /*
     private void OnDrawGizmosSelected()
     {
         Gizmos.color= new Color(0f, 1f, 0f, 0.5f);
         Gizmos.DrawCube(transform.position + transform.forward*2f,Vector3.one*5);
-    }
+    }*/
 }

@@ -140,7 +140,7 @@ public class Enemy : MonoBehaviour
     }
     private void ChasingRedBall()
     {
-        Debug.Log("chasingRedBall");
+        //Debug.Log("chasingRedBall");
         transform.Translate((redBall.transform.position-transform.position).normalized * 
                             GameManager.instance.enemyMoveSpeed * Time.deltaTime, Space.World );
         transform.rotation =
@@ -157,7 +157,7 @@ public class Enemy : MonoBehaviour
         attackDone = true;
     }
     
-
+/*
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 9)
@@ -167,7 +167,7 @@ public class Enemy : MonoBehaviour
             other.gameObject.SetActive(false);
         }
     }
-
+*/
     private void OnDrawGizmosSelected()
     {
         //Gizmos를 사용하여 공격 범위를 Scene View에서 확인할 수 있게 합니다. (인게임에서는 볼 수 없습니다.)

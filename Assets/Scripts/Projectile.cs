@@ -15,17 +15,9 @@ public class Projectile : MonoBehaviour
     {
         layerMask = 7;
         rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.right * speed;
+        rb.velocity = GameManager.instance.player.transform.forward * speed;
     }
-
-    void Update()
-    {
-        // 발사체가 이동한 거리가 최대 거리를 넘어가면 파괴한다.
-        
-        
-        // Raycasting을 사용하여 충돌 검출을 한다.
-    }
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
         Rigidbody targetRigidbody = other.GetComponent<Rigidbody>();
@@ -34,6 +26,17 @@ public class Projectile : MonoBehaviour
         if (targetRigidbody != null && enemyInfo != null)
         {
             targetRigidbody.AddForceAtPosition(transform.forward * speed, other.transform.position, ForceMode.Impulse);
+            StartCoroutine(enemyInfo.DescreaseHealth());
+        }
+    }*/
+    private void OnCollisionEnter(Collision collision)
+    {
+        Rigidbody targetRigidbody = collision.gameObject.GetComponent<Rigidbody>();
+        EnemyInfo enemyInfo = collision.gameObject.GetComponent<EnemyInfo>();
+
+        if (targetRigidbody != null && enemyInfo != null)
+        {
+            targetRigidbody.AddForceAtPosition(transform.forward * speed, collision.transform.position, ForceMode.Impulse);
             StartCoroutine(enemyInfo.DescreaseHealth());
         }
     }

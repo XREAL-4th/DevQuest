@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Oculus;
+
 
 public class MoveControl : MonoBehaviour
 {
+    public OVRInput.Controller controller;
     [Header("Preset Fields")]
     [SerializeField] private Rigidbody rigid;
     [SerializeField] private CapsuleCollider col;
@@ -30,7 +33,7 @@ public class MoveControl : MonoBehaviour
     
     private float stateTime;
     private Vector3 forward, right;
-
+    private Vector3 direction;
     private void Start()
     {
         rigid = GetComponent<Rigidbody>();
@@ -97,7 +100,8 @@ public class MoveControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        UpdateInput();
+        //UpdateInput();
+        UpdateButton();
     }
 
     private void CheckLanded() {
@@ -110,7 +114,7 @@ public class MoveControl : MonoBehaviour
     
     private void UpdateInput()
     {
-        var direction = Vector3.zero;
+        direction = Vector3.zero;
         
         if (Input.GetKey(KeyCode.W)) direction += Vector3.forward; //Forward
         if (Input.GetKey(KeyCode.A)) direction += Vector3.left; //Left
@@ -120,5 +124,19 @@ public class MoveControl : MonoBehaviour
         direction.Normalize(); //대각선 이동(Ex. W + A)시에도 동일한 이동속도를 위해 direction을 Normalize
         
         transform.Translate( moveSpeed* GameManager.instance.moveSpeed * Time.deltaTime * direction); //Move
+
     }
+
+    void UpdateButton()
+    {
+        // 오큘러스 리프트(2016) 리모트 기준 
+        if(OVRInput.GetDown(OVRInput.Button.DpadUp)) direction += Vector3.forward;
+        if(OVRInput.GetDown(OVRInput.Button.DpadRight)) direction += Vector3.right;
+        if(OVRInput.GetDown(OVRInput.Button.DpadLeft)) direction += Vector3.left;
+        if(OVRInput.GetDown(OVRInput.Button.DpadDown)) direction += Vector3.back;
+        //if(OVRInput.GetDown(OVRInput.Button.Two)) Debug.Log("Two");
+        
+    }
+
+    
 }
