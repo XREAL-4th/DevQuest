@@ -4,12 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     [Header("Preset Fields")] 
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject splashFx;
+
+    [SerializeField] public Slider hpSl;
+    [SerializeField] private GameObject damageText;
     
     [Header("Settings")]
     [SerializeField] private float traceRange;
@@ -20,14 +24,14 @@ public class Enemy : MonoBehaviour
         None,
         Idle,
         Attack,
-        Trace
+        Trace,
+        Dead
     }
     
     [Header("Debug")]
     public State state = State.None;
     public State nextState = State.None;
-
-    private int hp;
+    public float hp = 15;
 
     private bool attackDone;
     private bool traceDone;
@@ -40,12 +44,13 @@ public class Enemy : MonoBehaviour
     {
         state = State.None;
         nextState = State.Idle;
-        hp = 15;
-
-        _transform = this.gameObject.GetComponent<Transform>();
         playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
         nvAgent = this.gameObject.GetComponent<NavMeshAgent>();
         animator = this.gameObject.GetComponent<Animator>();
+
+        hpSl.gameObject.SetActive(true);
+        hpSl.value = hp;
+        hpSl.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3 (0, 3.5f, 0));
     }
 
     private void Update()
@@ -56,7 +61,6 @@ public class Enemy : MonoBehaviour
             switch (state) 
             {
                 case State.Idle:
-                    //1 << 6인 이유는 Player의 Layer가 6이기 때문
                     if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {   
                         nextState = State.Attack;
@@ -77,6 +81,9 @@ public class Enemy : MonoBehaviour
                         nextState = State.Idle;
                         traceDone = false;
                     }
+                    break;
+                case State.Dead:
+                    nextState = State.Dead;
                     break;
                 //insert code here...
             }
@@ -101,10 +108,16 @@ public class Enemy : MonoBehaviour
                     nvAgent.Resume();
                     animator.SetBool("isTrace", true);
                     break;
+                case State.Dead:
+                    nextState = State.Dead;
+                    break;
             }
-        }
         //3. 글로벌 & 스테이트 업데이트
         //insert code here...
+        // Debug.Log(hp);
+        hpSl.value = hp;
+        hpSl.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3 (0, 3f, 0));
+        }
     }
 
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
@@ -116,29 +129,45 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
-        // Debug.Log(collision.gameObject.layer == 6);
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            hp -= 5;
-            InstantiateFx();
+        if (state != State.Dead) {
+            // Debug.Log(collision.gameObject.tag);
+            // Debug.Log(collision.gameObject.layer == 6);
+            if (collision.gameObject.CompareTag("Bullet"))
+            {
+                hp -= 5;
+                takeDamage(5);
+                InstantiateFx();
+            }
+            if (collision.gameObject.CompareTag("Fire"))
+            {
+                hp -= 15;
+                takeDamage(15);
+                InstantiateFx();
+            }
         }
-        if (collision.gameObject.CompareTag("Fire"))
-        {
-            hp -= 15;
-            InstantiateFx();
-        }
+    }
+
+    public void takeDamage(int damage)
+    {
+        GameObject txt = Instantiate(damageText, transform.position, Quaternion.identity, GameObject.Find("Canvas").transform); // 생성할 텍스트 오브젝트
+        txt.GetComponent<DamageTxt>().damage = damage;
+        txt.transform.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3 (0, 4.5f, 0));
     }
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
     {
-        if (hp == 0) {
-            GameObject effect = Instantiate(splashFx, transform.position, Quaternion.identity);
-            GameManager.CalScore();
-            hp = -1;
-            Destroy(effect, 2f); //왜 안 없어지지?
-            Destroy(gameObject, 1f);
+        if (state != State.Dead){
+            if (hp <= 0) {
+                hp = 0;
+                state = State.Dead;
+                nextState = State.Dead;
+                GameObject effect = Instantiate(splashFx, transform.position, Quaternion.identity);
+                GameManager.CalScore();
+                Destroy(effect, 2f); //왜 안 없어지지?
+                Destroy(gameObject, 1f);
+            }
         }
+        // HpControl.hp.value = hp;
     }
     
     public void WhenAnimationDone() //Unity Animation Event 에서 실행됩니다.

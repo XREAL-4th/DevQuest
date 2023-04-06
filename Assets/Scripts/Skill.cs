@@ -6,15 +6,16 @@ using UnityEngine.UI;
 public class Skill : MonoBehaviour
 {
     // [SerializeField] public Image imgSkill;
+    [SerializeField] public GameObject preFabSkill;
     private static bool waitCool = false;
-    public GameObject preFabSkill;
-    private static WaitForSeconds waitForSecondsInstance = new WaitForSeconds(5f);
+    // private static WaitForSeconds waitForSecondsInstance = new WaitForSeconds(5f);
     
     public static Camera cam; // 메인카메라
-    
+
     private void Start()
     {
         cam = Camera.main;
+        // imgSkill.fillAmount = 0f;
     }
 
     private void Update()
@@ -34,19 +35,21 @@ public class Skill : MonoBehaviour
                     // print(bullet.layer);
                     Destroy(skill, 1f);
                 }
-                StartCoroutine(CoolTime(10f));
+                StartCoroutine(CoolTime(5f));
             }
         }
     }
 
     IEnumerator CoolTime(float cool){
         Debug.Log("쿨타임 실행");
-        yield return waitForSecondsInstance;
-        // while (cool > 1.0f){
-        //     cool = Time.deltaTime;
-        //     imgSkill.fillAmount = (1.0f/cool);
-        //     yield return new WaitForFixedUpdate();
-        // }
+        // waitCool = true;
+        // yield return waitForSecondsInstance;
+        while (cool > 1.0f){
+            cool -= Time.deltaTime;
+            // imgSkill.fillAmount = 1.0f - (1.0f/cool);
+            yield return new WaitForFixedUpdate();
+        }
+        // imgSkill.fillAmount = 0f;
         Debug.Log("쿨타임 완료");
         waitCool = false;
     }
