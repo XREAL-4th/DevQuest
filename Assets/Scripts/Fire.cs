@@ -10,7 +10,7 @@ public class Fire : MonoBehaviour
  
     void Update () 
     {
-        if (Input.GetMouseButtonDown (0))
+        if (OVRInput.GetDown(OVRInput.Button.One))
         {
             //복제한다. //'Bullet'을 'FirePos.transform.position' 위치에 'FirePos.transform.rotation' 회전값으로.
             GameObject bullet = Instantiate(Bullet, FirePos.transform.position, FirePos.transform.rotation);
@@ -18,7 +18,7 @@ public class Fire : MonoBehaviour
             bulet.firePos = FirePos;
         }
 
-        if ( Input.GetMouseButtonDown (0))
+        if (OVRInput.GetDown(OVRInput.Button.One))
         {
            RaycastHit hit;
 
