@@ -55,7 +55,7 @@ public class MenuSys : MonoBehaviour
                     Cursor.visible = false;
                     Cursor.lockState = CursorLockMode.Locked;
                     AimUI.SetActive(true);
-                    SettingUI.SetActive(false);
+                    //SettingUI.SetActive(false); //vr
                     LeaveUI.SetActive(false);
                     break;
                 case State.Setting:
@@ -67,6 +67,7 @@ public class MenuSys : MonoBehaviour
                     break;
                 case State.Quit:
                     LeaveUI.SetActive(true);
+                    SettingUI.SetActive(false); //vr
                     break;
                 default:
                     break;
