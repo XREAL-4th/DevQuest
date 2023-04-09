@@ -7,7 +7,6 @@ public class ThrowBomb : MonoBehaviour
     [Header("Preset Fields")]
     public GameObject shotPoint;
     public GameObject Bomb;
-    public GameObject RightController;
     public LineRenderer lineRenderer;
     private bool isGrabbed;
 
