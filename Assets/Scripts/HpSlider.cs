@@ -10,7 +10,7 @@ public class HpSlider : MonoBehaviour
     float fSliderBarTime;
     void Start()
     {
-        //slHP = GetComponent<Slider>();
+        slHP = GetComponent<Slider>();
     }
 
 

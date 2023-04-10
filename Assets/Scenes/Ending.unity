@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 343703858}
   - component: {fileID: 343703857}
   - component: {fileID: 343703856}
-  - component: {fileID: 343703855}
+  - component: {fileID: 343703859}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -401,19 +401,6 @@ RectTransform:
   m_AnchoredPosition: {x: 330, y: 140}
   m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &343703855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343703853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 940e3938509024e4aa1aa519eaa0f641, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Popup: {fileID: 1325816266}
 --- !u!114 &343703856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,9 +445,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 343703855}
-        m_TargetAssemblyTypeName: ExitBtnClick, Assembly-CSharp
-        m_MethodName: BtnClick
+      - m_Target: {fileID: 343703859}
+        m_TargetAssemblyTypeName: ClickBtn, Assembly-CSharp
+        m_MethodName: ExitClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -508,6 +495,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343703853}
   m_CullTransparentMesh: 1
+--- !u!114 &343703859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343703853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7734ea1fb0f3bfb49bd714cdcb069a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Popup: {fileID: 1325816266}
 --- !u!1 &363543520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,7 +1451,7 @@ GameObject:
   - component: {fileID: 1174297529}
   - component: {fileID: 1174297528}
   - component: {fileID: 1174297527}
-  - component: {fileID: 1174297526}
+  - component: {fileID: 1174297530}
   m_Layer: 5
   m_Name: ExitYes
   m_TagString: Untagged
@@ -1480,18 +1480,6 @@ RectTransform:
   m_AnchoredPosition: {x: 93, y: -72}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1174297526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174297524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3273a1dc540104840a8428cb45a47015, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1174297527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1536,9 +1524,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1174297526}
-        m_TargetAssemblyTypeName: ExitYes, Assembly-CSharp
-        m_MethodName: Click
+      - m_Target: {fileID: 1174297530}
+        m_TargetAssemblyTypeName: ClickBtn, Assembly-CSharp
+        m_MethodName: ExitYesClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1586,6 +1574,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174297524}
   m_CullTransparentMesh: 1
+--- !u!114 &1174297530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174297524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7734ea1fb0f3bfb49bd714cdcb069a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Popup: {fileID: 1325816266}
 --- !u!1 &1316372658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,8 +2144,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1520603452}
-        m_TargetAssemblyTypeName: RestartBtnClick, Assembly-CSharp
-        m_MethodName: Click
+        m_TargetAssemblyTypeName: ClickBtn, Assembly-CSharp
+        m_MethodName: RestartClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2201,9 +2202,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1520603447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 198a91aa1f2eef1438be691f2ff12242, type: 3}
+  m_Script: {fileID: 11500000, guid: 7734ea1fb0f3bfb49bd714cdcb069a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Popup: {fileID: 1325816266}
 --- !u!1 &1526682451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,7 +2906,7 @@ GameObject:
   - component: {fileID: 1986127543}
   - component: {fileID: 1986127542}
   - component: {fileID: 1986127541}
-  - component: {fileID: 1986127540}
+  - component: {fileID: 1986127544}
   m_Layer: 5
   m_Name: ExitNo
   m_TagString: Untagged
@@ -2933,19 +2935,6 @@ RectTransform:
   m_AnchoredPosition: {x: -90, y: -72}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1986127540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986127538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c9508d31b11f3c4599f48d729791b70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Popup: {fileID: 1325816266}
 --- !u!114 &1986127541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2990,9 +2979,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1986127540}
-        m_TargetAssemblyTypeName: ExitNo, Assembly-CSharp
-        m_MethodName: click
+      - m_Target: {fileID: 1986127544}
+        m_TargetAssemblyTypeName: ClickBtn, Assembly-CSharp
+        m_MethodName: ExitNoClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3040,6 +3029,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986127538}
   m_CullTransparentMesh: 1
+--- !u!114 &1986127544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986127538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7734ea1fb0f3bfb49bd714cdcb069a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Popup: {fileID: 1325816266}
 --- !u!1 &2083757315
 GameObject:
   m_ObjectHideFlags: 0
