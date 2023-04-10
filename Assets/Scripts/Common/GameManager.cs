@@ -86,17 +86,23 @@ public class GameManager : MonoBehaviour
             // 게임 종료 UI를 띄움
             UnityEngine.Cursor.visible = true;
             UnityEngine.Cursor.lockState = CursorLockMode.None;
-            Instantiate(GameFinUI, new Vector3(Camera.main.pixelWidth/2, Camera.main.pixelHeight / 2), Quaternion.identity, GameObject.Find("Canvas").transform);
+            Instantiate(GameFinUI, GameObject.Find("Canvas").transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         }
 
-        if (Input.GetKeyDown(KeyCode.X))
+        //if (Input.GetKeyDown(KeyCode.X))
+        if (OVRInput.GetDown(OVRInput.Button.Three))
         {
             // 게임을 정말 종료할 것인지 묻는 UI를 띄움
             UnityEngine.Cursor.visible = true;
             UnityEngine.Cursor.lockState = CursorLockMode.None;
             GameObject UIPrefab = Resources.Load<GameObject>("Prefabs/ExitUI");
-            GameObject UI = Instantiate(UIPrefab, new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), Quaternion.identity, GameObject.Find("Canvas").transform);
+            //GameObject UI = Instantiate(UIPrefab, new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), Quaternion.identity, GameObject.Find("Canvas").transform);
+            GameObject UI = Instantiate(UIPrefab,
+                new Vector3(GameObject.Find("Canvas").transform.position.x, GameObject.Find("Canvas").transform.position.y + 3.0f, GameObject.Find("Canvas").transform.position.z),
+                Quaternion.identity,
+                GameObject.Find("Canvas").transform);
         }
+
     }
 
     public void RestartGame()

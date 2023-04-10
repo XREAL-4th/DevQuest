@@ -32,7 +32,12 @@ public class ButtonDelegator : MonoBehaviour
     public void AskExitGame()
     {
         GameObject UIPrefab = Resources.Load<GameObject>("Prefabs/ExitUI");
-        GameObject UI = Instantiate(UIPrefab, new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), Quaternion.identity, GameObject.Find("Canvas").transform);
+        //GameObject UI = Instantiate(UIPrefab, new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), Quaternion.identity, GameObject.Find("Canvas").transform);
+        
+        GameObject UI = Instantiate(UIPrefab, 
+            new Vector3(GameObject.Find("Canvas").transform.position.x, GameObject.Find("Canvas").transform.position.y+3.0f, GameObject.Find("Canvas").transform.position.z), 
+            Quaternion.identity, 
+            GameObject.Find("Canvas").transform);
     }
 
  
