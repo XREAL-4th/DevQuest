@@ -29,7 +29,7 @@ public class CameraControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         //Cursor.lockState = CursorLockMode.Locked;
 
-        if (!ExitBtnClick.IsPause)
+        if (!ClickBtn.IsPause)
         {
 
             if (Input.GetMouseButton(0)) _isRotating = true;

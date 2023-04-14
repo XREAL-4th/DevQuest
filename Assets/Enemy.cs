@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
-    
-    [Header("Preset Fields")] 
+
+    [Header("Preset Fields")]
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject splashFx;
 
@@ -17,39 +17,45 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private float chaseRange;
 
-    public enum State 
+    public enum State
     {
         None,
         Idle,
         Attack,
         Chase,
+        Walk,
     }
-    
+
     [Header("Debug")]
     public State state = State.None;
     public State nextState = State.None;
 
     private bool attackDone = false;
     private bool chaseDone = false;
+    private int curIndex;
 
     public NavMeshAgent navMeshAgent;
     public GameObject player;
     public GameObject pushVfx;
     public GameObject attackedVfx;
+    public GameObject[] Waypoints;// = new GameObject[6];
 
 
     private void Start()
-    { 
+    {
         state = State.None;
         nextState = State.Idle;
         player = GameObject.Find("Player");
         attackedVfx = GameObject.Find("Debuff");
 
+        curIndex = Random.Range(0, Waypoints.Length);
+        navMeshAgent.SetDestination(Waypoints[curIndex].transform.position);
+
     }
 
     private void Update()
     {
-
+        
         //1. 스테이트 전환 상황 판단
         if (nextState == State.None)
         {
@@ -57,11 +63,26 @@ public class Enemy : MonoBehaviour
             {
                 case State.Idle:
                     this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                    nextState = State.Walk;
+                    //1 << 6인 이유는 Player의 Layer가 6이기 때문    
+                    /*if (Physics.CheckSphere(transform.position, chaseRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    {
+                        nextState = State.Chase;
+                    }*/
+                    break;
+                case State.Walk:
+                    //this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
                     //1 << 6인 이유는 Player의 Layer가 6이기 때문    
                     if (Physics.CheckSphere(transform.position, chaseRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
                         nextState = State.Chase;
                     }
+                    else if (navMeshAgent.velocity.sqrMagnitude >= 0.2f && navMeshAgent.remainingDistance <= 0.5f)
+                    {
+                        curIndex = Random.Range(0, Waypoints.Length);
+                        navMeshAgent.SetDestination(Waypoints[curIndex].transform.position);
+                    }
+
                     break;
                 case State.Attack:
                     if (attackDone && !Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
@@ -75,14 +96,15 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                 case State.Chase:
+                    navMeshAgent.SetDestination(player.transform.position);
                     if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
                         nextState = State.Attack;
                     }
                     else if (!Physics.CheckSphere(transform.position, chaseRange, 1 << 6, QueryTriggerInteraction.Ignore))
                     {
-                        nextState = State.Idle;
-                        navMeshAgent.SetDestination(this.transform.position);
+                        nextState = State.Walk;
+                        navMeshAgent.SetDestination(Waypoints[curIndex].transform.position);
                     }
                     else
                     {
@@ -107,8 +129,16 @@ public class Enemy : MonoBehaviour
                     animator.SetBool("attack", false);
                     animator.SetBool("walk", false);
                     break;
+                case State.Walk:
+                    attackedVfx.SetActive(false);
+                    animator.SetBool("idle", false);
+                    animator.SetBool("attack", false);
+                    animator.SetBool("walk", true);
+                    break;
                 case State.Attack:
                     Debug.Log("attack");
+                    attackedVfx.SetActive(true);
+                    attackedVfx.transform.position = player.transform.position;
                     animator.SetBool("idle", false);
                     animator.SetBool("attack", true);
                     animator.SetBool("walk", false);
@@ -120,7 +150,6 @@ public class Enemy : MonoBehaviour
                     animator.SetBool("idle", false);
                     animator.SetBool("attack", false);
                     animator.SetBool("walk", true);
-                    Chase();
                     break;
 
                     //insert code here...
@@ -133,25 +162,21 @@ public class Enemy : MonoBehaviour
 
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
-        attackedVfx.SetActive(true);
-        attackedVfx.transform.position = player.transform.position;
+        //attackedVfx.SetActive(true);
+        //attackedVfx.transform.position = player.transform.position;
         attackDone = true;
 
         player.GetComponent<MoveControl>().playerHp--;
 
-     
+
     }
 
-    private void Chase()
-    {
-        navMeshAgent.SetDestination(player.transform.position);
-    }
 
     public void InstantiateFx() //Unity Animation Event 에서 실행됩니다.
     {
         Instantiate(splashFx, transform.position, Quaternion.identity);
     }
-    
+
     public void WhenAnimationDone() //Unity Animation Event 에서 실행됩니다.
     {
         attackDone = true;
@@ -171,10 +196,10 @@ public class Enemy : MonoBehaviour
     {
         if (state == State.Attack || state == State.Chase)
         {
-            
+
             Vector3 direction = this.transform.position - player.transform.position;
             direction = direction.normalized;
-            this.GetComponent<Rigidbody>().AddForce(direction*1800, ForceMode.Impulse);
+            this.GetComponent<Rigidbody>().AddForce(direction * 1800, ForceMode.Impulse);
 
             GameObject vfx = Instantiate(pushVfx) as GameObject;
             vfx.transform.position = this.transform.position;

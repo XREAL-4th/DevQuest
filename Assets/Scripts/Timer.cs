@@ -19,14 +19,13 @@ public class Timer : MonoBehaviour
     void Update()
     {
 
-        if (!ExitBtnClick.IsPause){
-            if (timer <= 0)
-            {
-                GameManager.Instance.FinishGame();
-            }
-            timer -= Time.deltaTime;
-            timerText.text = Mathf.Ceil(timer).ToString();
+        if (timer <= 0)
+        {
+            GameManager.Instance.FinishGame();
         }
+        timer -= Time.deltaTime;
+        timerText.text = Mathf.Ceil(timer).ToString();
+       
       
     }
 

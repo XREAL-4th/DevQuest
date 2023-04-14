@@ -24,16 +24,16 @@ public class EnemyController : MonoBehaviour
             vfx.transform.position = this.transform.position;
             GameManager.Instance.KillEnemy();
         }
-       
-        var screenPos= Camera.main.WorldToScreenPoint(this.transform.position + new Vector3(0, 3.5f, 0));
-        if (screenPos.z < 0.0f)
-        {
-            screenPos *= -1.0f;
-        }
-        HpBar.transform.position = screenPos;
+
+        //var screenPos= Camera.main.WorldToScreenPoint(this.transform.position + new Vector3(0, 3.5f, 0));
+        //if (screenPos.z < 0.0f)
+        //{
+        //    screenPos *= -1.0f;
+        //}
+        HpBar.transform.position = this.transform.position + new Vector3(0, 3.5f, 0);
         HpBar.value = CurrentHp / MaxHp;
 
-        Damage.transform.position = screenPos + new Vector3(2f, 11f, 0);
+        Damage.transform.position = this.transform.position + new Vector3(0.6f, 4f, 0);
     }
 
     void OnCollisionEnter(Collision other)
@@ -47,13 +47,13 @@ public class EnemyController : MonoBehaviour
             vfx.transform.position = this.transform.position;
 
             Damage.SetActive(true);
-            
+
             Invoke("RemoveDamage", 0.5f);
         }
     }
     void RemoveDamage()
     {
-        Damage.SetActive(false); 
+        Damage.SetActive(false);
     }
 
 }
