@@ -5,37 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class ItemManager : MonoBehaviour
 {
-    private static ItemManager instance = null;
+    public List<GameObject> ItemPrefabs = new List<GameObject>();
+    public GameObject[] Items;
 
-    void Awake()
+    void Start()
     {
-        
-        if (null == instance)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        Items = new GameObject[ItemPrefabs.Count];
 
-    }
-
-
-    public static ItemManager Instance
-    {
-        get
+        for (int i = 0; i < ItemPrefabs.Count; i++)
         {
-            if (null == instance)
-            {
-                return null;
-            }
-            return instance;
+            Items[i] = Instantiate(ItemPrefabs[i]);
+            StartCoroutine(Spawn(Items[i], Items[i].GetComponent<Item>().Freq));
         }
     }
-
-  
 
     public IEnumerator Spawn(GameObject obj, float freq)
     {

@@ -11,7 +11,7 @@ public class ClickBtn : MonoBehaviour
     public void ExitClick()
     {
         IsPause = true;
-        Time.timeScale = 0;
+        Time.timeScale = 0.1f;
         Popup.SetActive(true);
 
     }

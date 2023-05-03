@@ -15,7 +15,8 @@ public class UseSkill : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        
+        if (OVRInput.GetDown(OVRInput.RawButton.B))
         {
             if (cooltimeImg.fillAmount >= 1)
             {
