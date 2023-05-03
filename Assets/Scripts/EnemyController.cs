@@ -25,11 +25,6 @@ public class EnemyController : MonoBehaviour
             GameManager.Instance.KillEnemy();
         }
 
-        //var screenPos= Camera.main.WorldToScreenPoint(this.transform.position + new Vector3(0, 3.5f, 0));
-        //if (screenPos.z < 0.0f)
-        //{
-        //    screenPos *= -1.0f;
-        //}
         HpBar.transform.position = this.transform.position + new Vector3(0, 3.5f, 0);
         HpBar.value = CurrentHp / MaxHp;
 

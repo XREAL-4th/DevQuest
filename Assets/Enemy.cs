@@ -31,15 +31,15 @@ public class Enemy : MonoBehaviour
     public State nextState = State.None;
 
     private bool attackDone = false;
-    private bool chaseDone = false;
     private int curIndex;
 
     public NavMeshAgent navMeshAgent;
     public GameObject player;
     public GameObject pushVfx;
     public GameObject attackedVfx;
-    public GameObject[] Waypoints;// = new GameObject[6];
+    public GameObject[] Waypoints;
 
+    private float dist;
 
     private void Start()
     {
@@ -55,7 +55,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        
+        dist = Vector3.Distance(player.transform.position, this.transform.position);
+
         //1. 스테이트 전환 상황 판단
         if (nextState == State.None)
         {
@@ -64,16 +65,9 @@ public class Enemy : MonoBehaviour
                 case State.Idle:
                     this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
                     nextState = State.Walk;
-                    //1 << 6인 이유는 Player의 Layer가 6이기 때문    
-                    /*if (Physics.CheckSphere(transform.position, chaseRange, 1 << 6, QueryTriggerInteraction.Ignore))
-                    {
-                        nextState = State.Chase;
-                    }*/
                     break;
                 case State.Walk:
-                    //this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-                    //1 << 6인 이유는 Player의 Layer가 6이기 때문    
-                    if (Physics.CheckSphere(transform.position, chaseRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    if (dist < chaseRange)
                     {
                         nextState = State.Chase;
                     }
@@ -85,7 +79,8 @@ public class Enemy : MonoBehaviour
 
                     break;
                 case State.Attack:
-                    if (attackDone && !Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    Debug.Log("attack");
+                    if (attackDone && dist > attackRange)
                     {
                         nextState = State.Chase;
                         attackDone = false;
@@ -96,12 +91,13 @@ public class Enemy : MonoBehaviour
                     }
                     break;
                 case State.Chase:
+                    Debug.Log("chase");
                     navMeshAgent.SetDestination(player.transform.position);
-                    if (Physics.CheckSphere(transform.position, attackRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    if (dist < attackRange)
                     {
                         nextState = State.Attack;
                     }
-                    else if (!Physics.CheckSphere(transform.position, chaseRange, 1 << 6, QueryTriggerInteraction.Ignore))
+                    else if (dist > chaseRange)
                     {
                         nextState = State.Walk;
                         navMeshAgent.SetDestination(Waypoints[curIndex].transform.position);
@@ -162,13 +158,8 @@ public class Enemy : MonoBehaviour
 
     private void Attack() //현재 공격은 애니메이션만 작동합니다.
     {
-        //attackedVfx.SetActive(true);
-        //attackedVfx.transform.position = player.transform.position;
         attackDone = true;
-
         player.GetComponent<MoveControl>().playerHp--;
-
-
     }
 
 
@@ -199,7 +190,7 @@ public class Enemy : MonoBehaviour
 
             Vector3 direction = this.transform.position - player.transform.position;
             direction = direction.normalized;
-            this.GetComponent<Rigidbody>().AddForce(direction * 1800, ForceMode.Impulse);
+            this.GetComponent<Rigidbody>().AddForce(direction * 3000, ForceMode.Impulse);
 
             GameObject vfx = Instantiate(pushVfx) as GameObject;
             vfx.transform.position = this.transform.position;
